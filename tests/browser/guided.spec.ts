@@ -114,6 +114,43 @@ test("guided journey keeps the document visible, resumes exploration, exports pe
     .getByRole("button", { name: "Download Word", exact: true })
     .click();
   await (await downloaded).saveAs(info.outputPath("guided-reviewed.docx"));
+  // Rejection may already remove comments anchored to its deleted insertion.
+  // Changing policy must still clear every remaining owned proposal.
+  await page.locator(".supporting-settings > summary").click();
+  await page
+    .getByRole("combobox", { name: "Renewal notice", exact: true })
+    .selectOption("60");
+  await expect(
+    page.getByRole("combobox", { name: "Renewal notice", exact: true }),
+  ).toHaveValue("60");
+  await expect(page.locator(".desk-error")).toHaveCount(0);
+  await expect(
+    page
+      .getByRole("button", { name: "Recheck changed clauses", exact: true })
+      .first(),
+  ).toBeEnabled();
+  const retained = await page.evaluate(async () => {
+    const n = window.__dealDesk!;
+    return n.read(n.instance.activeEditor!.doc!, {
+      training: "consent",
+      notice: 60,
+    });
+  });
+  expect(retained.changes).toHaveLength(2);
+  expect(
+    retained.rows.find((r) => r.id === "training")?.clause?.text,
+  ).toContain("Customer’s specific prior written consent");
+  expect(retained.rows.find((r) => r.id === "safeguard")?.present).toBe(false);
+  await page
+    .getByRole("button", { name: "Recheck changed clauses", exact: true })
+    .first()
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Approve the proposed language." }),
+  ).toBeVisible();
+  await expect(page.locator(".guided-proposal")).toContainText([
+    "at least 60 days",
+  ]);
 });
 test("zero proposals and provider failure have a next action; mobile keyboard flow stays within viewport", async ({
   page,
@@ -256,4 +293,50 @@ test("comparison requires its own consent, reports partial failures and cannot a
       (await window.__dealDesk!.instance.activeEditor!.doc!.info({})).revision,
   );
   expect(after).toBe(before);
+});
+
+test("partial execution retains verified changes and advances to actionable review", async ({
+  page,
+}) => {
+  await ready(page);
+  await reviewMock(page);
+  await expect(page.locator(".guided-proposal")).toHaveCount(4);
+  await page.evaluate(() => {
+    const doc = window.__dealDesk!.instance.activeEditor!.doc!;
+    const original = doc.replace.bind(doc);
+    let calls = 0;
+    doc.replace = async (...args) => {
+      if (++calls === 2) throw new Error("Test-only second-operation failure");
+      return original(...args);
+    };
+  });
+  await page
+    .getByRole("button", {
+      name: "Approve selected language & create redlines",
+    })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Review each finding." }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /1 verified Word changes/ }),
+  ).toBeVisible();
+  await expect(page.getByRole("alert")).toContainText(
+    "Test-only second-operation failure",
+  );
+  await expect(
+    page.getByRole("button", { name: "Accept", exact: true }),
+  ).toBeEnabled();
+  await page
+    .getByText("Timing, tokens & verification evidence", { exact: true })
+    .click();
+  await expect(
+    page.getByText("2 attempted · 1 verified · 1 failed"),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Continue to export with remaining items" })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "Download Word", exact: true }),
+  ).toBeEnabled();
 });

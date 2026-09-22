@@ -345,12 +345,22 @@ export async function decideOperation(
       decision === "accept" ? ("accepted" as const) : ("rejected" as const),
   };
 }
-export async function clearOwned(doc: BrowserDocumentApi, ops: Operation[]) {
+export async function clearOwned(
+  doc: BrowserDocumentApi,
+  ops: Operation[],
+  onResolved?: (op: Operation) => void,
+) {
   const pending = ops.filter((x) => x.status === "pending");
   for (const op of pending) await guardOwned(doc, op);
   for (const op of pending) {
-    await decideOperation(doc, op, "reject");
+    const resolved = await decideOperation(doc, op, "reject");
+    onResolved?.(resolved);
     if (op.commentId) {
+      // Rejecting a tracked insertion can remove its anchored comment too.
+      // Only delete a comment that still exists after resolving the revision.
+      const existing = await doc.comments.list({ limit: 1000 });
+      if (!existing.items.some((comment) => comment.id === op.commentId))
+        continue;
       const c = await doc.comments.delete(
         { commentId: op.commentId },
         { expectedRevision: (await doc.info({})).revision },

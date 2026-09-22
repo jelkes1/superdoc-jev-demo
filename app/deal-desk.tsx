@@ -529,11 +529,8 @@ export default function DealDesk() {
     setBusy("Checking ownership of pending suggestions…");
     setError("");
     try {
-      await clearOwned(doc(), ops);
-      setOps((s) =>
-        s.map((o) =>
-          o.status === "pending" ? { ...o, status: "rejected" } : o,
-        ),
+      await clearOwned(doc(), ops, (resolved) =>
+        setOps((s) => s.map((o) => (o.id === resolved.id ? resolved : o))),
       );
       setPolicy(next);
       setDeferred([]);
@@ -546,6 +543,7 @@ export default function DealDesk() {
       );
     } catch (e) {
       setError(msg(e));
+      setReading(await readDocument(doc(), policy));
     } finally {
       finish();
       setBusy("");

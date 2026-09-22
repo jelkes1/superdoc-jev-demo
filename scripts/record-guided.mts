@@ -26,6 +26,7 @@ async function shot(
 ) {
   const s = time();
   await action();
+  await expect(page.locator(".desk-error")).toHaveCount(0);
   await page.waitForTimeout(hold);
   shots.push({ start: s, end: time(), caption, wait });
 }
@@ -234,6 +235,9 @@ try {
         .getByRole("combobox", { name: "Renewal notice", exact: true })
         .selectOption("60");
       await expect(
+        page.getByRole("combobox", { name: "Renewal notice", exact: true }),
+      ).toHaveValue("60");
+      await expect(
         page
           .getByRole("button", { name: "Recheck changed clauses", exact: true })
           .first(),
@@ -244,7 +248,7 @@ try {
     true,
   );
   await shot(
-    "Inspect the exact target and execution receipt. Reuse the same document operations in your app.",
+    "Inspect the model/document boundary. Reuse the same document operations in your app.",
     async () => {
       await page
         .getByRole("button", { name: "Inspect proof", exact: true })

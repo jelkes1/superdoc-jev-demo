@@ -135,7 +135,7 @@ const prefix = timeline.prefix || "superdoc-jev";
 const full = await render(
   `${prefix}-demo`,
   timeline.shots,
-  prefix === "superdoc-jev-deal-desk" ? 65 : 75,
+  ["superdoc-jev-deal-desk", "superdoc-jev-guided"].includes(prefix) ? 65 : 75,
 );
 if (full < 60 || full > 90)
   throw new Error(
