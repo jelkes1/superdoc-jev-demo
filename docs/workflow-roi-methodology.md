@@ -68,3 +68,7 @@ All 15 workflows completed, each producing the same five verified edits and pres
 Against GPT-5.4 mini, Jev reduced median active processing by **1.176 seconds (24.4%)** and mean estimated model cost by **$0.000732288 per run (82.4%)**. Against GPT-5.4, the differences were **1.4734 seconds (28.8%)** and **$0.002807088 per run (94.7%)**. Reported OpenAI cache discounts are included. These percentages compare medians for timing and mean costs for spend across the complete matched sample.
 
 The conservative microdollar ledger charged $0.020055 against the $2 cap. The raw response token-price estimates retain additional precision.
+
+## Hosted release check
+
+A separate genuine hosted comparison on site version 13 completed all three lanes, with five verified edits per model. Its [actual responses and timings](hosted-workflow-run-v5.json) are retained separately from the repeated benchmark. It had different provider timing and reported cache usage; it does not replace the five-run results above. All [three hosted DOCX outputs reopened successfully](hosted-workflow-export-verification.json). Comparing models left the working document's document, comments and numbering XML unchanged.

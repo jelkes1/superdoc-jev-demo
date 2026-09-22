@@ -26,7 +26,10 @@
     "eval:compare": "node --env-file=.dev.vars --import tsx scripts/evaluate-comparison.mts",
     "video:guided": "tsx scripts/record-guided.mts",
     "eval:workflow": "node --env-file=.dev.vars --import tsx scripts/evaluate-workflow.mts",
-    "verify:workflow-exports": "node scripts/verify-workflow-exports.mjs"
+    "verify:workflow-exports": "node scripts/verify-workflow-exports.mjs",
+    "video:roi:record": "tsx scripts/record-roi.mts",
+    "video:roi:narrate": "node --env-file=.dev.vars scripts/generate-roi-narration.mjs",
+    "video:roi:render": "tsx scripts/render-roi-film.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

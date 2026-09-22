@@ -1,0 +1,2285 @@
+{
+  "recordedAt": "2026-09-22T21:01:47.293Z",
+  "origin": "https://superdoc-jev.superdoc-1393.chatgpt.site",
+  "browser": "145.0.7632.6",
+  "sourceSha256": "487e14bcfcd0baff47bcbfda5fe30c1e8c5d31b3a25103662e50b06b46b7aafc",
+  "sourceSiteVersion": 13,
+  "sourceCommit": "cae7e53a4541249e708ba7906cbe5df30bd9b62b",
+  "checks": {
+    "allModelsComplete": true,
+    "activeDocumentPartsUnchanged": [
+      "word/document.xml",
+      "word/comments.xml",
+      "word/numbering.xml"
+    ],
+    "humanAccepted": 1,
+    "humanRejected": 1,
+    "exported": true
+  },
+  "results": [
+    {
+      "model": "jev-1.13.0",
+      "snapshot": "ce7f6e6dbe2e9307ce1a811724755bd2200edf81b87d2ca435a3b8fdfcbc0a39",
+      "documentHash": "a047b4b5dd510e00e37083d0a9d013225a778c1a9cac0c92dba358c9b96a2260",
+      "version": "approved-word-workflow-v1",
+      "safeguard": true,
+      "status": "complete",
+      "comparison": {
+        "model": "jev-1.13.0",
+        "snapshot": "ce7f6e6dbe2e9307ce1a811724755bd2200edf81b87d2ca435a3b8fdfcbc0a39",
+        "elapsedMs": 288,
+        "usage": {
+          "inputTokens": 3736,
+          "outputTokens": 489,
+          "cachedInputTokens": 0,
+          "costUsd": 0.00015691200000000002,
+          "pricingDate": "2026-09-22"
+        },
+        "status": "complete",
+        "verdicts": [
+          {
+            "id": "training",
+            "verdict": "UNACCEPTABLE",
+            "confidence": 0.93,
+            "probabilities": {
+              "NEEDS_REVIEW": 0.05,
+              "NOT_APPLICABLE": 0,
+              "UNACCEPTABLE": 0.95,
+              "ACCEPTABLE": 0
+            }
+          },
+          {
+            "id": "training-order",
+            "verdict": "UNACCEPTABLE",
+            "confidence": 0.94,
+            "probabilities": {
+              "UNACCEPTABLE": 0.96,
+              "NOT_APPLICABLE": 0,
+              "ACCEPTABLE": 0,
+              "NEEDS_REVIEW": 0.04
+            }
+          },
+          {
+            "id": "renewal",
+            "verdict": "UNACCEPTABLE",
+            "confidence": 0.83,
+            "probabilities": {
+              "UNACCEPTABLE": 0.88,
+              "NOT_APPLICABLE": 0,
+              "ACCEPTABLE": 0,
+              "NEEDS_REVIEW": 0.12
+            }
+          },
+          {
+            "id": "renewal-order",
+            "verdict": "UNACCEPTABLE",
+            "confidence": 0.9,
+            "probabilities": {
+              "UNACCEPTABLE": 0.93,
+              "NOT_APPLICABLE": 0,
+              "ACCEPTABLE": 0,
+              "NEEDS_REVIEW": 0.07
+            }
+          },
+          {
+            "id": "safeguard",
+            "verdict": "NOT_APPLICABLE",
+            "confidence": 0.29,
+            "probabilities": {
+              "UNACCEPTABLE": 0.14,
+              "NOT_APPLICABLE": 0.46,
+              "ACCEPTABLE": 0,
+              "NEEDS_REVIEW": 0.4
+            }
+          },
+          {
+            "id": "signals",
+            "verdict": "NEEDS_REVIEW",
+            "confidence": 0.36,
+            "probabilities": {
+              "UNACCEPTABLE": 0.47,
+              "NOT_APPLICABLE": 0,
+              "ACCEPTABLE": 0,
+              "NEEDS_REVIEW": 0.53
+            }
+          },
+          {
+            "id": "payment",
+            "verdict": "ACCEPTABLE",
+            "confidence": 0.32,
+            "probabilities": {
+              "UNACCEPTABLE": 0.16,
+              "NOT_APPLICABLE": 0.02,
+              "ACCEPTABLE": 0.49,
+              "NEEDS_REVIEW": 0.33
+            }
+          },
+          {
+            "id": "liability",
+            "verdict": "NEEDS_REVIEW",
+            "confidence": 0.39,
+            "probabilities": {
+              "UNACCEPTABLE": 0.43,
+              "NOT_APPLICABLE": 0,
+              "ACCEPTABLE": 0.03,
+              "NEEDS_REVIEW": 0.54
+            }
+          }
+        ]
+      },
+      "timing": {
+        "extractionMs": 1089.3000000715256,
+        "decisionMs": 1231.3999999761581,
+        "executionMs": 2289.6999999284744,
+        "activeMs": 4610.399999976158,
+        "firstVerifiedMs": 2477
+      },
+      "timingValid": true,
+      "operations": [
+        {
+          "id": "training",
+          "kind": "replace",
+          "blockId": "00000067",
+          "before": "Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.",
+          "after": "Provider shall not use Customer Data to train shared or general-purpose machine learning models without Customer’s specific prior written consent. Any consent must identify the permitted data, purpose and duration; no perpetual training license is granted.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-fa61a990-06bf-48ca-a557-4843453680af%3A0"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-fa61a990-06bf-48ca-a557-4843453680af%3A0": "[\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-fa61a990-06bf-48ca-a557-4843453680af%3A0\",\"replacement\",\"shall … not  … shared or  … Customer’s … specific … prior … written … consent … Any … consent … must … identify … the … permitted … data, …  and duration; no perpetual training license is granted\",\"may … obtaining … further … permission … from … Customer … Customer … grants … a … perpetual … license … for … this\",{\"text\":\"may … obtaining … further … permission … from … Customer … Customer … grants … a … perpetual … license … for … this\"},{\"text\":\"shall … not  … shared or  … Customer’s … specific … prior … written … consent … Any … consent … must … identify … the … permitted … data, …  and duration; no perpetual training license is granted\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-fa61a990-06bf-48ca-a557-4843453680af%3A0\"},\"segments\":[{\"blockId\":\"00000067\",\"range\":{\"start\":9,\"end\":14}}]},null]"
+          },
+          "commentId": "2",
+          "commentText": "Agreed terms · Training permission: Customer Data training requires specific prior written consent. A perpetual or default permission is not agreed. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000067",
+                "range": {
+                  "start": 0,
+                  "end": 185
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 20150,
+                "to": 20372
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000067",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000067",
+                  "offset": 185,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A32A0%7CwId%3A106|9E1A32A0%7CwId%3A105"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|9E1A3661%7CwId%3A107"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|9E1A3A22%7CwId%3A109"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A3DE3%7CwId%3A112|9E1A3DE3%7CwId%3A111"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A41A4%7CwId%3A114|9E1A41A4%7CwId%3A113"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A4565%7CwId%3A116|9E1A4565%7CwId%3A115"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A4926%7CwId%3A118|9E1A4926%7CwId%3A117"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A4CE7%7CwId%3A120|9E1A4CE7%7CwId%3A119"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A50A8%7CwId%3A122|9E1A50A8%7CwId%3A121"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|9E1A5469%7CwId%3A124|9E1A5469%7CwId%3A123"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|252C719B%7CwId%3A126|252C719B%7CwId%3A125"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|252C755C%7CwId%3A128|252C755C%7CwId%3A127"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|252C791D%7CwId%3A130|252C791D%7CwId%3A129"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|252C7CDE%7CwId%3A132|252C7CDE%7CwId%3A131"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|252C809F%7CwId%3A134|252C809F%7CwId%3A133"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|252C8460%7CwId%3A135"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9505,
+                "blockId": "00000067",
+                "atCharInBlock": 9,
+                "delta": 2
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9509,
+                "blockId": "00000067",
+                "atCharInBlock": 13,
+                "delta": 4
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9536,
+                "blockId": "00000067",
+                "atCharInBlock": 40,
+                "delta": 10
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9584,
+                "blockId": "00000067",
+                "atCharInBlock": 88,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9594,
+                "blockId": "00000067",
+                "atCharInBlock": 98,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9602,
+                "blockId": "00000067",
+                "atCharInBlock": 106,
+                "delta": -5
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9613,
+                "blockId": "00000067",
+                "atCharInBlock": 117,
+                "delta": 3
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9618,
+                "blockId": "00000067",
+                "atCharInBlock": 122,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9628,
+                "blockId": "00000067",
+                "atCharInBlock": 132,
+                "delta": -5
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9637,
+                "blockId": "00000067",
+                "atCharInBlock": 141,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9644,
+                "blockId": "00000067",
+                "atCharInBlock": 148,
+                "delta": 3
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9646,
+                "blockId": "00000067",
+                "atCharInBlock": 150,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9656,
+                "blockId": "00000067",
+                "atCharInBlock": 160,
+                "delta": -4
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9664,
+                "blockId": "00000067",
+                "atCharInBlock": 168,
+                "delta": 6
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9668,
+                "blockId": "00000067",
+                "atCharInBlock": 172,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9680,
+                "blockId": "00000067",
+                "atCharInBlock": 184,
+                "delta": 55
+              }
+            ],
+            "txId": "tx-fa61a990-06bf-48ca-a557-4843453680af"
+          },
+          "beforeRevision": "0",
+          "afterRevision": "2",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "training-order",
+          "kind": "replace",
+          "blockId": "00000011",
+          "before": "Model training permitted by default.",
+          "after": "Model training requires Customer’s specific prior written consent. No default or perpetual license.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-8e739081-7689-4fc5-a94a-69032c4f2472%3A0"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-8e739081-7689-4fc5-a94a-69032c4f2472%3A0": "[\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-8e739081-7689-4fc5-a94a-69032c4f2472%3A0\",\"replacement\",\"requires … Customer’s … specific prior written consent. No  …  or perpetual license\",\"permitted … by\",{\"text\":\"permitted … by\"},{\"text\":\"requires … Customer’s … specific prior written consent. No  …  or perpetual license\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-8e739081-7689-4fc5-a94a-69032c4f2472%3A0\"},\"segments\":[{\"blockId\":\"00000011\",\"range\":{\"start\":15,\"end\":23}}]},null]"
+          },
+          "commentId": "3",
+          "commentText": "Agreed terms · Order-form permission: The order form must reflect the agreed training restriction, not default permission. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000011",
+                "range": {
+                  "start": 0,
+                  "end": 36
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 3846,
+                "to": 3919
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000011",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000011",
+                  "offset": 36,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|22783133%7CwId%3A138|22783133%7CwId%3A137"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|227834F4%7CwId%3A140|227834F4%7CwId%3A139"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|227838B5%7CwId%3A141"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|22783C76%7CwId%3A143"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 361,
+                "blockId": "00000011",
+                "atCharInBlock": 15,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 371,
+                "blockId": "00000011",
+                "atCharInBlock": 25,
+                "delta": 8
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 374,
+                "blockId": "00000011",
+                "atCharInBlock": 28,
+                "delta": 35
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 381,
+                "blockId": "00000011",
+                "atCharInBlock": 35,
+                "delta": 21
+              }
+            ],
+            "txId": "tx-8e739081-7689-4fc5-a94a-69032c4f2472"
+          },
+          "beforeRevision": "2",
+          "afterRevision": "4",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "renewal",
+          "kind": "replace",
+          "blockId": "00000050",
+          "before": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term.",
+          "after": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 30 days before the end of the then-current term.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|697D38BC%7CwId%3A146|697D38BC%7CwId%3A145"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|697D38BC%7CwId%3A146|697D38BC%7CwId%3A145": "[\"tc|main%3A%2Fword%2Fdocument.xml|replacement|697D38BC%7CwId%3A146|697D38BC%7CwId%3A145\",\"replacement\",\"30\",\"15\",{\"text\":\"15\"},{\"text\":\"30\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|replacement|697D38BC%7CwId%3A146|697D38BC%7CwId%3A145\"},\"segments\":[{\"blockId\":\"00000050\",\"range\":{\"start\":137,\"end\":139}}]},null]"
+          },
+          "commentId": "4",
+          "commentText": "Agreed terms · Cancellation window: Non-renewal notice must match the agreed notice period. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000050",
+                "range": {
+                  "start": 0,
+                  "end": 185
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 18540,
+                "to": 18762
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000050",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000050",
+                  "offset": 185,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|697D38BC%7CwId%3A146|697D38BC%7CwId%3A145"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [],
+            "txId": "tx-89712220-513c-458e-a311-3b46313f419d"
+          },
+          "beforeRevision": "4",
+          "afterRevision": "6",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "renewal-order",
+          "kind": "replace",
+          "blockId": "00000013",
+          "before": "Non-renewal notice: 15 days.",
+          "after": "Non-renewal notice: 30 days.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|4164776A%7CwId%3A148|4164776A%7CwId%3A147"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|4164776A%7CwId%3A148|4164776A%7CwId%3A147": "[\"tc|main%3A%2Fword%2Fdocument.xml|replacement|4164776A%7CwId%3A148|4164776A%7CwId%3A147\",\"replacement\",\"30\",\"15\",{\"text\":\"15\"},{\"text\":\"30\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|replacement|4164776A%7CwId%3A148|4164776A%7CwId%3A147\"},\"segments\":[{\"blockId\":\"00000013\",\"range\":{\"start\":20,\"end\":22}}]},null]"
+          },
+          "commentId": "5",
+          "commentText": "Agreed terms · Order-form notice: The summary notice period must match the agreed notice period. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000013",
+                "range": {
+                  "start": 0,
+                  "end": 28
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 6831,
+                "to": 6896
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000013",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000013",
+                  "offset": 28,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|4164776A%7CwId%3A148|4164776A%7CwId%3A147"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [],
+            "txId": "tx-c742931f-0b82-4126-886c-8d98c7d3954b"
+          },
+          "beforeRevision": "6",
+          "afterRevision": "8",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "safeguard",
+          "kind": "insert",
+          "blockId": "0423D960",
+          "before": "",
+          "after": "Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C149%7C%231",
+            "tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C150%7CwId%3A150"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C149%7C%231": "[\"tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C149%7C%231\",\"structural\",null,null,{\"structural\":{\"targetKind\":\"paragraph-mark\",\"structuralKind\":\"paragraph-mark-insertion\",\"state\":\"absent\",\"xml\":null,\"markerXml\":\"<w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:02.533Z\\\"/>\"}},{\"structural\":{\"targetKind\":\"paragraph-mark\",\"structuralKind\":\"paragraph-mark-insertion\",\"state\":\"present\",\"xml\":\"<w:p w14:paraId=\\\"0423D960\\\" w:rsidR=\\\"7760F9E6\\\"><w:pPr><w:numPr><w:ilvl w:val=\\\"0\\\"/><w:numId w:val=\\\"42\\\"/></w:numPr><w:rPr><w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:02.533Z\\\"/></w:rPr></w:pPr><w:commentRangeStart w:id=\\\"6\\\"/><w:ins w:id=\\\"150\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:02.533Z\\\"><w:r><w:t>Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.</w:t></w:r></w:ins><w:commentRangeEnd w:id=\\\"6\\\"/><w:r><w:commentReference w:id=\\\"6\\\"/></w:r></w:p>\",\"markerXml\":\"<w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:02.533Z\\\"/>\"}},{\"kind\":\"structural\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C149%7C%231\"},\"targetKind\":\"paragraph-mark\"},null]",
+            "tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C150%7CwId%3A150": "[\"tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C150%7CwId%3A150\",\"insertion\",\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\",null,{\"text\":\"\"},{\"text\":\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\"},{\"kind\":\"text\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C150%7CwId%3A150\"},\"segments\":[{\"blockId\":\"0423D960\",\"range\":{\"start\":0,\"end\":250}}]},null]"
+          },
+          "commentId": "6",
+          "commentText": "Agreed terms · Numbered safeguard: Added the missing customer-data training restriction to Schedule C. It covers de-identified excerpts and takes precedence over conflicting permissions in Section 7 or an order form. Review this new numbered item before accepting it.",
+          "receipt": {
+            "success": true,
+            "item": {
+              "kind": "block",
+              "nodeType": "listItem",
+              "nodeId": "0423D960"
+            },
+            "insertionPoint": {
+              "kind": "text",
+              "blockId": "0423D960",
+              "range": {
+                "start": 0,
+                "end": 250
+              }
+            },
+            "trackedChangeRefs": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|structural-list-item-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A02.533Z%7C149%7C%231"
+              }
+            ]
+          },
+          "beforeRevision": "8",
+          "afterRevision": "10",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        }
+      ],
+      "attempted": 5,
+      "failed": 0,
+      "unresolved": [
+        "signals",
+        "liability"
+      ],
+      "preserved": true,
+      "expectedOutcome": true,
+      "outcome": "{\"operations\":[{\"id\":\"renewal\",\"before\":\"The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term.\",\"after\":\"The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 30 days before the end of the then-current term.\",\"kind\":\"replace\"},{\"id\":\"renewal-order\",\"before\":\"Non-renewal notice: 15 days.\",\"after\":\"Non-renewal notice: 30 days.\",\"kind\":\"replace\"},{\"id\":\"safeguard\",\"before\":\"\",\"after\":\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\",\"kind\":\"insert\"},{\"id\":\"training\",\"before\":\"Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.\",\"after\":\"Provider shall not use Customer Data to train shared or general-purpose machine learning models without Customer’s specific prior written consent. Any consent must identify the permitted data, purpose and duration; no perpetual training license is granted.\",\"kind\":\"replace\"},{\"id\":\"training-order\",\"before\":\"Model training permitted by default.\",\"after\":\"Model training requires Customer’s specific prior written consent. No default or perpetual license.\",\"kind\":\"replace\"}],\"unresolved\":[\"liability\",\"signals\"],\"preserved\":true}",
+      "errors": []
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "snapshot": "ce7f6e6dbe2e9307ce1a811724755bd2200edf81b87d2ca435a3b8fdfcbc0a39",
+      "documentHash": "a047b4b5dd510e00e37083d0a9d013225a778c1a9cac0c92dba358c9b96a2260",
+      "version": "approved-word-workflow-v1",
+      "safeguard": true,
+      "status": "complete",
+      "comparison": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "snapshot": "ce7f6e6dbe2e9307ce1a811724755bd2200edf81b87d2ca435a3b8fdfcbc0a39",
+        "elapsedMs": 3679,
+        "usage": {
+          "inputTokens": 3006,
+          "outputTokens": 119,
+          "cachedInputTokens": 0,
+          "costUsd": 0.00279,
+          "pricingDate": "2026-09-22"
+        },
+        "status": "complete",
+        "verdicts": [
+          {
+            "id": "training",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "training-order",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "renewal",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "renewal-order",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "safeguard",
+            "verdict": "NEEDS_REVIEW"
+          },
+          {
+            "id": "signals",
+            "verdict": "NEEDS_REVIEW"
+          },
+          {
+            "id": "payment",
+            "verdict": "ACCEPTABLE"
+          },
+          {
+            "id": "liability",
+            "verdict": "NEEDS_REVIEW"
+          }
+        ]
+      },
+      "timing": {
+        "extractionMs": 1091.9000000953674,
+        "decisionMs": 4171.800000071526,
+        "executionMs": 2298.100000023842,
+        "activeMs": 7561.900000095367,
+        "firstVerifiedMs": 5421.800000071526
+      },
+      "timingValid": true,
+      "operations": [
+        {
+          "id": "training",
+          "kind": "replace",
+          "blockId": "00000067",
+          "before": "Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.",
+          "after": "Provider shall not use Customer Data to train shared or general-purpose machine learning models without Customer’s specific prior written consent. Any consent must identify the permitted data, purpose and duration; no perpetual training license is granted.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-ab3ff348-f6ea-437f-a265-2bd80160a6c5%3A0"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-ab3ff348-f6ea-437f-a265-2bd80160a6c5%3A0": "[\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-ab3ff348-f6ea-437f-a265-2bd80160a6c5%3A0\",\"replacement\",\"shall … not  … shared or  … Customer’s … specific … prior … written … consent … Any … consent … must … identify … the … permitted … data, …  and duration; no perpetual training license is granted\",\"may … obtaining … further … permission … from … Customer … Customer … grants … a … perpetual … license … for … this\",{\"text\":\"may … obtaining … further … permission … from … Customer … Customer … grants … a … perpetual … license … for … this\"},{\"text\":\"shall … not  … shared or  … Customer’s … specific … prior … written … consent … Any … consent … must … identify … the … permitted … data, …  and duration; no perpetual training license is granted\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-ab3ff348-f6ea-437f-a265-2bd80160a6c5%3A0\"},\"segments\":[{\"blockId\":\"00000067\",\"range\":{\"start\":9,\"end\":14}}]},null]"
+          },
+          "commentId": "2",
+          "commentText": "Agreed terms · Training permission: Customer Data training requires specific prior written consent. A perpetual or default permission is not agreed. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000067",
+                "range": {
+                  "start": 0,
+                  "end": 185
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 20150,
+                "to": 20372
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000067",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000067",
+                  "offset": 185,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFC932%7CwId%3A106|2AAFC932%7CwId%3A105"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|2AAFCCF3%7CwId%3A107"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|2AAFD0B4%7CwId%3A109"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFD475%7CwId%3A112|2AAFD475%7CwId%3A111"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFD836%7CwId%3A114|2AAFD836%7CwId%3A113"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFDBF7%7CwId%3A116|2AAFDBF7%7CwId%3A115"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFDFB8%7CwId%3A118|2AAFDFB8%7CwId%3A117"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFE379%7CwId%3A120|2AAFE379%7CwId%3A119"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFE73A%7CwId%3A122|2AAFE73A%7CwId%3A121"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2AAFEAFB%7CwId%3A124|2AAFEAFB%7CwId%3A123"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2B49AD49%7CwId%3A126|2B49AD49%7CwId%3A125"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2B49B10A%7CwId%3A128|2B49B10A%7CwId%3A127"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2B49B4CB%7CwId%3A130|2B49B4CB%7CwId%3A129"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2B49B88C%7CwId%3A132|2B49B88C%7CwId%3A131"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|2B49BC4D%7CwId%3A134|2B49BC4D%7CwId%3A133"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|2B49C00E%7CwId%3A135"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9505,
+                "blockId": "00000067",
+                "atCharInBlock": 9,
+                "delta": 2
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9509,
+                "blockId": "00000067",
+                "atCharInBlock": 13,
+                "delta": 4
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9536,
+                "blockId": "00000067",
+                "atCharInBlock": 40,
+                "delta": 10
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9584,
+                "blockId": "00000067",
+                "atCharInBlock": 88,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9594,
+                "blockId": "00000067",
+                "atCharInBlock": 98,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9602,
+                "blockId": "00000067",
+                "atCharInBlock": 106,
+                "delta": -5
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9613,
+                "blockId": "00000067",
+                "atCharInBlock": 117,
+                "delta": 3
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9618,
+                "blockId": "00000067",
+                "atCharInBlock": 122,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9628,
+                "blockId": "00000067",
+                "atCharInBlock": 132,
+                "delta": -5
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9637,
+                "blockId": "00000067",
+                "atCharInBlock": 141,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9644,
+                "blockId": "00000067",
+                "atCharInBlock": 148,
+                "delta": 3
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9646,
+                "blockId": "00000067",
+                "atCharInBlock": 150,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9656,
+                "blockId": "00000067",
+                "atCharInBlock": 160,
+                "delta": -4
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9664,
+                "blockId": "00000067",
+                "atCharInBlock": 168,
+                "delta": 6
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9668,
+                "blockId": "00000067",
+                "atCharInBlock": 172,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9680,
+                "blockId": "00000067",
+                "atCharInBlock": 184,
+                "delta": 55
+              }
+            ],
+            "txId": "tx-ab3ff348-f6ea-437f-a265-2bd80160a6c5"
+          },
+          "beforeRevision": "0",
+          "afterRevision": "2",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "training-order",
+          "kind": "replace",
+          "blockId": "00000011",
+          "before": "Model training permitted by default.",
+          "after": "Model training requires Customer’s specific prior written consent. No default or perpetual license.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-60372de3-5848-4340-8a11-bc7d4afec917%3A0"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-60372de3-5848-4340-8a11-bc7d4afec917%3A0": "[\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-60372de3-5848-4340-8a11-bc7d4afec917%3A0\",\"replacement\",\"requires … Customer’s … specific prior written consent. No  …  or perpetual license\",\"permitted … by\",{\"text\":\"permitted … by\"},{\"text\":\"requires … Customer’s … specific prior written consent. No  …  or perpetual license\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-60372de3-5848-4340-8a11-bc7d4afec917%3A0\"},\"segments\":[{\"blockId\":\"00000011\",\"range\":{\"start\":15,\"end\":23}}]},null]"
+          },
+          "commentId": "3",
+          "commentText": "Agreed terms · Order-form permission: The order form must reflect the agreed training restriction, not default permission. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000011",
+                "range": {
+                  "start": 0,
+                  "end": 36
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 3846,
+                "to": 3919
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000011",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000011",
+                  "offset": 36,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|B1A570F4%7CwId%3A138|B1A570F4%7CwId%3A137"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|B1A574B5%7CwId%3A140|B1A574B5%7CwId%3A139"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|B1A57876%7CwId%3A141"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|B1A57C37%7CwId%3A143"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 361,
+                "blockId": "00000011",
+                "atCharInBlock": 15,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 371,
+                "blockId": "00000011",
+                "atCharInBlock": 25,
+                "delta": 8
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 374,
+                "blockId": "00000011",
+                "atCharInBlock": 28,
+                "delta": 35
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 381,
+                "blockId": "00000011",
+                "atCharInBlock": 35,
+                "delta": 21
+              }
+            ],
+            "txId": "tx-60372de3-5848-4340-8a11-bc7d4afec917"
+          },
+          "beforeRevision": "2",
+          "afterRevision": "4",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "renewal",
+          "kind": "replace",
+          "blockId": "00000050",
+          "before": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term.",
+          "after": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 30 days before the end of the then-current term.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|F6FBBBDA%7CwId%3A146|F6FBBBDA%7CwId%3A145"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|F6FBBBDA%7CwId%3A146|F6FBBBDA%7CwId%3A145": "[\"tc|main%3A%2Fword%2Fdocument.xml|replacement|F6FBBBDA%7CwId%3A146|F6FBBBDA%7CwId%3A145\",\"replacement\",\"30\",\"15\",{\"text\":\"15\"},{\"text\":\"30\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|replacement|F6FBBBDA%7CwId%3A146|F6FBBBDA%7CwId%3A145\"},\"segments\":[{\"blockId\":\"00000050\",\"range\":{\"start\":137,\"end\":139}}]},null]"
+          },
+          "commentId": "4",
+          "commentText": "Agreed terms · Cancellation window: Non-renewal notice must match the agreed notice period. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000050",
+                "range": {
+                  "start": 0,
+                  "end": 185
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 18540,
+                "to": 18762
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000050",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000050",
+                  "offset": 185,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|F6FBBBDA%7CwId%3A146|F6FBBBDA%7CwId%3A145"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [],
+            "txId": "tx-4847a007-b5da-4731-b306-af7e4008a02f"
+          },
+          "beforeRevision": "4",
+          "afterRevision": "6",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "renewal-order",
+          "kind": "replace",
+          "blockId": "00000013",
+          "before": "Non-renewal notice: 15 days.",
+          "after": "Non-renewal notice: 30 days.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|ADEB403B%7CwId%3A148|ADEB403B%7CwId%3A147"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|ADEB403B%7CwId%3A148|ADEB403B%7CwId%3A147": "[\"tc|main%3A%2Fword%2Fdocument.xml|replacement|ADEB403B%7CwId%3A148|ADEB403B%7CwId%3A147\",\"replacement\",\"30\",\"15\",{\"text\":\"15\"},{\"text\":\"30\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|replacement|ADEB403B%7CwId%3A148|ADEB403B%7CwId%3A147\"},\"segments\":[{\"blockId\":\"00000013\",\"range\":{\"start\":20,\"end\":22}}]},null]"
+          },
+          "commentId": "5",
+          "commentText": "Agreed terms · Order-form notice: The summary notice period must match the agreed notice period. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000013",
+                "range": {
+                  "start": 0,
+                  "end": 28
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 6831,
+                "to": 6896
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000013",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000013",
+                  "offset": 28,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|ADEB403B%7CwId%3A148|ADEB403B%7CwId%3A147"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [],
+            "txId": "tx-40cad23b-7a62-4026-bb2f-ed028dbd2888"
+          },
+          "beforeRevision": "6",
+          "afterRevision": "8",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "safeguard",
+          "kind": "insert",
+          "blockId": "1CA4FC55",
+          "before": "",
+          "after": "Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C149%7C%231",
+            "tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C150%7CwId%3A150"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C149%7C%231": "[\"tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C149%7C%231\",\"structural\",null,null,{\"structural\":{\"targetKind\":\"paragraph-mark\",\"structuralKind\":\"paragraph-mark-insertion\",\"state\":\"absent\",\"xml\":null,\"markerXml\":\"<w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:10.552Z\\\"/>\"}},{\"structural\":{\"targetKind\":\"paragraph-mark\",\"structuralKind\":\"paragraph-mark-insertion\",\"state\":\"present\",\"xml\":\"<w:p w14:paraId=\\\"1CA4FC55\\\" w:rsidR=\\\"43D8F802\\\"><w:pPr><w:numPr><w:ilvl w:val=\\\"0\\\"/><w:numId w:val=\\\"42\\\"/></w:numPr><w:rPr><w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:10.552Z\\\"/></w:rPr></w:pPr><w:commentRangeStart w:id=\\\"6\\\"/><w:ins w:id=\\\"150\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:10.552Z\\\"><w:r><w:t>Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.</w:t></w:r></w:ins><w:commentRangeEnd w:id=\\\"6\\\"/><w:r><w:commentReference w:id=\\\"6\\\"/></w:r></w:p>\",\"markerXml\":\"<w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:10.552Z\\\"/>\"}},{\"kind\":\"structural\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C149%7C%231\"},\"targetKind\":\"paragraph-mark\"},null]",
+            "tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C150%7CwId%3A150": "[\"tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C150%7CwId%3A150\",\"insertion\",\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\",null,{\"text\":\"\"},{\"text\":\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\"},{\"kind\":\"text\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C150%7CwId%3A150\"},\"segments\":[{\"blockId\":\"1CA4FC55\",\"range\":{\"start\":0,\"end\":250}}]},null]"
+          },
+          "commentId": "6",
+          "commentText": "Agreed terms · Numbered safeguard: Added the missing customer-data training restriction to Schedule C. It covers de-identified excerpts and takes precedence over conflicting permissions in Section 7 or an order form. Review this new numbered item before accepting it.",
+          "receipt": {
+            "success": true,
+            "item": {
+              "kind": "block",
+              "nodeType": "listItem",
+              "nodeId": "1CA4FC55"
+            },
+            "insertionPoint": {
+              "kind": "text",
+              "blockId": "1CA4FC55",
+              "range": {
+                "start": 0,
+                "end": 250
+              }
+            },
+            "trackedChangeRefs": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|structural-list-item-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A10.552Z%7C149%7C%231"
+              }
+            ]
+          },
+          "beforeRevision": "8",
+          "afterRevision": "10",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        }
+      ],
+      "attempted": 5,
+      "failed": 0,
+      "unresolved": [
+        "signals",
+        "liability"
+      ],
+      "preserved": true,
+      "expectedOutcome": true,
+      "outcome": "{\"operations\":[{\"id\":\"renewal\",\"before\":\"The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term.\",\"after\":\"The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 30 days before the end of the then-current term.\",\"kind\":\"replace\"},{\"id\":\"renewal-order\",\"before\":\"Non-renewal notice: 15 days.\",\"after\":\"Non-renewal notice: 30 days.\",\"kind\":\"replace\"},{\"id\":\"safeguard\",\"before\":\"\",\"after\":\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\",\"kind\":\"insert\"},{\"id\":\"training\",\"before\":\"Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.\",\"after\":\"Provider shall not use Customer Data to train shared or general-purpose machine learning models without Customer’s specific prior written consent. Any consent must identify the permitted data, purpose and duration; no perpetual training license is granted.\",\"kind\":\"replace\"},{\"id\":\"training-order\",\"before\":\"Model training permitted by default.\",\"after\":\"Model training requires Customer’s specific prior written consent. No default or perpetual license.\",\"kind\":\"replace\"}],\"unresolved\":[\"liability\",\"signals\"],\"preserved\":true}",
+      "errors": []
+    },
+    {
+      "model": "gpt-5.4-2026-03-05",
+      "snapshot": "ce7f6e6dbe2e9307ce1a811724755bd2200edf81b87d2ca435a3b8fdfcbc0a39",
+      "documentHash": "a047b4b5dd510e00e37083d0a9d013225a778c1a9cac0c92dba358c9b96a2260",
+      "version": "approved-word-workflow-v1",
+      "safeguard": true,
+      "status": "complete",
+      "comparison": {
+        "model": "gpt-5.4-2026-03-05",
+        "snapshot": "ce7f6e6dbe2e9307ce1a811724755bd2200edf81b87d2ca435a3b8fdfcbc0a39",
+        "elapsedMs": 1876,
+        "usage": {
+          "inputTokens": 3006,
+          "outputTokens": 119,
+          "cachedInputTokens": 2816,
+          "costUsd": 0.002964,
+          "pricingDate": "2026-09-22"
+        },
+        "status": "complete",
+        "verdicts": [
+          {
+            "id": "training",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "training-order",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "renewal",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "renewal-order",
+            "verdict": "UNACCEPTABLE"
+          },
+          {
+            "id": "safeguard",
+            "verdict": "NEEDS_REVIEW"
+          },
+          {
+            "id": "signals",
+            "verdict": "NEEDS_REVIEW"
+          },
+          {
+            "id": "payment",
+            "verdict": "ACCEPTABLE"
+          },
+          {
+            "id": "liability",
+            "verdict": "NEEDS_REVIEW"
+          }
+        ]
+      },
+      "timing": {
+        "extractionMs": 1089.2000000476837,
+        "decisionMs": 2397.9000000953674,
+        "executionMs": 2299.5999999046326,
+        "activeMs": 5786.799999952316,
+        "firstVerifiedMs": 3645.7000000476837
+      },
+      "timingValid": true,
+      "operations": [
+        {
+          "id": "training",
+          "kind": "replace",
+          "blockId": "00000067",
+          "before": "Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.",
+          "after": "Provider shall not use Customer Data to train shared or general-purpose machine learning models without Customer’s specific prior written consent. Any consent must identify the permitted data, purpose and duration; no perpetual training license is granted.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-193f47c6-5c9e-44d5-ad0d-b8bcf2b29019%3A0"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-193f47c6-5c9e-44d5-ad0d-b8bcf2b29019%3A0": "[\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-193f47c6-5c9e-44d5-ad0d-b8bcf2b29019%3A0\",\"replacement\",\"shall … not  … shared or  … Customer’s … specific … prior … written … consent … Any … consent … must … identify … the … permitted … data, …  and duration; no perpetual training license is granted\",\"may … obtaining … further … permission … from … Customer … Customer … grants … a … perpetual … license … for … this\",{\"text\":\"may … obtaining … further … permission … from … Customer … Customer … grants … a … perpetual … license … for … this\"},{\"text\":\"shall … not  … shared or  … Customer’s … specific … prior … written … consent … Any … consent … must … identify … the … permitted … data, …  and duration; no perpetual training license is granted\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-193f47c6-5c9e-44d5-ad0d-b8bcf2b29019%3A0\"},\"segments\":[{\"blockId\":\"00000067\",\"range\":{\"start\":9,\"end\":14}}]},null]"
+          },
+          "commentId": "2",
+          "commentText": "Agreed terms · Training permission: Customer Data training requires specific prior written consent. A perpetual or default permission is not agreed. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000067",
+                "range": {
+                  "start": 0,
+                  "end": 185
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 20150,
+                "to": 20372
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000067",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000067",
+                  "offset": 185,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A941E638%7CwId%3A106|A941E638%7CwId%3A105"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|A941E9F9%7CwId%3A107"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|A941EDBA%7CwId%3A109"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A941F17B%7CwId%3A112|A941F17B%7CwId%3A111"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A941F53C%7CwId%3A114|A941F53C%7CwId%3A113"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A941F8FD%7CwId%3A116|A941F8FD%7CwId%3A115"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A941FCBE%7CwId%3A118|A941FCBE%7CwId%3A117"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A942007F%7CwId%3A120|A942007F%7CwId%3A119"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A9420440%7CwId%3A122|A9420440%7CwId%3A121"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|A9420801%7CwId%3A124|A9420801%7CwId%3A123"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|7EFB3103%7CwId%3A126|7EFB3103%7CwId%3A125"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|7EFB34C4%7CwId%3A128|7EFB34C4%7CwId%3A127"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|7EFB3885%7CwId%3A130|7EFB3885%7CwId%3A129"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|7EFB3C46%7CwId%3A132|7EFB3C46%7CwId%3A131"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|7EFB4007%7CwId%3A134|7EFB4007%7CwId%3A133"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|7EFB43C8%7CwId%3A135"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9505,
+                "blockId": "00000067",
+                "atCharInBlock": 9,
+                "delta": 2
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9509,
+                "blockId": "00000067",
+                "atCharInBlock": 13,
+                "delta": 4
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9536,
+                "blockId": "00000067",
+                "atCharInBlock": 40,
+                "delta": 10
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9584,
+                "blockId": "00000067",
+                "atCharInBlock": 88,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9594,
+                "blockId": "00000067",
+                "atCharInBlock": 98,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9602,
+                "blockId": "00000067",
+                "atCharInBlock": 106,
+                "delta": -5
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9613,
+                "blockId": "00000067",
+                "atCharInBlock": 117,
+                "delta": 3
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9618,
+                "blockId": "00000067",
+                "atCharInBlock": 122,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9628,
+                "blockId": "00000067",
+                "atCharInBlock": 132,
+                "delta": -5
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9637,
+                "blockId": "00000067",
+                "atCharInBlock": 141,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9644,
+                "blockId": "00000067",
+                "atCharInBlock": 148,
+                "delta": 3
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9646,
+                "blockId": "00000067",
+                "atCharInBlock": 150,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9656,
+                "blockId": "00000067",
+                "atCharInBlock": 160,
+                "delta": -4
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9664,
+                "blockId": "00000067",
+                "atCharInBlock": 168,
+                "delta": 6
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9668,
+                "blockId": "00000067",
+                "atCharInBlock": 172,
+                "delta": 1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 9680,
+                "blockId": "00000067",
+                "atCharInBlock": 184,
+                "delta": 55
+              }
+            ],
+            "txId": "tx-193f47c6-5c9e-44d5-ad0d-b8bcf2b29019"
+          },
+          "beforeRevision": "0",
+          "afterRevision": "2",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "training-order",
+          "kind": "replace",
+          "blockId": "00000011",
+          "before": "Model training permitted by default.",
+          "after": "Model training requires Customer’s specific prior written consent. No default or perpetual license.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-3413a75e-69cb-4d57-8145-90eaa276ef08%3A0"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-3413a75e-69cb-4d57-8145-90eaa276ef08%3A0": "[\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-3413a75e-69cb-4d57-8145-90eaa276ef08%3A0\",\"replacement\",\"requires … Customer’s … specific prior written consent. No  …  or perpetual license\",\"permitted … by\",{\"text\":\"permitted … by\"},{\"text\":\"requires … Customer’s … specific prior written consent. No  …  or perpetual license\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|rewrite-group|%3Atx-3413a75e-69cb-4d57-8145-90eaa276ef08%3A0\"},\"segments\":[{\"blockId\":\"00000011\",\"range\":{\"start\":15,\"end\":23}}]},null]"
+          },
+          "commentId": "3",
+          "commentText": "Agreed terms · Order-form permission: The order form must reflect the agreed training restriction, not default permission. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000011",
+                "range": {
+                  "start": 0,
+                  "end": 36
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 3846,
+                "to": 3919
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000011",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000011",
+                  "offset": 36,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|579AE8C0%7CwId%3A138|579AE8C0%7CwId%3A137"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|579AEC81%7CwId%3A140|579AEC81%7CwId%3A139"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|579AF042%7CwId%3A141"
+              },
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|ins|579AF403%7CwId%3A143"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 361,
+                "blockId": "00000011",
+                "atCharInBlock": 15,
+                "delta": -1
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 371,
+                "blockId": "00000011",
+                "atCharInBlock": 25,
+                "delta": 8
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 374,
+                "blockId": "00000011",
+                "atCharInBlock": 28,
+                "delta": 35
+              },
+              {
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                },
+                "atChar": 381,
+                "blockId": "00000011",
+                "atCharInBlock": 35,
+                "delta": 21
+              }
+            ],
+            "txId": "tx-3413a75e-69cb-4d57-8145-90eaa276ef08"
+          },
+          "beforeRevision": "2",
+          "afterRevision": "4",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "renewal",
+          "kind": "replace",
+          "blockId": "00000050",
+          "before": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term.",
+          "after": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 30 days before the end of the then-current term.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|7113D4D6%7CwId%3A146|7113D4D6%7CwId%3A145"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|7113D4D6%7CwId%3A146|7113D4D6%7CwId%3A145": "[\"tc|main%3A%2Fword%2Fdocument.xml|replacement|7113D4D6%7CwId%3A146|7113D4D6%7CwId%3A145\",\"replacement\",\"30\",\"15\",{\"text\":\"15\"},{\"text\":\"30\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|replacement|7113D4D6%7CwId%3A146|7113D4D6%7CwId%3A145\"},\"segments\":[{\"blockId\":\"00000050\",\"range\":{\"start\":137,\"end\":139}}]},null]"
+          },
+          "commentId": "4",
+          "commentText": "Agreed terms · Cancellation window: Non-renewal notice must match the agreed notice period. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000050",
+                "range": {
+                  "start": 0,
+                  "end": 185
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 18540,
+                "to": 18762
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000050",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000050",
+                  "offset": 185,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|7113D4D6%7CwId%3A146|7113D4D6%7CwId%3A145"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [],
+            "txId": "tx-bb776ec0-608e-43ba-8790-0aafbf8b578b"
+          },
+          "beforeRevision": "4",
+          "afterRevision": "6",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "renewal-order",
+          "kind": "replace",
+          "blockId": "00000013",
+          "before": "Non-renewal notice: 15 days.",
+          "after": "Non-renewal notice: 30 days.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|005C3D19%7CwId%3A148|005C3D19%7CwId%3A147"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|replacement|005C3D19%7CwId%3A148|005C3D19%7CwId%3A147": "[\"tc|main%3A%2Fword%2Fdocument.xml|replacement|005C3D19%7CwId%3A148|005C3D19%7CwId%3A147\",\"replacement\",\"30\",\"15\",{\"text\":\"15\"},{\"text\":\"30\"},{\"kind\":\"replacement\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|replacement|005C3D19%7CwId%3A148|005C3D19%7CwId%3A147\"},\"segments\":[{\"blockId\":\"00000013\",\"range\":{\"start\":20,\"end\":22}}]},null]"
+          },
+          "commentId": "5",
+          "commentText": "Agreed terms · Order-form notice: The summary notice period must match the agreed notice period. Agreed terms: Training requires specific prior written consent. Renewal cancellation notice: 30 days. Preserve existing negotiated revisions. Missing, ambiguous, and unagreed provisions require human review. Proposed by the document agent for human review.",
+          "receipt": {
+            "success": true,
+            "resolution": {
+              "target": {
+                "kind": "text",
+                "blockId": "00000013",
+                "range": {
+                  "start": 0,
+                  "end": 28
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              },
+              "range": {
+                "from": 6831,
+                "to": 6896
+              },
+              "selectionTarget": {
+                "kind": "selection",
+                "start": {
+                  "kind": "text",
+                  "blockId": "00000013",
+                  "offset": 0,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "end": {
+                  "kind": "text",
+                  "blockId": "00000013",
+                  "offset": 28,
+                  "story": {
+                    "kind": "story",
+                    "storyType": "body"
+                  }
+                },
+                "story": {
+                  "kind": "story",
+                  "storyType": "body"
+                }
+              }
+            },
+            "inserted": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|replacement|005C3D19%7CwId%3A148|005C3D19%7CwId%3A147"
+              }
+            ],
+            "affectedStories": [
+              {
+                "kind": "story",
+                "storyType": "body"
+              }
+            ],
+            "textRangeShifts": [],
+            "txId": "tx-8c1fff24-b2fb-40b6-a390-7f2e8324041a"
+          },
+          "beforeRevision": "6",
+          "afterRevision": "8",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        },
+        {
+          "id": "safeguard",
+          "kind": "insert",
+          "blockId": "729AB2D3",
+          "before": "",
+          "after": "Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.",
+          "changeIds": [
+            "tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C149%7C%231",
+            "tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C150%7CwId%3A150"
+          ],
+          "fingerprints": {
+            "tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C149%7C%231": "[\"tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C149%7C%231\",\"structural\",null,null,{\"structural\":{\"targetKind\":\"paragraph-mark\",\"structuralKind\":\"paragraph-mark-insertion\",\"state\":\"absent\",\"xml\":null,\"markerXml\":\"<w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:16.735Z\\\"/>\"}},{\"structural\":{\"targetKind\":\"paragraph-mark\",\"structuralKind\":\"paragraph-mark-insertion\",\"state\":\"present\",\"xml\":\"<w:p w14:paraId=\\\"729AB2D3\\\" w:rsidR=\\\"15319BFF\\\"><w:pPr><w:numPr><w:ilvl w:val=\\\"0\\\"/><w:numId w:val=\\\"42\\\"/></w:numPr><w:rPr><w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:16.735Z\\\"/></w:rPr></w:pPr><w:commentRangeStart w:id=\\\"6\\\"/><w:ins w:id=\\\"150\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:16.735Z\\\"><w:r><w:t>Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.</w:t></w:r></w:ins><w:commentRangeEnd w:id=\\\"6\\\"/><w:r><w:commentReference w:id=\\\"6\\\"/></w:r></w:p>\",\"markerXml\":\"<w:ins w:id=\\\"149\\\" w:author=\\\"SuperDoc · Comparison\\\" w:authorEmail=\\\"comparison@example.invalid\\\" w:date=\\\"2026-09-22T21:01:16.735Z\\\"/>\"}},{\"kind\":\"structural\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|structural-paragraph-mark-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C149%7C%231\"},\"targetKind\":\"paragraph-mark\"},null]",
+            "tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C150%7CwId%3A150": "[\"tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C150%7CwId%3A150\",\"insertion\",\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\",null,{\"text\":\"\"},{\"text\":\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\"},{\"kind\":\"text\",\"address\":{\"kind\":\"entity\",\"entityType\":\"trackedChange\",\"entityId\":\"tc|main%3A%2Fword%2Fdocument.xml|ins|sd%3Amain%3A%2Fword%2Fdocument.xml%7Cins%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C150%7CwId%3A150\"},\"segments\":[{\"blockId\":\"729AB2D3\",\"range\":{\"start\":0,\"end\":250}}]},null]"
+          },
+          "commentId": "6",
+          "commentText": "Agreed terms · Numbered safeguard: Added the missing customer-data training restriction to Schedule C. It covers de-identified excerpts and takes precedence over conflicting permissions in Section 7 or an order form. Review this new numbered item before accepting it.",
+          "receipt": {
+            "success": true,
+            "item": {
+              "kind": "block",
+              "nodeType": "listItem",
+              "nodeId": "729AB2D3"
+            },
+            "insertionPoint": {
+              "kind": "text",
+              "blockId": "729AB2D3",
+              "range": {
+                "start": 0,
+                "end": 250
+              }
+            },
+            "trackedChangeRefs": [
+              {
+                "kind": "entity",
+                "entityType": "trackedChange",
+                "entityId": "tc|main%3A%2Fword%2Fdocument.xml|structural-list-item-insertion|struct%3Amain%3A%2Fword%2Fdocument.xml%7Cparagraph-mark-insertion%7CSuperDoc%20%C2%B7%20Comparison%7C2026-09-22T21%3A01%3A16.735Z%7C149%7C%231"
+              }
+            ]
+          },
+          "beforeRevision": "8",
+          "afterRevision": "10",
+          "verified": true,
+          "preserved": true,
+          "status": "pending"
+        }
+      ],
+      "attempted": 5,
+      "failed": 0,
+      "unresolved": [
+        "signals",
+        "liability"
+      ],
+      "preserved": true,
+      "expectedOutcome": true,
+      "outcome": "{\"operations\":[{\"id\":\"renewal\",\"before\":\"The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term.\",\"after\":\"The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 30 days before the end of the then-current term.\",\"kind\":\"replace\"},{\"id\":\"renewal-order\",\"before\":\"Non-renewal notice: 15 days.\",\"after\":\"Non-renewal notice: 30 days.\",\"kind\":\"replace\"},{\"id\":\"safeguard\",\"before\":\"\",\"after\":\"Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form.\",\"kind\":\"insert\"},{\"id\":\"training\",\"before\":\"Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.\",\"after\":\"Provider shall not use Customer Data to train shared or general-purpose machine learning models without Customer’s specific prior written consent. Any consent must identify the permitted data, purpose and duration; no perpetual training license is granted.\",\"kind\":\"replace\"},{\"id\":\"training-order\",\"before\":\"Model training permitted by default.\",\"after\":\"Model training requires Customer’s specific prior written consent. No default or perpetual license.\",\"kind\":\"replace\"}],\"unresolved\":[\"liability\",\"signals\"],\"preserved\":true}",
+      "errors": []
+    }
+  ]
+}

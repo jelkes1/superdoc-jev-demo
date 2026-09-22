@@ -1,0 +1,194 @@
+{
+  "source": {
+    "file": "outputs/roi-film/801c2e5840604c435f6d0aee895bf6b7.webm",
+    "sha256": "487e14bcfcd0baff47bcbfda5fe30c1e8c5d31b3a25103662e50b06b46b7aafc",
+    "browser": "145.0.7632.6"
+  },
+  "benchmark": "docs/workflow-evaluation-v1.json",
+  "baseline": "gpt-5.4-mini-2026-03-17",
+  "pricingDate": "2026-09-22",
+  "calculation": {
+    "time": {
+      "absolute": 1176,
+      "percent": 24.40897486468834
+    },
+    "cost": {
+      "absolute": 0.000732288,
+      "percent": 82.35357624831309
+    }
+  },
+  "format": "1080×1350, H.264, 30 fps, AAC",
+  "interpretation": "Edited hosted footage and editorial cards sourced from the retained five-run-per-model local benchmark. Pauses are shortened and selected frames held. Footage playback is not the timing measurement.",
+  "films": [
+    {
+      "name": "roi-walkthrough",
+      "file": "outputs/roi-film/superdoc-jev-roi-walkthrough.mp4",
+      "duration": 60,
+      "segments": [
+        {
+          "id": "hook",
+          "start": 0,
+          "end": 4,
+          "sourceShot": "redline",
+          "crop": [
+            350,
+            636,
+            750,
+            260
+          ]
+        },
+        {
+          "id": "execute",
+          "start": 4,
+          "end": 10,
+          "sourceShot": "redline",
+          "crop": [
+            350,
+            793,
+            750,
+            91
+          ]
+        },
+        {
+          "id": "table",
+          "start": 10,
+          "end": 14,
+          "sourceShot": "table",
+          "crop": [
+            350,
+            627,
+            735,
+            233
+          ]
+        },
+        {
+          "id": "safeguard",
+          "start": 14,
+          "end": 19,
+          "sourceShot": "safeguard",
+          "crop": [
+            350,
+            699,
+            735,
+            221
+          ]
+        },
+        {
+          "id": "compare",
+          "start": 19,
+          "end": 26,
+          "sourceShot": null,
+          "crop": null
+        },
+        {
+          "id": "outcomes",
+          "start": 26,
+          "end": 31,
+          "sourceShot": null,
+          "crop": null
+        },
+        {
+          "id": "time",
+          "start": 31,
+          "end": 38,
+          "sourceShot": null,
+          "crop": null
+        },
+        {
+          "id": "cost",
+          "start": 38,
+          "end": 45,
+          "sourceShot": null,
+          "crop": null
+        },
+        {
+          "id": "human",
+          "start": 45,
+          "end": 52,
+          "sourceShot": "human",
+          "crop": [
+            1245,
+            352,
+            320,
+            241
+          ]
+        },
+        {
+          "id": "code",
+          "start": 52,
+          "end": 60,
+          "sourceShot": null,
+          "crop": null
+        }
+      ],
+      "sha256": "c01049a9c5ab851bedb7ea926ca854f2bf0af33ce8e30fd8af304d6afe6c7179",
+      "audio": "OpenAI Cedar standard voice; AI credit visible"
+    },
+    {
+      "name": "roi-social",
+      "file": "outputs/roi-film/superdoc-jev-roi-social.mp4",
+      "duration": 25,
+      "segments": [
+        {
+          "id": "hook",
+          "start": 0,
+          "end": 3,
+          "sourceShot": "redline",
+          "crop": [
+            350,
+            636,
+            750,
+            260
+          ]
+        },
+        {
+          "id": "table",
+          "start": 3,
+          "end": 6,
+          "sourceShot": "table",
+          "crop": [
+            350,
+            627,
+            735,
+            233
+          ]
+        },
+        {
+          "id": "safeguard",
+          "start": 6,
+          "end": 9,
+          "sourceShot": "safeguard",
+          "crop": [
+            350,
+            699,
+            735,
+            221
+          ]
+        },
+        {
+          "id": "outcomes",
+          "start": 9,
+          "end": 13,
+          "sourceShot": null,
+          "crop": null
+        },
+        {
+          "id": "socialroi",
+          "start": 13,
+          "end": 20,
+          "sourceShot": null,
+          "crop": null
+        },
+        {
+          "id": "code",
+          "start": 20,
+          "end": 25,
+          "sourceShot": null,
+          "crop": null
+        }
+      ],
+      "sha256": "33e8fd606fa5f2faa8e94be78a8038cde44ced69887ae0731b213dfc5127d5b0",
+      "audio": "Original synthesized instrumental; CC0-1.0"
+    }
+  ]
+}
