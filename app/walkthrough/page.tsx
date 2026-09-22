@@ -4,88 +4,133 @@ export default function Walkthrough() {
     <main
       style={{
         maxWidth: 850,
-        margin: "64px auto",
+        margin: "56px auto",
         padding: "0 24px",
         lineHeight: 1.8,
       }}
     >
-      <Link href="/">← Open the demo</Link>
-      <h1 style={{ margin: "28px 0" }}>
-        From a deal decision to a counterproposal
+      <Link href="/">← Open the living deal desk</Link>
+      <h1 style={{ fontFamily: "Georgia", fontSize: 36, margin: "25px 0" }}>
+        A decision is only useful when the document can act on it.
       </h1>
       <p>
-        A returned agreement already has counsel’s edits and comments. One
-        supplied negotiation instruction connects the liability clause, an
-        order-form table cell, and a data-protection schedule. Jev evaluates
-        those locations. SuperDoc executes the document changes. A human
-        resolves overlaps and reviews the redlines.
+        The fictional agreement arrives with counsel’s revisions and comments
+        already in place. Eight known locations cover data use, renewal, payment
+        and unresolved negotiation points. Jev judges the supplied terms;
+        application code chooses a supported operation; SuperDoc changes the
+        actual DOCX; a person reviews it.
       </p>
-      <h2>1. Read the real document</h2>
+      <h2>Read → decide → execute → review</h2>
+      <ol>
+        <li>
+          <b>Read the current agreement.</b> Published SuperDoc APIs extract
+          paragraphs, tables, numbered items and stable targets. Bounded nearby
+          context is assembled without an LLM preprocessing step.
+        </li>
+        <li>
+          <b>Ask Jev focused questions.</b> POST /api/deal-desk returns actual
+          typed decisions, separate confidence, full probability distributions
+          and measured usage. A ≥95% confident violation can qualify for a
+          supported automatic proposal. Other replacements require explicit
+          approval.
+        </li>
+        <li>
+          <b>Make document-native changes.</b> The application resolves a fresh
+          target and document revision, enforces tracked mode, then checks the
+          receipt, resulting text, new revisions and preservation of existing
+          revisions. The four replacements are individually guarded, sequential
+          operations, not an atomic transaction.
+        </li>
+        <li>
+          <b>Handle a structural change.</b> A missing safeguard needs human
+          approval. SuperDoc inserts it as a real numbered list item, inheriting
+          its list context and remaining accept/rejectable. Its explanation
+          comment is anchored to the preceding item.
+        </li>
+        <li>
+          <b>Continue working.</b> Edit a clause in the editor or with “Try a
+          counter-edit.” Rechecking sends only changed text/context/policy to
+          Jev. Changing the agreed terms removes only unchanged pending
+          suggestions owned by this session; accepted changes and counsel’s work
+          remain. A modified pending suggestion blocks replacement.
+        </li>
+      </ol>
+      <h2>Uncertainty stays visible</h2>
       <p>
-        SuperDoc opens a DOCX in the browser. Published document APIs read
-        headings, paragraphs and table cells with stable targets. The
-        application assembles bounded clause context without an LLM
-        preprocessing step.
+        The telemetry exception and liability position have not been agreed.
+        They remain human decisions even if Jev reports a high score. An
+        eligible telemetry finding can request a bounded OpenAI draft, at most
+        twice per review. Requesting a draft discloses that the clause goes to
+        OpenAI; approving the language creates a tracked suggestion. Neither a
+        classifier nor a drafting model is given authority to settle the deal.
       </p>
-      <h2>2. Ask a decision model</h2>
+      <h2>The headless path</h2>
       <p>
-        POST /api/negotiate sends the three bounded locations and explicit cap
-        instructions to Jev. Each actual response includes a choice, confidence,
-        and full probability distribution. The interface reports measured usage
-        and timing. These are three known locations in a guided fictional
-        agreement, not a claim of exhaustive contract analysis.
+        The{" "}
+        <a href="https://github.com/jelkes1/superdoc-jev-demo/blob/main/examples/headless.ts">
+          Node.js example
+        </a>{" "}
+        uses the same extraction, policy routing, tracked operations and
+        verification functions through @superdoc/sdk. A small adapter normalizes
+        SDK transport envelopes and mutation options. Run it with your own Jev
+        key, save a DOCX, and open that result in the browser for review. The
+        hosted site keeps document operations in the browser.
       </p>
-      <h2>3. Preview a connected change set</h2>
-      <p>
-        Supplied fallback language, supported patterns, and sufficient model
-        confidence make a location eligible. Existing overlapping revisions
-        require human resolution. The application resolves precise targets,
-        calls mutations.preview, and holds the document revision. The visitor
-        can inspect the whole proposal before it changes the document.
-      </p>
-      <h2>4. Protect the person working in the document</h2>
-      <p>
-        If a person edits the document after preparation, the old proposal is
-        blocked. Fresh review uses the current text. A revision-guarded atomic
-        plan creates tracked changes; receipts, original and resulting text, and
-        retained revisions are checked before the application reports success.
-        Explanation comments are anchored in the document.
-      </p>
-      <h2>5. Continue the negotiation</h2>
-      <p>
-        People accept or reject individual changes. Partial decisions expose
-        remaining inconsistency. Reruns replace only unchanged pending
-        suggestions owned by this review. Export preserves unresolved Word
-        revisions and comments. The pinned integration has been exercised in a
-        browser and its exported file opened in Microsoft Word.
-      </p>
-      <h2>Small interfaces, clear responsibilities</h2>
       <pre
         style={{
-          whiteSpace: "pre-wrap",
           padding: 20,
-          background: "#eaf0f6",
+          background: "#edf2f8",
           borderRadius: 8,
+          whiteSpace: "pre-wrap",
         }}
       >
         {
-          "Browser: snapshot → POST /api/negotiate → resolve overlap → preview\nSuperDoc: revision guard → atomic tracked plan → receipts + comments\nHuman: edit / review / accept / reject → download DOCX"
+          "TYPESAFE_API_KEY=… npm run demo:headless -- ./public/deal-desk.docx\n\n# Explicitly approve the supplied fictional replacement language:\nnpm run demo:headless -- ./public/deal-desk.docx --approve-supplied-language"
         }
       </pre>
+      <h2>Why this matters to developers</h2>
       <p>
-        <Link href="/playbook">The original five-rule playbook example</Link>{" "}
-        also supports your own DOCX and up to two optional OpenAI reasoning
-        drafts for unresolved findings. The negotiation example uses the
-        supplied fallback language; it does not call a drafting model.
+        An LLM can draft text, and a Word add-in can make edits through Word
+        APIs. This example shows the document infrastructure behind that
+        experience: stable targeting, revision guards, tracked changes,
+        comments, real numbering, a browser review surface, and a headless
+        runtime. These are inspectable operations you can reuse in your own
+        application with another decision model.
       </p>
       <p>
-        English text-based DOCX, up to 10 MB and 25,000 tokens. The application
-        stores operational counters, not contracts. Extracted text is processed
-        by the model providers when you run review.
+        The workflow takes inspiration from public Jev discussions about tabular
+        legal review, typed decisions and repeated checks. Read the{" "}
+        <a href="https://github.com/jelkes1/superdoc-jev-demo/blob/main/docs/social-research-v3.md">
+          research and original sources
+        </a>
+        . These are early experiments, not evidence of legal accuracy or
+        endorsements.
+      </p>
+      <h2>Scope and limits</h2>
+      <p>
+        This guided workflow recognizes eight known locations in the fictional
+        fixture. Uploaded documents with missing or duplicate targets are
+        flagged, not guessed. For broader clause scanning, use the{" "}
+        <Link href="/playbook">five-rule playbook example</Link>. The{" "}
+        <Link href="/negotiation">
+          previous atomic liability counterproposal
+        </Link>{" "}
+        is also retained.
+      </p>
+      <p>
+        English text-based DOCX up to 10 MB and 25,000 extracted tokens. Review
+        sends extracted text to TypeSafe; optional drafting sends a clause to
+        OpenAI. The application stores operational counters, not contracts.
+        Public usage is limited to five reviews per visitor/IP per hour and a
+        shared $10/day model budget. Provider failures leave editing and export
+        available.
       </p>
       <p>
         <a href="https://docs.superdoc.dev">SuperDoc documentation ↗</a> ·{" "}
-        <a href="https://docs.typesafe.ai">TypeSafe documentation ↗</a>
+        <a href="https://docs.typesafe.ai">TypeSafe documentation ↗</a> ·{" "}
+        <a href="https://github.com/jelkes1/superdoc-jev-demo">
+          Runnable source ↗
+        </a>
       </p>
     </main>
   );

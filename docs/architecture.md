@@ -1,8 +1,22 @@
 # Decisions into Word redlines
 
-## Connected negotiation (v2)
+## Living Deal Desk (v3, current home page)
 
-The home page opens a returned agreement with real counsel revisions and comments. Three known locations are resolved through SuperDoc. `POST /api/negotiate` evaluates them against explicit commercial instructions; it does not discover an arbitrary agreement's dependency graph.
+The guided fixture has eight explicit locations across agreement clauses, order-form cells and a numbered schedule. `lib/deal-desk/rules.ts` owns those anchors, supplied language and policy settings. It is not a general cross-document dependency detector. `lib/deal-desk/document.ts` owns extraction, target resolution, tracked execution, receipts, readback and revision guards. `app/api/deal-desk/route.ts` calls Jev for a batch of changed locations and uses the shared D1 reservation/limits module. Full probability distributions and the separate confidence value remain visible.
+
+The review matrix is a view of those actual responses. A cache key includes the complete extracted clause, bounded surrounding context, revision IDs at the location and policy. Changed context invalidates dependent rows; a no-change recheck makes no provider request. Only supported violations with confidence ≥95% qualify for automatic proposals. Lower confidence needs approval of the complete supplied language. Missing clauses always need human approval. NEEDS_REVIEW never becomes an automatic edit.
+
+Each proposal checks the fresh document revision, unique target and tracked capability. Paragraph and table-cell text use `doc.replace`; the missing safeguard uses `doc.lists.insert`. The application checks created revisions, resulting text and preservation of all existing revision fingerprints. The batch is sequential, not atomic: if a later operation fails, earlier proposals remain reviewable. Explanation comments are added and read back separately. To preserve the structural revision's identity, the numbered-insertion explanation anchors to its preceding list item.
+
+The telemetry exception can request a bounded OpenAI draft under the consent policy. HMAC binds the normalized clause and policy to its review. Fresh text/context must still match, and a person must approve the draft before tracked replacement. The prohibition policy leaves that exception for manual review. The app does not invent a negotiated position.
+
+Policy changes clear only unchanged pending suggestions owned by this session. Accepted work, counsel changes and unrelated revisions stay. Editing or partially resolving a pending suggestion in the native editor blocks replacement conservatively; use the demo's Accept/Reject controls for coordinated review. Imported headless revisions remain ordinary pre-existing revisions and are not silently adopted as session-owned suggestions.
+
+`examples/headless.ts` runs the shared operations through the published Node SDK. `examples/sdk-adapter.ts` normalizes SDK mutation options and transport envelopes; it does not replace the document engine. The CLI is a local/server example, separate from the hosted Workers runtime. Local receipts contain document text and should remain private for real contracts. The default CLI honors the same ≥95% gate; the explicit `--approve-supplied-language` flag approves only the four supplied replacements.
+
+## Connected negotiation (v2, `/negotiation`)
+
+The retained negotiation route opens a returned agreement with real counsel revisions and comments. Three known locations are resolved through SuperDoc. `POST /api/negotiate` evaluates them against explicit commercial instructions; it does not discover an arbitrary agreement's dependency graph.
 
 | Module | Responsibility |
 | --- | --- |

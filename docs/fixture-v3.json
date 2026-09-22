@@ -1,0 +1,125 @@
+{
+  "schema": "superdoc.ooxml-fixture.result.v1",
+  "fixture": "living-deal-desk",
+  "manifestSha256": "f10d0f7a924feefe3d1f4d37b677c17c7cd0214a5ac43fa252758345b3b9ba2a",
+  "inputSha256": "02b39c2940ef680f4148eb03c03511c501840c549711bce6de86df6469ac2eb0",
+  "provenance": {
+    "toolVersion": "1.0.0\u002Bsuperdoc.vendor.6aebdc2",
+    "openXmlSdkVersion": "3.4.1",
+    "runtime": ".NET 10.0.12",
+    "platform": "osx-arm64"
+  },
+  "files": [
+    {
+      "path": "/tmp/deal-desk-fixture-validated/deal-desk.docx",
+      "inputParts": [
+        {
+          "packagePath": "[Content_Types].xml",
+          "sourcePath": "package/[Content_Types].xml",
+          "sourceSha256": "acc7d47afa9d2d92d677d904d57e836aa67329dd82c11eff7e957d60002690cb"
+        },
+        {
+          "packagePath": "_rels/.rels",
+          "sourcePath": "package/_rels/.rels",
+          "sourceSha256": "a9ae57efe9186f07d48303bcac5d54c7e359bf3f503939c03ad2954e5c59a5c4"
+        },
+        {
+          "packagePath": "customXml/_rels/item1.xml.rels",
+          "sourcePath": "package/customXml/_rels/item1.xml.rels",
+          "sourceSha256": "1ca6c9a64edcebe24ee703a54403611b322d96da33371779e742d2d3f7ed7a6c"
+        },
+        {
+          "packagePath": "customXml/item1.xml",
+          "sourcePath": "package/customXml/item1.xml",
+          "sourceSha256": "47ed4efc19f86203f15395ecbacd636afad77b02dffc55fc338feed33f59e29b"
+        },
+        {
+          "packagePath": "customXml/itemProps1.xml",
+          "sourcePath": "package/customXml/itemProps1.xml",
+          "sourceSha256": "82de41d98e0250c103b33494db51941f570ecdb40bf0f8d679057c256fc39cdd"
+        },
+        {
+          "packagePath": "docProps/app.xml",
+          "sourcePath": "package/docProps/app.xml",
+          "sourceSha256": "e3b69e596fbfdca661da851f13ae7770707311e72019ade719ffa22cc05383b6"
+        },
+        {
+          "packagePath": "docProps/core.xml",
+          "sourcePath": "package/docProps/core.xml",
+          "sourceSha256": "ca9dcebb9c822e73129ff94a9778779576637774611e905e07048e44d0e3c822"
+        },
+        {
+          "packagePath": "docProps/thumbnail.jpeg",
+          "sourcePath": "package/docProps/thumbnail.jpeg",
+          "sourceSha256": "96367138dc44ce09bf2c8f0f8e49348a1478d2c5c0af69bbc2bbc38b63cdcead"
+        },
+        {
+          "packagePath": "word/_rels/document.xml.rels",
+          "sourcePath": "package/word/_rels/document.xml.rels",
+          "sourceSha256": "cb5f79ec0c13009c6ff83335c05cc111a33495ba83954b76967971ccde2914be"
+        },
+        {
+          "packagePath": "word/comments.xml",
+          "sourcePath": "package/word/comments.xml",
+          "sourceSha256": "8da952a2ecd08c6f5e66622c8aca146dab926464644c415ed262faebf13510ca"
+        },
+        {
+          "packagePath": "word/document.xml",
+          "sourcePath": "package/word/document.xml",
+          "sourceSha256": "9234cb829af581d1cc273f6cb8d16dadec4873bf94204d5ea110873d3b08517b"
+        },
+        {
+          "packagePath": "word/fontTable.xml",
+          "sourcePath": "package/word/fontTable.xml",
+          "sourceSha256": "eefa7decc0a600cbd1707439ecae9fbca54aaaaf3efbeb0fe18b475f524b1780"
+        },
+        {
+          "packagePath": "word/footer1.xml",
+          "sourcePath": "package/word/footer1.xml",
+          "sourceSha256": "891766c8e36a7c415295c381808a6dcdc60b9e6daa1bb114ea7c742886bf9024"
+        },
+        {
+          "packagePath": "word/header1.xml",
+          "sourcePath": "package/word/header1.xml",
+          "sourceSha256": "c1a9d041068b65f72685ea871ab4f7e8756af62a7ed82aa274d1756557da0c97"
+        },
+        {
+          "packagePath": "word/numbering.xml",
+          "sourcePath": "package/word/numbering.xml",
+          "sourceSha256": "9c73bdffb99d528622edd41431a13d1cb65bb7d548e7a20d4c9a9556e77d1c04"
+        },
+        {
+          "packagePath": "word/settings.xml",
+          "sourcePath": "package/word/settings.xml",
+          "sourceSha256": "51a0d348fe85965c66e4748a03c3c0d055d78455514f03cb121c334af7d73689"
+        },
+        {
+          "packagePath": "word/styles.xml",
+          "sourcePath": "package/word/styles.xml",
+          "sourceSha256": "891bd025e82714b0471407c3afdb46cd03977811cf0fce536519d5ef2e618b4f"
+        },
+        {
+          "packagePath": "word/stylesWithEffects.xml",
+          "sourcePath": "package/word/stylesWithEffects.xml",
+          "sourceSha256": "b192b54a8d8c294d4eb3159148efb49bbbed2a81474886789500180a0b941b23"
+        },
+        {
+          "packagePath": "word/theme/theme1.xml",
+          "sourcePath": "package/word/theme/theme1.xml",
+          "sourceSha256": "7dc82029fbc7c844cd98175006aabeb4b31ffe7db075186730826959e4a5930a"
+        },
+        {
+          "packagePath": "word/webSettings.xml",
+          "sourcePath": "package/word/webSettings.xml",
+          "sourceSha256": "d3ce45f6280d816d0bfebc60803d7e7f3b6824ae661bf98a3f76b4d9a24cd619"
+        }
+      ],
+      "sha256": "a047b4b5dd510e00e37083d0a9d013225a778c1a9cac0c92dba358c9b96a2260",
+      "validation": {
+        "profile": "Office2019",
+        "valid": true,
+        "errors": []
+      }
+    }
+  ]
+}

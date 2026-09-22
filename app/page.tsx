@@ -1,4 +1,4 @@
-import NegotiationWorkspace from "./negotiation-workspace";
+import DealDesk from "./deal-desk";
 export default function Page() {
-  return <NegotiationWorkspace />;
+  return <DealDesk />;
 }

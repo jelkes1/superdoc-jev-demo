@@ -7,7 +7,8 @@ const timeline = JSON.parse(await readFile(join(out, "timeline.json"), "utf8"));
 if (
   timeline.errors?.length ||
   (timeline.prefix === "superdoc-jev-negotiation" &&
-    timeline.shots.length !== 13)
+    timeline.shots.length !== 13) ||
+  (timeline.prefix === "superdoc-jev-deal-desk" && timeline.shots.length !== 12)
 )
   throw new Error(
     "The recorded workflow did not complete cleanly. Refusing to publish a partial run.",

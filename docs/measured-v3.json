@@ -1,0 +1,314 @@
+{
+  "source": "Genuine local browser and Node runs; not a legal-accuracy benchmark",
+  "browser": [
+    {
+      "decisions": [
+        {
+          "id": "training",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.94,
+          "probabilities": {
+            "UNACCEPTABLE": 0.96,
+            "NEEDS_REVIEW": 0.04,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "training-order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.94,
+          "probabilities": {
+            "UNACCEPTABLE": 0.96,
+            "NEEDS_REVIEW": 0.04,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.85,
+          "probabilities": {
+            "UNACCEPTABLE": 0.89,
+            "NEEDS_REVIEW": 0.11,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal-order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.86,
+          "probabilities": {
+            "UNACCEPTABLE": 0.9,
+            "NEEDS_REVIEW": 0.1,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "safeguard",
+          "verdict": "NOT_APPLICABLE",
+          "confidence": 0.25,
+          "probabilities": {
+            "UNACCEPTABLE": 0.12,
+            "NEEDS_REVIEW": 0.43,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0.45
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "signals",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.36,
+          "probabilities": {
+            "UNACCEPTABLE": 0.47,
+            "NEEDS_REVIEW": 0.53,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "payment",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.34,
+          "probabilities": {
+            "UNACCEPTABLE": 0.15,
+            "NEEDS_REVIEW": 0.33,
+            "ACCEPTABLE": 0.5,
+            "NOT_APPLICABLE": 0.02
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "liability",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.41,
+          "probabilities": {
+            "UNACCEPTABLE": 0.4,
+            "NEEDS_REVIEW": 0.56,
+            "ACCEPTABLE": 0.04,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        }
+      ],
+      "usage": {
+        "inputTokens": 3736,
+        "outputTokens": 489,
+        "costUsd": 0.00015691200000000002,
+        "latencyMs": 242,
+        "decisions": 8
+      }
+    },
+    {
+      "decisions": [
+        {
+          "id": "training",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.32,
+          "probabilities": {
+            "UNACCEPTABLE": 0.03,
+            "NEEDS_REVIEW": 0.47,
+            "NOT_APPLICABLE": 0.01,
+            "ACCEPTABLE": 0.49
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "training-order",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.41,
+          "probabilities": {
+            "UNACCEPTABLE": 0.01,
+            "NEEDS_REVIEW": 0.43,
+            "NOT_APPLICABLE": 0,
+            "ACCEPTABLE": 0.56
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.93,
+          "probabilities": {
+            "UNACCEPTABLE": 0,
+            "NEEDS_REVIEW": 0.04,
+            "NOT_APPLICABLE": 0,
+            "ACCEPTABLE": 0.96
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal-order",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.82,
+          "probabilities": {
+            "UNACCEPTABLE": 0.01,
+            "NEEDS_REVIEW": 0.12,
+            "NOT_APPLICABLE": 0,
+            "ACCEPTABLE": 0.87
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "safeguard",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.63,
+          "probabilities": {
+            "UNACCEPTABLE": 0.01,
+            "NEEDS_REVIEW": 0.19,
+            "NOT_APPLICABLE": 0.08,
+            "ACCEPTABLE": 0.72
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "signals",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.86,
+          "probabilities": {
+            "UNACCEPTABLE": 0.01,
+            "NEEDS_REVIEW": 0.9,
+            "NOT_APPLICABLE": 0,
+            "ACCEPTABLE": 0.09
+          },
+          "model": "jev-1.13.0"
+        }
+      ],
+      "usage": {
+        "inputTokens": 3032,
+        "outputTokens": 364,
+        "costUsd": 0.00012734400000000002,
+        "latencyMs": 128,
+        "decisions": 6
+      }
+    },
+    {
+      "usage": {
+        "inputTokens": 500,
+        "outputTokens": 528,
+        "costUsd": 0.00917,
+        "latencyMs": 7610,
+        "decisions": 0
+      },
+      "model": "gpt-5.4"
+    }
+  ],
+  "browserErrors": [],
+  "headless": {
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 3640,
+      "output_tokens": 488
+    },
+    "latencyMs": 308.3581250000002,
+    "decisions": [
+      {
+        "id": "training",
+        "verdict": "UNACCEPTABLE",
+        "confidence": 0.93,
+        "probabilities": {
+          "ACCEPTABLE": 0,
+          "NEEDS_REVIEW": 0.05,
+          "NOT_APPLICABLE": 0,
+          "UNACCEPTABLE": 0.95
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "training-order",
+        "verdict": "UNACCEPTABLE",
+        "confidence": 0.93,
+        "probabilities": {
+          "ACCEPTABLE": 0,
+          "NEEDS_REVIEW": 0.05,
+          "NOT_APPLICABLE": 0,
+          "UNACCEPTABLE": 0.95
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "renewal",
+        "verdict": "UNACCEPTABLE",
+        "confidence": 0.83,
+        "probabilities": {
+          "ACCEPTABLE": 0,
+          "NEEDS_REVIEW": 0.12,
+          "NOT_APPLICABLE": 0,
+          "UNACCEPTABLE": 0.88
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "renewal-order",
+        "verdict": "UNACCEPTABLE",
+        "confidence": 0.87,
+        "probabilities": {
+          "ACCEPTABLE": 0,
+          "NEEDS_REVIEW": 0.1,
+          "NOT_APPLICABLE": 0,
+          "UNACCEPTABLE": 0.9
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "safeguard",
+        "verdict": "NEEDS_REVIEW",
+        "confidence": 0.48,
+        "probabilities": {
+          "ACCEPTABLE": 0,
+          "NEEDS_REVIEW": 0.62,
+          "NOT_APPLICABLE": 0.28,
+          "UNACCEPTABLE": 0.1
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "signals",
+        "verdict": "NEEDS_REVIEW",
+        "confidence": 0.43,
+        "probabilities": {
+          "ACCEPTABLE": 0,
+          "NEEDS_REVIEW": 0.58,
+          "NOT_APPLICABLE": 0,
+          "UNACCEPTABLE": 0.42
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "payment",
+        "verdict": "ACCEPTABLE",
+        "confidence": 0.44,
+        "probabilities": {
+          "ACCEPTABLE": 0.57,
+          "NEEDS_REVIEW": 0.28,
+          "NOT_APPLICABLE": 0.02,
+          "UNACCEPTABLE": 0.13
+        },
+        "model": "jev-1.13.0"
+      },
+      {
+        "id": "liability",
+        "verdict": "NEEDS_REVIEW",
+        "confidence": 0.45,
+        "probabilities": {
+          "ACCEPTABLE": 0.01,
+          "NEEDS_REVIEW": 0.59,
+          "NOT_APPLICABLE": 0,
+          "UNACCEPTABLE": 0.4
+        },
+        "model": "jev-1.13.0"
+      }
+    ]
+  },
+  "headlessVerifiedProposals": 4,
+  "headlessVerifiedComments": 4
+}

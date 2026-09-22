@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 test.beforeEach(async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/negotiation");
   await expect(
     page.getByRole("button", { name: "Prepare counterproposal", exact: true }),
   ).toBeEnabled();

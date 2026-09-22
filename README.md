@@ -4,17 +4,19 @@
 
 A standalone TypeScript/React example with a real DOCX editor, a connected negotiation workflow, tracked changes, anchored comments, human review, and atomic public-use limits. The original five-rule playbook and uploads remain at `/playbook`.
 
-**V2:** one supplied deal instruction connects the liability clause, order-form table, and data-protection schedule in a fictional agreement already marked up by counsel. Preview a proposal, resolve overlap, edit the document yourself, and watch the stale proposal get blocked before applying verified redlines. No model results are simulated. See [v2 verification](docs/verification-v2.md).
+**V3: Living Deal Desk.** Take over a fictional negotiation already marked up by counsel. A live review matrix links eight typed decisions to actual Word locations. Propose substantive data-use language, update order-form cells, insert a real numbered safeguard, preserve negotiated payment terms, and keep unresolved telemetry/liability visible. Edit the document and recheck only changed context.
 
-- [Public preview](https://superdoc-jev.superdoc-1393.chatgpt.site)
-- [Core integration](lib/review/document.ts)
-- [Connected proposals: snapshot, preview, apply, verify](lib/negotiation/document.ts)
-- [Supplied fallback language and scenario](lib/negotiation/scenario.ts)
-- [Architecture and model substitution](docs/architecture.md)
-- [V2 negotiation videos and recorded Word export](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.2.0)
-- [V1 playbook videos](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.1.0)
-- [Video workflow](docs/video-storyboard.md)
-- [Unsent launch drafts](docs/launch-drafts.md)
+- [Public demo](https://superdoc-jev.superdoc-1393.chatgpt.site)
+- [Shared document operations and verification](lib/deal-desk/document.ts)
+- [Policy definitions and supplied language](lib/deal-desk/rules.ts)
+- [Live decision endpoint](app/api/deal-desk/route.ts)
+- [Runnable headless example](examples/headless.ts) and [SDK transport adapter](examples/sdk-adapter.ts)
+- [Social research and design rationale](docs/social-research-v3.md)
+- [V3 verification](docs/verification-v3.md)
+- [Unsent launch drafts](docs/launch-drafts-v3.md)
+- [Previous atomic negotiation example](lib/negotiation/document.ts), available at `/negotiation`
+- [Original five-rule playbook](lib/review/document.ts), available at `/playbook`
+- [Captioned videos and exported DOCX](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.3.0)
 
 ## Run locally
 
@@ -34,31 +36,30 @@ Open the URL printed by the server (normally `http://localhost:5173`). The sampl
 
 `db:init` applies the initial local-only D1 schema. Run it once per fresh local database, after the first build. It intentionally reports an error if replayed onto an existing schema. Publishing with Sites applies the generated production migration separately. For later schema changes, use `npm run db:generate` and apply only pending migrations.
 
-The original DOCX stays in the browser. Running review sends extracted text to TypeSafe. The separate playbook route can send up to two unresolved findings to OpenAI for drafting. The application does not retain document contents. Provider handling remains governed by provider terms. Public visitors need neither login nor their own API key.
+The original DOCX stays in the browser. Running review sends extracted text to TypeSafe. Optional reasoning can send up to two unresolved findings per review to OpenAI for drafting. The application does not retain document contents. Provider handling remains governed by provider terms. Public visitors need neither login nor their own API key.
 
 ## Try the workflow
 
-The home page is a guided negotiation, bounded to three known locations:
+1. Consent to sending extracted clauses to TypeSafe, then review the agreement.
+2. Open **Review matrix**. Inspect actual choices, confidence and execution routing.
+3. Review the four supplied replacements. **Approve language & propose 4 redlines** applies them as individually guarded, verified tracked edits. A ≥95% eligible decision can also propose an edit without the extra language-approval step.
+4. Open **Numbered safeguard** and approve the insertion. It is a real Word list item, with its own reviewable structural revision.
+5. Open **Telemetry exception**. Its uncertainty stays explicit; an eligible finding can request one of two optional OpenAI drafts. Review and approve any draft before proposing it.
+6. Accept/reject a change, or make a counter-edit in the document. Recheck sends only changed locations/context/policy. A no-op rerun makes no model call.
+7. Inspect **Execution** for the target, revision, receipt, tracked IDs and readback checks. Download Word with remaining revisions and comments.
 
-1. Prepare the counterproposal using the supplied general and data-protection caps.
-2. Open the schedule card and explicitly accept or reject counsel's overlapping edit.
-3. Review the current text. Preview the three linked replacements.
-4. Choose **Edit this clause yourself** and add a sentence. Check the old proposal: it is blocked. Fresh review retains your sentence.
-5. Propose the connected tracked changes, then accept or reject individual redlines. Partial decisions flag remaining inconsistency.
-6. Download the Word document with unresolved revisions and comments. Rerun to replace only unchanged pending suggestions; accepted work and counsel's unrelated edits remain.
+The sample uses eight known clause anchors and bounded supplied language. It does not discover arbitrary dependencies or perform exhaustive contract review. Unsupported/missing/duplicate locations remain visible. Batch edits are sequential and individually guarded; completed edits remain reviewable if a later operation fails.
 
-This guided example uses approved fallback patterns, not unconstrained drafting. Jev's actual response remains visible; uncertainty needs explicit human approval of the supplied fallback. No drafting model is called on this route. Changing the cap controls changes the explicit instructions.
+## Run without a browser
 
-The [five-rule playbook](app/playbook/page.tsx) is a separate example:
+```sh
+# Export your own TYPESAFE_API_KEY first.
+npm run demo:headless -- ./public/deal-desk.docx
+# Explicit approval of the supplied fictional replacement language:
+npm run demo:headless -- ./public/deal-desk.docx --approve-supplied-language
+```
 
-1. Review the fictional, 14-page Northstar–Meridian software agreement.
-2. Inspect each returned decision, confidence and full probability distribution.
-3. Jump from a finding to its clause. A confident violation matching an exact template can become a verified tracked replacement.
-4. Review ambiguous findings and any optional reasoning draft. A draft needs a human click before becoming a tracked proposal.
-5. Change the cap or threshold and rerun. Only unchanged pending suggestions belonging to this review are replaced. Existing revisions and accepted changes survive. Editing a pending suggestion blocks automatic replacement until it is resolved.
-6. Accept/reject in the panel or editor and download a DOCX retaining unresolved redlines.
-
-English text-based DOCX only, up to 10 MB and 25,000 extracted tokens. Body paragraphs, headings and table cells are covered. Unsupported content and incomplete context stay visible for human review.
+The runner saves `outputs/headless/reviewed.docx` and a local receipt. Use **Open DOCX** in the browser to continue reviewing that file. Without the approval flag, only eligible ≥95% confident violations are proposed; zero qualifying changes is a valid result. The CLI keeps the same tracked execution and readback checks through the SDK adapter. Its local API calls use your own key, outside the hosted demo's allowance. Local receipts include document text; keep them private when using your own documents.
 
 ## Configuration
 
@@ -101,7 +102,7 @@ The original fixture is generated by `scripts/make-fixture.py` (Python + `python
 
 The `.openai/hosting.json` manifest is for the owner’s Sites deployment. When forking, replace its project registration with your own before publishing. The logical `DB` binding and generated Drizzle migration support the public counters; secrets belong in the hosting environment, never in the manifest or browser bundle.
 
-The recording scripts require real Jev access. `npm run video:negotiation` records three real negotiation reviews to `outputs/video-v2`; render with `VIDEO_OUTPUT_DIR=outputs/video-v2 npm run video:render`. The original `npm run video:record` records the playbook workflow. FFmpeg produces captioned main/social MP4 cuts. Inspect the cuts and recorded DOCX before promoting them. [Production details](docs/video-storyboard.md).
+The recording scripts require real Jev access. `npm run video:deal-desk` records the current workflow to `outputs/video-v3`; render with `VIDEO_OUTPUT_DIR=outputs/video-v3 npm run video:render`. Set `DEMO_BASE_URL` to record the hosted site. `npm run video:negotiation` records three real negotiation reviews to `outputs/video-v2`; render with `VIDEO_OUTPUT_DIR=outputs/video-v2 npm run video:render`. The original `npm run video:record` records the playbook workflow. FFmpeg produces captioned main/social MP4 cuts. Inspect the cuts and recorded DOCX before promoting them. [Production details](docs/video-storyboard.md).
 
 ## License
 

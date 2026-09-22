@@ -1,0 +1,31 @@
+{
+  "schema": "superdoc.ooxml-fixture.manifest.v1",
+  "fixture": "living-deal-desk",
+  "documents": [
+    {
+      "file": "deal-desk.docx",
+      "parts": {
+        "[Content_Types].xml": "package/[Content_Types].xml",
+        "_rels/.rels": "package/_rels/.rels",
+        "customXml/_rels/item1.xml.rels": "package/customXml/_rels/item1.xml.rels",
+        "customXml/item1.xml": "package/customXml/item1.xml",
+        "customXml/itemProps1.xml": "package/customXml/itemProps1.xml",
+        "docProps/app.xml": "package/docProps/app.xml",
+        "docProps/core.xml": "package/docProps/core.xml",
+        "docProps/thumbnail.jpeg": "package/docProps/thumbnail.jpeg",
+        "word/_rels/document.xml.rels": "package/word/_rels/document.xml.rels",
+        "word/comments.xml": "package/word/comments.xml",
+        "word/document.xml": "package/word/document.xml",
+        "word/fontTable.xml": "package/word/fontTable.xml",
+        "word/footer1.xml": "package/word/footer1.xml",
+        "word/header1.xml": "package/word/header1.xml",
+        "word/numbering.xml": "package/word/numbering.xml",
+        "word/settings.xml": "package/word/settings.xml",
+        "word/styles.xml": "package/word/styles.xml",
+        "word/stylesWithEffects.xml": "package/word/stylesWithEffects.xml",
+        "word/theme/theme1.xml": "package/word/theme/theme1.xml",
+        "word/webSettings.xml": "package/word/webSettings.xml"
+      }
+    }
+  ]
+}
