@@ -230,3 +230,31 @@ test("Jev failures are propagated without retry or fabricated decisions", async 
     globalThis.fetch = previous;
   }
 });
+
+test("template guard rejects a model finding that contradicts the explicit numeric policy", () => {
+  assert.equal(
+    deterministicProposal(
+      { ...clause, text: clause.text.replace("45", "15") },
+      "payment",
+      playbook(),
+    ),
+    null,
+  );
+  const liability = {
+    ...clause,
+    text: "Each party’s aggregate liability arising out of or relating to this agreement shall not exceed the fees paid or payable under this agreement during the 18 months preceding the event giving rise to the claim.",
+  };
+  assert.equal(
+    deterministicProposal(liability, "liability", playbook(24)),
+    null,
+  );
+  assert.match(
+    deterministicProposal(liability, "liability", playbook(12))!.replacement,
+    /12 months/,
+  );
+  const renewal = {
+    ...clause,
+    text: "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 45 days before the end of the then-current term.",
+  };
+  assert.equal(deterministicProposal(renewal, "renewal", playbook()), null);
+});

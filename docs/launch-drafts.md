@@ -14,8 +14,8 @@ Ambiguous findings stay open for review, with a bounded reasoning-model draft wh
 
 The interactive demo and runnable TypeScript example are for developers building document agents and legal-tech applications.
 
-Try it: [verified public demo]
-Code: [verified GitHub repository]
+Try it: https://superdoc-jev.superdoc-1393.chatgpt.site
+Code: https://github.com/jelkes1/superdoc-jev-demo
 Watch: [verified captioned video]
 
 ## X
@@ -24,7 +24,7 @@ From a contract decision to a real Word redline.
 
 Jev evaluates the clause. SuperDoc applies and verifies a tracked edit. You accept or reject it.
 
-Interactive demo + TypeScript example for document-agent builders: [demo] [code]
+Interactive demo + TypeScript example for document-agent builders: https://superdoc-jev.superdoc-1393.chatgpt.site https://github.com/jelkes1/superdoc-jev-demo
 
 [Attach verified 20–30s clip]
 
@@ -36,8 +36,8 @@ The workflow is: Jev evaluates bounded contract clauses against an explicit play
 
 We display Jev’s returned choice, confidence and full probability distribution separately, and report measured usage and latency. We make no legal-accuracy or comparative-speed claims.
 
-Preview: [verified demo]
-Code: [verified repository]
+Preview: https://superdoc-jev.superdoc-1393.chatgpt.site
+Code: https://github.com/jelkes1/superdoc-jev-demo
 Video: [verified 60–90s recording]
 
 Does this accurately represent Jev’s intended role and response semantics? We’d especially appreciate feedback on the relevance/judgment criteria and our handling of NEEDS_REVIEW.

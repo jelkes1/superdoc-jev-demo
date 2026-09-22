@@ -35,8 +35,10 @@ export function deterministicProposal(
 ): Proposal | null {
   const t = clause.text;
   let replacement: string | null = null;
+  const value = Number(t.match(/\b(\d{1,2}) (?:months|days)\b/)?.[1]);
   if (
     rule === "liability" &&
+    value > p.liabilityMonths &&
     /^Each party’s aggregate liability arising out of or relating to this agreement shall not exceed the fees paid or payable under this agreement during the \d{1,2} months preceding the event giving rise to the claim\.$/.test(
       t,
     )
@@ -44,6 +46,7 @@ export function deterministicProposal(
     replacement = t.replace(/\d{1,2} months/, `${p.liabilityMonths} months`);
   if (
     rule === "payment" &&
+    value > 30 &&
     /^Customer shall pay each undisputed invoice within \d{1,2} days after receipt\.$/.test(
       t,
     )
@@ -51,6 +54,7 @@ export function deterministicProposal(
     replacement = t.replace(/\d{1,2} days/, "30 days");
   if (
     rule === "renewal" &&
+    value < 30 &&
     /^The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least \d{1,2} days before the end of the then-current term\.$/.test(
       t,
     )

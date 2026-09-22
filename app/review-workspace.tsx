@@ -71,6 +71,7 @@ declare global {
 }
 export default function ReviewWorkspace() {
   const mount = useRef<HTMLDivElement>(null),
+    scrollContainer = useRef<HTMLDivElement>(null),
     instance = useRef<SuperDocInstance | null>(null),
     input = useRef<HTMLInputElement>(null),
     generation = useRef(0),
@@ -152,7 +153,7 @@ export default function ReviewWorkspace() {
         },
         zoom: {
           mode: "fit-width",
-          fitWidth: { min: 45, max: 100, padding: 44 },
+          fitWidth: { min: 25, max: 100, padding: 44 },
         },
         onReady: () => {
           if (ticket === generation.current) setReady(true);
@@ -199,6 +200,29 @@ export default function ReviewWorkspace() {
     };
   }, []);
   /* eslint-enable react-hooks/exhaustive-deps */
+  useEffect(() => {
+    const element = scrollContainer.current;
+    if (!element || !ready) return;
+    // The editor retains the unscaled page width. Center our scroll viewport
+    // around the scaled page so narrow screens can see the full document.
+    let frame = 0;
+    const center = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        element.scrollLeft = Math.max(
+          0,
+          (element.scrollWidth - element.clientWidth) / 2,
+        );
+      });
+    };
+    const observer = new ResizeObserver(center);
+    observer.observe(element);
+    center();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [ready]);
   async function navigate(c: Clause, s?: Suggestion) {
     try {
       setActive(s?.decisionId ?? c.id);
@@ -526,7 +550,7 @@ export default function ReviewWorkspace() {
             </button>
           </div>
           <div id="editor-toolbar" />
-          <div className="document-scroll">
+          <div className="document-scroll" ref={scrollContainer}>
             <div ref={mount} id="superdoc-editor" />
           </div>
         </section>
