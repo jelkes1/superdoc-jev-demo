@@ -1,6 +1,6 @@
 # Launch drafts — not sent
 
-Status: publication copy. Do not post until the live hosted run and videos pass the launch checklist. Replace the link placeholders with verified destinations. Do not add performance claims without measured evidence.
+Status: ready for review; nothing sent or posted. Live hosted runs and captioned videos have passed the documented checks. Request TypeSafe representation feedback before promotion. Do not add performance claims without measured evidence.
 
 ## LinkedIn
 
@@ -16,7 +16,7 @@ The interactive demo and runnable TypeScript example are for developers building
 
 Try it: https://superdoc-jev.superdoc-1393.chatgpt.site
 Code: https://github.com/jelkes1/superdoc-jev-demo
-Watch: [verified captioned video]
+Watch: https://github.com/jelkes1/superdoc-jev-demo/releases/download/v0.1.0/superdoc-jev-demo.mp4
 
 ## X
 
@@ -26,7 +26,7 @@ Jev evaluates the clause. SuperDoc applies and verifies a tracked edit. You acce
 
 Interactive demo + TypeScript example for document-agent builders: https://superdoc-jev.superdoc-1393.chatgpt.site https://github.com/jelkes1/superdoc-jev-demo
 
-[Attach verified 20–30s clip]
+Attach: https://github.com/jelkes1/superdoc-jev-demo/releases/download/v0.1.0/superdoc-jev-social.mp4
 
 ## TypeSafe preview message
 
@@ -38,7 +38,7 @@ We display Jev’s returned choice, confidence and full probability distribution
 
 Preview: https://superdoc-jev.superdoc-1393.chatgpt.site
 Code: https://github.com/jelkes1/superdoc-jev-demo
-Video: [verified 60–90s recording]
+Video: https://github.com/jelkes1/superdoc-jev-demo/releases/download/v0.1.0/superdoc-jev-demo.mp4
 
 Does this accurately represent Jev’s intended role and response semantics? We’d especially appreciate feedback on the relevance/judgment criteria and our handling of NEEDS_REVIEW.
 

@@ -9,6 +9,7 @@ A standalone TypeScript/React example with a real DOCX editor, five vendor playb
 - [Public preview](https://superdoc-jev.superdoc-1393.chatgpt.site)
 - [Core integration](lib/review/document.ts)
 - [Architecture and model substitution](docs/architecture.md)
+- [75-second demo and 26-second social cut](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.1.0)
 - [Video workflow](docs/video-storyboard.md)
 - [Unsent launch drafts](docs/launch-drafts.md)
 

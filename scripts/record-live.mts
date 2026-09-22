@@ -20,34 +20,31 @@ const context = await browser.newContext({
 const page = await context.newPage();
 const shots: { start: number; end: number; caption: string; wait: boolean }[] =
   [];
-const measured: unknown[] = [];
-const responseReads: Promise<void>[] = [];
+// Observe clones of the real fetch responses. Chromium's network-body cache
+// can evict a streamed response during a video recording. The application
+// receives the original response unchanged; nothing is mocked or replayed.
+await page.addInitScript(() => {
+  const observed = window as typeof window & {
+    __recordedResponses: { path: string; body: string }[];
+    __recordingErrors: string[];
+  };
+  observed.__recordedResponses = [];
+  observed.__recordingErrors = [];
+  const original = window.fetch.bind(window);
+  window.fetch = async (...args) => {
+    const response = await original(...args);
+    const path = new URL(response.url, location.href).pathname;
+    if (/^\/api\/(review|reason)$/.test(path) && response.ok)
+      void response
+        .clone()
+        .text()
+        .then((body) => observed.__recordedResponses.push({ path, body }))
+        .catch(() => observed.__recordingErrors.push(path));
+    return response;
+  };
+});
 const epoch = performance.now();
 const seconds = () => (performance.now() - epoch) / 1000;
-page.on("response", (response) => {
-  if (!/\/api\/(review|reason)$/.test(response.url()) || !response.ok()) return;
-  responseReads.push(
-    (async () => {
-      if (response.url().endsWith("/api/review")) {
-        const events = (await response.text())
-          .trim()
-          .split("\n")
-          .map((x) => JSON.parse(x));
-        measured.push(
-          ...events.filter((e) => e.type === "complete" || e.type === "start"),
-        );
-      } else {
-        const result = await response.json();
-        measured.push({
-          type: "reason",
-          usage: result.usage,
-          model: result.model,
-          proposed: !!result.proposal,
-        });
-      }
-    })(),
-  );
-});
 async function shot(
   caption: string,
   action: () => Promise<unknown>,
@@ -155,7 +152,37 @@ try {
     });
   });
   const video = page.video()!;
-  await Promise.all(responseReads);
+  const captured = await page.evaluate(() => {
+    const observed = window as typeof window & {
+      __recordedResponses: { path: string; body: string }[];
+      __recordingErrors: string[];
+    };
+    return {
+      responses: observed.__recordedResponses,
+      errors: observed.__recordingErrors,
+    };
+  });
+  if (captured.errors.length)
+    throw new Error("Live response observation failed");
+  const measured = captured.responses.flatMap(({ path, body }) => {
+    if (path === "/api/review")
+      return body
+        .trim()
+        .split("\n")
+        .map((line) => JSON.parse(line))
+        .filter((e) => e.type === "complete" || e.type === "start");
+    const result = JSON.parse(body);
+    return [
+      {
+        type: "reason",
+        usage: result.usage,
+        model: result.model,
+        proposed: !!result.proposal,
+      },
+    ];
+  });
+  if (measured.filter((e) => e.type === "complete").length !== 2)
+    throw new Error("Two complete live reviews were not captured");
   await context.close();
   const raw = await video.path();
   await writeFile(

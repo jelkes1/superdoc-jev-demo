@@ -55,7 +55,7 @@ async function render(name, shots, target) {
   await writeFile(subtitle, captions.join("\n"));
   filter.push(
     segments.map((_, i) => `[v${i}]`).join("") +
-      `concat=n=${segments.length}:v=1:a=0,tpad=stop_mode=clone:stop_duration=${pad.toFixed(3)},subtitles=filename='${escapeFilter(subtitle)}':force_style='FontName=Arial,FontSize=10,PrimaryColour=&H00FFFFFF,OutlineColour=&H001A2C42,BorderStyle=3,Outline=3,Shadow=0,MarginV=12'[out]`,
+      `concat=n=${segments.length}:v=1:a=0,tpad=stop_mode=clone:stop_duration=${pad.toFixed(3)},subtitles=filename='${escapeFilter(subtitle)}':force_style='FontName=Arial,FontSize=10,PrimaryColour=&H00FFFFFF,OutlineColour=&H00422C1A,BorderStyle=3,Outline=3,Shadow=0,MarginV=12'[out]`,
   );
   const result = spawnSync(
     ffmpeg,

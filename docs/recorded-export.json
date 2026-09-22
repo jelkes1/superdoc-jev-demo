@@ -1,0 +1,19 @@
+{
+  "tables": 3,
+  "unresolvedRevisions": 0,
+  "clauses": [
+    {
+      "title": "4.2  Payment period",
+      "text": "Customer shall pay each undisputed invoice within 30 days after receipt."
+    },
+    {
+      "title": "5.2  Automatic renewal",
+      "text": "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term."
+    },
+    {
+      "title": "6.1  Aggregate cap",
+      "text": "Each party’s aggregate liability arising out of or relating to this agreement shall not exceed the fees paid or payable under this agreement during the 18 months preceding the event giving rise to the claim."
+    }
+  ],
+  "numberedHeadingPreserved": true
+}

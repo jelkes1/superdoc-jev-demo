@@ -1,0 +1,108 @@
+{
+  "origin": "https://superdoc-jev.superdoc-1393.chatgpt.site",
+  "browser": "145.0.7632.6",
+  "runs": [
+    {
+      "type": "start",
+      "total": 520,
+      "model": "jev-1.13.0"
+    },
+    {
+      "type": "complete",
+      "usage": {
+        "inputTokens": 154606,
+        "outputTokens": 32816,
+        "costUsd": 0.006493451999999999,
+        "latencyMs": 5724,
+        "decisions": 520
+      },
+      "missingRules": []
+    },
+    {
+      "type": "reason",
+      "usage": {
+        "inputTokens": 390,
+        "outputTokens": 399,
+        "costUsd": 0.00696,
+        "latencyMs": 4416,
+        "decisions": 0
+      },
+      "model": "gpt-5.4",
+      "proposed": true
+    },
+    {
+      "type": "reason",
+      "usage": {
+        "inputTokens": 468,
+        "outputTokens": 552,
+        "costUsd": 0.00945,
+        "latencyMs": 5468,
+        "decisions": 0
+      },
+      "model": "gpt-5.4",
+      "proposed": true
+    },
+    {
+      "type": "start",
+      "total": 520,
+      "model": "jev-1.13.0"
+    },
+    {
+      "type": "complete",
+      "usage": {
+        "inputTokens": 154606,
+        "outputTokens": 32814,
+        "costUsd": 0.006493451999999999,
+        "latencyMs": 6288,
+        "decisions": 520
+      },
+      "missingRules": []
+    },
+    {
+      "type": "reason",
+      "usage": {
+        "inputTokens": 390,
+        "outputTokens": 451,
+        "costUsd": 0.00774,
+        "latencyMs": 4369,
+        "decisions": 0
+      },
+      "model": "gpt-5.4",
+      "proposed": true
+    },
+    {
+      "type": "reason",
+      "usage": {
+        "inputTokens": 468,
+        "outputTokens": 319,
+        "costUsd": 0.005955,
+        "latencyMs": 3354,
+        "decisions": 0
+      },
+      "model": "gpt-5.4",
+      "proposed": false
+    }
+  ],
+  "reviewWaitsCompressed": true,
+  "recordedAt": "2026-09-22",
+  "superdoc": "2.16.0",
+  "sdk": "@typesafe-ai/sdk 0.6.0",
+  "fixtureSha256": "bf9d69349d534e9958e4ee469b411cb05e3210f47602c61a3721fa595600da7c",
+  "videos": [
+    {
+      "bytes": 3998038,
+      "sha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+      "durationSeconds": 74.9,
+      "file": "superdoc-jev-demo.mp4"
+    },
+    {
+      "bytes": 1754885,
+      "sha256": "3fc586ed0f14ff9638809fe70f6d819f1ef45adb131c700856322f30e2e998e1",
+      "durationSeconds": 26.1,
+      "file": "superdoc-jev-social.mp4"
+    }
+  ],
+  "applicationBuildCommit": "024594c78c77821e0637fe5bfdc904c05345c8d3",
+  "mainTimelineSeconds": 75,
+  "socialTimelineSeconds": 26.164351876
+}

@@ -1,6 +1,6 @@
 # Video production
 
-`npm run video:record` records the sample through the actual UI and real server responses. It refuses to record if Jev is not configured and fails if a verified redline or ambiguous finding is missing. It does not intercept network requests or fabricate results.
+`npm run video:record` records the sample through the actual UI and real server responses. It refuses to record if Jev is not configured and fails if a verified redline or ambiguous finding is missing. It observes clones of real fetch responses without changing requests or responses, and never fabricates results.
 
 `npm run video:render` uses FFmpeg (with the subtitles filter) to make a nominal 75-second main cut and 25-second social cut. Captions are burned into the MP4 and supplied separately as SRT. Waiting intervals are shortened only when needed and explicitly captioned **Waiting time compressed**. Raw footage and measured provider results are retained alongside the exports. If the captured sequence falls outside the requested durations, adjust the edit and inspect again.
 
@@ -28,4 +28,4 @@ Use the sample only, never a visitor contract. Recording starts two reviews and 
 
 The social cut uses the opening, live review, decision-to-redline, verification and closing beats.
 
-Before publishing, inspect the exported MP4s at the beginning, each state transition, and the end. Confirm readable captions and visible redlines, verify durations and reopen the recorded DOCX. Never distribute a test-transport recording as a live Jev demo. The current external gate is a working TypeSafe API key; final video files have not yet been recorded.
+Before publishing, inspect the exported MP4s at the beginning, each state transition, and the end. Confirm readable captions and visible redlines, verify durations and reopen the recorded DOCX. Never distribute a test-transport recording as a live Jev demo. Both final cuts were recorded from the public demo using Playwright Chromium 145.0.7632.6, at 1600 × 1080. Download the MP4s and SRT captions from the [release](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.1.0). Measured run data and the inspection limits are retained in `docs/measured-run.json` and `docs/video-verification.md`.

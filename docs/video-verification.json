@@ -1,0 +1,355 @@
+[
+  {
+    "file": "superdoc-jev-demo.mp4",
+    "bytes": 3998038,
+    "sha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+    "durationSeconds": 74.9,
+    "container": "MP4",
+    "streams": [
+      {
+        "codec": "h264",
+        "type": "video",
+        "width": 1600,
+        "height": 1080
+      }
+    ],
+    "audio": "No audio stream; captions are burned in and supplied as SRT.",
+    "reader": "Bundled SuperDoc video-tools prepare; FFmpeg targeted samples; PNG metadata via Pillow and native image viewer. Original hashes checked before/after extraction.",
+    "frames": [
+      {
+        "path": "outputs/video/inspect-demo/frames/frame-001-0_000s.png",
+        "timestampSeconds": 0,
+        "sha256": "bc549e067f65c03c34d2a441db760f8d7b6c08040bba3759bbda736690d4196d",
+        "bytes": 541314,
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "sampling": "even",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-02-10.008s.png",
+        "timestampSeconds": 10.0075,
+        "bytes": 504829,
+        "sha256": "ca8265b319697d1b7b4cea8bf37d050d72a9f16cf02af04889c079f33d987faa",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "Jev evaluates the clauses against the playbook. [Waiting time compressed]",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-03-17.023s.png",
+        "timestampSeconds": 17.0235,
+        "bytes": 530711,
+        "sha256": "6b105523f7f7160b99896c14433acda0e9b2d80190bcef8f81d6fa4c64e37c58",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "A decision becomes a tracked Word redline.",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-04-23.052s.png",
+        "timestampSeconds": 23.0515,
+        "bytes": 565471,
+        "sha256": "16967c309f30d23e9b6e66b27340129eafb651202ba20276a1dbdf276d917c6c",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "SuperDoc verifies the old text, new text and tracked revision.",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-05-29.092s.png",
+        "timestampSeconds": 29.092,
+        "bytes": 539052,
+        "sha256": "44e1778e61ae54235fe1cfe911f428f661c2b3fc7746966c70dc853dbef948b5",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "Uncertain findings stay open for human review.",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/frames/frame-002-37_400s.png",
+        "timestampSeconds": 37.4,
+        "sha256": "c10ed61ffd9be32673f59b7ba746c2c9a1c0ebbd6ac9ce2eadd17408daecf3ae",
+        "bytes": 516372,
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "sampling": "even",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-07-42.966s.png",
+        "timestampSeconds": 42.965999999999994,
+        "bytes": 503619,
+        "sha256": "1261eb6b78cc4037d7cb303ea1bfaae369a811d32e9367dd214417ccb183ee0e",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "Rerun the policy. Replace only this review\u2019s pending suggestions. [Waiting time compressed]",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-08-50.932s.png",
+        "timestampSeconds": 50.9325,
+        "bytes": 501096,
+        "sha256": "e6c320ebaec1037b88f1ff60b52098a0a304adf5b82d34db9e2fcfc6168a00e3",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "You choose which proposed edits to accept.",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-09-58.858s.png",
+        "timestampSeconds": 58.858000000000004,
+        "bytes": 451764,
+        "sha256": "00d8c85f0b6575d3c1d63252112367c4a489d20243ddfad300be3701878a9f0a",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "Or reject a change and keep the original wording.",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/targeted/beat-10-65.858s.png",
+        "timestampSeconds": 65.858,
+        "bytes": 444589,
+        "sha256": "ae960981b50561e4bd11e2b4afad7dde188f2ccdaa70d029dcf5d5c21fef00e9",
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "caption": "Download the DOCX. Keep the formatting and unresolved redlines.",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-demo/frames/frame-003-74_800s.png",
+        "timestampSeconds": 74.8,
+        "sha256": "af4d45282007f8cc9e5d39e8b92ca56740a97ce2eb7da9c6fd53c71fe98ed9f8",
+        "bytes": 545454,
+        "parentSha256": "6325b9fa2c6cf60e11ca2e9df6bd4a3317257c6045efe6576e464a5d9cf07e64",
+        "operation": "extract-frames",
+        "sampling": "even",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      }
+    ],
+    "unseenIntervalsSeconds": [
+      [
+        0,
+        10.0075
+      ],
+      [
+        10.0075,
+        17.0235
+      ],
+      [
+        17.0235,
+        23.0515
+      ],
+      [
+        23.0515,
+        29.092
+      ],
+      [
+        29.092,
+        37.4
+      ],
+      [
+        37.4,
+        42.965999999999994
+      ],
+      [
+        42.965999999999994,
+        50.9325
+      ],
+      [
+        50.9325,
+        58.858000000000004
+      ],
+      [
+        58.858000000000004,
+        65.858
+      ],
+      [
+        65.858,
+        74.8
+      ],
+      [
+        74.8,
+        74.9
+      ]
+    ],
+    "gaps": "Limited still-frame inspection, not a frame-by-frame watch. Exact action outcomes are supported separately by Playwright assertions and exported-DOCX reopening."
+  },
+  {
+    "file": "superdoc-jev-social.mp4",
+    "bytes": 1754885,
+    "sha256": "3fc586ed0f14ff9638809fe70f6d819f1ef45adb131c700856322f30e2e998e1",
+    "durationSeconds": 26.1,
+    "container": "MP4",
+    "streams": [
+      {
+        "codec": "h264",
+        "type": "video",
+        "width": 1600,
+        "height": 1080
+      }
+    ],
+    "audio": "No audio stream; captions are burned in and supplied as SRT.",
+    "reader": "Bundled SuperDoc video-tools prepare; FFmpeg targeted samples; PNG metadata via Pillow and native image viewer. Original hashes checked before/after extraction.",
+    "frames": [
+      {
+        "path": "outputs/video/inspect-social/frames/frame-001-0_000s.png",
+        "timestampSeconds": 0,
+        "sha256": "bc549e067f65c03c34d2a441db760f8d7b6c08040bba3759bbda736690d4196d",
+        "bytes": 541314,
+        "parentSha256": "3fc586ed0f14ff9638809fe70f6d819f1ef45adb131c700856322f30e2e998e1",
+        "operation": "extract-frames",
+        "sampling": "even",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-social/targeted/beat-02-7.003s.png",
+        "timestampSeconds": 7.003,
+        "bytes": 535200,
+        "sha256": "8312dbd1b0f65dcd8f3448bbdfde25907e9e607fffa17cc0fad489db58ebd219",
+        "parentSha256": "3fc586ed0f14ff9638809fe70f6d819f1ef45adb131c700856322f30e2e998e1",
+        "operation": "extract-frames",
+        "caption": "Jev evaluates the clauses against the playbook. [Waiting time compressed]",
+        "sampling": "targeted",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-social/frames/frame-002-13_000s.png",
+        "timestampSeconds": 13,
+        "sha256": "8e36a9a61e191070d8aa01cb2309a2977ed98d04ecbb9dcdf9b2614d9377f0a5",
+        "bytes": 558829,
+        "parentSha256": "3fc586ed0f14ff9638809fe70f6d819f1ef45adb131c700856322f30e2e998e1",
+        "operation": "extract-frames",
+        "sampling": "even",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      },
+      {
+        "path": "outputs/video/inspect-social/frames/frame-003-26_000s.png",
+        "timestampSeconds": 26,
+        "sha256": "1e9b4c672e2be4a49d23ca2e185cb4142787b4f5c8b204cdddf5bc301eedb93f",
+        "bytes": 515041,
+        "parentSha256": "3fc586ed0f14ff9638809fe70f6d819f1ef45adb131c700856322f30e2e998e1",
+        "operation": "extract-frames",
+        "sampling": "even",
+        "format": "PNG",
+        "size": [
+          1600,
+          1080
+        ],
+        "frameCount": 1,
+        "visuallyInspected": true
+      }
+    ],
+    "unseenIntervalsSeconds": [
+      [
+        0,
+        7.003
+      ],
+      [
+        7.003,
+        13
+      ],
+      [
+        13,
+        26
+      ],
+      [
+        26,
+        26.1
+      ]
+    ],
+    "gaps": "Limited still-frame inspection, not a frame-by-frame watch. Exact action outcomes are supported separately by Playwright assertions and exported-DOCX reopening."
+  }
+]
