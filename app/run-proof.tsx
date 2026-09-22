@@ -208,18 +208,7 @@ export default function RunProof({
         </div>
         <details>
           <summary>Revision and policy trace</summary>
-          <pre>
-            {JSON.stringify(
-              {
-                runId: m.runId,
-                phases: m.phases,
-                usage: m.usage,
-                proof: m.proof,
-              },
-              null,
-              2,
-            )}
-          </pre>
+          <pre>{JSON.stringify(m, null, 2)}</pre>
         </details>
       </details>
       {show && (
