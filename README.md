@@ -2,14 +2,16 @@
 
 **Jev evaluates the contract. SuperDoc executes the document changes. A human reviews the redlines.**
 
-A standalone TypeScript/React example with a real DOCX editor, five vendor playbook rules, tracked replacements, human review, a small server API and atomic public-use limits.
+A standalone TypeScript/React example with a real DOCX editor, a connected negotiation workflow, tracked changes, anchored comments, human review, and atomic public-use limits. The original five-rule playbook and uploads remain at `/playbook`.
 
-**Current release status:** live Jev review is connected. The hosted fictional fixture produced three verified tracked replacements, an acceptable New York governing-law decision, and unresolved findings. See [verification](docs/verification.md) and the [launch gate](docs/launch-checklist.md). No model results are simulated in the app.
+**V2:** one supplied deal instruction connects the liability clause, order-form table, and data-protection schedule in a fictional agreement already marked up by counsel. Preview a proposal, resolve overlap, edit the document yourself, and watch the stale proposal get blocked before applying verified redlines. No model results are simulated. See [v2 verification](docs/verification-v2.md).
 
 - [Public preview](https://superdoc-jev.superdoc-1393.chatgpt.site)
 - [Core integration](lib/review/document.ts)
+- [Connected proposals: snapshot, preview, apply, verify](lib/negotiation/document.ts)
+- [Supplied fallback language and scenario](lib/negotiation/scenario.ts)
 - [Architecture and model substitution](docs/architecture.md)
-- [75-second demo and 26-second social cut](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.1.0)
+- [V1 playbook videos](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.1.0)
 - [Video workflow](docs/video-storyboard.md)
 - [Unsent launch drafts](docs/launch-drafts.md)
 
@@ -34,6 +36,19 @@ Open the URL printed by the server (normally `http://localhost:5173`). The sampl
 The original DOCX stays in the browser. Running review sends extracted text to TypeSafe and, for up to two unresolved findings, OpenAI. The application does not retain document contents. Provider handling remains governed by provider terms. Public visitors need neither login nor their own API key.
 
 ## Try the workflow
+
+The home page is a guided negotiation, bounded to three known locations:
+
+1. Prepare the counterproposal using the supplied general and data-protection caps.
+2. Open the schedule card and explicitly accept or reject counsel's overlapping edit.
+3. Review the current text. Preview the three linked replacements.
+4. Choose **Edit this clause yourself** and add a sentence. Check the old proposal: it is blocked. Fresh review retains your sentence.
+5. Propose the connected tracked changes, then accept or reject individual redlines. Partial decisions flag remaining inconsistency.
+6. Download the Word document with unresolved revisions and comments. Rerun to replace only unchanged pending suggestions; accepted work and counsel's unrelated edits remain.
+
+This guided example uses approved fallback patterns, not unconstrained drafting. Jev's actual response remains visible; uncertainty needs explicit human approval of the supplied fallback. No drafting model is called on this route. Changing the cap controls changes the explicit instructions.
+
+The [five-rule playbook](app/playbook/page.tsx) is a separate example:
 
 1. Review the fictional, 14-page Northstar–Meridian software agreement.
 2. Inspect each returned decision, confidence and full probability distribution.
@@ -61,6 +76,7 @@ Model IDs and cost constants are intentionally coupled. Substituting a model req
 
 ## Small API surface
 
+- `POST /api/negotiate`: three bounded clause locations + document revision + versioned deal settings → actual Jev judgments, full distributions, separate confidence, and measured usage. Shares the same atomic budget/rate controls as playbook review.
 - `POST /api/review`: clause context + document revision + versioned playbook → NDJSON events: start, completed decision batches, measured usage, completion/error.
 - `POST /api/reason`: one authorized unresolved finding → a bounded replacement proposal or explanation that human review is needed.
 - `GET /api/status`: configuration availability, model IDs and public limits; no secrets.

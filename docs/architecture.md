@@ -1,5 +1,28 @@
 # Decisions into Word redlines
 
+## Connected negotiation (v2)
+
+The home page opens a returned agreement with real counsel revisions and comments. Three known locations are resolved through SuperDoc. `POST /api/negotiate` evaluates them against explicit commercial instructions; it does not discover an arbitrary agreement's dependency graph.
+
+| Module | Responsibility |
+| --- | --- |
+| `lib/negotiation/scenario.ts` | Known-location discovery, supplied fallback patterns, cap settings and version |
+| `lib/negotiation/document.ts` | Snapshot, overlapping revisions, revision-guarded preview/atomic apply, receipts, original/final readback, anchored comments and selective rerun |
+| `app/api/negotiate/route.ts` | Real Jev judgments with the shared D1 budget and rate controls |
+| `app/negotiation-workspace.tsx` | Connected proposal UI, explicit human decisions, direct manual edits and Word download |
+
+`doc.mutations.preview` validates a plan without writing. `doc.mutations.apply` executes its text rewrites with `atomic: true`, `changeMode: 'tracked'`, and the held `expectedRevision`. On SuperDoc 2.16.0, `text.rewrite` requires a query ref or a text selector; this example uses a text selector scoped to the exact stable block and requires one match. A raw selection target is not supported by that v2 operation.
+
+The application rejects plans prepared before a document change. No automatic rebasing occurs. A new review resolves current text; supported fallback transformations retain text outside the cap phrases. Overlapping counsel revisions require explicit accept/reject. Low-confidence and NEEDS_REVIEW judgments remain unresolved unless a person reviews and explicitly approves the supplied fallback.
+
+After application, verify each receipt's tracked IDs, resulting text, original-text projection, and pre-existing revision fingerprints. Comments are added separately and individually read back; comment failure is reported distinctly from a verified text edit. Comments are not part of the atomic text plan. Partial accept/reject choices are allowed and surface remaining inconsistency.
+
+Rerun validation checks both revision identities and the complete pending clause text. It blocks when someone edits another span in that clause, even if the original revision's fingerprint is unchanged. Only still-pending owned revisions and their owned explanation comments are cleared. Resolved comments and unrelated history are retained.
+
+Jev is the only model used by this guided route. The existing reasoning adapter remains in the five-rule playbook at `/playbook`. To substitute a decision model in v2, replace the bounded provider call in `app/api/negotiate/route.ts`, retaining the actual response semantics and updating pricing/reservation constants.
+
+## Five-rule playbook (v1, retained)
+
 Jev evaluates clauses against five explicit vendor policies. SuperDoc reads and edits the DOCX in the browser. The application chooses an operation, enforces tracked mode and verifies it. A person accepts or rejects each change.
 
 ## Modules to copy

@@ -1,6 +1,6 @@
 {
   "name": "superdoc-jev-demo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -18,7 +18,9 @@
     "video:record": "tsx scripts/record-live.mts",
     "video:render": "node scripts/render-video.mjs",
     "format": "prettier --write app lib db tests scripts/record-live.mts playwright.config.ts",
-    "db:init": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_motionless_brood.sql"
+    "db:init": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_motionless_brood.sql",
+    "video:negotiation": "tsx scripts/record-negotiation.mts",
+    "test:live-negotiation": "tsx scripts/check-negotiation-live.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

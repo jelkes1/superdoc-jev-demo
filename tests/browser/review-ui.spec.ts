@@ -93,7 +93,7 @@ test("review UI navigates, accepts/rejects and reruns without duplicate proposal
       },
     }),
   );
-  await page.goto("/");
+  await page.goto("/playbook");
   const review = page.getByRole("button", {
     name: "Review against playbook",
     exact: true,
@@ -147,7 +147,7 @@ test("partial provider failure cannot apply automatic edits", async ({
       body: '{"type":"error","message":"Provider temporarily unavailable"}\n',
     }),
   );
-  await page.goto("/");
+  await page.goto("/playbook");
   await expect(
     page.getByRole("button", { name: "Review against playbook", exact: true }),
   ).toBeEnabled();

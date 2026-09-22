@@ -1,0 +1,117 @@
+{
+  "application": "Microsoft Word for Mac",
+  "version": "16.113.1",
+  "openedWithoutRepair": true,
+  "inspection": "Opened the exact corrected export in native Word; observed the order-form redlines and comment; saved a new round-trip copy and compared XML features. Not a page-by-page layout audit.",
+  "checks": {
+    "comments": true,
+    "tables": true,
+    "numberedParagraphs": true,
+    "insertions": true,
+    "deletions": true,
+    "revisionAuthors": true,
+    "insertedText": true,
+    "deletedText": true
+  },
+  "before": {
+    "file": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/negotiation/counterproposal-corrected.docx",
+    "sha256": "59d5221e1952033650b88bffa44cd625bce4366abbc6cdf9b4dd5fb94fad1927",
+    "tables": 3,
+    "numberedParagraphs": 3,
+    "insertions": 6,
+    "deletions": 6,
+    "revisionAuthors": [
+      "Alex Chen \u00b7 Meridian counsel",
+      "Northstar \u00b7 Document agent"
+    ],
+    "comments": [
+      {
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "Meridian requests a 36-month data-protection cap. Please confirm the cap in the order form and Section 6.1 matches this schedule."
+      },
+      {
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "We agreed 30-day payment terms on the commercial call. Please preserve this negotiated change."
+      },
+      {
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Northstar counterproposal: Apply the supplied liability fallback consistently in Main agreement. This is one part of a connected proposal covering Section 6.1, the order form, and Schedule B. Review all three before returning the agreement."
+      },
+      {
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Northstar counterproposal: Apply the supplied liability fallback consistently in Order form. This is one part of a connected proposal covering Section 6.1, the order form, and Schedule B. Review all three before returning the agreement."
+      },
+      {
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Northstar counterproposal: Apply the supplied liability fallback consistently in Data-processing schedule. This is one part of a connected proposal covering Section 6.1, the order form, and Schedule B. Review all three before returning the agreement."
+      }
+    ],
+    "insertedText": [
+      "12",
+      "24",
+      "30",
+      "12",
+      "24",
+      "24"
+    ],
+    "deletedText": [
+      "18",
+      "36",
+      "45",
+      "18",
+      "36",
+      "36"
+    ]
+  },
+  "after": {
+    "file": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/negotiation/counterproposal-word-roundtrip.docx",
+    "sha256": "82a88d8a733e303ea99ae9a2887280c94887caf50484760db21cad2e687ac0c6",
+    "tables": 3,
+    "numberedParagraphs": 3,
+    "insertions": 6,
+    "deletions": 6,
+    "revisionAuthors": [
+      "Alex Chen \u00b7 Meridian counsel",
+      "Northstar \u00b7 Document agent"
+    ],
+    "comments": [
+      {
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Northstar counterproposal: Apply the supplied liability fallback consistently in Order form. This is one part of a connected proposal covering Section 6.1, the order form, and Schedule B. Review all three before returning the agreement."
+      },
+      {
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "We agreed 30-day payment terms on the commercial call. Please preserve this negotiated change."
+      },
+      {
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Northstar counterproposal: Apply the supplied liability fallback consistently in Main agreement. This is one part of a connected proposal covering Section 6.1, the order form, and Schedule B. Review all three before returning the agreement."
+      },
+      {
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Northstar counterproposal: Apply the supplied liability fallback consistently in Data-processing schedule. This is one part of a connected proposal covering Section 6.1, the order form, and Schedule B. Review all three before returning the agreement."
+      },
+      {
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "Meridian requests a 36-month data-protection cap. Please confirm the cap in the order form and Section 6.1 matches this schedule."
+      }
+    ],
+    "insertedText": [
+      "12",
+      "24",
+      "30",
+      "12",
+      "24",
+      "24"
+    ],
+    "deletedText": [
+      "18",
+      "36",
+      "45",
+      "18",
+      "36",
+      "36"
+    ]
+  },
+  "commentOrdering": "Word reordered comment records into document order; text and attribution are preserved."
+}

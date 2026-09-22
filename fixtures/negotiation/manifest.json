@@ -1,0 +1,31 @@
+{
+  "schema": "superdoc.ooxml-fixture.manifest.v1",
+  "fixture": "negotiation-counterproposal",
+  "documents": [
+    {
+      "file": "negotiation.docx",
+      "parts": {
+        "[Content_Types].xml": "package/[Content_Types].xml",
+        "_rels/.rels": "package/_rels/.rels",
+        "docProps/core.xml": "package/docProps/core.xml",
+        "docProps/app.xml": "package/docProps/app.xml",
+        "word/document.xml": "package/word/document.xml",
+        "word/_rels/document.xml.rels": "package/word/_rels/document.xml.rels",
+        "word/styles.xml": "package/word/styles.xml",
+        "word/stylesWithEffects.xml": "package/word/stylesWithEffects.xml",
+        "word/settings.xml": "package/word/settings.xml",
+        "word/webSettings.xml": "package/word/webSettings.xml",
+        "word/fontTable.xml": "package/word/fontTable.xml",
+        "word/theme/theme1.xml": "package/word/theme/theme1.xml",
+        "customXml/item1.xml": "package/customXml/item1.xml",
+        "customXml/_rels/item1.xml.rels": "package/customXml/_rels/item1.xml.rels",
+        "customXml/itemProps1.xml": "package/customXml/itemProps1.xml",
+        "word/numbering.xml": "package/word/numbering.xml",
+        "word/header1.xml": "package/word/header1.xml",
+        "word/footer1.xml": "package/word/footer1.xml",
+        "docProps/thumbnail.jpeg": "package/docProps/thumbnail.jpeg",
+        "word/comments.xml": "package/word/comments.xml"
+      }
+    }
+  ]
+}

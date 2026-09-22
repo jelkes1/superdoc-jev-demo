@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SuperDoc × Jev — Document Decision Lab",
+  title: "SuperDoc × Jev — The Negotiation Lab",
   description:
-    "Jev evaluates a contract. SuperDoc creates verified tracked changes. You review the result.",
+    "One deal decision becomes connected, reviewable Word redlines. Jev evaluates, SuperDoc executes, and you negotiate.",
   other: {
     "codex-preview": "development",
   },

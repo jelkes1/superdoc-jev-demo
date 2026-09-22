@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import type { Suggestion } from "../../lib/review/types";
 test.beforeEach(async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/playbook");
   await expect(
     page.getByRole("button", { name: "Review against playbook", exact: true }),
   ).toBeEnabled();

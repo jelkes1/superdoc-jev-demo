@@ -85,14 +85,15 @@ async function render(name, shots, target) {
     );
   return cursor + pad;
 }
-const full = await render("superdoc-jev-demo", timeline.shots, 75);
+const prefix = timeline.prefix || "superdoc-jev";
+const full = await render(`${prefix}-demo`, timeline.shots, 75);
 if (full < 60 || full > 90)
   throw new Error(
     `Main cut is ${full.toFixed(1)}s. Adjust timeline pauses before release.`,
   );
 const social = await render(
-  "superdoc-jev-social",
-  [
+  `${prefix}-social`,
+  timeline.socialShots || [
     timeline.shots[0],
     timeline.shots[1],
     timeline.shots[2],
@@ -112,7 +113,7 @@ await writeFile(
       runs: timeline.measured,
       mainSeconds: full,
       socialSeconds: social,
-      reviewWaitsCompressed: true,
+      reviewWaitsCompressed: timeline.shots.some(s => s.wait),
     },
     null,
     2,

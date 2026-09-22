@@ -1,4 +1,4 @@
-import ReviewWorkspace from "./review-workspace";
+import NegotiationWorkspace from "./negotiation-workspace";
 export default function Page() {
-  return <ReviewWorkspace />;
+  return <NegotiationWorkspace />;
 }
