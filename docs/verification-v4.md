@@ -17,3 +17,15 @@ Hashes and counts: [Word round-trip evidence](word-roundtrip-v4.json). No repair
 ## Genuine model evaluation
 
 All 60 requests completed under the $2 local cap. Expected labels/rationales were committed before calls. See [methodology](comparison-methodology.md) and [every response](evaluation-v4.json), including fixture mismatches, disagreements, timing ranges, token costs and limitations.
+
+## Release checks
+
+TypeScript, ESLint, the production build and all 22 unit/integration checks passed. All 19 browser scenarios passed across the full-suite run and focused reruns after fixes; this is not a claim that the final 19 ran together in one pass. The final guided scenario additionally covers changing policy after accepting/rejecting and inserting a safeguard: only owned pending changes are cleared, two counsel revisions remain, accepted text survives, and the next proposals use 60 days. Rejecting an insertion may already remove its anchored explanation comment; cleanup now checks the current comment list and updates resolved-operation state incrementally.
+
+A fresh clone at `5657bf7` passed `npm ci --ignore-scripts`, database initialization, production build, typecheck and all 22 unit tests. Its production server opened the sample and handled missing credentials explicitly. The final production recording uses the built application at `ecb157f` with real provider credentials loaded at runtime; no model responses or document operations are stubbed. The local production start command explicitly resolves `.dev.vars` from the source root, outside the deployable bundle.
+
+The public URL was updated to Sites version 9 (`ecb157f`). Genuine hosted review, execution/export and all three comparison responses are retained in [hosted evidence](hosted-run-v4.json). The final guided browser check on that deployment uses test-only model transport while exercising real document operations. Provider transport and usage are separately evidenced by the genuine hosted and recorded runs. The recording's independent local production budget does not modify the public allowance.
+
+The hosted export reopened with three tables, six comments, five logical tracked-change groups and its numbered safeguard. The final video export was also reopened successfully with the same table, comment, revision-group and safeguard counts. Exact video hashes, sampled frames and inspection limits are in [video verification](video-verification-v4.json); [recorded measurements](recorded-run-v4.json) retain actual usage and document-operation evidence. The earlier video exposed a cleanup error during inspection and is not included in release assets.
+
+LinkedIn, X and TypeSafe messages remain drafts; none were sent.

@@ -1,0 +1,551 @@
+{
+  "origin": "http://127.0.0.1:4178",
+  "browser": "145.0.7632.6",
+  "runs": [
+    {
+      "type": "complete",
+      "model": "jev-1.13.0",
+      "usage": {
+        "pricingDate": "2026-09-22",
+        "cachedInputTokens": 0,
+        "inputTokens": 3736,
+        "outputTokens": 490,
+        "costUsd": 0.00015691200000000002,
+        "latencyMs": 288,
+        "decisions": 8
+      },
+      "decisions": [
+        {
+          "id": "training",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.94,
+          "probabilities": {
+            "UNACCEPTABLE": 0.95,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.05
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "training-order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.93,
+          "probabilities": {
+            "UNACCEPTABLE": 0.95,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.05
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.84,
+          "probabilities": {
+            "UNACCEPTABLE": 0.89,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.11
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal-order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.87,
+          "probabilities": {
+            "UNACCEPTABLE": 0.9,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.1
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "safeguard",
+          "verdict": "NOT_APPLICABLE",
+          "confidence": 0.25,
+          "probabilities": {
+            "UNACCEPTABLE": 0.13,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0.44,
+            "NEEDS_REVIEW": 0.43
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "signals",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.35,
+          "probabilities": {
+            "UNACCEPTABLE": 0.52,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.48
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "payment",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.32,
+          "probabilities": {
+            "UNACCEPTABLE": 0.15,
+            "ACCEPTABLE": 0.5,
+            "NOT_APPLICABLE": 0.02,
+            "NEEDS_REVIEW": 0.33
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "liability",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.43,
+          "probabilities": {
+            "UNACCEPTABLE": 0.39,
+            "ACCEPTABLE": 0.03,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.58
+          },
+          "model": "jev-1.13.0"
+        }
+      ]
+    },
+    {
+      "type": "execution",
+      "proof": {
+        "runId": "eaa7f9eb-a0dd-4a84-9d33-dd39cb34a8a6",
+        "activeMs": 6455.600000143051,
+        "firstVerifiedMs": 575.8999999761581,
+        "attempted": 5,
+        "verified": 5,
+        "failed": 0,
+        "unknownCalls": 0,
+        "usage": [
+          {
+            "model": "jev-1.13.0",
+            "usage": {
+              "pricingDate": "2026-09-22",
+              "cachedInputTokens": 0,
+              "inputTokens": 3736,
+              "outputTokens": 490,
+              "costUsd": 0.00015691200000000002,
+              "latencyMs": 288,
+              "decisions": 8
+            },
+            "revision": "0",
+            "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}"
+          }
+        ],
+        "phases": [
+          {
+            "phase": "review",
+            "revision": "0",
+            "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+            "ms": 407.10000002384186
+          },
+          {
+            "phase": "superdoc",
+            "revision": "0",
+            "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+            "ms": 2756.5
+          },
+          {
+            "phase": "superdoc",
+            "revision": "8",
+            "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+            "ms": 1023.4000000953674
+          },
+          {
+            "phase": "superdoc",
+            "revision": "10",
+            "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+            "ms": 1089.1000000238419
+          },
+          {
+            "phase": "superdoc",
+            "revision": "11",
+            "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+            "ms": 1179.5
+          }
+        ],
+        "proof": [
+          {
+            "ruleId": "training",
+            "beforeRevision": "0",
+            "afterRevision": "2",
+            "exactTarget": true,
+            "tracked": true,
+            "preserved": true,
+            "comment": true
+          },
+          {
+            "ruleId": "training-order",
+            "beforeRevision": "2",
+            "afterRevision": "4",
+            "exactTarget": true,
+            "tracked": true,
+            "preserved": true,
+            "comment": true
+          },
+          {
+            "ruleId": "renewal",
+            "beforeRevision": "4",
+            "afterRevision": "6",
+            "exactTarget": true,
+            "tracked": true,
+            "preserved": true,
+            "comment": true
+          },
+          {
+            "ruleId": "renewal-order",
+            "beforeRevision": "6",
+            "afterRevision": "8",
+            "exactTarget": true,
+            "tracked": true,
+            "preserved": true,
+            "comment": true
+          },
+          {
+            "ruleId": "safeguard",
+            "beforeRevision": "8",
+            "afterRevision": "10",
+            "exactTarget": true,
+            "tracked": true,
+            "preserved": true,
+            "comment": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "comparison",
+      "events": [
+        {
+          "type": "result",
+          "result": {
+            "model": "jev-1.13.0",
+            "snapshot": "4c703d4db7f37242b71e1c4894a9d8edd64cbdc401a4434691a203e7c875b1eb",
+            "elapsedMs": 286,
+            "usage": {
+              "inputTokens": 3902,
+              "outputTokens": 485,
+              "cachedInputTokens": 0,
+              "costUsd": 0.00016388400000000002,
+              "pricingDate": "2026-09-22"
+            },
+            "status": "complete",
+            "verdicts": [
+              {
+                "id": "training",
+                "verdict": "NEEDS_REVIEW",
+                "confidence": 0.35,
+                "probabilities": {
+                  "ACCEPTABLE": 0.44,
+                  "NOT_APPLICABLE": 0,
+                  "UNACCEPTABLE": 0.04,
+                  "NEEDS_REVIEW": 0.52
+                }
+              },
+              {
+                "id": "training-order",
+                "verdict": "ACCEPTABLE",
+                "confidence": 0.75,
+                "probabilities": {
+                  "ACCEPTABLE": 0.81,
+                  "NOT_APPLICABLE": 0,
+                  "UNACCEPTABLE": 0.01,
+                  "NEEDS_REVIEW": 0.17
+                }
+              },
+              {
+                "id": "renewal",
+                "verdict": "UNACCEPTABLE",
+                "confidence": 0.83,
+                "probabilities": {
+                  "ACCEPTABLE": 0.01,
+                  "NOT_APPLICABLE": 0,
+                  "UNACCEPTABLE": 0.87,
+                  "NEEDS_REVIEW": 0.12
+                }
+              },
+              {
+                "id": "renewal-order",
+                "verdict": "ACCEPTABLE",
+                "confidence": 0.71,
+                "probabilities": {
+                  "ACCEPTABLE": 0.78,
+                  "NOT_APPLICABLE": 0,
+                  "UNACCEPTABLE": 0.06,
+                  "NEEDS_REVIEW": 0.16
+                }
+              },
+              {
+                "id": "safeguard",
+                "verdict": "ACCEPTABLE",
+                "confidence": 0.75,
+                "probabilities": {
+                  "ACCEPTABLE": 0.82,
+                  "NOT_APPLICABLE": 0.05,
+                  "UNACCEPTABLE": 0.01,
+                  "NEEDS_REVIEW": 0.12
+                }
+              },
+              {
+                "id": "signals",
+                "verdict": "NEEDS_REVIEW",
+                "confidence": 0.84,
+                "probabilities": {
+                  "ACCEPTABLE": 0.09,
+                  "NOT_APPLICABLE": 0,
+                  "UNACCEPTABLE": 0.03,
+                  "NEEDS_REVIEW": 0.88
+                }
+              },
+              {
+                "id": "payment",
+                "verdict": "ACCEPTABLE",
+                "confidence": 0.74,
+                "probabilities": {
+                  "ACCEPTABLE": 0.81,
+                  "NOT_APPLICABLE": 0.03,
+                  "UNACCEPTABLE": 0.02,
+                  "NEEDS_REVIEW": 0.14
+                }
+              },
+              {
+                "id": "liability",
+                "verdict": "NEEDS_REVIEW",
+                "confidence": 0.6,
+                "probabilities": {
+                  "ACCEPTABLE": 0.03,
+                  "NOT_APPLICABLE": 0,
+                  "UNACCEPTABLE": 0.26,
+                  "NEEDS_REVIEW": 0.71
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "result",
+          "result": {
+            "model": "gpt-5.4-mini-2026-03-17",
+            "snapshot": "4c703d4db7f37242b71e1c4894a9d8edd64cbdc401a4434691a203e7c875b1eb",
+            "elapsedMs": 1674,
+            "usage": {
+              "inputTokens": 3171,
+              "outputTokens": 115,
+              "cachedInputTokens": 0,
+              "costUsd": 0.00289575,
+              "pricingDate": "2026-09-22"
+            },
+            "status": "complete",
+            "verdicts": [
+              {
+                "id": "training",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "training-order",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "renewal",
+                "verdict": "UNACCEPTABLE"
+              },
+              {
+                "id": "renewal-order",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "safeguard",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "signals",
+                "verdict": "NEEDS_REVIEW"
+              },
+              {
+                "id": "payment",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "liability",
+                "verdict": "NEEDS_REVIEW"
+              }
+            ]
+          }
+        },
+        {
+          "type": "result",
+          "result": {
+            "model": "gpt-5.4-2026-03-05",
+            "snapshot": "4c703d4db7f37242b71e1c4894a9d8edd64cbdc401a4434691a203e7c875b1eb",
+            "elapsedMs": 1750,
+            "usage": {
+              "inputTokens": 3171,
+              "outputTokens": 115,
+              "cachedInputTokens": 2816,
+              "costUsd": 0.0033165,
+              "pricingDate": "2026-09-22"
+            },
+            "status": "complete",
+            "verdicts": [
+              {
+                "id": "training",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "training-order",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "renewal",
+                "verdict": "UNACCEPTABLE"
+              },
+              {
+                "id": "renewal-order",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "safeguard",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "signals",
+                "verdict": "NEEDS_REVIEW"
+              },
+              {
+                "id": "payment",
+                "verdict": "ACCEPTABLE"
+              },
+              {
+                "id": "liability",
+                "verdict": "NEEDS_REVIEW"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "complete",
+      "model": "jev-1.13.0",
+      "usage": {
+        "pricingDate": "2026-09-22",
+        "cachedInputTokens": 0,
+        "inputTokens": 3778,
+        "outputTokens": 488,
+        "costUsd": 0.000158676,
+        "latencyMs": 224,
+        "decisions": 8
+      },
+      "decisions": [
+        {
+          "id": "training",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.56,
+          "probabilities": {
+            "ACCEPTABLE": 0.11,
+            "NOT_APPLICABLE": 0,
+            "UNACCEPTABLE": 0.22,
+            "NEEDS_REVIEW": 0.67
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "training-order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.94,
+          "probabilities": {
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0.04,
+            "UNACCEPTABLE": 0.96
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.86,
+          "probabilities": {
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "UNACCEPTABLE": 0.9,
+            "NEEDS_REVIEW": 0.1
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "renewal-order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.89,
+          "probabilities": {
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "UNACCEPTABLE": 0.92,
+            "NEEDS_REVIEW": 0.08
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "safeguard",
+          "verdict": "NOT_APPLICABLE",
+          "confidence": 0.33,
+          "probabilities": {
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0.5,
+            "UNACCEPTABLE": 0.06,
+            "NEEDS_REVIEW": 0.44
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "signals",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.73,
+          "probabilities": {
+            "ACCEPTABLE": 0.02,
+            "NOT_APPLICABLE": 0,
+            "UNACCEPTABLE": 0.18,
+            "NEEDS_REVIEW": 0.8
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "payment",
+          "verdict": "ACCEPTABLE",
+          "confidence": 0.26,
+          "probabilities": {
+            "ACCEPTABLE": 0.44,
+            "NOT_APPLICABLE": 0.02,
+            "NEEDS_REVIEW": 0.38,
+            "UNACCEPTABLE": 0.16
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "id": "liability",
+          "verdict": "NEEDS_REVIEW",
+          "confidence": 0.43,
+          "probabilities": {
+            "ACCEPTABLE": 0.04,
+            "NOT_APPLICABLE": 0,
+            "UNACCEPTABLE": 0.39,
+            "NEEDS_REVIEW": 0.57
+          },
+          "model": "jev-1.13.0"
+        }
+      ]
+    }
+  ],
+  "mainSeconds": 65,
+  "socialSeconds": 25,
+  "reviewWaitsCompressed": false,
+  "sourceCommit": "ecb157ffcd57e705f011e1fbc65996ef3625b6d1",
+  "recordingEnvironment": "Local production build with live provider calls and real browser document operations. Hosted provider evidence is published separately."
+}

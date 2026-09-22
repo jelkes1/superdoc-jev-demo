@@ -1,0 +1,317 @@
+{
+  "sourceCommit": "ecb157ffcd57e705f011e1fbc65996ef3625b6d1",
+  "recordingEnvironment": "Local production build; real Jev/OpenAI calls and real SuperDoc operations. Genuine hosted provider results are in hosted-run-v4.json.",
+  "sourceIntegrity": "Recording completed 12 scripted scenes with no page errors or visible application error banners. Original video files were unchanged during inspection.",
+  "edits": "Caption band added below the application. Main sequence preserves recorded waiting durations; closing frame held to 65 seconds. Social cut selects genuine highlights and holds its closing frame to 25 seconds.",
+  "comparisonSettings": "Exact models, reasoning none, canonical frozen evidence and pricing shown in app; no application-cache reuse or provider substitution.",
+  "records": [
+    {
+      "cut": "main",
+      "file": {
+        "path": "outputs/video-v4-final/superdoc-jev-guided-demo.mp4",
+        "bytes": 6812935,
+        "sha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+      },
+      "probe": {
+        "formatVersion": 1,
+        "formatName": "mov,mp4,m4a,3gp,3g2,mj2",
+        "containers": [
+          "mov",
+          "mp4",
+          "m4a",
+          "3gp",
+          "3g2",
+          "mj2"
+        ],
+        "durationSeconds": 65,
+        "streams": [
+          {
+            "index": 0,
+            "codecType": "video",
+            "codecName": "h264",
+            "width": 1600,
+            "height": 1200,
+            "channels": null
+          }
+        ],
+        "hasVideoStream": true,
+        "hasAudioStream": false
+      },
+      "frames": [
+        {
+          "timestampSeconds": 0,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-001-0_000s.png",
+            "bytes": 744474,
+            "sha256": "0389d13ac60e7efe9567c3806d6a2988aab348b4db589396190f1a6997c91a44",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Prepared sample, disclosure and first action are visible."
+        },
+        {
+          "timestampSeconds": 10.817,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-002-10_817s.png",
+            "bytes": 745326,
+            "sha256": "5d53e608a0dea67467e706edb807161630afe940f6fdcf75b6a1d6daf22d364c",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Tracked replacement is visible while execution is finishing; controls are disabled during processing."
+        },
+        {
+          "timestampSeconds": 21.633,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-003-21_633s.png",
+            "bytes": 805105,
+            "sha256": "d4f3e375eb3afe3fe378ac3affae0ef50f135f28c4abe27ce5737b7b5b1bbf13",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "A real table cell contains tracked replacement text; review controls remain visible."
+        },
+        {
+          "timestampSeconds": 26,
+          "kind": "targeted",
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/target-26s.png",
+            "bytes": 804097,
+            "sha256": "b27a1bd787b92f5decb154f3df89e4d52eadd7a68bcf5efe1e96c59613a033ef",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Numbered safeguard is a tracked list item; surrounding numbering is visible."
+        },
+        {
+          "timestampSeconds": 32.45,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-004-32_450s.png",
+            "bytes": 765453,
+            "sha256": "ab03b5dc1e8947898ab6497eb097b5d8920d9ca0f229a8c5e348a73b9243939a",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Accepted training and rejected renewal statuses are visible."
+        },
+        {
+          "timestampSeconds": 36,
+          "kind": "targeted",
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/target-36s.png",
+            "bytes": 885679,
+            "sha256": "e32445fcb06a3e387a3218316bb198b84fa6795f102e1eabde6acb92864bf8a8",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Ambiguous telemetry is marked for human review; stale prior decision is explicit."
+        },
+        {
+          "timestampSeconds": 43.267,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-005-43_267s.png",
+            "bytes": 603981,
+            "sha256": "3a35e8a4d8d88dcf291b012e17548c53d98f91ab418bbf8704a67704e5295f1f",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Comparison is incremental: Jev completed while both OpenAI calls are still running."
+        },
+        {
+          "timestampSeconds": 46,
+          "kind": "targeted",
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/target-46s.png",
+            "bytes": 628167,
+            "sha256": "019da8b88eabad67c5a3044001016940d618bb060c36c51e64f2971dbc6697cc",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "All three exact models completed; timings, cost, cached usage, disagreements and snapshot identity are visible."
+        },
+        {
+          "timestampSeconds": 54.083,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-006-54_083s.png",
+            "bytes": 729796,
+            "sha256": "2c47cf221087ad6c7b8ee7b05bc3aefca918f9754a0f6416d71e9b9435e68d70",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Policy is now 60 days; accepted text remains and fresh proposals are available without an error banner."
+        },
+        {
+          "timestampSeconds": 64.9,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-main/frames/frame-007-64_900s.png",
+            "bytes": 573263,
+            "sha256": "b82694efd2d7d53a3526b0afaa551c0c7eccdd5f379064f7c98adeefa2cf2aed",
+            "operation": "extract-frames",
+            "parentSha256": "8a0528bdb487372977d3fad07cac030771b8ef6f4a2e3c372d269ecd28857faf"
+          },
+          "visuallyInspected": true,
+          "finding": "Execution boundary view separates model decisions from document operations."
+        }
+      ],
+      "sampledTimesSeconds": [
+        0,
+        10.817,
+        21.633,
+        26,
+        32.45,
+        36,
+        43.267,
+        46,
+        54.083,
+        64.9
+      ],
+      "unseenIntervalsSeconds": [
+        [
+          0,
+          10.817
+        ],
+        [
+          10.817,
+          21.633
+        ],
+        [
+          21.633,
+          26
+        ],
+        [
+          26,
+          32.45
+        ],
+        [
+          32.45,
+          36
+        ],
+        [
+          36,
+          43.267
+        ],
+        [
+          43.267,
+          46
+        ],
+        [
+          46,
+          54.083
+        ],
+        [
+          54.083,
+          64.9
+        ],
+        [
+          64.9,
+          65
+        ]
+      ],
+      "audio": "No audio stream. Captions are burned in and also supplied as SRT.",
+      "reader": "Bundled SuperDoc video-cli prepare (FFmpeg 6.0, FFprobe 4.4), direct image viewer; Python standard-library SHA-256/PNG structure checks. Targeted frames use the existing FFmpeg binary because the bundled CLI accepts only evenly spaced times.",
+      "gaps": "Intervals between sampled instants were not visually inspected. PNG checks used standard-library structure inspection, not the bundled ImageMagick image reader. No conversion was needed."
+    },
+    {
+      "cut": "social",
+      "file": {
+        "path": "outputs/video-v4-final/superdoc-jev-guided-social.mp4",
+        "bytes": 2402405,
+        "sha256": "5ba0c6a9e1c2e4ad4ebb3b83b150fdc03212d31a206fd024341c09133a0d73ae"
+      },
+      "probe": {
+        "formatVersion": 1,
+        "formatName": "mov,mp4,m4a,3gp,3g2,mj2",
+        "containers": [
+          "mov",
+          "mp4",
+          "m4a",
+          "3gp",
+          "3g2",
+          "mj2"
+        ],
+        "durationSeconds": 25,
+        "streams": [
+          {
+            "index": 0,
+            "codecType": "video",
+            "codecName": "h264",
+            "width": 1600,
+            "height": 1200,
+            "channels": null
+          }
+        ],
+        "hasVideoStream": true,
+        "hasAudioStream": false
+      },
+      "frames": [
+        {
+          "timestampSeconds": 0,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-social/frames/frame-001-0_000s.png",
+            "bytes": 744474,
+            "sha256": "0389d13ac60e7efe9567c3806d6a2988aab348b4db589396190f1a6997c91a44",
+            "operation": "extract-frames",
+            "parentSha256": "5ba0c6a9e1c2e4ad4ebb3b83b150fdc03212d31a206fd024341c09133a0d73ae"
+          },
+          "visuallyInspected": true,
+          "finding": "Guided starting context and disclosure."
+        },
+        {
+          "timestampSeconds": 12.45,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-social/frames/frame-002-12_450s.png",
+            "bytes": 828536,
+            "sha256": "c60bc708ad68ab19480b7427b25e5dd95e3e1b98a21b2b12d89ec54360564cd3",
+            "operation": "extract-frames",
+            "parentSha256": "5ba0c6a9e1c2e4ad4ebb3b83b150fdc03212d31a206fd024341c09133a0d73ae"
+          },
+          "visuallyInspected": true,
+          "finding": "Tracked table-cell replacement with accept/reject controls."
+        },
+        {
+          "timestampSeconds": 24.9,
+          "derivative": {
+            "path": "outputs/video-v4-final/inspect-caption-social/frames/frame-003-24_900s.png",
+            "bytes": 578909,
+            "sha256": "54f6b0fa540ff1185276b8427a6e835a3422acde3ccb5aa1ce2b259df3a6d399",
+            "operation": "extract-frames",
+            "parentSha256": "5ba0c6a9e1c2e4ad4ebb3b83b150fdc03212d31a206fd024341c09133a0d73ae"
+          },
+          "visuallyInspected": true,
+          "finding": "Export summary shows one accepted, one rejected, three pending and two unresolved; comparison acknowledgement is also visible."
+        }
+      ],
+      "sampledTimesSeconds": [
+        0,
+        12.45,
+        24.9
+      ],
+      "unseenIntervalsSeconds": [
+        [
+          0,
+          12.45
+        ],
+        [
+          12.45,
+          24.9
+        ],
+        [
+          24.9,
+          25
+        ]
+      ],
+      "audio": "No audio stream. Captions are burned in and also supplied as SRT.",
+      "reader": "Bundled SuperDoc video-cli prepare (FFmpeg 6.0, FFprobe 4.4), direct image viewer; Python standard-library SHA-256/PNG structure checks. Targeted frames use the existing FFmpeg binary because the bundled CLI accepts only evenly spaced times.",
+      "gaps": "Intervals between sampled instants were not visually inspected. PNG checks used standard-library structure inspection, not the bundled ImageMagick image reader. No conversion was needed."
+    }
+  ]
+}

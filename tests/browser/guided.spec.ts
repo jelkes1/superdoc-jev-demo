@@ -129,18 +129,24 @@ test("guided journey keeps the document visible, resumes exploration, exports pe
       .getByRole("button", { name: "Recheck changed clauses", exact: true })
       .first(),
   ).toBeEnabled();
+  await expect(page.locator(".canvas-status")).toContainText("2 revisions");
   const retained = await page.evaluate(async () => {
     const n = window.__dealDesk!;
+    if (!n) return null; // Direct API assertions are available in development only.
     return n.read(n.instance.activeEditor!.doc!, {
       training: "consent",
       notice: 60,
     });
   });
-  expect(retained.changes).toHaveLength(2);
-  expect(
-    retained.rows.find((r) => r.id === "training")?.clause?.text,
-  ).toContain("Customer’s specific prior written consent");
-  expect(retained.rows.find((r) => r.id === "safeguard")?.present).toBe(false);
+  if (retained) {
+    expect(retained.changes).toHaveLength(2);
+    expect(
+      retained.rows.find((r) => r.id === "training")?.clause?.text,
+    ).toContain("Customer’s specific prior written consent");
+    expect(retained.rows.find((r) => r.id === "safeguard")?.present).toBe(
+      false,
+    );
+  }
   await page
     .getByRole("button", { name: "Recheck changed clauses", exact: true })
     .first()

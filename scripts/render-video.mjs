@@ -97,7 +97,8 @@ async function render(name, shots, target) {
   await writeFile(subtitle, captions.join("\n"));
   const list = join(partDir, "concat.txt");
   await writeFile(list, parts.join("\n"));
-  const filter = `tpad=stop_mode=clone:stop_duration=${(pad + 0.5).toFixed(3)},subtitles=filename='${escapeFilter(subtitle)}':force_style='FontName=Arial,FontSize=10,PrimaryColour=&H00FFFFFF,OutlineColour=&H00422C1A,BorderStyle=3,Outline=3,Shadow=0,MarginV=12'`;
+  // Keep captions outside the application so they never cover review controls.
+  const filter = `tpad=stop_mode=clone:stop_duration=${(pad + 0.5).toFixed(3)},pad=iw:ih+120:0:0:color=0x1a2c42,subtitles=filename='${escapeFilter(subtitle)}':force_style='FontName=Arial,FontSize=9,PrimaryColour=&H00FFFFFF,OutlineColour=&H00422C1A,BorderStyle=3,Outline=2,Shadow=0,MarginV=5'`;
   const result = spawnSync(
     ffmpeg,
     [
