@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { writeFile } from "node:fs/promises";
 const file = resolve(process.argv[2] || "outputs/headless/reviewed.docx");
 const expectedComments = Number(process.argv[3] || 6);
+const expectedProposals = Number(process.argv[4] || 4);
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage();
@@ -39,6 +40,7 @@ try {
     };
   });
   expect(result.info.counts.tables).toBe(3);
+  expect(result.info.counts.comments).toBe(expectedComments);
   expect(result.info.counts.lists).toBeGreaterThan(0);
   expect(
     result.changes.some(
@@ -48,7 +50,7 @@ try {
   expect(
     result.changes.filter((c) => c.author === "Northstar · Document agent")
       .length,
-  ).toBeGreaterThanOrEqual(4);
+  ).toBeGreaterThanOrEqual(expectedProposals);
   await writeFile(file + ".verification.json", JSON.stringify(result, null, 2));
   console.log(
     JSON.stringify({

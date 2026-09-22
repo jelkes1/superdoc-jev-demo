@@ -129,7 +129,11 @@ async function render(name, shots, target) {
   return cursor + pad;
 }
 const prefix = timeline.prefix || "superdoc-jev";
-const full = await render(`${prefix}-demo`, timeline.shots, 75);
+const full = await render(
+  `${prefix}-demo`,
+  timeline.shots,
+  prefix === "superdoc-jev-deal-desk" ? 65 : 75,
+);
 if (full < 60 || full > 90)
   throw new Error(
     `Main cut is ${full.toFixed(1)}s. Adjust timeline pauses before release.`,
@@ -153,10 +157,17 @@ await writeFile(
     {
       origin: timeline.origin,
       browser: timeline.browser,
-      runs: timeline.measured,
+      runs: timeline.measured.map(({ type, model, usage, decisions }) => ({
+        type,
+        model,
+        usage,
+        decisions,
+      })),
       mainSeconds: full,
       socialSeconds: social,
-      reviewWaitsCompressed: timeline.shots.some((s) => s.wait),
+      reviewWaitsCompressed: (
+        await readFile(join(out, `${prefix}-demo.srt`), "utf8")
+      ).includes("Waiting time compressed"),
     },
     null,
     2,

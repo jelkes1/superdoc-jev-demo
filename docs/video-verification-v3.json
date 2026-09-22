@@ -1,0 +1,94 @@
+{
+  "browser": "Playwright Chromium 145.0.7632.6",
+  "runtime": "Node 24.11.1",
+  "recording": "Genuine public hosted run; assertions passed; no browser errors. Social cut is selected highlights; no waiting time compression was needed. Closing frame held to reach 65/25 seconds.",
+  "reader": "Bundled video-tools with FFmpeg 6.0 / ffprobe 4.4; four targeted main frames via FFmpeg. PNG hashes, format and dimensions checked with Pillow and inspected with runtime image viewer; ImageMagick preparation not used.",
+  "videos": [
+    {
+      "file": "superdoc-jev-deal-desk-demo.mp4",
+      "bytes": 5643176,
+      "sha256": "8d1cb341f52f94ef82e213f3e8a590c0ebbc084d497edd624a945805891b9cc9",
+      "container": "MP4",
+      "codec": "H.264",
+      "size": [
+        1600,
+        1080
+      ],
+      "durationSeconds": 65,
+      "audioStreams": 0,
+      "sampledTimesSeconds": [
+        0,
+        17,
+        27,
+        32.45,
+        40,
+        47,
+        64.9
+      ],
+      "unseenIntervalsSeconds": [
+        [
+          0,
+          17
+        ],
+        [
+          17,
+          27
+        ],
+        [
+          27,
+          32.45
+        ],
+        [
+          32.45,
+          40
+        ],
+        [
+          40,
+          47
+        ],
+        [
+          47,
+          64.9
+        ],
+        [
+          64.9,
+          65
+        ]
+      ],
+      "findings": "Burned captions readable; relevant document and execution states visible at sampled moments. Main targeted frames show clause redlines, numbered item 2, reasoning proposal and rejection result. Social frame shows edited order-form table. Not a continuous visual inspection."
+    },
+    {
+      "file": "superdoc-jev-deal-desk-social.mp4",
+      "bytes": 2232981,
+      "sha256": "0089a310eb3cb54c5def8111167fae46407abc1b25e59d233f7ed3795a53366e",
+      "container": "MP4",
+      "codec": "H.264",
+      "size": [
+        1600,
+        1080
+      ],
+      "durationSeconds": 25,
+      "audioStreams": 0,
+      "sampledTimesSeconds": [
+        0,
+        12.45,
+        24.9
+      ],
+      "unseenIntervalsSeconds": [
+        [
+          0,
+          12.45
+        ],
+        [
+          12.45,
+          24.9
+        ],
+        [
+          24.9,
+          25
+        ]
+      ],
+      "findings": "Burned captions readable; relevant document and execution states visible at sampled moments. Main targeted frames show clause redlines, numbered item 2, reasoning proposal and rejection result. Social frame shows edited order-form table. Not a continuous visual inspection."
+    }
+  ]
+}
