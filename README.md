@@ -21,7 +21,9 @@ A standalone TypeScript/React example with a real DOCX editor, a connected negot
 - [Unsent launch drafts](docs/launch-drafts-v4.md)
 - [Previous atomic negotiation example](lib/negotiation/document.ts), available at `/negotiation`
 - [Original five-rule playbook](lib/review/document.ts), available at `/playbook`
-- [Captioned videos and exported DOCX](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.4.0)
+- [Developer films: 60-second story and 25-second feed cut](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.4.1)
+- [Film production notes and unsent social copy](docs/developer-film.md)
+- [Full guided walkthrough videos and exported DOCX](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.4.0)
 
 ## Run locally
 

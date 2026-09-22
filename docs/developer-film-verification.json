@@ -1,0 +1,357 @@
+{
+  "date": "2026-09-22",
+  "applicationSourceCommit": "ecb157ffcd57e705f011e1fbc65996ef3625b6d1",
+  "browser": "145.0.7632.6",
+  "scope": "Developer-focused editorial films composed from genuine application recordings and actual run evidence. No new model calls were made for this edit.",
+  "reader": {
+    "video": "Existing FFmpeg/FFprobe with targeted timestamps. The bundled video CLI cannot select exact scene timestamps, so existing tools were used directly. No media reader tools were installed.",
+    "images": "Direct view_image inspection; Python standard-library PNG signature/dimensions and SHA-256 checks. ImageMagick checks were not performed.",
+    "audio": "FFprobe reports no audio tracks; both films deliberately use an on-screen narrative and separate SRT captions."
+  },
+  "sources": [
+    {
+      "file": "14dcfecf109d8c998f123354e67150c9.webm",
+      "sha256": "78d544eda102cf1e2b8a639555805f5a86a9e0bfd317ebc6b9bedb36d15fd78e",
+      "unchangedAfterRenderAndInspection": true
+    },
+    {
+      "file": "d3ad5d57eab50ec24aaf12f041f494a1.webm",
+      "sha256": "4f4693c41c206a32516beab9011beebb2ddd7f505576bf09f65e1410922702eb",
+      "unchangedAfterRenderAndInspection": true
+    }
+  ],
+  "reopenedExport": {
+    "file": "reviewed-agreement.docx",
+    "sha256": "02502652985997dca461a7800563a52904d30fe2547d285557b960458a13f1b8",
+    "tables": 3,
+    "comments": 6,
+    "counselRevisions": 2,
+    "pendingAgentRevisions": 3,
+    "pageErrors": [],
+    "modelCalls": 0
+  },
+  "measurement": {
+    "runId": "eaa7f9eb-a0dd-4a84-9d33-dd39cb34a8a6",
+    "activeMs": 6455.600000143051,
+    "firstVerifiedMs": 575.8999999761581,
+    "attempted": 5,
+    "verified": 5,
+    "failed": 0,
+    "unknownCalls": 0,
+    "usage": [
+      {
+        "model": "jev-1.13.0",
+        "usage": {
+          "pricingDate": "2026-09-22",
+          "cachedInputTokens": 0,
+          "inputTokens": 3736,
+          "outputTokens": 490,
+          "costUsd": 0.00015691200000000002,
+          "latencyMs": 288,
+          "decisions": 8
+        },
+        "revision": "0",
+        "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}"
+      }
+    ],
+    "phases": [
+      {
+        "phase": "review",
+        "revision": "0",
+        "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+        "ms": 407.10000002384186
+      },
+      {
+        "phase": "superdoc",
+        "revision": "0",
+        "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+        "ms": 2756.5
+      },
+      {
+        "phase": "superdoc",
+        "revision": "8",
+        "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+        "ms": 1023.4000000953674
+      },
+      {
+        "phase": "superdoc",
+        "revision": "10",
+        "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+        "ms": 1089.1000000238419
+      },
+      {
+        "phase": "superdoc",
+        "revision": "11",
+        "policyVersion": "living-deal-desk-v3:{\"training\":\"consent\",\"notice\":30}",
+        "ms": 1179.5
+      }
+    ],
+    "proof": [
+      {
+        "ruleId": "training",
+        "beforeRevision": "0",
+        "afterRevision": "2",
+        "exactTarget": true,
+        "tracked": true,
+        "preserved": true,
+        "comment": true
+      },
+      {
+        "ruleId": "training-order",
+        "beforeRevision": "2",
+        "afterRevision": "4",
+        "exactTarget": true,
+        "tracked": true,
+        "preserved": true,
+        "comment": true
+      },
+      {
+        "ruleId": "renewal",
+        "beforeRevision": "4",
+        "afterRevision": "6",
+        "exactTarget": true,
+        "tracked": true,
+        "preserved": true,
+        "comment": true
+      },
+      {
+        "ruleId": "renewal-order",
+        "beforeRevision": "6",
+        "afterRevision": "8",
+        "exactTarget": true,
+        "tracked": true,
+        "preserved": true,
+        "comment": true
+      },
+      {
+        "ruleId": "safeguard",
+        "beforeRevision": "8",
+        "afterRevision": "10",
+        "exactTarget": true,
+        "tracked": true,
+        "preserved": true,
+        "comment": true
+      }
+    ]
+  },
+  "measurementScope": "Recorded at export; human reading/approval pauses, optional model comparison and later policy recheck are excluded. These are execution checks, not legal-accuracy results.",
+  "editing": "Edited highlights of one genuine production run, plus the reopened export. Footage is cropped and may hold its last frame; playback is not a wall-clock benchmark. Editorial response/code/metric cards are derived from the actual run and repository, not simulated app screens. Footage has a subtle 2% camera move; scene entries have short fades.",
+  "films": [
+    {
+      "file": "superdoc-jev-developer-story.mp4",
+      "sha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+      "bytes": 3840896,
+      "durationSeconds": 60,
+      "width": 1080,
+      "height": 1350,
+      "fps": 30,
+      "codec": "H.264",
+      "pixelFormat": "yuv420p",
+      "audioTracks": 0,
+      "sampledFrames": [
+        {
+          "time": 0,
+          "path": "outputs/social-film/inspect-developer-story/frame-0s.png",
+          "bytes": 486374,
+          "sha256": "3a5218d0734bc9719afcb39b361f5f7d44db3ac6e5f4e8a4176887f92133d727",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Opening frame shows the real tracked clause immediately; hook and branding are legible."
+        },
+        {
+          "time": 4.5,
+          "path": "outputs/social-film/inspect-developer-story/frame-4.5s.png",
+          "bytes": 278265,
+          "sha256": "de0e2b98e07810f0338aa6808018b88d50f59998c44d1e164fe61a224f93521a",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Actual Jev verdict UNACCEPTABLE and 94% native confidence are visible with the language-approval step."
+        },
+        {
+          "time": 11,
+          "path": "outputs/social-film/inspect-developer-story/frame-11s.png",
+          "bytes": 578547,
+          "sha256": "27b11adc233d2ce90d791e9bd658117bbf7b329a57970a4e65167edda518c725",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Tracked clause replacement and exact-target, tracked-mode, readback checks are visible."
+        },
+        {
+          "time": 18,
+          "path": "outputs/social-film/inspect-developer-story/frame-18s.png",
+          "bytes": 630813,
+          "sha256": "97dbb1b4172f244ade2a49ec56d8d3c71b579839f2ffc1ae7226b994b7cc39d0",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "The actual order-form table and tracked cell change remain visible and legible."
+        },
+        {
+          "time": 24,
+          "path": "outputs/social-film/inspect-developer-story/frame-24s.png",
+          "bytes": 495866,
+          "sha256": "f2f9c589d45784082fb913af9455858fe9d4ee3958563852e941239bc46d9f2e",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "The separately approved safeguard is a tracked numbered item in the existing list."
+        },
+        {
+          "time": 30,
+          "path": "outputs/social-film/inspect-developer-story/frame-30s.png",
+          "bytes": 394555,
+          "sha256": "27c1314d0640cfc89e72a3714a29174a002aecbe675760d6ba783d02fc800b32",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Reopened exported payment clause retains counsel\u2019s 45-to-30-day revision and named authorship."
+        },
+        {
+          "time": 36,
+          "path": "outputs/social-film/inspect-developer-story/frame-36s.png",
+          "bytes": 375462,
+          "sha256": "8e265251bf3bb66148c867656b36ba3a097f09f7680ba49e9e7560feaaf45bf6",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Actual human-review controls and rejected finding are visible."
+        },
+        {
+          "time": 43,
+          "path": "outputs/social-film/inspect-developer-story/frame-43s.png",
+          "bytes": 302179,
+          "sha256": "38145f546f3e5ee50c733ee612c69a07efdc50eb0e461a27c929215b7589765e",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "The doc.replace code excerpt shows tracked mode and the expected revision."
+        },
+        {
+          "time": 51,
+          "path": "outputs/social-film/inspect-developer-story/frame-51s.png",
+          "bytes": 275087,
+          "sha256": "611c63a7a6773ba9589f20578f29c3e73b18c8e089fd0b9272d88a5ef4dab5df",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "The proof card matches the recorded export-state measurements and identifies the exclusions."
+        },
+        {
+          "time": 57,
+          "path": "outputs/social-film/inspect-developer-story/frame-57s.png",
+          "bytes": 246719,
+          "sha256": "131c9e44d867dc5a7dc2ce0736e0e112559482f526860763d4298710b865b429",
+          "parentSha256": "7edf0ca89c2d1d49e4acdc3873b78fdff009f039dcd4109b0d590183943e143e",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "The CTA explains the Jev/SuperDoc/human roles and links to the runnable example and README setup."
+        }
+      ],
+      "unseenIntervalsSeconds": [
+        [0, 4.5],
+        [4.5, 11],
+        [11, 18],
+        [18, 24],
+        [24, 30],
+        [30, 36],
+        [36, 43],
+        [43, 51],
+        [51, 57],
+        [57, 60]
+      ],
+      "inspectionLimit": "Only the listed still frames were visually inspected. Intervening motion, fades and held frames were not watched continuously."
+    },
+    {
+      "file": "superdoc-jev-developer-social.mp4",
+      "sha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+      "bytes": 2438095,
+      "durationSeconds": 25,
+      "width": 1080,
+      "height": 1350,
+      "fps": 30,
+      "codec": "H.264",
+      "pixelFormat": "yuv420p",
+      "audioTracks": 0,
+      "sampledFrames": [
+        {
+          "time": 0,
+          "path": "outputs/social-film/inspect-developer-social/frame-0s.png",
+          "bytes": 487191,
+          "sha256": "948fbac25ed40dc7610d25e3706104d2f6587e0e1eba8b24328fd05bd23e7add",
+          "parentSha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Opening frame immediately shows the tracked clause, readable hook, and branding."
+        },
+        {
+          "time": 5,
+          "path": "outputs/social-film/inspect-developer-social/frame-5s.png",
+          "bytes": 575848,
+          "sha256": "7014f0f0c1d7697baa293d4484aa18202f9b5f06ac3b6064ebafc383b85d25b1",
+          "parentSha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Actual tracked clause replacement and execution checks are visible."
+        },
+        {
+          "time": 10,
+          "path": "outputs/social-film/inspect-developer-social/frame-10s.png",
+          "bytes": 614167,
+          "sha256": "b419d91ca966bea2002909e7bbf6b281120c6b90e6a580e08586789ff098e021",
+          "parentSha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Actual order-form table cell changes are shown in place."
+        },
+        {
+          "time": 14,
+          "path": "outputs/social-film/inspect-developer-social/frame-14s.png",
+          "bytes": 407709,
+          "sha256": "ab1d87841d56c294cbcb3ea80e025b9cc902fe7911d877c039c77e9b6dfd9bf8",
+          "parentSha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Exported counsel payment revision and attribution remain visible."
+        },
+        {
+          "time": 19,
+          "path": "outputs/social-film/inspect-developer-social/frame-19s.png",
+          "bytes": 273713,
+          "sha256": "1338f4582b0a0d49f23af2e67804c27e1880b325f39e1a7ba1f7a6751f292e06",
+          "parentSha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "Five verified changes, 6.46 seconds active processing, and $0.000157 estimated review model cost match the source."
+        },
+        {
+          "time": 23,
+          "path": "outputs/social-film/inspect-developer-social/frame-23s.png",
+          "bytes": 246719,
+          "sha256": "131c9e44d867dc5a7dc2ce0736e0e112559482f526860763d4298710b865b429",
+          "parentSha256": "1728b3ae01e964adedeb9746aa92e55df04d855a2fb142e391cd34eaf502860f",
+          "viewed": true,
+          "dimensions": [1080, 1350],
+          "finding": "The repository CTA, architecture roles, and setup note are legible."
+        }
+      ],
+      "unseenIntervalsSeconds": [
+        [0, 5],
+        [5, 10],
+        [10, 14],
+        [14, 19],
+        [19, 23],
+        [23, 25]
+      ],
+      "inspectionLimit": "Only the listed still frames were visually inspected. Intervening motion, fades and held frames were not watched continuously."
+    }
+  ],
+  "cover": {
+    "file": "superdoc-jev-developer-cover.png",
+    "source": "Exact first frame of the developer story.",
+    "sha256": "3a5218d0734bc9719afcb39b361f5f7d44db3ac6e5f4e8a4176887f92133d727"
+  },
+  "posts": "Drafts only. No social posts, messages, comments or outreach sent."
+}
