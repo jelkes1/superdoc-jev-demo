@@ -83,9 +83,7 @@ test("guided journey keeps the document visible, resumes exploration, exports pe
     .locator(".guided-queue")
     .getByRole("button", { name: /Numbered safeguard/ })
     .click();
-  await page
-    .getByRole("button", { name: "Approve numbered insertion" })
-    .click();
+  await page.getByRole("button", { name: "Add as tracked change" }).click();
   await expect(
     page.getByRole("heading", { name: /5 verified Word changes/ }),
   ).toBeVisible();
@@ -330,4 +328,85 @@ test("partial execution retains verified changes and advances to actionable revi
   await expect(
     page.getByRole("button", { name: "Download Word", exact: true }),
   ).toBeEnabled();
+});
+
+test("missing safeguard has a visible action and its comment anchors the new tracked list item", async ({
+  page,
+}, info) => {
+  await ready(page);
+  await reviewMock(page);
+  await page
+    .getByRole("button", { name: "Review findings without creating changes" })
+    .click();
+  await page
+    .locator(".guided-queue")
+    .getByRole("button", { name: /Numbered safeguard/ })
+    .click();
+  const add = page.getByRole("button", {
+    name: /Approve numbered insertion|Add as tracked change/,
+  });
+  await expect(add).toBeEnabled();
+  await expect.soft(add).toBeInViewport({ timeout: 1500 });
+  await add.click();
+  await expect(
+    page.getByRole("button", { name: "Accept", exact: true }),
+  ).toBeEnabled();
+  const result = await page.evaluate(async () => {
+    const n = window.__dealDesk!,
+      doc = n.instance.activeEditor!.doc!;
+    const reading = await n.read(doc, { training: "consent", notice: 30 });
+    const row = reading.rows.find((r) => r.id === "safeguard")!;
+    const change = reading.changes.find(
+      (c) =>
+        c.navigationTarget?.blockId === row.clause?.nodeId &&
+        c.insertedText === row.clause?.text,
+    );
+    const comment = (await doc.comments.list({ limit: 1000 })).items.find((c) =>
+      c.text?.startsWith("Agreed terms · Numbered safeguard:"),
+    );
+    return { row, change, comment };
+  });
+  expect(result.change?.insertedText).toBe(result.row.clause?.text);
+  expect(result.comment?.target?.segments).toEqual([
+    {
+      blockId: result.row.clause!.nodeId,
+      range: { start: 0, end: result.row.clause!.text.length },
+    },
+  ]);
+  expect(result.comment?.anchoredText).toBe(result.row.clause?.text);
+  await expect(
+    page.getByText("Comment on the new item", { exact: true }),
+  ).toBeInViewport();
+  await page.getByRole("button", { name: "Show commented text" }).click();
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () => window.__dealDesk!.instance.ui.comments.getSnapshot().activeId,
+      ),
+    )
+    .toBe(result.comment!.id);
+  await page.screenshot({ path: info.outputPath("safeguard-tracked.png") });
+  await page.getByRole("button", { name: "Reject", exact: true }).click();
+  await expect(page.locator(".reviewed-label")).toContainText("rejected");
+  const rejected = await page.evaluate(async () => {
+    const n = window.__dealDesk!,
+      doc = n.instance.activeEditor!.doc!;
+    return {
+      reading: await n.read(doc, { training: "consent", notice: 30 }),
+      comments: await doc.comments.list({ limit: 1000 }),
+      list: await doc.lists.list({}),
+    };
+  });
+  expect(rejected.list.items.map((item) => item.marker)).toEqual([
+    "1.",
+    "2.",
+    "3.",
+  ]);
+  expect(rejected.reading.rows.find((r) => r.id === "safeguard")?.present).toBe(
+    false,
+  );
+  expect(rejected.reading.changes).toHaveLength(2);
+  expect(rejected.comments.items.some((c) => c.id === result.comment?.id)).toBe(
+    false,
+  );
 });

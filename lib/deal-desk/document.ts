@@ -33,6 +33,7 @@ export interface Operation {
   changeIds: string[];
   fingerprints: Record<string, string>;
   commentId?: string;
+  commentText?: string;
   receipt: unknown;
   beforeRevision: string;
   afterRevision: string;
@@ -211,7 +212,7 @@ export async function applyOperation(
   const afterDetails = await Promise.all(
     after.map((c) => doc.trackChanges.get({ id: c.id })),
   );
-  const preserved = details.every((b) =>
+  let preserved = details.every((b) =>
     afterDetails.some(
       (a) => a.id === b.id && fingerprint(a) === fingerprint(b),
     ),
@@ -225,31 +226,36 @@ export async function applyOperation(
     },
     require: "any",
   });
-  const own = afterDetails.filter((c) => created.some((x) => x.id === c.id));
+  let own = afterDetails.filter((c) => created.some((x) => x.id === c.id));
   const receiptRefs =
     rule.kind === "insert"
       ? (receipt as { trackedChangeRefs?: { entityId: string }[] })
           .trackedChangeRefs
       : (receipt as { inserted?: { entityId?: string }[] }).inserted;
   const receiptHasRevisions = !!receiptRefs?.length;
-  const verified =
+  let verified =
     receiptHasRevisions &&
     preserved &&
     readback.total === 1 &&
     own.length > 0 &&
     own.every((c) => c.navigationTarget?.blockId === blockId);
-  let commentId: string | undefined, warning: string | undefined;
+  let commentId: string | undefined,
+    commentText: string | undefined,
+    warning: string | undefined;
   if (verified)
     try {
       const c = await doc.comments.create(
         {
-          text: `Agreed terms · ${rule.label}: ${requirement(originalRule, policy)} Proposed by the document agent for human review.`,
+          text:
+            rule.kind === "insert"
+              ? `Agreed terms · ${rule.label}: Added the missing customer-data training restriction to Schedule C. It covers de-identified excerpts and takes precedence over conflicting permissions in Section 7 or an order form. Review this new numbered item before accepting it.`
+              : `Agreed terms · ${rule.label}: ${requirement(originalRule, policy)} Proposed by the document agent for human review.`,
           target:
             rule.kind === "insert"
               ? {
                   kind: "text",
-                  blockId: row.clause.nodeId,
-                  range: { start: 0, end: row.clause.text.length },
+                  blockId,
+                  range: { start: 0, end: row.replacement.length },
                 }
               : {
                   kind: "trackedChange",
@@ -264,11 +270,40 @@ export async function applyOperation(
       if (!c.success || !c.id) throw new Error();
       const saved = await doc.comments.get({ commentId: c.id });
       if (!saved.text?.startsWith("Agreed terms")) throw new Error();
+      if (
+        rule.kind === "insert" &&
+        (saved.anchoredText !== row.replacement ||
+          saved.target?.segments.length !== 1 ||
+          saved.target.segments[0].blockId !== blockId)
+      )
+        throw new Error("The insertion comment does not anchor the new item.");
       commentId = c.id;
+      commentText = saved.text;
     } catch {
       warning =
         "The edit is verified; its explanation comment could not be verified.";
     }
+  if (rule.kind === "insert") {
+    // Anchoring a comment inside an inserted list item can expose its text and
+    // paragraph-mark revisions separately. Keep the settled public IDs so one
+    // Accept/Reject action still resolves the whole insertion.
+    const settled = await listChanges(doc);
+    const settledDetails = await Promise.all(
+      settled.map((c) => doc.trackChanges.get({ id: c.id })),
+    );
+    own = settledDetails.filter((c) => !before.some((b) => b.id === c.id));
+    preserved = details.every((b) =>
+      settledDetails.some(
+        (a) => a.id === b.id && fingerprint(a) === fingerprint(b),
+      ),
+    );
+    verified =
+      verified &&
+      preserved &&
+      own.length > 0 &&
+      own.every((c) => c.navigationTarget?.blockId === blockId) &&
+      own.some((c) => c.insertedText === row.replacement);
+  }
   return {
     id,
     kind: rule.kind as "insert" | "replace",
@@ -278,6 +313,7 @@ export async function applyOperation(
     changeIds: own.map((c) => c.id),
     fingerprints: Object.fromEntries(own.map((c) => [c.id, fingerprint(c)])),
     commentId,
+    commentText,
     receipt,
     beforeRevision: reading.revision,
     afterRevision: (await doc.info({})).revision,
@@ -339,8 +375,25 @@ export async function decideOperation(
     { expectedRevision: (await doc.info({})).revision },
   );
   if (!r.success) throw new Error(r.failure?.message ?? "Review failed.");
+  let warning = op.warning;
+  if (decision === "reject" && op.commentId) {
+    try {
+      const comments = await doc.comments.list({ limit: 1000 });
+      if (comments.items.some((c) => c.id === op.commentId)) {
+        const removed = await doc.comments.delete(
+          { commentId: op.commentId },
+          { expectedRevision: (await doc.info({})).revision },
+        );
+        if (!removed.success) throw new Error();
+      }
+    } catch {
+      warning =
+        "The change was rejected, but its explanation comment needs manual cleanup.";
+    }
+  }
   return {
     ...op,
+    warning,
     status:
       decision === "accept" ? ("accepted" as const) : ("rejected" as const),
   };

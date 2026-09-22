@@ -105,7 +105,7 @@ try {
       await page.getByRole("button", { name: /Numbered safeguard/ }).click();
       await page
         .getByRole("button", {
-          name: "Approve numbered insertion",
+          name: "Add as tracked change",
           exact: true,
         })
         .click();

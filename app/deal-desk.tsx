@@ -65,7 +65,8 @@ export default function DealDesk() {
   const mount = useRef<HTMLDivElement>(null),
     instance = useRef<Editor | null>(null),
     generation = useRef(0),
-    fileInput = useRef<HTMLInputElement>(null);
+    fileInput = useRef<HTMLInputElement>(null),
+    inspector = useRef<HTMLElement>(null);
   const [ready, setReady] = useState(false),
     [busy, setBusy] = useState(""),
     [error, setError] = useState(""),
@@ -276,6 +277,7 @@ export default function DealDesk() {
       setSelected(id);
       setTab("document");
       setEditing(false);
+      inspector.current?.scrollTo({ top: 0, behavior: "instant" });
       await new Promise<void>((resolve) =>
         requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
       );
@@ -513,6 +515,7 @@ export default function DealDesk() {
       const updated = await decideOperation(doc(), op, choice);
       setOps((s) => s.map((o) => (o === op ? updated : o)));
       setReading(await readDocument(doc(), policy));
+      if (updated.warning) setError(updated.warning);
       setStale(false);
     } catch (e) {
       setError(msg(e));
@@ -718,7 +721,7 @@ export default function DealDesk() {
     if (!currentDecision(r)) return "Not checked";
     if (r.id === "payment") return "Preserve";
     if (r.id === "liability" || r.id === "signals") return "Human decision";
-    if (r.id === "safeguard" && !r.present) return "Approve insertion";
+    if (r.id === "safeguard" && !r.present) return "Not added yet";
     const d = currentDecision(r)!;
     if (d.verdict === "ACCEPTABLE") return "Aligned";
     if (eligible(r, d)) return "Ready to redline";
@@ -1227,7 +1230,7 @@ export default function DealDesk() {
                     disabled={!ready}
                   >
                     <span
-                      className={`status-dot ${["Aligned", "Preserve", "Redline ready"].includes(status) ? "green" : ["Human decision", "Approve insertion", "Recheck"].includes(status) ? "amber" : status === "Ready to redline" ? "blue" : ""}`}
+                      className={`status-dot ${["Aligned", "Preserve", "Redline ready"].includes(status) ? "green" : ["Human decision", "Not added yet", "Recheck"].includes(status) ? "amber" : status === "Ready to redline" ? "blue" : ""}`}
                     />
                     <span>
                       <b>{r.label}</b>
@@ -1472,7 +1475,7 @@ export default function DealDesk() {
             </div>
           )}
         </section>
-        <aside className="finding-inspector">
+        <aside className="finding-inspector" ref={inspector}>
           <div className="inspector-top">
             <span>SELECTED FINDING</span>
             <span>
@@ -1481,19 +1484,44 @@ export default function DealDesk() {
           </div>
           <span className="eyebrow">{rule.location}</span>
           <h2>{rule.label}</h2>
+          {rule.kind === "insert" &&
+            review &&
+            !row?.present &&
+            !row?.problem && (
+              <section
+                className="missing-safeguard"
+                aria-label="Missing safeguard"
+              >
+                <b>Missing clause · Not added yet</b>
+                <p>
+                  Add the proposed language below as a new numbered item in
+                  Schedule C, with a tracked insertion and comment.
+                </p>
+                <button
+                  className="primary"
+                  disabled={!!busy || navigating}
+                  onClick={() => void apply(selected, true)}
+                >
+                  <GitPullRequest size={16} /> Add as tracked change
+                </button>
+              </section>
+            )}
           {op?.status === "pending" ? (
             <div className="review-controls">
               <div className="verification">
                 <ShieldCheck size={17} />
                 <b>
                   {op.verified
-                    ? "Tracked edit verified"
+                    ? op.kind === "insert"
+                      ? "Numbered insertion tracked"
+                      : "Tracked edit verified"
                     : "Inspect verification"}
                 </b>
               </div>
               <p>
-                Text read back · Revision created · Counsel’s existing changes
-                preserved
+                {op.kind === "insert"
+                  ? "New language is marked as an insertion in the document. Accept keeps the item; Reject removes it."
+                  : "Text read back · Revision created · Counsel’s existing changes preserved"}
               </p>
               <div>
                 <button
@@ -1519,6 +1547,26 @@ export default function DealDesk() {
             )
           )}
 
+          {op?.kind === "insert" &&
+            op.status === "pending" &&
+            op.commentId &&
+            op.commentText && (
+              <details className="safeguard-comment" open>
+                <summary>
+                  <MessageSquare size={15} /> Comment on the new item
+                </summary>
+                <p>{op.commentText}</p>
+                <button
+                  disabled={!!busy || navigating}
+                  onClick={() => {
+                    instance.current!.ui.comments.setActive(op.commentId!);
+                    void instance.current!.ui.comments.scrollTo(op.commentId!);
+                  }}
+                >
+                  Show commented text
+                </button>
+              </details>
+            )}
           <details className="finding-rule" open={!guided || undefined}>
             <summary>Agreed instruction</summary>
             <p>{requirement(rule, policy)}</p>
@@ -1625,25 +1673,6 @@ export default function DealDesk() {
                   onClick={() => void apply(selected, true)}
                 >
                   Approve this replacement
-                </button>
-              </div>
-            )}
-          {rule.kind === "insert" &&
-            review &&
-            !row?.present &&
-            !row?.problem && (
-              <div className="human-gate">
-                <AlertTriangle size={17} />
-                <p>
-                  A missing clause changes the scope of the agreement. Approve
-                  this language and insertion point before it becomes a tracked
-                  list item.
-                </p>
-                <button
-                  disabled={!!busy || navigating}
-                  onClick={() => void apply(selected, true)}
-                >
-                  Approve numbered insertion
                 </button>
               </div>
             )}

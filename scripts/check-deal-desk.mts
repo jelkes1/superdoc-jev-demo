@@ -46,7 +46,7 @@ if (await approve.count()) {
 await page.screenshot({ path: `${dir}/redline.png` });
 await page.getByRole("button", { name: /Numbered safeguard/ }).click();
 await page
-  .getByRole("button", { name: "Approve numbered insertion", exact: true })
+  .getByRole("button", { name: "Add as tracked change", exact: true })
   .click();
 await page
   .getByText("Tracked edit verified", { exact: true })

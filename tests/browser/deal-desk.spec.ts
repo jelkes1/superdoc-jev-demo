@@ -324,8 +324,24 @@ test("human-approved reasoning text exports and reopens with numbered changes, c
     return {
       info: await doc.info({}),
       reading: await n.read(doc, { training: "consent", notice: 30 }),
+      comments: await doc.comments.list({ limit: 1000 }),
+      list: await doc.lists.list({}),
     };
   });
+  const insertedRow = result.reading.rows.find((r) => r.id === "safeguard")!;
+  const insertionComment = result.comments.items.find((c) =>
+    c.text?.startsWith("Agreed terms · Numbered safeguard:"),
+  );
+  expect(insertionComment?.anchoredText).toBe(insertedRow.clause?.text);
+  expect(insertionComment?.target?.segments[0].blockId).toBe(
+    insertedRow.clause?.nodeId,
+  );
+  expect(result.list.items.map((item) => item.marker)).toEqual([
+    "1.",
+    "2.",
+    "3.",
+    "4.",
+  ]);
   expect(result.info.counts.tables).toBe(3);
   expect(result.info.counts.lists).toBeGreaterThan(0);
   expect(result.reading.rows.find((r) => r.id === "safeguard")?.present).toBe(

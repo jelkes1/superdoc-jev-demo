@@ -123,7 +123,7 @@ try {
     async () => {
       await finding("Numbered safeguard");
       await page
-        .getByRole("button", { name: "Approve numbered insertion" })
+        .getByRole("button", { name: "Add as tracked change" })
         .click();
       await expect(
         page.getByRole("heading", {
