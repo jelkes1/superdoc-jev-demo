@@ -5,6 +5,7 @@ test.beforeEach(async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "Download Word", exact: true }),
   ).toBeEnabled();
+  await page.getByRole("button", { name: "Explore freely", exact: true }).click();
   await page.waitForFunction(
     () => !!window.__dealDesk?.instance.activeEditor?.doc,
   );

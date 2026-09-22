@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { pricedUsage } from "../compare/pricing";
 import { rules } from "../review/playbook";
 import type {
   Clause,
@@ -97,7 +98,11 @@ export async function draft(
       finish_reason: string;
       message: { content?: string; refusal?: string };
     }[];
-    usage?: { prompt_tokens: number; completion_tokens: number };
+    usage?: {
+      prompt_tokens: number;
+      completion_tokens: number;
+      prompt_tokens_details?: { cached_tokens?: number };
+    };
   };
   const u = result.usage;
   if (
@@ -112,9 +117,12 @@ export async function draft(
       502,
     );
   const usage = {
-    inputTokens: u.prompt_tokens,
-    outputTokens: u.completion_tokens,
-    costUsd: (u.prompt_tokens * 2.5 + u.completion_tokens * 15) / 1e6,
+    ...pricedUsage(
+      "gpt-5.4-2026-03-05",
+      u.prompt_tokens,
+      u.completion_tokens,
+      u.prompt_tokens_details?.cached_tokens ?? 0,
+    ),
     latencyMs: performance.now() - start,
     decisions: 0,
   };

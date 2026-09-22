@@ -41,7 +41,7 @@ export async function reserve(
   id: Identity,
   amount: number,
   limit: number,
-  kind: "review" | "reason",
+  kind: "review" | "reason" | "compare",
   parent?: string,
 ): Promise<Reservation> {
   if (!db)
@@ -60,11 +60,11 @@ export async function reserve(
     );
   const keys = [`v:${hour}:${id.visitor}`, `i:${hour}:${id.ip}`];
   const permission =
-    kind === "review"
+    kind !== "reason"
       ? `(SELECT count FROM rate_limits WHERE key=?) < 5 AND (SELECT count FROM rate_limits WHERE key=?) < 5`
       : `EXISTS(SELECT 1 FROM reservations WHERE id=? AND visitor=? AND ip=? AND kind='review' AND settled=1 AND created>?) AND (SELECT COUNT(*) FROM reservations WHERE parent=?) < 2`;
   const args =
-    kind === "review"
+    kind !== "reason"
       ? keys
       : [parent ?? "", id.visitor, id.ip, now - 3600000, parent ?? ""];
   const statements = [
@@ -102,7 +102,7 @@ export async function reserve(
       )
       .bind(amount, day, requestId),
   ];
-  if (kind === "review")
+  if (kind !== "reason")
     for (const key of keys)
       statements.push(
         db
@@ -115,7 +115,7 @@ export async function reserve(
   const result = await db.batch(statements);
   if (result[3].meta.changes !== 1)
     throw new PublicError(
-      kind === "review"
+      kind !== "reason"
         ? "Demo allowance reached. Try again later or run the example locally with your own keys."
         : "This review’s reasoning allowance is exhausted or expired.",
       429,

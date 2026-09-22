@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import RunProof from "./run-proof";
+import { RunMeasurements, type Phase } from "@/lib/deal-desk/measurements";
+import type { CompareInput } from "@/lib/compare/input";
 import type { Proposal, Usage } from "@/lib/review/types";
 import type { SuperDoc as Editor } from "superdoc";
 import {
@@ -88,6 +91,54 @@ export default function DealDesk() {
     usage: Usage;
     model: string;
   }>();
+  const [navigating, setNavigating] = useState(false);
+  const [guided, setGuided] = useState(true),
+    [step, setStep] = useState(1);
+  const [selectedProposals, setSelectedProposals] = useState<RuleId[]>([
+    "training",
+    "training-order",
+    "renewal",
+    "renewal-order",
+  ]);
+  const [deferred, setDeferred] = useState<RuleId[]>([]);
+  const meter = useRef(new RunMeasurements());
+  const [measurements, setMeasurements] = useState(() =>
+    new RunMeasurements().snapshot(),
+  );
+  function begin(phase: Phase) {
+    meter.current.begin(
+      phase,
+      reading?.revision ?? "opening",
+      `${VERSION}:${JSON.stringify(policy)}`,
+    );
+  }
+  function finish() {
+    meter.current.end();
+    setMeasurements(meter.current.snapshot());
+  }
+  async function measuredApply(...args: Parameters<typeof applyOperation>) {
+    meter.current.attempt();
+    let result: Operation;
+    try {
+      result = await applyOperation(...args);
+    } catch (e) {
+      meter.current.operation();
+      throw e;
+    }
+    meter.current.operation(result);
+    return result;
+  }
+  async function comparisonSnapshot(): Promise<CompareInput> {
+    const fresh = await readDocument(doc(), policy);
+    return {
+      revision: fresh.revision,
+      version: VERSION,
+      policy,
+      rows: fresh.rows
+        .filter((r) => r.clause && !r.problem)
+        .map((r) => ({ id: r.id, text: r.clause!.text, context: r.context })),
+    };
+  }
   const doc = () => {
     const d = instance.current?.activeEditor?.doc;
     if (!d) throw new Error("The document is loading.");
@@ -96,6 +147,18 @@ export default function DealDesk() {
   async function open(file?: File | string) {
     const ticket = ++generation.current;
     setReady(false);
+    setStep(1);
+    setSelected("training");
+    setTab("document");
+    setDeferred([]);
+    setSelectedProposals([
+      "training",
+      "training-order",
+      "renewal",
+      "renewal-order",
+    ]);
+    meter.current = new RunMeasurements(undefined, crypto.randomUUID());
+    setMeasurements(meter.current.snapshot());
     setError("");
     setReview(null);
     setCache({});
@@ -115,6 +178,7 @@ export default function DealDesk() {
       instance.current?.destroy();
       mount.current!.replaceChildren();
       document.getElementById("desk-toolbar")?.replaceChildren();
+      let fitFrame = 0;
       const sd = new SuperDoc({
         selector: mount.current!,
         document: file ?? "/deal-desk.docx",
@@ -130,9 +194,14 @@ export default function DealDesk() {
           search: true,
           ruler: false,
         },
-        zoom: {
-          mode: "fit-width",
-          fitWidth: { min: 25, max: 110, padding: 30 },
+        // Apply viewport fitting on the next animation frame, outside ResizeObserver delivery.
+        zoom: { mode: "manual", initial: 85 },
+        onViewportChange: ({ fitZoom }) => {
+          cancelAnimationFrame(fitFrame);
+          fitFrame = requestAnimationFrame(() => {
+            if (ticket === generation.current)
+              sd.ui.zoom.set(Math.max(25, Math.min(110, fitZoom - 3)));
+          });
         },
         onReady: () => {
           void readDocument(sd.activeEditor!.doc!, DEFAULT_POLICY)
@@ -191,7 +260,7 @@ export default function DealDesk() {
             )
             .map((r) => r.id);
           setChanged(dirty);
-          setStale(true);
+          setStale(dirty.length > 0);
           setReading(fresh);
         })
         .catch(() => {});
@@ -203,27 +272,60 @@ export default function DealDesk() {
   }, [ready, busy, reading, cache, policy]);
   /* eslint-enable react-hooks/exhaustive-deps */
   async function navigate(id: RuleId) {
-    setSelected(id);
-    setTab("document");
-    setEditing(false);
-    const row = reading?.rows.find((x) => x.id === id);
-    if (row?.clause) {
-      const r = await instance.current!.ui.viewport.scrollIntoView({
-        target: {
-          kind: "text",
-          blockId: row.clause.nodeId,
-          range: { start: 0, end: 0 },
-        },
-        block: "center",
-        behavior: "instant",
-      });
-      if (!r.success) setError("This target moved. Recheck the document.");
+    setNavigating(true);
+    setError("");
+    try {
+      setSelected(id);
+      setTab("document");
+      setEditing(false);
+      await new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+      );
+      const fresh = await readDocument(doc(), policy);
+      const row = fresh.rows.find((x) => x.id === id);
+      if (row?.clause) {
+        const r = await instance.current!.ui.viewport.scrollIntoView({
+          target: {
+            kind: "text",
+            blockId: row.clause.nodeId,
+            range: { start: 0, end: 0 },
+          },
+          block: "center",
+          behavior: "instant",
+        });
+        if (!r.success) {
+          // Virtual page mounting can trail a sidebar/zoom layout change by one frame.
+          await new Promise<void>((resolve) =>
+            requestAnimationFrame(() => resolve()),
+          );
+          const retried = await instance.current!.ui.viewport.scrollIntoView({
+            target: {
+              kind: "text",
+              blockId: row.clause.nodeId,
+              range: { start: 0, end: 0 },
+            },
+            block: "center",
+            behavior: "instant",
+          });
+          if (!retried.success)
+            setError(
+              "This location could not be scrolled into view. Its finding remains available; recheck if you edited it.",
+            );
+        }
+      }
+    } catch (e) {
+      setError(msg(e));
+    } finally {
+      setNavigating(false);
     }
   }
   async function check() {
     if (busy || !consent) return;
+    begin("review");
     setBusy("Reading current document targets…");
     setError("");
+    let requested = false,
+      reported = false;
     try {
       const fresh = await readDocument(doc(), policy);
       const pending = fresh.rows.filter(
@@ -241,9 +343,11 @@ export default function DealDesk() {
         setLastCheck(
           "All available decisions are still current. No model call needed.",
         );
+        if (!review) setStep(2);
         return;
       }
       setBusy(`Jev is checking ${pending.length} changed locations…`);
+      requested = true;
       const response = await fetch("/api/deal-desk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -261,6 +365,15 @@ export default function DealDesk() {
       const data = (await response.json()) as Review & { error?: string };
       if (!response.ok) throw new Error(data.error);
       const result = data as Review;
+      if (result.usage) {
+        meter.current.usage(
+          "jev-1.13.0",
+          result.usage,
+          fresh.revision,
+          `${VERSION}:${JSON.stringify(policy)}`,
+        );
+        reported = true;
+      }
       if (
         result.revision !== fresh.revision ||
         result.version !== VERSION ||
@@ -275,6 +388,8 @@ export default function DealDesk() {
       }
       setCache(next);
       setReview(result);
+      setStep(2);
+      setTab("document");
       if (result.reasoning) setReasoning(result.reasoning);
       const now = await readDocument(doc(), policy);
       setReading(now);
@@ -292,15 +407,18 @@ export default function DealDesk() {
     } catch (e) {
       setError(msg(e));
     } finally {
+      if (requested && !reported) meter.current.unknown();
+      finish();
       setBusy("");
     }
   }
   async function apply(id: RuleId, human = false) {
     if (busy || !reading) return;
+    begin("superdoc");
     setBusy("SuperDoc is proposing and verifying the redline…");
     setError("");
     try {
-      const op = await applyOperation(
+      const op = await measuredApply(
         doc(),
         reading,
         id,
@@ -317,18 +435,20 @@ export default function DealDesk() {
           "The edit was applied but did not pass verification. Inspect it manually.",
         );
       setReading(await readDocument(doc(), policy));
-      setStale(true);
-      setChanged((s) => [...new Set([...s, id])]);
+      setStale(false);
+      setChanged([]);
       await navigate(id);
       if (op.warning) setError(op.warning);
     } catch (e) {
       setError(msg(e));
     } finally {
+      finish();
       setBusy("");
     }
   }
   async function applyReady(humanApproved = false) {
     if (!reading || busy) return;
+    begin("superdoc");
     setBusy("Proposing the eligible changes…");
     setError("");
     try {
@@ -342,11 +462,12 @@ export default function DealDesk() {
                 cache[r.id]?.signature === signature(r, policy)) &&
             !ops.some((o) => o.id === r.id && o.status === "pending"),
         )
-        .map((r) => r.id);
+        .map((r) => r.id)
+        .filter((id) => !guided || selectedProposals.includes(id));
       if ((await doc().info({})).revision !== current.revision)
         throw new Error("The document changed. Recheck before applying.");
       for (const id of ids) {
-        const op = await applyOperation(
+        const op = await measuredApply(
           doc(),
           current,
           id,
@@ -362,14 +483,16 @@ export default function DealDesk() {
         current = await readDocument(doc(), policy);
       }
       setReading(current);
-      setStale(true);
-      setChanged(ids);
-      setSelected("training");
+      setStale(false);
+      setChanged([]);
+      setStep(3);
+      setSelected(ids[0] ?? "safeguard");
       setTab("document");
       await instance.current!.ui.viewport.scrollIntoView({
         target: {
           kind: "text",
-          blockId: current.rows.find((r) => r.id === "training")!.clause!.id,
+          blockId: current.rows.find((r) => r.id === (ids[0] ?? "safeguard"))!
+            .clause!.id,
           range: { start: 0, end: 0 },
         },
         block: "center",
@@ -377,26 +500,32 @@ export default function DealDesk() {
       });
     } catch (e) {
       setError(msg(e));
+      setReading(await readDocument(doc(), policy));
+      setStep(3);
     } finally {
+      finish();
       setBusy("");
     }
   }
   async function decide(op: Operation, choice: "accept" | "reject") {
+    begin("superdoc");
     setBusy("Saving your review decision…");
     setError("");
     try {
       const updated = await decideOperation(doc(), op, choice);
       setOps((s) => s.map((o) => (o === op ? updated : o)));
       setReading(await readDocument(doc(), policy));
-      setStale(true);
+      setStale(false);
     } catch (e) {
       setError(msg(e));
     } finally {
+      finish();
       setBusy("");
     }
   }
   async function changeTerms(next: Policy) {
     if (busy) return;
+    begin("superdoc");
     setBusy("Checking ownership of pending suggestions…");
     setError("");
     try {
@@ -407,6 +536,8 @@ export default function DealDesk() {
         ),
       );
       setPolicy(next);
+      setDeferred([]);
+      setStep(1);
       setReading(await readDocument(doc(), next));
       setStale(true);
       setChanged(RULES.map((r) => r.id));
@@ -416,6 +547,7 @@ export default function DealDesk() {
     } catch (e) {
       setError(msg(e));
     } finally {
+      finish();
       setBusy("");
     }
   }
@@ -423,6 +555,7 @@ export default function DealDesk() {
     if (!reading) return;
     const row = reading.rows.find((r) => r.id === selected);
     if (!row?.clause) return;
+    begin("superdoc");
     setBusy("Saving your counter-edit into the document…");
     setError("");
     try {
@@ -454,13 +587,17 @@ export default function DealDesk() {
     } catch (e) {
       setError(msg(e));
     } finally {
+      finish();
       setBusy("");
     }
   }
   async function requestDraft() {
     if (!reasoning || busy) return;
+    begin("reasoning");
     setBusy("Reasoning model is drafting for human review…");
     setError("");
+    let requested = false,
+      reported = false;
     try {
       const fresh = await readDocument(doc(), policy);
       const signal = fresh.rows.find((r) => r.id === "signals");
@@ -472,6 +609,7 @@ export default function DealDesk() {
         throw new Error(
           "This clause or its policy changed. Recheck before drafting.",
         );
+      requested = true;
       const res = await fetch("/api/reason", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -491,25 +629,38 @@ export default function DealDesk() {
         error?: string;
       };
       if (!res.ok) throw new Error(result.error);
+      if (result.usage) {
+        meter.current.usage(
+          result.model,
+          result.usage,
+          fresh.revision,
+          `${VERSION}:${JSON.stringify(policy)}`,
+        );
+        reported = true;
+      }
       setReasoned(result);
     } catch (e) {
       setError(msg(e));
     } finally {
+      if (requested && !reported) meter.current.unknown();
+      finish();
       setBusy("");
     }
   }
   async function proposeDraft() {
     if (!reasoned?.proposal || busy || !reading) return;
+    begin("superdoc");
     setBusy("Proposing your approved draft…");
     setError("");
     try {
       const row = reading.rows.find((r) => r.id === "signals");
       if (
         row?.clause?.text !== reasoned.proposal.original ||
+        row?.context !== reasoning?.clause.context ||
         policy.training !== "consent"
       )
         throw new Error("The clause or policy changed. Request a fresh draft.");
-      const result = await applyOperation(
+      const result = await measuredApply(
         doc(),
         reading,
         "signals",
@@ -520,12 +671,13 @@ export default function DealDesk() {
       );
       setOps((s) => [...s, result]);
       setReading(await readDocument(doc(), policy));
-      setStale(true);
+      setStale(false);
       if (!result.verified)
         throw new Error("Inspect the draft: verification did not pass.");
     } catch (e) {
       setError(msg(e));
     } finally {
+      finish();
       setBusy("");
     }
   }
@@ -545,7 +697,9 @@ export default function DealDesk() {
   function canApprove(r: Row) {
     return (
       RULES.find((x) => x.id === r.id)?.kind === "replace" &&
-      !!cache[r.id] &&
+      !!currentDecision(r) &&
+      currentDecision(r)?.verdict !== "ACCEPTABLE" &&
+      currentDecision(r)?.verdict !== "NOT_APPLICABLE" &&
       !r.problem &&
       !!r.clause &&
       !!r.replacement &&
@@ -561,6 +715,8 @@ export default function DealDesk() {
   function state(r: Row) {
     const op = ops.findLast((o) => o.id === r.id);
     if (op?.status === "pending") return "Redline ready";
+    if (op) return op.status === "accepted" ? "Accepted" : "Rejected";
+    if (deferred.includes(r.id)) return "Human review later";
     if (r.problem) return "Needs context";
     if (cache[r.id] && !currentDecision(r)) return "Recheck";
     if (!currentDecision(r)) return "Not checked";
@@ -585,15 +741,35 @@ export default function DealDesk() {
           !pending.some((o) => o.id === r.id),
       ).length ?? 0;
   const approvalRows = reading?.rows.filter(canApprove) ?? [];
+  const queue = [
+    ...new Set([...ops.map((o) => o.id), ...RULES.map((r) => r.id)]),
+  ];
+  const queueIndex = queue.indexOf(selected);
+  const unresolved =
+    reading?.rows.filter(
+      (r) =>
+        !ops.some((o) => o.id === r.id) &&
+        (r.problem ||
+          !currentDecision(r) ||
+          !["ACCEPTABLE", "NOT_APPLICABLE"].includes(
+            currentDecision(r)!.verdict,
+          )),
+    ).length ?? RULES.length;
+  function nextFinding() {
+    if (queueIndex < queue.length - 1) void navigate(queue[queueIndex + 1]);
+    else setStep(4);
+  }
   return (
-    <div className="deal-app">
+    <div
+      className={`deal-app ${guided ? `guided guided-step-${step}` : "free-explore"}`}
+    >
       <header className="deal-header">
         <Link href="/" className="deal-brand">
           <span className="deal-logo">
             <FileText size={19} />
           </span>
           SuperDoc <span className="muted">×</span> Jev{" "}
-          <span className="release-pill">DEAL DESK · V3</span>
+          <span className="release-pill">GUIDED DEAL DESK · V4</span>
         </Link>
         <nav>
           <Link href="/walkthrough">
@@ -638,70 +814,123 @@ export default function DealDesk() {
               }
             }}
           />
-          <button disabled={!!busy} onClick={() => fileInput.current?.click()}>
+          <button
+            disabled={!!busy || navigating}
+            onClick={() => fileInput.current?.click()}
+          >
             <Upload size={15} /> Open DOCX
           </button>
-          <button disabled={!ready || !!busy} onClick={() => void download()}>
+          <button
+            disabled={!ready || !!busy || navigating}
+            onClick={() => void download()}
+          >
             <Download size={15} /> Download Word
           </button>
         </div>
       </section>
-      <section className="terms-strip">
-        <div className="terms-heading">
-          <span className="small-icon">
-            <FileText size={17} />
-          </span>
-          <div>
-            <b>Agreed terms</b>
-            <small>Fictional commercial instructions</small>
+      <nav className="guide-progress" aria-label="Demo progress">
+        {[
+          "Review agreement",
+          "Propose changes",
+          "Review redlines",
+          "Export",
+        ].map((label, i) => (
+          <button
+            key={label}
+            aria-current={guided && step === i + 1 ? "step" : undefined}
+            disabled={
+              !ready || !!busy || (i > 0 && i < 3 && !review && !ops.length)
+            }
+            onClick={() => {
+              setGuided(true);
+              setStep(i + 1);
+              setTab("document");
+            }}
+          >
+            <span>{i + 1}</span>
+            {label}
+          </button>
+        ))}
+        <button
+          className="explore-toggle"
+          disabled={!!busy || navigating}
+          onClick={() => {
+            setGuided(!guided);
+            setTab("document");
+          }}
+        >
+          {guided ? "Explore freely" : "Return to guided flow"}
+        </button>
+      </nav>
+      <RunProof
+        key={measurements.runId}
+        measurement={measurements}
+        getSnapshot={comparisonSnapshot}
+        disabled={!ready || !!busy || navigating}
+        inspect={() => {
+          setGuided(false);
+          setTab("developer");
+        }}
+      />
+      <details className="supporting-settings" open={!guided || undefined}>
+        <summary>Agreed terms & policy controls</summary>
+        <section className="terms-strip">
+          <div className="terms-heading">
+            <span className="small-icon">
+              <FileText size={17} />
+            </span>
+            <div>
+              <b>Agreed terms</b>
+              <small>Fictional commercial instructions</small>
+            </div>
           </div>
-        </div>
-        <label>
-          Customer data
-          <select
-            aria-label="Training policy"
-            value={policy.training}
-            disabled={!ready || !!busy}
-            onChange={(e) =>
-              void changeTerms({
-                ...policy,
-                training: e.target.value as Policy["training"],
-              })
-            }
-          >
-            <option value="consent">Specific written consent to train</option>
-            <option value="prohibited">No model training permitted</option>
-          </select>
-        </label>
-        <label>
-          Renewal notice
-          <select
-            aria-label="Renewal notice"
-            value={policy.notice}
-            disabled={!ready || !!busy}
-            onChange={(e) =>
-              void changeTerms({
-                ...policy,
-                notice: Number(e.target.value) as Policy["notice"],
-              })
-            }
-          >
-            {[30, 60, 90].map((n) => (
-              <option key={n} value={n}>
-                {n} days
-              </option>
-            ))}
-          </select>
-        </label>
-        <div className="terms-fixed">
-          <ShieldCheck size={17} />
-          <span>
-            Preserve negotiated payment terms
-            <br />
-            <b>Escalate telemetry & liability</b>
-          </span>
-        </div>
-      </section>
+          <label>
+            Customer data
+            <select
+              aria-label="Training policy"
+              value={policy.training}
+              disabled={!ready || !!busy || navigating}
+              onChange={(e) =>
+                void changeTerms({
+                  ...policy,
+                  training: e.target.value as Policy["training"],
+                })
+              }
+            >
+              <option value="consent">Specific written consent to train</option>
+              <option value="prohibited">No model training permitted</option>
+            </select>
+          </label>
+          <label>
+            Renewal notice
+            <select
+              aria-label="Renewal notice"
+              value={policy.notice}
+              disabled={!ready || !!busy || navigating}
+              onChange={(e) =>
+                void changeTerms({
+                  ...policy,
+                  notice: Number(e.target.value) as Policy["notice"],
+                })
+              }
+            >
+              {[30, 60, 90].map((n) => (
+                <option key={n} value={n}>
+                  {n} days
+                </option>
+              ))}
+            </select>
+          </label>
+          <div className="terms-fixed">
+            <ShieldCheck size={17} />
+            <span>
+              Preserve negotiated payment terms
+              <br />
+              <b>Escalate telemetry & liability</b>
+            </span>
+          </div>
+        </section>
+      </details>
       <div className="deal-actionbar">
         <div className="data-consent">
           <label>
@@ -741,6 +970,242 @@ export default function DealDesk() {
         </div>
       )}
       <main className="desk-grid">
+        {guided && (
+          <aside className="guided-panel" aria-label="Guided instructions">
+            <span className="eyebrow">STEP {step} OF 4</span>
+            {step === 1 && (
+              <>
+                <h2>Review the returned agreement.</h2>
+                <p>
+                  You are Northstar’s developer, turning agreed commercial terms
+                  into Meridian’s next Word counterproposal.
+                </p>
+                <ul>
+                  <li>Require written consent for model training.</li>
+                  <li>Set {policy.notice} days’ cancellation notice.</li>
+                  <li>
+                    Keep counsel’s payment concession and liability redline.
+                  </li>
+                </ul>
+                <p>
+                  Jev checks the clauses. SuperDoc applies approved language at
+                  the correct Word locations.
+                </p>
+                <label className="guide-disclosure">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                  />{" "}
+                  Send extracted clause text to TypeSafe for this review.
+                </label>
+                <small>
+                  The DOCX stays in your browser. No contract contents in app
+                  logs. English text DOCX, 10 MB / 25,000 tokens. Five reviews
+                  or comparisons per hour.
+                </small>
+                <button
+                  className="primary"
+                  disabled={!ready || !!busy || !consent}
+                  onClick={() => void check()}
+                >
+                  {busy ||
+                    (stale && review
+                      ? "Recheck changed clauses"
+                      : "Review agreement")}
+                </button>
+                {error && (
+                  <button
+                    disabled={!ready || !!busy || navigating}
+                    onClick={() => setStep(4)}
+                  >
+                    Continue to export without a new review
+                  </button>
+                )}
+              </>
+            )}
+            {step === 2 && (
+              <>
+                <h2>Approve the proposed language.</h2>
+                <p>
+                  Review each complete replacement below. Your approval creates
+                  tracked suggestions you can still accept or reject.
+                </p>
+                {approvalRows.length === 0 && (
+                  <p className="guide-empty">
+                    No supported replacements are ready. Continue to inspect
+                    existing redlines, missing terms and unresolved findings.
+                  </p>
+                )}
+                {approvalRows.map((r) => (
+                  <article className="guided-proposal" key={r.id}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={selectedProposals.includes(r.id)}
+                        onChange={(e) =>
+                          setSelectedProposals((x) =>
+                            e.target.checked
+                              ? [...x, r.id]
+                              : x.filter((id) => id !== r.id),
+                          )
+                        }
+                      />
+                      <b>{RULES.find((x) => x.id === r.id)!.label}</b>
+                    </label>
+                    <small>
+                      {eligible(r, currentDecision(r))
+                        ? "Eligible proposal · ≥95% Jev confidence"
+                        : "Language requires your approval · below automatic threshold"}
+                    </small>
+                    <details>
+                      <summary>Original clause</summary>
+                      <del>{r.clause?.text}</del>
+                    </details>
+                    <ins>{r.replacement}</ins>
+                  </article>
+                ))}
+                <p>
+                  Missing safeguards need separate approval. Telemetry and
+                  liability remain human decisions.
+                </p>
+                {approvalRows.some((r) => selectedProposals.includes(r.id)) ? (
+                  <button
+                    className="primary"
+                    disabled={!!busy || stale}
+                    onClick={() => void applyReady(true)}
+                  >
+                    {busy || "Approve selected language & create redlines"}
+                  </button>
+                ) : (
+                  <button
+                    className="primary"
+                    disabled={!!busy || navigating}
+                    onClick={() => {
+                      setStep(3);
+                      void navigate(queue[0]);
+                    }}
+                  >
+                    Continue to findings
+                  </button>
+                )}
+                <button
+                  disabled={!!busy || navigating}
+                  onClick={() => {
+                    setStep(3);
+                    void navigate(queue[0]);
+                  }}
+                >
+                  Review findings without creating changes
+                </button>
+              </>
+            )}
+            {step === 3 && (
+              <>
+                <h2>Review each finding.</h2>
+                <p>
+                  Accept or reject in the panel beside the document. Missing and
+                  ambiguous terms stay in this queue.
+                </p>
+                <ol className="guided-queue">
+                  {queue.map((id) => (
+                    <li key={id}>
+                      <button
+                        aria-current={selected === id ? "true" : undefined}
+                        onClick={() => void navigate(id)}
+                        disabled={!!busy || navigating}
+                      >
+                        <b>{RULES.find((r) => r.id === id)!.label}</b>
+                        <small>
+                          {reading?.rows.find((r) => r.id === id)
+                            ? state(reading.rows.find((r) => r.id === id)!)
+                            : "Unresolved"}
+                        </small>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+                <button
+                  className="primary"
+                  disabled={!!busy || navigating}
+                  onClick={nextFinding}
+                >
+                  {queueIndex === queue.length - 1
+                    ? "Continue to export"
+                    : "Next finding"}
+                </button>
+                <button
+                  disabled={!!busy || navigating}
+                  onClick={() => setStep(4)}
+                >
+                  Continue to export with remaining items
+                </button>
+              </>
+            )}
+            {step === 4 && (
+              <>
+                <h2>Your Word counterproposal.</h2>
+                <p>
+                  The export includes your current document, counsel’s revisions
+                  and any pending suggestions.
+                </p>
+                <dl className="export-counts">
+                  <div>
+                    <dt>Accepted</dt>
+                    <dd>{ops.filter((o) => o.status === "accepted").length}</dd>
+                  </div>
+                  <div>
+                    <dt>Rejected</dt>
+                    <dd>{ops.filter((o) => o.status === "rejected").length}</dd>
+                  </div>
+                  <div>
+                    <dt>Pending</dt>
+                    <dd>{pending.length}</dd>
+                  </div>
+                  <div>
+                    <dt>Unresolved findings</dt>
+                    <dd>{unresolved}</dd>
+                  </div>
+                </dl>
+                <p>
+                  {pending.length || unresolved
+                    ? "Pending changes and unresolved findings remain for the next reviewer. Exporting does not accept changes or settle open terms."
+                    : "All findings have a review outcome."}
+                </p>
+                <button
+                  className="primary"
+                  disabled={!ready || !!busy || navigating}
+                  onClick={() => void download()}
+                >
+                  {busy || "Download Word"}
+                </button>
+                <button
+                  disabled={!!busy || navigating}
+                  onClick={() => {
+                    setStep(3);
+                    void navigate(queue[0]);
+                  }}
+                >
+                  Return to findings
+                </button>
+              </>
+            )}
+            {stale && step !== 1 && (
+              <div className="guide-stale">
+                <p>
+                  Document or policy changed. Affected decisions need a fresh
+                  check.
+                </p>
+                <button
+                  disabled={!!busy || !consent}
+                  onClick={() => void check()}
+                >
+                  Recheck changed clauses
+                </button>
+              </div>
+            )}
+          </aside>
+        )}
         <aside className="review-queue">
           <div className="queue-title">
             <span>REVIEW BOARD</span>
@@ -768,7 +1233,10 @@ export default function DealDesk() {
           {!!review && approvalRows.length > 0 && (
             <button
               className="review-language"
-              onClick={() => setTab("matrix")}
+              onClick={() => {
+                setGuided(false);
+                setTab("matrix");
+              }}
             >
               Review {approvalRows.length} proposed edits{" "}
               <ChevronRight size={13} />
@@ -812,7 +1280,7 @@ export default function DealDesk() {
               setSource("Meridian’s returned agreement");
               void open();
             }}
-            disabled={!!busy}
+            disabled={!!busy || navigating}
           >
             <RotateCcw size={14} /> Reset fictional sample
           </button>
@@ -831,13 +1299,19 @@ export default function DealDesk() {
               </button>
               <button
                 className={tab === "matrix" ? "active" : ""}
-                onClick={() => setTab("matrix")}
+                onClick={() => {
+                  setGuided(false);
+                  setTab("matrix");
+                }}
               >
                 <Table2 size={14} /> Review matrix
               </button>
               <button
                 className={tab === "developer" ? "active" : ""}
-                onClick={() => setTab("developer")}
+                onClick={() => {
+                  setGuided(false);
+                  setTab("developer");
+                }}
               >
                 <Code2 size={14} /> Execution
               </button>
@@ -928,7 +1402,7 @@ export default function DealDesk() {
                   ))}
                   <button
                     className="primary"
-                    disabled={!!busy}
+                    disabled={!!busy || navigating}
                     onClick={() => void applyReady(true)}
                   >
                     Approve language & propose {approvalRows.length} redlines
@@ -1041,15 +1515,59 @@ export default function DealDesk() {
           </div>
           <span className="eyebrow">{rule.location}</span>
           <h2>{rule.label}</h2>
-          <div className="finding-rule">
-            <b>Instruction</b>
+          {op?.status === "pending" ? (
+            <div className="review-controls">
+              <div className="verification">
+                <ShieldCheck size={17} />
+                <b>
+                  {op.verified
+                    ? "Tracked edit verified"
+                    : "Inspect verification"}
+                </b>
+              </div>
+              <p>
+                Text read back · Revision created · Counsel’s existing changes
+                preserved
+              </p>
+              <div>
+                <button
+                  className="primary"
+                  disabled={!!busy || navigating}
+                  onClick={() => void decide(op, "accept")}
+                >
+                  <Check size={15} /> Accept
+                </button>
+                <button
+                  disabled={!!busy || navigating}
+                  onClick={() => void decide(op, "reject")}
+                >
+                  <X size={15} /> Reject
+                </button>
+              </div>
+            </div>
+          ) : (
+            op && (
+              <p className="reviewed-label">
+                <Check size={15} /> You {op.status} this proposal.
+              </p>
+            )
+          )}
+
+          <details className="finding-rule" open={!guided || undefined}>
+            <summary>Agreed instruction</summary>
             <p>{requirement(rule, policy)}</p>
-          </div>
+          </details>
           {(decision || previous) && (
-            <section className={`decision-card ${!decision ? "stale" : ""}`}>
+            <section
+              className={`decision-card ${!decision && !op ? "stale" : ""}`}
+            >
               <div>
                 <span>
-                  {decision ? "JEV DECISION" : "PREVIOUS DECISION · STALE"}
+                  {decision
+                    ? "JEV DECISION"
+                    : op
+                      ? "DECISION BEFORE THIS EDIT"
+                      : "PREVIOUS DECISION · STALE"}
                 </span>
                 <b>
                   {(decision ?? previous)!.verdict
@@ -1074,6 +1592,11 @@ export default function DealDesk() {
                 )}
               </details>
             </section>
+          )}
+          {guided && !stale && !decision && previous && !op && (
+            <button disabled={!!busy || !consent} onClick={() => void check()}>
+              Recheck changed clauses
+            </button>
           )}
           {!review && (
             <div className="empty-decision">
@@ -1105,43 +1628,6 @@ export default function DealDesk() {
                 <small>Predefined language for this guided scenario</small>
               </div>
             )}
-          {op?.status === "pending" ? (
-            <div className="review-controls">
-              <div className="verification">
-                <ShieldCheck size={17} />
-                <b>
-                  {op.verified
-                    ? "Tracked edit verified"
-                    : "Inspect verification"}
-                </b>
-              </div>
-              <p>
-                Text read back · Revision created · Counsel’s existing changes
-                preserved
-              </p>
-              <div>
-                <button
-                  className="primary"
-                  disabled={!!busy}
-                  onClick={() => void decide(op, "accept")}
-                >
-                  <Check size={15} /> Accept
-                </button>
-                <button
-                  disabled={!!busy}
-                  onClick={() => void decide(op, "reject")}
-                >
-                  <X size={15} /> Reject
-                </button>
-              </div>
-            </div>
-          ) : (
-            op && (
-              <p className="reviewed-label">
-                <Check size={15} /> You {op.status} this proposal.
-              </p>
-            )
-          )}
           {row &&
             eligible(row, decision) &&
             !pending.some((o) => o.id === selected) && (
@@ -1169,7 +1655,7 @@ export default function DealDesk() {
                   threshold. Review the proposed language first.
                 </p>
                 <button
-                  disabled={!!busy}
+                  disabled={!!busy || navigating}
                   onClick={() => void apply(selected, true)}
                 >
                   Approve this replacement
@@ -1188,7 +1674,7 @@ export default function DealDesk() {
                   list item.
                 </p>
                 <button
-                  disabled={!!busy}
+                  disabled={!!busy || navigating}
                   onClick={() => void apply(selected, true)}
                 >
                   Approve numbered insertion
@@ -1213,7 +1699,7 @@ export default function DealDesk() {
                       per review; proposed text still needs your approval.
                     </p>
                     <button
-                      disabled={!!busy}
+                      disabled={!!busy || navigating}
                       onClick={() => void requestDraft()}
                     >
                       Ask reasoning model for a draft
@@ -1278,7 +1764,7 @@ export default function DealDesk() {
                 </>
               ) : (
                 <button
-                  disabled={!!busy}
+                  disabled={!!busy || navigating}
                   onClick={() => {
                     setHumanText(row.clause!.text);
                     setEditing(true);
@@ -1289,7 +1775,24 @@ export default function DealDesk() {
               )}
             </details>
           )}
-          <button className="inspect-link" onClick={() => setTab("developer")}>
+          {guided && step === 3 && !op && rule.kind !== "preserve" && (
+            <button
+              disabled={!!busy || navigating}
+              onClick={() => {
+                setDeferred((x) => [...new Set([...x, selected])]);
+                nextFinding();
+              }}
+            >
+              Leave for human review
+            </button>
+          )}
+          <button
+            className="inspect-link"
+            onClick={() => {
+              setGuided(false);
+              setTab("developer");
+            }}
+          >
             <Code2 size={14} /> Inspect target & receipt{" "}
             <ArrowUpRight size={13} />
           </button>

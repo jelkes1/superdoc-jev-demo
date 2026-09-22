@@ -8,7 +8,10 @@ if (
   timeline.errors?.length ||
   (timeline.prefix === "superdoc-jev-negotiation" &&
     timeline.shots.length !== 13) ||
-  (timeline.prefix === "superdoc-jev-deal-desk" && timeline.shots.length !== 12)
+  (["superdoc-jev-deal-desk", "superdoc-jev-guided"].includes(
+    timeline.prefix,
+  ) &&
+    timeline.shots.length !== 12)
 )
   throw new Error(
     "The recorded workflow did not complete cleanly. Refusing to publish a partial run.",
@@ -157,12 +160,16 @@ await writeFile(
     {
       origin: timeline.origin,
       browser: timeline.browser,
-      runs: timeline.measured.map(({ type, model, usage, decisions }) => ({
-        type,
-        model,
-        usage,
-        decisions,
-      })),
+      runs: timeline.measured.map(
+        ({ type, model, usage, decisions, proof, events }) => ({
+          type,
+          model,
+          usage,
+          decisions,
+          proof,
+          events,
+        }),
+      ),
       mainSeconds: full,
       socialSeconds: social,
       reviewWaitsCompressed: (

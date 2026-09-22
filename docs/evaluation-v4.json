@@ -1,0 +1,2692 @@
+{
+  "dataset": "fictional-contract-decisions-v1",
+  "fixtureHash": "be9c261d3d665fd48e2b45392cdd6fe201dfabad95e711afbbcf08cb53c9a3a6",
+  "frozenCommit": "abd6b0b440c88c0491a25b20ebc1e23c5484eab2",
+  "pricingDate": "2026-09-22",
+  "settings": "Fresh requests; no application cache or retries. OpenAI: reasoning none, strict structured verdicts, standard tier, max 2,000 output tokens. 60s timeout per provider.",
+  "models": [
+    "jev-1.13.0",
+    "gpt-5.4-mini-2026-03-17",
+    "gpt-5.4-2026-03-05"
+  ],
+  "repetitionsRequested": 5,
+  "variantsRequested": 4,
+  "capUsd": 2,
+  "chargedOrHeldUsd": 0.09261,
+  "complete": true,
+  "generatedAt": "2026-09-22T17:07:14.025Z",
+  "runs": [
+    {
+      "variant": "violating",
+      "repetition": 1,
+      "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 304.24366599999996,
+          "usage": {
+            "inputTokens": 1354,
+            "outputTokens": 247,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000056868000000000005,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.96,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0.97,
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.03
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.8,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0.86,
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.14
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.73,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0.81,
+                "NEEDS_REVIEW": 0.19,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0.93,
+                "NEEDS_REVIEW": 0.07,
+                "NOT_APPLICABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 5039.455084,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00102825,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 4968.1885,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "acceptable",
+      "repetition": 1,
+      "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 287.78170800000044,
+          "usage": {
+            "inputTokens": 1428,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000059976,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.92,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.94,
+                "NEEDS_REVIEW": 0.06,
+                "UNACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.83,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.88,
+                "NEEDS_REVIEW": 0.11,
+                "UNACCEPTABLE": 0.01
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.4,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.55,
+                "NEEDS_REVIEW": 0.42,
+                "UNACCEPTABLE": 0.03
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.89,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.92,
+                "NEEDS_REVIEW": 0.08,
+                "UNACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 1823.0140000000001,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 64,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00106275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 1398.486167,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0035575,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "ambiguous",
+      "repetition": 1,
+      "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 219.16608300000007,
+          "usage": {
+            "inputTokens": 1434,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000060228,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.96,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.97,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.03
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.99,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 1,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.71,
+              "probabilities": {
+                "ACCEPTABLE": 0.06,
+                "UNACCEPTABLE": 0.15,
+                "NEEDS_REVIEW": 0.79,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 1,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 1,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 1324.0975829999988,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00108075,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 1363.6056250000001,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0036025,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "missing",
+      "repetition": 1,
+      "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 150.88495800000055,
+          "usage": {
+            "inputTokens": 1366,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000057372000000000006,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.76,
+              "probabilities": {
+                "UNACCEPTABLE": 0.13,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.82,
+                "NOT_APPLICABLE": 0.05
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.75,
+              "probabilities": {
+                "UNACCEPTABLE": 0.18,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.81,
+                "NOT_APPLICABLE": 0.01
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.66,
+              "probabilities": {
+                "UNACCEPTABLE": 0.22,
+                "ACCEPTABLE": 0.01,
+                "NEEDS_REVIEW": 0.75,
+                "NOT_APPLICABLE": 0.02
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.45,
+              "probabilities": {
+                "UNACCEPTABLE": 0.4,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.59,
+                "NOT_APPLICABLE": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 1535.764709000001,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00104325,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 1038.6916249999995,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034775,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "violating",
+      "repetition": 2,
+      "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 133.789041,
+          "usage": {
+            "inputTokens": 1354,
+            "outputTokens": 247,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000056868000000000005,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.96,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.03,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.97
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.79,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.15,
+                "UNACCEPTABLE": 0.85,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.7,
+              "probabilities": {
+                "ACCEPTABLE": 0.01,
+                "NEEDS_REVIEW": 0.21,
+                "UNACCEPTABLE": 0.77,
+                "NOT_APPLICABLE": 0.01
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.93,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.05,
+                "UNACCEPTABLE": 0.95,
+                "NOT_APPLICABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 933.9617079999989,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00102825,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 921.835665999999,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "acceptable",
+      "repetition": 2,
+      "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 124.79170899999917,
+          "usage": {
+            "inputTokens": 1428,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000059976,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.9,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.07,
+                "ACCEPTABLE": 0.93,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.82,
+              "probabilities": {
+                "UNACCEPTABLE": 0.01,
+                "NEEDS_REVIEW": 0.13,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.86
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.32,
+              "probabilities": {
+                "UNACCEPTABLE": 0.03,
+                "NEEDS_REVIEW": 0.48,
+                "ACCEPTABLE": 0.49,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.06,
+                "ACCEPTABLE": 0.9400000000000001,
+                "NOT_APPLICABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 860.6343749999996,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 64,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00106275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 909.5770420000008,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0035575,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "ambiguous",
+      "repetition": 2,
+      "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 102.79791699999987,
+          "usage": {
+            "inputTokens": 1434,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000060228,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.96,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.97,
+                "UNACCEPTABLE": 0.03,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.99,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 1,
+                "UNACCEPTABLE": 0,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.72,
+              "probabilities": {
+                "NOT_APPLICABLE": 0.01,
+                "NEEDS_REVIEW": 0.79,
+                "UNACCEPTABLE": 0.14,
+                "ACCEPTABLE": 0.06
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 1,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 1,
+                "UNACCEPTABLE": 0,
+                "ACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 963.5561249999992,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00108075,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 984.7416250000006,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0036025,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "missing",
+      "repetition": 2,
+      "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 158.40762499999983,
+          "usage": {
+            "inputTokens": 1366,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000057372000000000006,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.75,
+              "probabilities": {
+                "UNACCEPTABLE": 0.15,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.81,
+                "NOT_APPLICABLE": 0.04
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.75,
+              "probabilities": {
+                "UNACCEPTABLE": 0.17,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.81,
+                "NOT_APPLICABLE": 0.01
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.66,
+              "probabilities": {
+                "UNACCEPTABLE": 0.22,
+                "ACCEPTABLE": 0.01,
+                "NEEDS_REVIEW": 0.75,
+                "NOT_APPLICABLE": 0.02
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.47,
+              "probabilities": {
+                "UNACCEPTABLE": 0.39,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.6,
+                "NOT_APPLICABLE": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 835.8537089999991,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00104325,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 1027.2227920000005,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034775,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "violating",
+      "repetition": 3,
+      "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 131.47291699999914,
+          "usage": {
+            "inputTokens": 1354,
+            "outputTokens": 247,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000056868000000000005,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.96,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.97,
+                "NEEDS_REVIEW": 0.03
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.75,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.8200000000000001,
+                "NEEDS_REVIEW": 0.18
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.75,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.8200000000000001,
+                "NEEDS_REVIEW": 0.18
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.9400000000000001,
+                "NEEDS_REVIEW": 0.06
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 1122.7939160000005,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00102825,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 869.0990000000002,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "acceptable",
+      "repetition": 3,
+      "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 98.10191699999996,
+          "usage": {
+            "inputTokens": 1428,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000059976,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.9,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.07,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.93
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.86,
+              "probabilities": {
+                "UNACCEPTABLE": 0.01,
+                "NEEDS_REVIEW": 0.09,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.9
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.37,
+              "probabilities": {
+                "UNACCEPTABLE": 0.03,
+                "NEEDS_REVIEW": 0.44,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.53
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.06,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.9400000000000001
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 810.2524160000012,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00106725,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 1021.1998330000006,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0035575,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "ambiguous",
+      "repetition": 3,
+      "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 166.18854199999987,
+          "usage": {
+            "inputTokens": 1434,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000060228,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.94,
+              "probabilities": {
+                "NEEDS_REVIEW": 0.95,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0.05
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.99,
+              "probabilities": {
+                "NEEDS_REVIEW": 1,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.65,
+              "probabilities": {
+                "NEEDS_REVIEW": 0.74,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.06,
+                "UNACCEPTABLE": 0.2
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 1,
+              "probabilities": {
+                "NEEDS_REVIEW": 1,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 871.8521660000006,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00108075,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 864.5980000000018,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0036025,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "missing",
+      "repetition": 3,
+      "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 127.41600000000108,
+          "usage": {
+            "inputTokens": 1366,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000057372000000000006,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.72,
+              "probabilities": {
+                "NEEDS_REVIEW": 0.78,
+                "ACCEPTABLE": 0.01,
+                "NOT_APPLICABLE": 0.07,
+                "UNACCEPTABLE": 0.14
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.78,
+              "probabilities": {
+                "NEEDS_REVIEW": 0.84,
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0.02,
+                "UNACCEPTABLE": 0.14
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.66,
+              "probabilities": {
+                "NEEDS_REVIEW": 0.75,
+                "ACCEPTABLE": 0.01,
+                "NOT_APPLICABLE": 0.02,
+                "UNACCEPTABLE": 0.22
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.38,
+              "probabilities": {
+                "NEEDS_REVIEW": 0.54,
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0.01,
+                "UNACCEPTABLE": 0.45
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 819.263167000001,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00104325,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 1279.653459000001,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034775,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "violating",
+      "repetition": 4,
+      "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 157.12954199999876,
+          "usage": {
+            "inputTokens": 1354,
+            "outputTokens": 247,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000056868000000000005,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.96,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.03,
+                "UNACCEPTABLE": 0.97,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.79,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.16,
+                "UNACCEPTABLE": 0.84,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.74,
+              "probabilities": {
+                "NOT_APPLICABLE": 0.01,
+                "NEEDS_REVIEW": 0.18,
+                "UNACCEPTABLE": 0.81,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.92,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.06,
+                "UNACCEPTABLE": 0.94,
+                "ACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 1250.1052500000005,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00102825,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 1216.6422500000008,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "acceptable",
+      "repetition": 4,
+      "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 103.83300000000236,
+          "usage": {
+            "inputTokens": 1428,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000059976,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.07,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.93
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.83,
+              "probabilities": {
+                "UNACCEPTABLE": 0.01,
+                "NEEDS_REVIEW": 0.12,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.87
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.32,
+              "probabilities": {
+                "UNACCEPTABLE": 0.03,
+                "NEEDS_REVIEW": 0.49,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.48
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.92,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.05,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0.95
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 1052.2194579999996,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 64,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00106275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 851.9938340000008,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0035575,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "ambiguous",
+      "repetition": 4,
+      "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 206.15595799999937,
+          "usage": {
+            "inputTokens": 1434,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000060228,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.93,
+              "probabilities": {
+                "UNACCEPTABLE": 0.05,
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.95
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.99,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 1
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.68,
+              "probabilities": {
+                "UNACCEPTABLE": 0.17,
+                "ACCEPTABLE": 0.06,
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 0.77
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 1,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 1
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 1079.2880000000005,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00108075,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 1219.7957920000008,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0036025,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "missing",
+      "repetition": 4,
+      "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 115.47529199999917,
+          "usage": {
+            "inputTokens": 1366,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000057372000000000006,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.78,
+              "probabilities": {
+                "NOT_APPLICABLE": 0.04,
+                "NEEDS_REVIEW": 0.84,
+                "UNACCEPTABLE": 0.12,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.75,
+              "probabilities": {
+                "NOT_APPLICABLE": 0.01,
+                "NEEDS_REVIEW": 0.81,
+                "UNACCEPTABLE": 0.17,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.66,
+              "probabilities": {
+                "NOT_APPLICABLE": 0.02,
+                "NEEDS_REVIEW": 0.75,
+                "UNACCEPTABLE": 0.22,
+                "ACCEPTABLE": 0.01
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.46,
+              "probabilities": {
+                "NOT_APPLICABLE": 0.01,
+                "NEEDS_REVIEW": 0.6,
+                "UNACCEPTABLE": 0.39,
+                "ACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 894.8855829999993,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00104325,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 1372.4338749999988,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034775,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "violating",
+      "repetition": 5,
+      "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 133.93775000000096,
+          "usage": {
+            "inputTokens": 1354,
+            "outputTokens": 247,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000056868000000000005,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.96,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.97,
+                "NEEDS_REVIEW": 0.03,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.8,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.86,
+                "NEEDS_REVIEW": 0.14,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.74,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.8200000000000001,
+                "NEEDS_REVIEW": 0.18,
+                "ACCEPTABLE": 0
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.93,
+                "NEEDS_REVIEW": 0.07,
+                "ACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 904.4452500000007,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00102825,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "999ee1efbdc975a13c688df77aed91897b0e07ed84312b48119425f7648f910a",
+          "elapsedMs": 1140.7190420000006,
+          "usage": {
+            "inputTokens": 963,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034275,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "UNACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "UNACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "acceptable",
+      "repetition": 5,
+      "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 123.63466699999844,
+          "usage": {
+            "inputTokens": 1428,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000059976,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.88,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "ACCEPTABLE": 0.91,
+                "NEEDS_REVIEW": 0.09,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.78,
+              "probabilities": {
+                "UNACCEPTABLE": 0.01,
+                "ACCEPTABLE": 0.84,
+                "NEEDS_REVIEW": 0.15,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.32,
+              "probabilities": {
+                "UNACCEPTABLE": 0.02,
+                "ACCEPTABLE": 0.5,
+                "NEEDS_REVIEW": 0.48,
+                "NOT_APPLICABLE": 0
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE",
+              "confidence": 0.91,
+              "probabilities": {
+                "UNACCEPTABLE": 0,
+                "ACCEPTABLE": 0.93,
+                "NEEDS_REVIEW": 0.07,
+                "NOT_APPLICABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 1008.0576250000013,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00106725,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "d1a69a97c114294b2d8c9adabb5c69e921863653df6e851b0b4c83118f9d941e",
+          "elapsedMs": 948.8502089999965,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 65,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0035575,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "renewal",
+              "verdict": "ACCEPTABLE"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "ACCEPTABLE"
+            }
+          ]
+        }
+      ],
+      "disagreements": [
+        "payment"
+      ]
+    },
+    {
+      "variant": "ambiguous",
+      "repetition": 5,
+      "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 147.86866599999848,
+          "usage": {
+            "inputTokens": 1434,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000060228,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.96,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 0.97,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.03
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.99,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0,
+                "NEEDS_REVIEW": 1
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.77,
+              "probabilities": {
+                "ACCEPTABLE": 0.05,
+                "NEEDS_REVIEW": 0.83,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0.12
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 1,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NEEDS_REVIEW": 1,
+                "NOT_APPLICABLE": 0,
+                "UNACCEPTABLE": 0
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 1182.3672499999993,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00108075,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "afc520d7677dd1aa58f799854d37b4f09e0fcafcf12bab061028d0be183f2a6c",
+          "elapsedMs": 1065.5985,
+          "usage": {
+            "inputTokens": 1033,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0036025,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    },
+    {
+      "variant": "missing",
+      "repetition": 5,
+      "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+      "results": [
+        {
+          "model": "jev-1.13.0",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 165.22529099999883,
+          "usage": {
+            "inputTokens": 1366,
+            "outputTokens": 243,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000057372000000000006,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.73,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0.04,
+                "NEEDS_REVIEW": 0.81,
+                "UNACCEPTABLE": 0.15
+              }
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.69,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "UNACCEPTABLE": 0.22,
+                "NOT_APPLICABLE": 0.02,
+                "NEEDS_REVIEW": 0.76
+              }
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.69,
+              "probabilities": {
+                "ACCEPTABLE": 0.01,
+                "NOT_APPLICABLE": 0.02,
+                "NEEDS_REVIEW": 0.77,
+                "UNACCEPTABLE": 0.2
+              }
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW",
+              "confidence": 0.42,
+              "probabilities": {
+                "ACCEPTABLE": 0,
+                "NOT_APPLICABLE": 0.01,
+                "NEEDS_REVIEW": 0.57,
+                "UNACCEPTABLE": 0.42
+              }
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 868.2500830000026,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00104325,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        },
+        {
+          "model": "gpt-5.4-2026-03-05",
+          "snapshot": "c3c5e4a2c0acd696e744a66bce79dd620f6a3493e5db573cad1cb8943a324bef",
+          "elapsedMs": 1085.3664580000004,
+          "usage": {
+            "inputTokens": 983,
+            "outputTokens": 68,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0034775,
+            "pricingDate": "2026-09-22"
+          },
+          "status": "complete",
+          "verdicts": [
+            {
+              "id": "training",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "renewal",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "payment",
+              "verdict": "NEEDS_REVIEW"
+            },
+            {
+              "id": "safeguard",
+              "verdict": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      ],
+      "disagreements": []
+    }
+  ],
+  "summary": [
+    {
+      "model": "jev-1.13.0",
+      "requests": 20,
+      "failuresOrIncomplete": 0,
+      "latencyMs": {
+        "median": 140.90320799999972,
+        "min": 98.10191699999996,
+        "max": 304.24366599999996
+      },
+      "estimatedCostUsd": {
+        "median": 0.000058674,
+        "min": 0.000056868000000000005,
+        "max": 0.000060228
+      },
+      "totalReportedCostUsd": 0.0011722199999999999,
+      "unknownUsageRequests": 0,
+      "fixtureAgreement": {
+        "matches": 79,
+        "expected": 80,
+        "returned": 80
+      },
+      "missedViolations": 0,
+      "unresolvedAsAcceptable": 0
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "requests": 20,
+      "failuresOrIncomplete": 0,
+      "latencyMs": {
+        "median": 985.8068750000002,
+        "min": 810.2524160000012,
+        "max": 5039.455084
+      },
+      "estimatedCostUsd": {
+        "median": 0.001053,
+        "min": 0.00102825,
+        "max": 0.00108075
+      },
+      "totalReportedCostUsd": 0.021083999999999995,
+      "unknownUsageRequests": 0,
+      "fixtureAgreement": {
+        "matches": 78,
+        "expected": 80,
+        "returned": 80
+      },
+      "missedViolations": 0,
+      "unresolvedAsAcceptable": 0
+    },
+    {
+      "model": "gpt-5.4-2026-03-05",
+      "requests": 20,
+      "failuresOrIncomplete": 0,
+      "latencyMs": {
+        "median": 1052.1450624999998,
+        "min": 851.9938340000008,
+        "max": 4968.1885
+      },
+      "estimatedCostUsd": {
+        "median": 0.0035175,
+        "min": 0.0034275,
+        "max": 0.0036025
+      },
+      "totalReportedCostUsd": 0.070325,
+      "unknownUsageRequests": 0,
+      "fixtureAgreement": {
+        "matches": 71,
+        "expected": 80,
+        "returned": 80
+      },
+      "missedViolations": 4,
+      "unresolvedAsAcceptable": 0
+    }
+  ]
+}

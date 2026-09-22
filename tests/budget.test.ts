@@ -109,3 +109,34 @@ test("unreported usage holds reservation; unexpected higher usage is charged", a
     await mf.dispose();
   }
 });
+
+test("comparison reserves three-provider maximum atomically and shares review allowance", async () => {
+  const { mf, db } = await database();
+  try {
+    const attempts = await Promise.allSettled(
+      Array.from({ length: 12 }, (_, i) =>
+        reserve(db, who, 300, 10000, i % 2 ? "review" : "compare"),
+      ),
+    );
+    const accepted = attempts.filter(
+      (r): r is PromiseFulfilledResult<Awaited<ReturnType<typeof reserve>>> =>
+        r.status === "fulfilled",
+    );
+    assert.equal(accepted.length, 5);
+    assert.equal(
+      (await db
+        .prepare("SELECT reserved FROM daily_budget")
+        .first<{ reserved: number }>())!.reserved,
+      1500,
+    );
+    await settle(db, accepted[0].value, 210); // known providers 10; unknown provider keeps its 200 reservation
+    assert.equal(
+      (await db
+        .prepare("SELECT reserved FROM daily_budget")
+        .first<{ reserved: number }>())!.reserved,
+      1410,
+    );
+  } finally {
+    await mf.dispose();
+  }
+});

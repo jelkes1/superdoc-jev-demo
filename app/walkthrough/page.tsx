@@ -20,6 +20,32 @@ export default function Walkthrough() {
         application code chooses a supported operation; SuperDoc changes the
         actual DOCX; a person reviews it.
       </p>
+      <h2>Four steps, one visible document</h2>
+      <p>
+        Review the agreement, approve selected language, review the redlines,
+        then export Word. Each step has a next action. Explore freely opens the
+        full workspace without resetting your progress.
+      </p>
+      <h2>Measure the complete document outcome</h2>
+      <p>
+        The live headline counts verified Word operations, active processing
+        seconds and estimated model cost. Human reading and approval pauses are
+        excluded. Provider time is a component of processing time, not added
+        twice. Verification establishes that the document operation worked; it
+        does not establish legal accuracy.
+      </p>
+      <p>
+        Compare models freezes the same evidence for Jev 1.13.0, GPT-5.4 mini
+        and GPT-5.4. It requires its own disclosure acknowledgment and never
+        modifies the document. OpenAI returns strict verdicts with reasoning
+        effort none; Jev retains its native confidence.
+      </p>
+      <p>
+        <a href="https://github.com/jelkes1/superdoc-jev-demo/blob/main/docs/comparison-methodology.md">
+          Read the exact models, settings, pricing and fictional evaluation
+          results →
+        </a>
+      </p>
       <h2>Read → decide → execute → review</h2>
       <ol>
         <li>

@@ -4,7 +4,12 @@
 
 A standalone TypeScript/React example with a real DOCX editor, a connected negotiation workflow, tracked changes, anchored comments, human review, and atomic public-use limits. The original five-rule playbook and uploads remain at `/playbook`.
 
-**V3: Living Deal Desk.** Take over a fictional negotiation already marked up by counsel. A live review matrix links eight typed decisions to actual Word locations. Propose substantive data-use language, update order-form cells, insert a real numbered safeguard, preserve negotiated payment terms, and keep unresolved telemetry/liability visible. Edit the document and recheck only changed context.
+**V4: Guided deal desk with measured proof.** Follow four steps: review an agreement, approve proposed language, review real redlines, then export Word. “Explore freely” preserves your work. The live result counts verified Word operations, active processing time (excluding human pauses) and accumulated estimated model cost. An optional three-model comparison freezes identical clause evidence and never edits the document.
+
+- [Measurement and comparison methodology](docs/comparison-methodology.md)
+- [All 60 genuine evaluation responses](docs/evaluation-v4.json)
+- [Browser-local measurements](lib/deal-desk/measurements.ts)
+- [Canonical comparison inputs](lib/compare/input.ts) and [provider adapters](lib/server/comparison.ts)
 
 - [Public demo](https://superdoc-jev.superdoc-1393.chatgpt.site)
 - [Shared document operations and verification](lib/deal-desk/document.ts)
@@ -13,10 +18,10 @@ A standalone TypeScript/React example with a real DOCX editor, a connected negot
 - [Runnable headless example](examples/headless.ts) and [SDK transport adapter](examples/sdk-adapter.ts)
 - [Social research and design rationale](docs/social-research-v3.md)
 - [V3 verification](docs/verification-v3.md)
-- [Unsent launch drafts](docs/launch-drafts-v3.md)
+- [Unsent launch drafts](docs/launch-drafts-v4.md)
 - [Previous atomic negotiation example](lib/negotiation/document.ts), available at `/negotiation`
 - [Original five-rule playbook](lib/review/document.ts), available at `/playbook`
-- [Captioned videos and exported DOCX](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.3.0)
+- [Captioned videos and exported DOCX](https://github.com/jelkes1/superdoc-jev-demo/releases/tag/v0.4.0)
 
 ## Run locally
 
@@ -40,13 +45,22 @@ The original DOCX stays in the browser. Running review sends extracted text to T
 
 ## Try the workflow
 
-1. Consent to sending extracted clauses to TypeSafe, then review the agreement.
-2. Open **Review matrix**. Inspect actual choices, confidence and execution routing.
-3. Review the four supplied replacements. **Approve language & propose 4 redlines** applies them as individually guarded, verified tracked edits. A ≥95% eligible decision can also propose an edit without the extra language-approval step.
-4. Open **Numbered safeguard** and approve the insertion. It is a real Word list item, with its own reviewable structural revision.
-5. Open **Telemetry exception**. Its uncertainty stays explicit; an eligible finding can request one of two optional OpenAI drafts. Review and approve any draft before proposing it.
-6. Accept/reject a change, or make a counter-edit in the document. Recheck sends only changed locations/context/policy. A no-op rerun makes no model call.
-7. Inspect **Execution** for the target, revision, receipt, tracked IDs and readback checks. Download Word with remaining revisions and comments.
+1. Acknowledge the disclosure and select **Review agreement**.
+2. Read the complete proposed language, choose replacements, then **Approve selected language & create redlines**.
+3. Follow the finding queue: Accept, Reject, Next finding. Approve the numbered safeguard separately; request a telemetry draft or leave it for human review.
+4. **Continue to export** summarizes accepted, rejected, pending and unresolved items. **Download Word** preserves remaining revisions.
+
+The **This run** panel shows genuine accumulated measurements. **Inspect proof** reveals targets and receipts; **Compare models** is optional and requires separate acknowledgment before sending extracted text to OpenAI. Results are isolated from document execution.
+
+**Explore freely** exposes the original workspace, policy controls and matrix; **Return to guided flow** resumes the current step. Changing terms or counter-editing a clause marks decisions stale. A no-change recheck makes no model call.
+
+To reproduce the four-variant, five-repetition, three-model demonstration evaluation with a $2 cap:
+
+```sh
+npm run eval:compare
+```
+
+Expected labels and rationales are committed before calls. See the methodology for fixture agreement, every mismatch, latency ranges and limitations.
 
 The sample uses eight known clause anchors and bounded supplied language. It does not discover arbitrary dependencies or perform exhaustive contract review. Unsupported/missing/duplicate locations remain visible. Batch edits are sequential and individually guarded; completed edits remain reviewable if a later operation fails.
 
@@ -66,17 +80,20 @@ The runner saves `outputs/headless/reviewed.docx` and a local receipt. Use **Ope
 | Variable | Default / purpose |
 | --- | --- |
 | `TYPESAFE_API_KEY` | Required for real Jev review |
-| `OPENAI_API_KEY` | Required for optional reasoning drafts |
+| `OPENAI_API_KEY` | Required for optional reasoning drafts and OpenAI comparison |
 | `JEV_MODEL` | `jev-1.13.0` |
 | `REASONING_MODEL` | `gpt-5.4` |
 | `DAILY_BUDGET_USD` | `10`, shared across all visitors, UTC day |
 | `IP_HASH_SALT` | Private random string; configure in production |
 
-Both visitor and IP limits apply: five reviews per clock hour. D1 reserves estimated maximum cost atomically before every model call, then reconciles reported usage. Unknown usage retains the reservation. Reasoning is limited to two calls per completed review. New model calls stop when the allowance is exhausted; existing document edits and export keep working.
+Both visitor and IP limits apply: five reviews or comparisons per clock hour. D1 reserves estimated maximum cost atomically before every model call, then reconciles reported usage. Unknown usage retains the reservation. Reasoning is limited to two calls per completed review. New model calls stop when the allowance is exhausted; existing document edits and export keep working.
 
 Model IDs and cost constants are intentionally coupled. Substituting a model requires checking its schema, confidence semantics, prices and reservation bounds. See the adapter instructions in [architecture](docs/architecture.md). The threshold remains 95% for eligible automatic proposals and 70% for escalation after the live fixture check. Confidence is model-reported, not a calibrated legal-accuracy estimate. Exact replacement patterns and revision checks are separate requirements for every automatic edit.
 
 ## Small API surface
+
+- `POST /api/compare`: frozen bounded clause context → incremental results for three exact model snapshots; separate disclosure acknowledgment, one shared review reservation.
+- `POST /api/deal-desk`: current deal-desk rows → validated live decisions and usage.
 
 - `POST /api/negotiate`: three bounded clause locations + document revision + versioned deal settings → actual Jev judgments, full distributions, separate confidence, and measured usage. Shares the same atomic budget/rate controls as playbook review.
 - `POST /api/review`: clause context + document revision + versioned playbook → NDJSON events: start, completed decision batches, measured usage, completion/error.
@@ -102,7 +119,7 @@ The original fixture is generated by `scripts/make-fixture.py` (Python + `python
 
 The `.openai/hosting.json` manifest is for the owner’s Sites deployment. When forking, replace its project registration with your own before publishing. The logical `DB` binding and generated Drizzle migration support the public counters; secrets belong in the hosting environment, never in the manifest or browser bundle.
 
-The recording scripts require real Jev access. `npm run video:deal-desk` records the current workflow to `outputs/video-v3`; render with `VIDEO_OUTPUT_DIR=outputs/video-v3 npm run video:render`. Set `DEMO_BASE_URL` to record the hosted site. `npm run video:negotiation` records three real negotiation reviews to `outputs/video-v2`; render with `VIDEO_OUTPUT_DIR=outputs/video-v2 npm run video:render`. The original `npm run video:record` records the playbook workflow. FFmpeg produces captioned main/social MP4 cuts. Inspect the cuts and recorded DOCX before promoting them. [Production details](docs/video-storyboard.md).
+The recording scripts require real Jev access. `npm run video:guided` records the current workflow to `outputs/video-v4`; render with `VIDEO_OUTPUT_DIR=outputs/video-v4 npm run video:render`. `npm run video:deal-desk` retains the earlier v3 scenario. Set `DEMO_BASE_URL` to record the hosted site. `npm run video:negotiation` records three real negotiation reviews to `outputs/video-v2`; render with `VIDEO_OUTPUT_DIR=outputs/video-v2 npm run video:render`. The original `npm run video:record` records the playbook workflow. FFmpeg produces captioned main/social MP4 cuts. Inspect the cuts and recorded DOCX before promoting them. [Production details](docs/video-storyboard.md).
 
 ## License
 

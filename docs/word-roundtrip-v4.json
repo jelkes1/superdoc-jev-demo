@@ -1,0 +1,131 @@
+{
+  "nativeOpenSaveReopen": true,
+  "maintainedCompatibilityMode": true,
+  "wordVersion": "16.113.1",
+  "wordBuild": "16.113.26091740",
+  "before": {
+    "file": "before.docx",
+    "sha256": "733ca537583a461d260ad6005e883b5f5aee8c75777fc702451fc90d7a968e23",
+    "bytes": 55853,
+    "tables": 3,
+    "comments": 6,
+    "numberedParagraphs": 4,
+    "revisions": [
+      {
+        "kind": "del",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "15"
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "30"
+      },
+      {
+        "kind": "del",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "45"
+      },
+      {
+        "kind": "ins",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "30"
+      },
+      {
+        "kind": "del",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "15"
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "30"
+      },
+      {
+        "kind": "del",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "18"
+      },
+      {
+        "kind": "ins",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "36"
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": ""
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form."
+      }
+    ],
+    "safeguard": true
+  },
+  "after": {
+    "file": "word-saved.docx",
+    "sha256": "912dde98a747cb48073be9c1795f9b4b3d996d1e1b67a6f5c81fc0bd701ec9b5",
+    "bytes": 45882,
+    "tables": 3,
+    "comments": 6,
+    "numberedParagraphs": 4,
+    "revisions": [
+      {
+        "kind": "del",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "15"
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "30"
+      },
+      {
+        "kind": "del",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "45"
+      },
+      {
+        "kind": "ins",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "30"
+      },
+      {
+        "kind": "del",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "15"
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "30"
+      },
+      {
+        "kind": "del",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "18"
+      },
+      {
+        "kind": "ins",
+        "author": "Alex Chen \u00b7 Meridian counsel",
+        "text": "36"
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": ""
+      },
+      {
+        "kind": "ins",
+        "author": "Northstar \u00b7 Document agent",
+        "text": "Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over any conflicting permission in Section 7 or an order form."
+      }
+    ],
+    "safeguard": true
+  },
+  "sameRevisionContent": true,
+  "browserReopenReceipt": "word-saved.docx.verification.json",
+  "scope": "One fictional export. Word rewrites package metadata and markup; this does not establish compatibility for arbitrary documents."
+}

@@ -69,6 +69,8 @@ export interface Suggestion {
   status: "pending" | "accepted" | "rejected" | "changed";
 }
 export interface Usage {
+  cachedInputTokens?: number;
+  pricingDate?: string;
   inputTokens: number;
   outputTokens: number;
   costUsd: number;
