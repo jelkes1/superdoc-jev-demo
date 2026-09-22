@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import RunProof from "./run-proof";
+import Brand from "./brand";
 import { RunMeasurements, type Phase } from "@/lib/deal-desk/measurements";
 import type { CompareInput } from "@/lib/compare/input";
 import type { Proposal, Usage } from "@/lib/review/types";
@@ -763,13 +764,7 @@ export default function DealDesk() {
       className={`deal-app ${guided ? `guided guided-step-${step}` : "free-explore"}`}
     >
       <header className="deal-header">
-        <Link href="/" className="deal-brand">
-          <span className="deal-logo">
-            <FileText size={19} />
-          </span>
-          SuperDoc <span className="muted">×</span> Jev{" "}
-          <span className="release-pill">GUIDED DEAL DESK · V4</span>
-        </Link>
+        <Brand />
         <nav>
           <Link href="/walkthrough">
             How it works <ArrowUpRight size={14} />

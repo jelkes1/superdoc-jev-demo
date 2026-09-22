@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Brand from "./brand";
 import type { SuperDoc as SuperDocInstance } from "superdoc";
 import {
   FileText,
@@ -472,13 +473,7 @@ export default function ReviewWorkspace() {
   return (
     <main className="workspace">
       <header className="topbar">
-        <Link className="brand" href="/">
-          <span className="brandmark">
-            <FileText size={21} />
-          </span>
-          superdoc <span className="times">×</span>
-          <span className="jev-word">jev</span>
-        </Link>
+        <Brand />
         <span className="edition">THE DOCUMENT DECISION LAB</span>
         <a
           className="source-link"

@@ -1,0 +1,635 @@
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-400.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-500.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-600.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-700.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-400.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-500.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+:root {
+  --superdoc-blue: #1355ff;
+  --superdoc-ink: #0f172a;
+  --superdoc-body: #475569;
+  --primary: var(--superdoc-blue);
+  --ring: var(--superdoc-blue);
+}
+body {
+  font-family: Inter, Arial, sans-serif;
+  color: var(--superdoc-ink);
+}
+.superdoc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  font:
+    700 22px/1.1 Inter,
+    sans-serif;
+  color: var(--superdoc-blue) !important;
+  letter-spacing: -0.65px;
+  text-decoration: none;
+}
+.superdoc-brand img {
+  width: 34px;
+  height: 38px;
+  object-fit: contain;
+  flex: none;
+}
+.superdoc-brand .brand-partner {
+  font-size: 17px;
+  font-weight: 500;
+  color: #475569;
+  letter-spacing: -0.3px;
+  margin-left: 4px;
+}
+.deal-header {
+  height: 66px;
+}
+.deal-app {
+  color: var(--superdoc-ink);
+  background: #f8fafc;
+}
+.deal-title {
+  background: linear-gradient(110deg, #f3f8ff 0%, #faf7ff 70%, #fcf8fd 100%);
+}
+.deal-title h1,
+.finding-inspector h2,
+.view-intro h2,
+.run-proof h2 {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 600;
+}
+.deal-app button.primary,
+.review-button,
+.deal-bottom .apply-deal {
+  background: var(--superdoc-blue);
+  border-color: var(--superdoc-blue);
+  color: white;
+}
+.deal-app button.primary:hover:not(:disabled),
+.review-button:hover {
+  background: #0f44cc;
+  border-color: #0f44cc;
+}
+.deal-app :is(button, a, input, select, summary):focus-visible {
+  outline: 3px solid #1355ff;
+  outline-offset: 3px;
+}
+.canvas-tabs button.active {
+  color: var(--superdoc-blue);
+  border-bottom-color: var(--superdoc-blue);
+}
+.deal-app :is(pre, code),
+.workflow-comparison :is(pre, code) {
+  font-family: "JetBrains Mono", monospace;
+}
+.deal-app .roi-action {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: 0 3px 10px #1355ff20;
+}
+.deal-header nav {
+  font-size: 14px;
+}
+.deal-title p {
+  font-size: 14px;
+}
+.deal-title .eyebrow {
+  font-size: 11px;
+}
+.workflow-comparison {
+  margin-top: 22px;
+  border: 1px solid #dce5f4;
+  border-radius: 12px;
+  padding: 26px;
+  background: #fff;
+  color: #0f172a;
+  font-size: 14px;
+  line-height: 1.55;
+  position: relative;
+}
+.workflow-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+.workflow-heading .eyebrow {
+  font-size: 11px;
+  color: #1355ff;
+}
+.workflow-heading h3 {
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  margin: 9px 0;
+}
+.workflow-heading p {
+  color: #475569;
+  margin: 0;
+}
+.workflow-sample {
+  font-size: 12px;
+  color: #475569;
+  white-space: nowrap;
+  background: #f1f5ff;
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+.workflow-setup {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 30px;
+  margin: 22px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+}
+.workflow-setup p {
+  margin: 5px 0 10px;
+  color: #475569;
+}
+.workflow-setup details {
+  margin: 9px 0;
+}
+.workflow-setup summary {
+  cursor: pointer;
+  color: #1355ff;
+}
+.workflow-proposal {
+  border-top: 1px solid #dbe4f0;
+  padding: 13px 0;
+}
+.workflow-proposal del {
+  background: #fff0f0;
+  color: #9e3744;
+}
+.workflow-proposal ins {
+  background: #e8f7ed;
+  color: #146c43;
+  text-decoration: none;
+}
+.safeguard-approval {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 17px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.safeguard-approval input {
+  margin-top: 4px;
+  accent-color: #1355ff;
+  width: 17px;
+  height: 17px;
+  flex: none;
+}
+.workflow-start {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+.deal-app .workflow-start button {
+  font-size: 14px;
+  min-height: 44px;
+}
+.workflow-start small {
+  font-size: 12px;
+  color: #64748b;
+}
+.workflow-progress {
+  color: #475569;
+  font-size: 13px;
+  min-height: 20px;
+}
+.workflow-error {
+  color: #a43736 !important;
+}
+.workflow-baseline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 24px 0 14px;
+}
+.workflow-baseline select {
+  margin-left: 8px;
+  padding: 7px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+}
+.outcome-match {
+  color: #177447;
+  font-size: 13px;
+}
+.outcome-wait {
+  color: #64748b;
+  font-size: 13px;
+}
+.savings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.savings-grid > div {
+  padding: 25px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f0f5ff, #f6f5ff);
+  border: 1px solid #d9e5ff;
+}
+.savings-grid span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #475569;
+}
+.savings-grid strong {
+  display: block;
+  font-size: clamp(25px, 3vw, 39px);
+  font-weight: 600;
+  letter-spacing: -1.4px;
+  line-height: 1.25;
+  color: #1355ff;
+  margin: 10px 0;
+}
+.savings-grid b {
+  font-size: 16px;
+  font-weight: 500;
+}
+.savings-grid p {
+  font-size: 13px;
+  color: #475569;
+  margin: 10px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.workflow-models {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.model-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 0;
+}
+.model-card > span {
+  font-weight: 600;
+  font-size: 14px;
+}
+.model-card h4 {
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  margin: 15px 0 3px;
+  font-weight: 600;
+}
+.model-card p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 5px 0 15px;
+}
+.model-card dl {
+  font-size: 12px;
+}
+.model-card dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 9px;
+}
+.model-card dt {
+  color: #64748b;
+}
+.model-card dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.jev-card {
+  border-color: #8db1ff;
+  box-shadow: 0 0 0 1px #1355ff10;
+}
+.jev-card > span {
+  color: #1355ff;
+}
+.workflow-output {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 17px;
+}
+.deal-app .workflow-output button {
+  font-size: 12px;
+  padding: 7px 9px;
+}
+.volume-projection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 23px 25px;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.volume-projection .eyebrow {
+  color: #acbeed;
+  font-size: 11px;
+}
+.volume-projection label {
+  display: block;
+  margin-top: 10px;
+}
+.volume-projection input {
+  width: 120px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #7184a5;
+  color: white;
+  background: #24324a;
+  font: 500 18px Inter;
+}
+.volume-projection strong {
+  font-size: 23px;
+  letter-spacing: -0.5px;
+}
+.volume-projection p {
+  margin: 7px 0;
+  color: #d0daee;
+  font-size: 13px;
+}
+.volume-projection small {
+  font-size: 12px;
+  color: #b3c3e0;
+}
+.workflow-proof {
+  color: #475569;
+  font-size: 13px;
+}
+.workflow-proof summary {
+  cursor: pointer;
+  color: #1355ff;
+  font-weight: 500;
+  padding: 8px 0;
+}
+.workflow-proof table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.workflow-proof th,
+.workflow-proof td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.workflow-proof th {
+  font-weight: 500;
+}
+.workflow-proof td small {
+  display: block;
+  font-size: 11px;
+}
+.workflow-proof pre {
+  max-height: 350px;
+  overflow: auto;
+  background: #f1f5f9;
+  padding: 14px;
+  font-size: 11px;
+}
+.workflow-proof a {
+  display: inline-block;
+  color: #1355ff;
+  margin-top: 10px;
+}
+.workflow-runtime {
+  position: fixed;
+  left: -1400px;
+  top: 0;
+  width: 1200px;
+  height: 900px;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+}
+.workflow-preview {
+  margin: 24px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.workflow-preview > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  background: #f1f5f9;
+}
+.workflow-preview h4 {
+  font-size: 14px;
+  margin: 0;
+}
+.workflow-preview-document {
+  height: 650px;
+  overflow: auto;
+  background: #e9edf4;
+}
+.workflow-dialog {
+  width: min(1360px, 96vw);
+  max-width: none;
+  max-height: 94vh;
+  border: 1px solid #d6e0f1;
+  border-radius: 14px;
+  padding: 0;
+  background: #fff;
+  color: #0f172a;
+  margin: auto;
+  box-shadow: 0 24px 100px #0f172a44;
+}
+.workflow-dialog::backdrop {
+  background: #0f172a66;
+  backdrop-filter: blur(3px);
+}
+.workflow-dialog > header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 26px;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+.workflow-dialog .workflow-comparison {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.workflow-dialog .workflow-runtime {
+  visibility: hidden;
+}
+body:has(.workflow-dialog[open]) {
+  overflow: hidden;
+}
+.recorded-benchmark {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid #d6e4ff;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #f0f5ff, #faf7ff);
+}
+.recorded-benchmark .eyebrow {
+  font-size: 10px;
+  color: #4b6292;
+}
+.recorded-benchmark b,
+.recorded-benchmark small,
+.recorded-benchmark span,
+.recorded-benchmark strong {
+  display: block;
+}
+.recorded-benchmark b {
+  font-size: 15px;
+  margin: 5px 0;
+}
+.recorded-benchmark small,
+.recorded-benchmark span {
+  font-size: 12px;
+  color: #475569;
+}
+.recorded-benchmark strong {
+  font-size: 26px;
+  color: #1355ff;
+  letter-spacing: -0.8px;
+}
+.recorded-benchmark a {
+  grid-column: 1/-1;
+  font-size: 12px;
+  color: #1355ff !important;
+}
+@media (max-width: 700px) {
+  .recorded-benchmark {
+    grid-template-columns: 1fr;
+  }
+  .recorded-benchmark strong {
+    font-size: 24px;
+  }
+}
+@media (max-width: 900px) {
+  .workflow-heading,
+  .workflow-baseline {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .workflow-setup {
+    grid-template-columns: 1fr;
+  }
+  .workflow-start {
+    max-width: 320px;
+  }
+  .workflow-models {
+    grid-template-columns: 1fr;
+  }
+  .volume-projection {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .workflow-baseline select {
+    display: block;
+    margin: 7px 0 0;
+  }
+}
+@media (max-width: 580px) {
+  .superdoc-brand {
+    font-size: 19px;
+    gap: 6px;
+  }
+  .superdoc-brand img {
+    width: 28px;
+    height: 32px;
+  }
+  .superdoc-brand .brand-partner {
+    font-size: 14px;
+  }
+  .deal-header nav {
+    font-size: 12px;
+    gap: 12px;
+  }
+  .workflow-comparison {
+    padding: 17px;
+  }
+  .workflow-heading h3 {
+    font-size: 25px;
+  }
+  .savings-grid {
+    grid-template-columns: 1fr;
+  }
+  .workflow-setup {
+    padding: 14px;
+  }
+  .savings-grid strong {
+    font-size: 31px;
+  }
+  .volume-projection {
+    padding: 18px;
+  }
+  .deal-app .roi-action {
+    font-size: 13px;
+  }
+  .workflow-preview > div:first-child {
+    gap: 10px;
+  }
+}
+
+.guided-panel h2,
+.comparison-panel h3 {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 600;
+}
+.deal-app .guide-progress button[aria-current="step"] {
+  color: #1355ff;
+  background: #eef3ff;
+}
+.guide-progress button[aria-current="step"] span {
+  background: #1355ff;
+}
+.guided-proposal input {
+  accent-color: #1355ff;
+}

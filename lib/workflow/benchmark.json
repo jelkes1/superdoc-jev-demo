@@ -1,0 +1,92 @@
+{
+  "dataset": "approved-word-workflow-v1",
+  "generatedAt": "2026-09-22T20:30:51.320Z",
+  "pricingDate": "2026-09-22",
+  "documentHash": "a047b4b5dd510e00e37083d0a9d013225a778c1a9cac0c92dba358c9b96a2260",
+  "complete": true,
+  "capUsd": 2,
+  "chargedOrHeldUsd": 0.020055,
+  "models": [
+    {
+      "model": "jev-1.13.0",
+      "requests": 5,
+      "complete": 5,
+      "expectedOutcomes": 5,
+      "timingValid": 5,
+      "activeMs": {
+        "median": 3641.899999976158,
+        "min": 3612.100000023842,
+        "max": 3675.899999976158,
+        "mean": 3643.4799999952315
+      },
+      "decisionMs": {
+        "median": 409,
+        "min": 341.8000000715256,
+        "max": 431,
+        "mean": 395.80000002384185
+      },
+      "estimatedCostUsd": {
+        "median": 0.00015691200000000002,
+        "min": 0.00015691200000000002,
+        "max": 0.00015691200000000002,
+        "mean": 0.00015691200000000002
+      },
+      "unknownCosts": 0,
+      "equivalentToJev": 5
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "requests": 5,
+      "complete": 5,
+      "expectedOutcomes": 5,
+      "timingValid": 5,
+      "activeMs": {
+        "median": 4817.899999976158,
+        "min": 4716.300000071526,
+        "max": 5526.599999904633,
+        "mean": 4951.839999985695
+      },
+      "decisionMs": {
+        "median": 1502.3999999761581,
+        "min": 1458.8999999761581,
+        "max": 2288.899999976158,
+        "mean": 1686.6199999809264
+      },
+      "estimatedCostUsd": {
+        "median": 0.0008892,
+        "min": 0.0008892,
+        "max": 0.0008892,
+        "mean": 0.0008892
+      },
+      "unknownCosts": 0,
+      "equivalentToJev": 5
+    },
+    {
+      "model": "gpt-5.4-2026-03-05",
+      "requests": 5,
+      "complete": 5,
+      "expectedOutcomes": 5,
+      "timingValid": 5,
+      "activeMs": {
+        "median": 5115.299999952316,
+        "min": 4515.900000095367,
+        "max": 5530.399999976158,
+        "mean": 4977.240000009537
+      },
+      "decisionMs": {
+        "median": 1860.7999999523163,
+        "min": 1285.8000000715256,
+        "max": 2283,
+        "mean": 1728.5200000047685
+      },
+      "estimatedCostUsd": {
+        "median": 0.002964,
+        "min": 0.002964,
+        "max": 0.002964,
+        "mean": 0.002964
+      },
+      "unknownCosts": 0,
+      "equivalentToJev": 5
+    }
+  ]
+}

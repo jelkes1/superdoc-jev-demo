@@ -43,6 +43,7 @@ export async function reserve(
   limit: number,
   kind: "review" | "reason" | "compare",
   parent?: string,
+  extra?: (reservation: Reservation) => D1PreparedStatement[],
 ): Promise<Reservation> {
   if (!db)
     throw new PublicError(
@@ -112,6 +113,7 @@ export async function reserve(
           .bind(key, requestId),
       );
   // D1 batch is transactional: both visitor limits and the global budget are checked and incremented together.
+  if (extra) statements.push(...extra({ id: requestId, day, amount }));
   const result = await db.batch(statements);
   if (result[3].meta.changes !== 1)
     throw new PublicError(
@@ -144,6 +146,16 @@ export async function settle(db: D1Database, r: Reservation, actual: number) {
 export async function prune(db: D1Database) {
   const before = Date.now() - 7 * 86400000;
   await db.batch([
+    db
+      .prepare(
+        "DELETE FROM workflow_slots WHERE run_id IN (SELECT id FROM reservations WHERE created<?)",
+      )
+      .bind(before),
+    db
+      .prepare(
+        "DELETE FROM workflow_runs WHERE id IN (SELECT id FROM reservations WHERE created<?)",
+      )
+      .bind(before),
     db.prepare("DELETE FROM reservations WHERE created<?").bind(before),
     db.prepare("DELETE FROM rate_limits WHERE expires<?").bind(Date.now()),
     db

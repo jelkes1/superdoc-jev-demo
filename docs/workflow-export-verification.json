@@ -1,0 +1,546 @@
+{
+  "browser": "145.0.7632.6",
+  "superdoc": "2.16.0",
+  "checks": [
+    {
+      "file": "1-gpt-5.4-2026-03-05.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "1-gpt-5.4-mini-2026-03-17.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "1-jev-1.13.0.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "2-gpt-5.4-2026-03-05.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "2-gpt-5.4-mini-2026-03-17.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "2-jev-1.13.0.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "3-gpt-5.4-2026-03-05.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "3-gpt-5.4-mini-2026-03-17.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "3-jev-1.13.0.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "4-gpt-5.4-2026-03-05.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "4-gpt-5.4-mini-2026-03-17.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "4-jev-1.13.0.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "5-gpt-5.4-2026-03-05.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "5-gpt-5.4-mini-2026-03-17.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    },
+    {
+      "file": "5-jev-1.13.0.docx",
+      "tables": 3,
+      "comments": 7,
+      "markers": [
+        "1.",
+        "2.",
+        "3.",
+        "4."
+      ],
+      "proposals": [
+        {
+          "id": "training",
+          "exact": true
+        },
+        {
+          "id": "training-order",
+          "exact": true
+        },
+        {
+          "id": "renewal",
+          "exact": true
+        },
+        {
+          "id": "renewal-order",
+          "exact": true
+        },
+        {
+          "id": "safeguard",
+          "exact": true
+        }
+      ],
+      "counsel": 2,
+      "safeguardComment": true,
+      "tracked": 8
+    }
+  ]
+}

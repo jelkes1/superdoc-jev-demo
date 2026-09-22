@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Brand from "../brand";
 export default function Walkthrough() {
   return (
     <main
@@ -9,8 +10,9 @@ export default function Walkthrough() {
         lineHeight: 1.8,
       }}
     >
+      <Brand />
       <Link href="/">← Open the living deal desk</Link>
-      <h1 style={{ fontFamily: "Georgia", fontSize: 36, margin: "25px 0" }}>
+      <h1 style={{ fontFamily: "Inter", fontSize: 36, margin: "25px 0" }}>
         A decision is only useful when the document can act on it.
       </h1>
       <p>
@@ -44,6 +46,26 @@ export default function Walkthrough() {
         <a href="https://github.com/jelkes1/superdoc-jev-demo/blob/main/docs/comparison-methodology.md">
           Read the exact models, settings, pricing and fictional evaluation
           results →
+        </a>
+      </p>
+      <h2>Compare complete document workflows</h2>
+      <p>
+        Compare time &amp; cost runs Jev and both OpenAI models through the same
+        approved changes on separate copies of the fictional agreement. Approve
+        the four replacements and select the numbered safeguard separately.
+        Every result includes verified redlines, preserved counsel revisions,
+        elapsed processing, actual token usage, and a downloadable Word file.
+        Savings appear only for equivalent verified outcomes.
+      </p>
+      <p>
+        Our five-run-per-model evaluation produced five matching changes in all
+        15 workflows. Jev used 24.4% less median processing time and 82.4% less
+        estimated model spend than GPT-5.4 mini, including reported cache
+        discounts. The volume control projects API spend for equivalent runs;
+        human review time, hosting, and SuperDoc licensing are separate.
+        <a href="https://github.com/jelkes1/superdoc-jev-demo/blob/main/docs/workflow-roi-methodology.md">
+          {" "}
+          Inspect all results and reproduce the workflow comparison ↗
         </a>
       </p>
       <h2>Read → decide → execute → review</h2>

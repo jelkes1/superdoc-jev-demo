@@ -9,8 +9,9 @@ import {
   type CompareResult,
 } from "@/lib/compare/types";
 import { PRICING_DATE } from "@/lib/compare/pricing";
-export const money = (n: number) => `$${n.toFixed(n < 0.01 ? 6 : 4)}`;
-export const seconds = (n: number) => `${(n / 1000).toFixed(2)}s`;
+import { WorkflowComparisonDialog } from "./workflow-comparison";
+import { money, seconds } from "@/lib/compare/format";
+export { money, seconds } from "@/lib/compare/format";
 export default function RunProof({
   measurement: m,
   getSnapshot,
@@ -25,6 +26,8 @@ export default function RunProof({
   const [show, setShow] = useState(false),
     [running, setRunning] = useState(false),
     [error, setError] = useState("");
+  const [workflow, setWorkflow] = useState(false);
+  const [workflowOpened, setWorkflowOpened] = useState(false);
   const [results, setResults] = useState<CompareResult[]>([]),
     [meta, setMeta] = useState<Extract<CompareEvent, { type: "start" }>>(),
     [complete, setComplete] = useState(false);
@@ -133,6 +136,17 @@ export default function RunProof({
           >
             Get the code ↗
           </a>
+          <button
+            className="primary roi-action"
+            disabled={disabled}
+            onClick={() => {
+              setWorkflowOpened(true);
+              setWorkflow(true);
+            }}
+            aria-expanded={workflow}
+          >
+            Compare time & cost
+          </button>
           <button onClick={() => setShow(!show)} aria-expanded={show}>
             Compare models
           </button>
@@ -209,6 +223,12 @@ export default function RunProof({
           <pre>{JSON.stringify(m, null, 2)}</pre>
         </details>
       </details>
+      {workflowOpened && (
+        <WorkflowComparisonDialog
+          open={workflow}
+          close={() => setWorkflow(false)}
+        />
+      )}
       {show && (
         <section className="comparison-panel" aria-label="Model comparison">
           <h3>Same evidence. Three decision models.</h3>

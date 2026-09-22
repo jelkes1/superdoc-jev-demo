@@ -4,7 +4,15 @@
 
 A standalone TypeScript/React example with a real DOCX editor, a connected negotiation workflow, tracked changes, anchored comments, human review, and atomic public-use limits. The original five-rule playbook and uploads remain at `/playbook`.
 
-**V4: Guided deal desk with measured proof.** Follow four steps: review an agreement, approve proposed language, review real redlines, then export Word. “Explore freely” preserves your work. The live result counts verified Word operations, active processing time (excluding human pauses) and accumulated estimated model cost. An optional three-model comparison freezes identical clause evidence and never edits the document.
+**V5: Branded deal desk with full-workflow ROI.** Follow four steps: review an agreement, approve proposed language, review real redlines, then export Word. “Explore freely” preserves your work. The live result counts verified Word operations, active processing time (excluding human pauses) and accumulated estimated model cost. An optional three-model comparison freezes identical clause evidence and never edits the document.
+
+
+**Compare time & cost** runs Jev, GPT-5.4 mini and GPT-5.4 through the same approved Word edits on independent browser-local copies. The savings cards show absolute differences, percentages, equivalent outcomes, and projected API spend at your volume. The original **Compare models** action remains available for classification of your current document.
+
+- [Full-workflow methodology and results](docs/workflow-roi-methodology.md)
+- [All 15 genuine workflows](docs/workflow-evaluation-v1.json) and [export checks](docs/workflow-export-verification.json)
+- [Copyable browser runner](lib/workflow/browser.ts) and [shared savings calculations](lib/workflow/types.ts)
+- Reproduce with `npm run eval:workflow` (five rounds, $2 cap).
 
 - [Measurement and comparison methodology](docs/comparison-methodology.md)
 - [All 60 genuine evaluation responses](docs/evaluation-v4.json)
@@ -41,7 +49,7 @@ npm run dev
 
 Open the URL printed by the server (normally `http://localhost:5173`). The sample opens automatically. Without model keys you can open, edit and export documents; review explicitly reports that the provider is unavailable.
 
-`db:init` applies the initial local-only D1 schema. Run it once per fresh local database, after the first build. It intentionally reports an error if replayed onto an existing schema. Publishing with Sites applies the generated production migration separately. For later schema changes, use `npm run db:generate` and apply only pending migrations.
+`db:init` applies every local-only D1 migration to a fresh database. Run it once per fresh local database, after the first build. It intentionally reports an error if replayed onto an existing schema. Publishing with Sites applies the generated production migration separately. For later schema changes, use `npm run db:generate` and apply only pending migrations.
 
 The original DOCX stays in the browser. Running review sends extracted text to TypeSafe. Optional reasoning can send up to two unresolved findings per review to OpenAI for drafting. The application does not retain document contents. Provider handling remains governed by provider terms. Public visitors need neither login nor their own API key.
 
@@ -94,6 +102,7 @@ Model IDs and cost constants are intentionally coupled. Substituting a model req
 
 ## Small API surface
 
+- `POST /api/compare/workflow/start`, `/model`, `/finish`: one combined reservation, visitor/snapshot-bound single-use provider slots, and independent usage settlement.
 - `POST /api/compare`: frozen bounded clause context → incremental results for three exact model snapshots; one shared review reservation.
 - `POST /api/deal-desk`: current deal-desk rows → validated live decisions and usage.
 
