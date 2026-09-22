@@ -1,0 +1,396 @@
+{
+  "recordedFrom": "https://superdoc-jev.superdoc-1393.chatgpt.site",
+  "runtimeCommit": "d92ca793b774b954c3d5ca6034c5824a2ecb8765",
+  "browser": "Playwright Chromium 145.0.7632.6",
+  "viewport": {
+    "width": 1600,
+    "height": 1080
+  },
+  "model": "jev-1.13.0",
+  "transport": "Real hosted Jev responses; no replay or simulated decisions.",
+  "timeCompression": false,
+  "editing": "Initial load excluded. Highlights selected and reordered for the social cut. Main closing frame held to reach 75 seconds. Captions burned in and separately supplied as SRT.",
+  "videos": [
+    {
+      "file": {
+        "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/superdoc-jev-negotiation-demo.mp4",
+        "bytes": 5703673,
+        "sha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e"
+      },
+      "container": "mov,mp4,m4a,3gp,3g2,mj2",
+      "durationSeconds": 75,
+      "streams": [
+        {
+          "index": 0,
+          "codecType": "video",
+          "codecName": "h264",
+          "width": 1600,
+          "height": 1080,
+          "channels": null
+        }
+      ],
+      "frames": [
+        {
+          "timestampSeconds": 0,
+          "sampling": "even",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/frames/frame-001-0_000s.png",
+          "bytes": 616465,
+          "sha256": "b5c4379eef223acb9396fbdd33a72816cb41d8df02d9a9a994139eda219f392a",
+          "operation": "extract-frames",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "timestampSeconds": 37.45,
+          "sampling": "even",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/frames/frame-002-37_450s.png",
+          "bytes": 659581,
+          "sha256": "255ca5c0a404284b48da48a6822494a4054839a384b6f5e02a7d2250716d1f50",
+          "operation": "extract-frames",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "timestampSeconds": 74.9,
+          "sampling": "even",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/frames/frame-003-74_900s.png",
+          "bytes": 658461,
+          "sha256": "8979667e91b7052f0ad5d2fdb08db861afa2a57cce87d8f918f803bf00545c5b",
+          "operation": "extract-frames",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-02-8.040s.png",
+          "timestampSeconds": 8.0396,
+          "bytes": 666362,
+          "sha256": "3d1522f36f947be5e4d848c8b7c66560af66eeae16d733dd84e264814b58e1ad",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "One deal instruction connects the agreement, order form, and data schedule.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-03-13.688s.png",
+          "timestampSeconds": 13.6876,
+          "bytes": 636442,
+          "sha256": "c6e31c78b06ac7f9e14d87b7713ef57a624c81607cb6ce2d3705fdbca02c8db6",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "Jev evaluates the actual clauses. These are live model responses.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-04-19.739s.png",
+          "timestampSeconds": 19.7386,
+          "bytes": 599935,
+          "sha256": "448a6e7b8b40098d894ce6cf7f0a105be5a943fb012e7617395c82cd0aed8abb",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "An existing counsel edit overlaps. You decide how to resolve it.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-06-28.135s.png",
+          "timestampSeconds": 28.1348,
+          "bytes": 763653,
+          "sha256": "5e9345226715d4f53af3617ff411b2a034045707348d2860dba2abd3f88edbe7",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "A lawyer adds a sentence before the agent applies its proposal.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-07-33.039s.png",
+          "timestampSeconds": 33.0394,
+          "bytes": 689146,
+          "sha256": "0d5f346a5679303e79e56cd15decdb9d0108874030fb435cd7c57c61b2adba1d",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "SuperDoc guards document state. The outdated proposal cannot overwrite your edit.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-09-43.697s.png",
+          "timestampSeconds": 43.6965,
+          "bytes": 608807,
+          "sha256": "2ec9209cc69951cbc8736d84ab3ac9950b2ec3c83329c5ead17572fd445a7d12",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "One tracked operation plan. Three locations verified. Existing revisions preserved.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-10-49.005s.png",
+          "timestampSeconds": 49.0052,
+          "bytes": 787844,
+          "sha256": "724255046875f95ac1a88af0bf40eea7530d7aad01bdda47c92380e348d35655",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "The order-form table receives real Word redlines, too.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-11-53.531s.png",
+          "timestampSeconds": 53.5312,
+          "bytes": 679731,
+          "sha256": "ee2fa37c6d139712d741bc0fe86fdfabdd2ff00be36899b1ed00fbbe3a7226e7",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "The schedule carries its redline and anchored explanation.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-demo-final/targeted/beat-12-59.342s.png",
+          "timestampSeconds": 59.3424,
+          "bytes": 707625,
+          "sha256": "2c985f4bb4f02bdcfef446b3ed32b354eeaa497ffec85ebcfe64f77c01a73ca6",
+          "parentSha256": "4b9197432ae1c3eb46469c1d08ca18807941e8458d5188ba3deda7d182cd801e",
+          "operation": "extract-frames",
+          "caption": "People remain in control: accept one change, reject another.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        }
+      ],
+      "unseenIntervals": [
+        {
+          "startSeconds": 0,
+          "endSeconds": 8.0396
+        },
+        {
+          "startSeconds": 8.0396,
+          "endSeconds": 13.6876
+        },
+        {
+          "startSeconds": 13.6876,
+          "endSeconds": 19.7386
+        },
+        {
+          "startSeconds": 19.7386,
+          "endSeconds": 28.1348
+        },
+        {
+          "startSeconds": 28.1348,
+          "endSeconds": 33.0394
+        },
+        {
+          "startSeconds": 33.0394,
+          "endSeconds": 37.45
+        },
+        {
+          "startSeconds": 37.45,
+          "endSeconds": 43.6965
+        },
+        {
+          "startSeconds": 43.6965,
+          "endSeconds": 49.0052
+        },
+        {
+          "startSeconds": 49.0052,
+          "endSeconds": 53.5312
+        },
+        {
+          "startSeconds": 53.5312,
+          "endSeconds": 59.3424
+        },
+        {
+          "startSeconds": 59.3424,
+          "endSeconds": 74.9
+        },
+        {
+          "startSeconds": 74.9,
+          "endSeconds": 75
+        }
+      ],
+      "audio": "No audio stream; intentionally captioned for sound-off viewing.",
+      "frameReader": "Bundled video-tools + FFmpeg targeted frames + Pillow metadata + native image viewer. Bundled image-tools could classify PNG but ImageMagick identify was unavailable; no raster conversion or SVG checks were needed.",
+      "frameLimit": 12
+    },
+    {
+      "file": {
+        "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/superdoc-jev-negotiation-social.mp4",
+        "bytes": 2195272,
+        "sha256": "b6ed266808bdd5fbaa7b978ebdfab46cbe64e2ddd345425121c7d5a3780a967f"
+      },
+      "container": "mov,mp4,m4a,3gp,3g2,mj2",
+      "durationSeconds": 25,
+      "streams": [
+        {
+          "index": 0,
+          "codecType": "video",
+          "codecName": "h264",
+          "width": 1600,
+          "height": 1080,
+          "channels": null
+        }
+      ],
+      "frames": [
+        {
+          "timestampSeconds": 0,
+          "sampling": "even",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-social-final/frames/frame-001-0_000s.png",
+          "bytes": 616465,
+          "sha256": "b5c4379eef223acb9396fbdd33a72816cb41d8df02d9a9a994139eda219f392a",
+          "operation": "extract-frames",
+          "parentSha256": "b6ed266808bdd5fbaa7b978ebdfab46cbe64e2ddd345425121c7d5a3780a967f",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "timestampSeconds": 12.45,
+          "sampling": "even",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-social-final/frames/frame-002-12_450s.png",
+          "bytes": 788716,
+          "sha256": "8decfd23ff71de3fe81adceb465e1e1686bd3a0af626181d880f672e48b67390",
+          "operation": "extract-frames",
+          "parentSha256": "b6ed266808bdd5fbaa7b978ebdfab46cbe64e2ddd345425121c7d5a3780a967f",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "timestampSeconds": 24.9,
+          "sampling": "even",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-social-final/frames/frame-003-24_900s.png",
+          "bytes": 722785,
+          "sha256": "64a9c373b42c4770e91921c67ebddb51a050ab742a4dcf55ec9ac7dc9e841d79",
+          "operation": "extract-frames",
+          "parentSha256": "b6ed266808bdd5fbaa7b978ebdfab46cbe64e2ddd345425121c7d5a3780a967f",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-social-final/targeted/beat-02-8.027s.png",
+          "timestampSeconds": 8.027,
+          "bytes": 663607,
+          "sha256": "6320beb9adea6e58de5b62a65f346a2877b4df85a2ef78126be37f6e3784c823",
+          "parentSha256": "b6ed266808bdd5fbaa7b978ebdfab46cbe64e2ddd345425121c7d5a3780a967f",
+          "operation": "extract-frames",
+          "caption": "One tracked operation plan. Three locations verified. Existing revisions preserved.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        },
+        {
+          "sampling": "targeted",
+          "path": "/Users/JoshElkes/.codex/workspaces/superdoc-jev-demo/outputs/video-v2/inspect-social-final/targeted/beat-04-17.553s.png",
+          "timestampSeconds": 17.553,
+          "bytes": 605368,
+          "sha256": "4f6d79fd1a47938446b3f30718dfd4c8edca17b09ed41cc5ce5555b1f59c8263",
+          "parentSha256": "b6ed266808bdd5fbaa7b978ebdfab46cbe64e2ddd345425121c7d5a3780a967f",
+          "operation": "extract-frames",
+          "caption": "SuperDoc guards document state. The outdated proposal cannot overwrite your edit.",
+          "format": "PNG",
+          "width": 1600,
+          "height": 1080,
+          "frameCount": 1,
+          "viewed": true
+        }
+      ],
+      "unseenIntervals": [
+        {
+          "startSeconds": 0,
+          "endSeconds": 8.027
+        },
+        {
+          "startSeconds": 8.027,
+          "endSeconds": 12.45
+        },
+        {
+          "startSeconds": 12.45,
+          "endSeconds": 17.553
+        },
+        {
+          "startSeconds": 17.553,
+          "endSeconds": 24.9
+        },
+        {
+          "startSeconds": 24.9,
+          "endSeconds": 25
+        }
+      ],
+      "audio": "No audio stream; intentionally captioned for sound-off viewing.",
+      "frameReader": "Bundled video-tools + FFmpeg targeted frames + Pillow metadata + native image viewer. Bundled image-tools could classify PNG but ImageMagick identify was unavailable; no raster conversion or SVG checks were needed.",
+      "frameLimit": 12
+    }
+  ],
+  "findings": [
+    "Captions readable in all sampled frames.",
+    "Main cut shows the live response state, counsel overlap resolution, added human sentence, stale-proposal pause, verified clause/table/schedule redlines, and accepted/rejected states.",
+    "Social cut shows actual clause/table redlines, stale-proposal pause, and export state.",
+    "Native Word round trip of the recorded export preserved remaining revisions, comments, tables, numbering and human sentence; see word-recording-roundtrip-v2.json."
+  ],
+  "limits": [
+    "Sampled still frames do not establish every intervening frame or motion.",
+    "Action assertions and downloaded DOCX inspection provide stronger evidence than captions.",
+    "No voiceover or audio stream.",
+    "Guided fictional scenario with three known locations and supplied fallbacks; no general legal accuracy or dependency-discovery claim."
+  ]
+}

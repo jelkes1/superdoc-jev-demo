@@ -4,6 +4,14 @@ import { spawnSync } from "node:child_process";
 import { resolve, join } from "node:path";
 const out = resolve(process.env.VIDEO_OUTPUT_DIR || "outputs/video");
 const timeline = JSON.parse(await readFile(join(out, "timeline.json"), "utf8"));
+if (
+  timeline.errors?.length ||
+  (timeline.prefix === "superdoc-jev-negotiation" &&
+    timeline.shots.length !== 13)
+)
+  throw new Error(
+    "The recorded workflow did not complete cleanly. Refusing to publish a partial run.",
+  );
 if (!timeline.measured.some((x) => x.type === "complete"))
   throw new Error(
     "No measured live review. Refusing to generate launch videos.",
@@ -32,13 +40,43 @@ async function render(name, shots, target) {
   }));
   let cursor = 0;
   const captions = [];
-  const filter = [];
+  const parts = [];
+  const partDir = join(out, `${name}-segments`);
+  await mkdir(partDir, { recursive: true });
   for (const [i, s] of segments.entries()) {
     const raw = s.end - s.start,
       rate = s.duration / raw;
-    filter.push(
-      `[0:v]trim=start=${s.start}:end=${s.end},setpts=${rate.toFixed(8)}*(PTS-STARTPTS),fps=30[v${i}]`,
+    // Encode separate clips so out-of-order social highlights cannot inherit
+    // buffered timestamps from another branch of a shared VFR input.
+    const part = join(partDir, `${i}.mp4`);
+    const clip = spawnSync(
+      ffmpeg,
+      [
+        "-y",
+        "-ss",
+        String(s.start),
+        "-t",
+        String(raw),
+        "-i",
+        timeline.raw,
+        "-an",
+        "-vf",
+        `setpts=${rate.toFixed(8)}*(PTS-STARTPTS),fps=30`,
+        "-t",
+        String(s.duration),
+        "-c:v",
+        "libx264",
+        "-pix_fmt",
+        "yuv420p",
+        "-crf",
+        "18",
+        part,
+      ],
+      { stdio: "inherit" },
     );
+    if (clip.status !== 0)
+      throw new Error(`Could not encode recorded segment ${i}.`);
+    parts.push(`file '${part.replaceAll("'", "'\\''")}'`);
     captions.push(
       `${i + 1}\n${clock(cursor)} --> ${clock(cursor + s.duration)}\n${s.caption}${rate < 0.999 ? " [Waiting time compressed]" : ""}\n`,
     );
@@ -53,20 +91,24 @@ async function render(name, shots, target) {
     );
   const subtitle = join(out, `${name}.srt`);
   await writeFile(subtitle, captions.join("\n"));
-  filter.push(
-    segments.map((_, i) => `[v${i}]`).join("") +
-      `concat=n=${segments.length}:v=1:a=0,tpad=stop_mode=clone:stop_duration=${pad.toFixed(3)},subtitles=filename='${escapeFilter(subtitle)}':force_style='FontName=Arial,FontSize=10,PrimaryColour=&H00FFFFFF,OutlineColour=&H00422C1A,BorderStyle=3,Outline=3,Shadow=0,MarginV=12'[out]`,
-  );
+  const list = join(partDir, "concat.txt");
+  await writeFile(list, parts.join("\n"));
+  const filter = `tpad=stop_mode=clone:stop_duration=${(pad + 0.5).toFixed(3)},subtitles=filename='${escapeFilter(subtitle)}':force_style='FontName=Arial,FontSize=10,PrimaryColour=&H00FFFFFF,OutlineColour=&H00422C1A,BorderStyle=3,Outline=3,Shadow=0,MarginV=12'`;
   const result = spawnSync(
     ffmpeg,
     [
       "-y",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
       "-i",
-      timeline.raw,
-      "-filter_complex",
-      filter.join(";"),
-      "-map",
-      "[out]",
+      list,
+      "-vf",
+      filter,
+      "-an",
+      "-t",
+      String(cursor + pad),
       "-c:v",
       "libx264",
       "-pix_fmt",
@@ -113,7 +155,7 @@ await writeFile(
       runs: timeline.measured,
       mainSeconds: full,
       socialSeconds: social,
-      reviewWaitsCompressed: timeline.shots.some(s => s.wait),
+      reviewWaitsCompressed: timeline.shots.some((s) => s.wait),
     },
     null,
     2,

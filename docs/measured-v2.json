@@ -1,0 +1,164 @@
+{
+  "origin": "https://superdoc-jev.superdoc-1393.chatgpt.site",
+  "browser": "145.0.7632.6",
+  "runs": [
+    {
+      "type": "complete",
+      "decisions": [
+        {
+          "locationId": "body",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 1,
+          "probabilities": {
+            "NOT_APPLICABLE": 0,
+            "UNACCEPTABLE": 1,
+            "ACCEPTABLE": 0,
+            "NEEDS_REVIEW": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "locationId": "order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 1,
+          "probabilities": {
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0,
+            "ACCEPTABLE": 0,
+            "UNACCEPTABLE": 1
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "locationId": "schedule",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.98,
+          "probabilities": {
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0,
+            "ACCEPTABLE": 0.01,
+            "UNACCEPTABLE": 0.99
+          },
+          "model": "jev-1.13.0"
+        }
+      ],
+      "usage": {
+        "inputTokens": 1869,
+        "outputTokens": 183,
+        "costUsd": 7.8498e-05,
+        "latencyMs": 187,
+        "decisions": 3
+      },
+      "reviewId": "a0519b79-f00c-4933-81ac-589f37a15097",
+      "revision": "0",
+      "version": "northstar-counterproposal-v2"
+    },
+    {
+      "type": "complete",
+      "decisions": [
+        {
+          "locationId": "body",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 1,
+          "probabilities": {
+            "UNACCEPTABLE": 1,
+            "NEEDS_REVIEW": 0,
+            "NOT_APPLICABLE": 0,
+            "ACCEPTABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "locationId": "order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 1,
+          "probabilities": {
+            "NEEDS_REVIEW": 0,
+            "UNACCEPTABLE": 1,
+            "NOT_APPLICABLE": 0,
+            "ACCEPTABLE": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "locationId": "schedule",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.98,
+          "probabilities": {
+            "UNACCEPTABLE": 0.99,
+            "NEEDS_REVIEW": 0,
+            "ACCEPTABLE": 0.01,
+            "NOT_APPLICABLE": 0
+          },
+          "model": "jev-1.13.0"
+        }
+      ],
+      "usage": {
+        "inputTokens": 1869,
+        "outputTokens": 183,
+        "costUsd": 7.8498e-05,
+        "latencyMs": 97,
+        "decisions": 3
+      },
+      "reviewId": "37da01d8-f96a-460d-a83f-3ea2d25fac0b",
+      "revision": "1",
+      "version": "northstar-counterproposal-v2"
+    },
+    {
+      "type": "complete",
+      "decisions": [
+        {
+          "locationId": "body",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 1,
+          "probabilities": {
+            "UNACCEPTABLE": 1,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "locationId": "order",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 1,
+          "probabilities": {
+            "UNACCEPTABLE": 1,
+            "ACCEPTABLE": 0,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0
+          },
+          "model": "jev-1.13.0"
+        },
+        {
+          "locationId": "schedule",
+          "verdict": "UNACCEPTABLE",
+          "confidence": 0.98,
+          "probabilities": {
+            "UNACCEPTABLE": 0.99,
+            "ACCEPTABLE": 0.01,
+            "NOT_APPLICABLE": 0,
+            "NEEDS_REVIEW": 0
+          },
+          "model": "jev-1.13.0"
+        }
+      ],
+      "usage": {
+        "inputTokens": 1887,
+        "outputTokens": 183,
+        "costUsd": 7.925400000000001e-05,
+        "latencyMs": 103,
+        "decisions": 3
+      },
+      "reviewId": "eb3d0f74-51cd-4490-9027-bcd132f659ac",
+      "revision": "2",
+      "version": "northstar-counterproposal-v2"
+    }
+  ],
+  "mainSeconds": 75,
+  "socialSeconds": 25,
+  "reviewWaitsCompressed": false,
+  "runtimeCommit": "d92ca793b774b954c3d5ca6034c5824a2ecb8765",
+  "timingScope": "latencyMs is provider-call timing, not end-to-end review latency."
+}

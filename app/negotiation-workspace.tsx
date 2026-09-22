@@ -647,7 +647,7 @@ export default function NegotiationWorkspace() {
               COUNTERPROPOSAL <span>Northstar · Vendor</span>
             </div>
             <h2>
-              Bring the terms
+              Bring the terms{" "}
               <br />
               into agreement.
             </h2>
