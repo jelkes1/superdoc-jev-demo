@@ -72,11 +72,6 @@ try {
   await shot(
     "Jev checks the live clauses. Review the complete proposed language before approving.",
     async () => {
-      await page
-        .getByRole("checkbox", {
-          name: "Send extracted clause text to TypeSafe for this review.",
-        })
-        .check();
       await review();
     },
     3800,
@@ -195,11 +190,6 @@ try {
       await page
         .getByRole("button", { name: "Compare models", exact: true })
         .click();
-      await page
-        .getByRole("checkbox", {
-          name: /I agree to send this extracted contract text/,
-        })
-        .check();
       const response = page.waitForResponse((r) =>
         r.url().endsWith("/api/compare"),
       );

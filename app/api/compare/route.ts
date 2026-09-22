@@ -18,11 +18,6 @@ import { readJson, errorResponse, PublicError } from "@/lib/server/validation";
 import { getEncoding } from "js-tiktoken";
 export async function POST(req: Request) {
   try {
-    if (req.headers.get("x-comparison-consent") !== "acknowledged")
-      throw new PublicError(
-        "Acknowledge sending extracted text to TypeSafe and OpenAI before comparing.",
-        400,
-      );
     const env = appEnv(),
       input = deskSchema.parse(await readJson(req));
     if (

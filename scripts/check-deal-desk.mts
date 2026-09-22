@@ -21,7 +21,6 @@ await page.goto(process.env.DEMO_BASE_URL ?? "http://localhost:5173/");
 await expect(
   page.getByRole("button", { name: "Download Word", exact: true }),
 ).toBeEnabled({ timeout: 60000 });
-await page.getByRole("checkbox").check();
 await page
   .getByRole("button", { name: "Review the agreement", exact: true })
   .click();

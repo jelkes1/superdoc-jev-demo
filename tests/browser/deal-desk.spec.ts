@@ -5,11 +5,15 @@ test.beforeEach(async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "Download Word", exact: true }),
   ).toBeEnabled();
-  await page.getByRole("button", { name: "Explore freely", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Explore freely", exact: true })
+    .click();
   await page.waitForFunction(
     () => !!window.__dealDesk?.instance.activeEditor?.doc,
   );
-  await expect(page.getByRole("checkbox")).toBeEnabled();
+  await expect(
+    page.getByRole("button", { name: "Review the agreement", exact: true }),
+  ).toBeEnabled();
   await page.waitForFunction(async () => {
     try {
       return (
@@ -176,7 +180,6 @@ test("review matrix uses actual responses and reuses unchanged decisions", async
       },
     });
   });
-  await page.getByRole("checkbox").check();
   await page
     .getByRole("button", { name: "Review the agreement", exact: true })
     .click();

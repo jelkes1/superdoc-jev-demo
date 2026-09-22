@@ -47,12 +47,12 @@ The original DOCX stays in the browser. Running review sends extracted text to T
 
 ## Try the workflow
 
-1. Acknowledge the disclosure and select **Review agreement**.
+1. Select **Review agreement**.
 2. Read the complete proposed language, choose replacements, then **Approve selected language & create redlines**.
 3. Follow the finding queue: Accept, Reject, Next finding. Approve the numbered safeguard separately; request a telemetry draft or leave it for human review.
 4. **Continue to export** summarizes accepted, rejected, pending and unresolved items. **Download Word** preserves remaining revisions.
 
-The **This run** panel shows genuine accumulated measurements. **Inspect proof** reveals targets and receipts; **Compare models** is optional and requires separate acknowledgment before sending extracted text to OpenAI. Results are isolated from document execution.
+The **This run** panel shows genuine accumulated measurements. **Inspect proof** reveals targets and receipts; **Compare models** is optional and runs directly from its action button. Provider details are available through **Data & limits**. Results are isolated from document execution.
 
 **Explore freely** exposes the original workspace, policy controls and matrix; **Return to guided flow** resumes the current step. Changing terms or counter-editing a clause marks decisions stale. A no-change recheck makes no model call.
 
@@ -94,7 +94,7 @@ Model IDs and cost constants are intentionally coupled. Substituting a model req
 
 ## Small API surface
 
-- `POST /api/compare`: frozen bounded clause context → incremental results for three exact model snapshots; separate disclosure acknowledgment, one shared review reservation.
+- `POST /api/compare`: frozen bounded clause context → incremental results for three exact model snapshots; one shared review reservation.
 - `POST /api/deal-desk`: current deal-desk rows → validated live decisions and usage.
 
 - `POST /api/negotiate`: three bounded clause locations + document revision + versioned deal settings → actual Jev judgments, full distributions, separate confidence, and measured usage. Shares the same atomic budget/rate controls as playbook review.

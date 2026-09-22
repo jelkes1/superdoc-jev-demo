@@ -59,7 +59,6 @@ try {
   await shot(
     "Jev checks eight locations against the agreed terms. Actual decisions and probabilities.",
     async () => {
-      await page.getByRole("checkbox").check();
       await check(true);
       await page
         .getByRole("button", { name: "Review matrix", exact: true })

@@ -79,7 +79,6 @@ export default function DealDesk() {
     [changed, setChanged] = useState<RuleId[]>([]),
     [stale, setStale] = useState(false),
     [source, setSource] = useState("Meridian’s returned agreement"),
-    [consent, setConsent] = useState(false),
     [reused, setReused] = useState(0),
     [lastCheck, setLastCheck] = useState(""),
     [humanText, setHumanText] = useState(""),
@@ -169,7 +168,6 @@ export default function DealDesk() {
     setEditing(false);
     setPolicy(DEFAULT_POLICY);
     setLastCheck("");
-    setConsent(false);
     setReasoning(undefined);
     setReasoned(undefined);
     try {
@@ -320,7 +318,7 @@ export default function DealDesk() {
     }
   }
   async function check() {
-    if (busy || !consent) return;
+    if (busy) return;
     begin("review");
     setBusy("Reading current document targets…");
     setError("");
@@ -930,23 +928,9 @@ export default function DealDesk() {
         </section>
       </details>
       <div className="deal-actionbar">
-        <div className="data-consent">
-          <label>
-            <input
-              type="checkbox"
-              checked={consent}
-              onChange={(e) => setConsent(e.target.checked)}
-            />{" "}
-            Send extracted clause text to TypeSafe for this review.
-          </label>
-          <small>
-            DOCX stays in your browser. No contract text stored in app logs. 5
-            reviews/hour · 25,000 tokens max.
-          </small>
-        </div>
         <button
           className="primary"
-          disabled={!ready || !!busy || !consent}
+          disabled={!ready || !!busy}
           onClick={() => void check()}
         >
           {busy ? (
@@ -989,22 +973,9 @@ export default function DealDesk() {
                   Jev checks the clauses. SuperDoc applies approved language at
                   the correct Word locations.
                 </p>
-                <label className="guide-disclosure">
-                  <input
-                    type="checkbox"
-                    checked={consent}
-                    onChange={(e) => setConsent(e.target.checked)}
-                  />{" "}
-                  Send extracted clause text to TypeSafe for this review.
-                </label>
-                <small>
-                  The DOCX stays in your browser. No contract contents in app
-                  logs. English text DOCX, 10 MB / 25,000 tokens. Five reviews
-                  or comparisons per hour.
-                </small>
                 <button
                   className="primary"
-                  disabled={!ready || !!busy || !consent}
+                  disabled={!ready || !!busy}
                   onClick={() => void check()}
                 >
                   {busy ||
@@ -1194,10 +1165,7 @@ export default function DealDesk() {
                   Document or policy changed. Affected decisions need a fresh
                   check.
                 </p>
-                <button
-                  disabled={!!busy || !consent}
-                  onClick={() => void check()}
-                >
+                <button disabled={!!busy} onClick={() => void check()}>
                   Recheck changed clauses
                 </button>
               </div>
@@ -1592,7 +1560,7 @@ export default function DealDesk() {
             </section>
           )}
           {guided && !stale && !decision && previous && !op && (
-            <button disabled={!!busy || !consent} onClick={() => void check()}>
+            <button disabled={!!busy} onClick={() => void check()}>
               Recheck changed clauses
             </button>
           )}
@@ -1693,8 +1661,8 @@ export default function DealDesk() {
                 policy.training === "consent" && (
                   <>
                     <p>
-                      Requesting a draft sends this clause to OpenAI. Two drafts
-                      per review; proposed text still needs your approval.
+                      Explore draft language for this unresolved term. You can
+                      review it before creating a tracked change.
                     </p>
                     <button
                       disabled={!!busy || navigating}
@@ -1808,6 +1776,7 @@ export default function DealDesk() {
             ? `${review.usage.decisions} decisions · ${Math.round(review.usage.latencyMs)} ms provider call · ${review.usage.inputTokens.toLocaleString()} input / ${review.usage.outputTokens} output tokens${reused ? ` · ${reused} reused` : ""}`
             : "Jev evaluates · SuperDoc executes · A human reviews"}
         </span>
+        <Link href="/walkthrough#data-and-limits">Data & limits</Link>
       </footer>
     </div>
   );

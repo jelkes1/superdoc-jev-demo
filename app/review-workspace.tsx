@@ -623,9 +623,7 @@ export default function ReviewWorkspace() {
                 : "Review against playbook"}
           </Button>
           <p className="data-note">
-            Review sends extracted text to Jev and, for up to two unresolved
-            findings, OpenAI. This app does not retain contract contents.
-            Providers process text under their own terms.
+            <a href="/walkthrough#data-and-limits">Data & limits</a>
           </p>
           <p className="limits-note">
             English DOCX · 10 MB · 25,000 tokens · 5 reviews/hour

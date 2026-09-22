@@ -647,8 +647,7 @@ export default function NegotiationWorkspace() {
               COUNTERPROPOSAL <span>Northstar · Vendor</span>
             </div>
             <h2>
-              Bring the terms{" "}
-              <br />
+              Bring the terms <br />
               into agreement.
             </h2>
             <div className="deal-instruction">
@@ -1072,9 +1071,7 @@ export default function NegotiationWorkspace() {
                       : "Rerun review")}
             </Button>
             <p>
-              Review sends extracted clause text to Jev. No document contents
-              are retained by this app. Five reviews per hour; shared $10 daily
-              budget.
+              <a href="/walkthrough#data-and-limits">Data & limits</a>
             </p>
           </div>
         </aside>

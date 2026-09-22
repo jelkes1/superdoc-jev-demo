@@ -7,6 +7,7 @@ async function ready(page: Page) {
   ).toBeEnabled();
 }
 async function reviewMock(page: Page, acceptable = false) {
+  await expect(page.getByRole("checkbox")).toHaveCount(0);
   await page.route("**/api/deal-desk", async (route) => {
     const body = route.request().postDataJSON();
     await route.fulfill({
@@ -41,11 +42,6 @@ async function reviewMock(page: Page, acceptable = false) {
       },
     });
   });
-  await page
-    .getByRole("checkbox", {
-      name: "Send extracted clause text to TypeSafe for this review.",
-    })
-    .check();
   await page
     .getByRole("button", { name: "Review agreement", exact: true })
     .click();
@@ -196,11 +192,6 @@ test("zero proposals and provider failure have a next action; mobile keyboard fl
     }),
   );
   await page
-    .getByRole("checkbox", {
-      name: "Send extracted clause text to TypeSafe for this review.",
-    })
-    .check();
-  await page
     .getByRole("button", { name: "Review agreement", exact: true })
     .click();
   await expect(
@@ -209,7 +200,7 @@ test("zero proposals and provider failure have a next action; mobile keyboard fl
     }),
   ).toBeVisible();
 });
-test("comparison requires its own consent, reports partial failures and cannot alter document or main usage", async ({
+test("comparison runs directly, reports partial failures and cannot alter document or main usage", async ({
   page,
 }) => {
   await ready(page);
@@ -222,11 +213,10 @@ test("comparison requires its own consent, reports partial failures and cannot a
     .click();
   await expect(
     page.getByRole("button", { name: "Run fresh comparison" }),
-  ).toBeDisabled();
+  ).toBeEnabled();
+  await expect(page.getByRole("checkbox")).toHaveCount(0);
   await page.route("**/api/compare", async (route) => {
-    expect(route.request().headers()["x-comparison-consent"]).toBe(
-      "acknowledged",
-    );
+    expect(route.request().headers()["x-comparison-consent"]).toBeUndefined();
     const models = [
       "jev-1.13.0",
       "gpt-5.4-mini-2026-03-17",
@@ -279,11 +269,6 @@ test("comparison requires its own consent, reports partial failures and cannot a
           .join("\n") + "\n",
     });
   });
-  await page
-    .getByRole("checkbox", {
-      name: /I agree to send this extracted contract text/,
-    })
-    .check();
   await page.getByRole("button", { name: "Run fresh comparison" }).click();
   await expect(
     page.getByRole("cell", { name: "incomplete", exact: true }),

@@ -36,8 +36,8 @@ export default function Walkthrough() {
       </p>
       <p>
         Compare models freezes the same evidence for Jev 1.13.0, GPT-5.4 mini
-        and GPT-5.4. It requires its own disclosure acknowledgment and never
-        modifies the document. OpenAI returns strict verdicts with reasoning
+        and GPT-5.4. Start a comparison directly from its button; results never
+        modify the document. OpenAI returns strict verdicts with reasoning
         effort none; Jev retains its native confidence.
       </p>
       <p>
@@ -86,9 +86,9 @@ export default function Walkthrough() {
         The telemetry exception and liability position have not been agreed.
         They remain human decisions even if Jev reports a high score. An
         eligible telemetry finding can request a bounded OpenAI draft, at most
-        twice per review. Requesting a draft discloses that the clause goes to
-        OpenAI; approving the language creates a tracked suggestion. Neither a
-        classifier nor a drafting model is given authority to settle the deal.
+        twice per review. Approving the drafted language creates a tracked
+        suggestion. Neither a classifier nor a drafting model is given authority
+        to settle the deal.
       </p>
       <h2>The headless path</h2>
       <p>
@@ -143,13 +143,14 @@ export default function Walkthrough() {
         </Link>{" "}
         is also retained.
       </p>
-      <p>
+      <p id="data-and-limits">
         English text-based DOCX up to 10 MB and 25,000 extracted tokens. Review
         sends extracted text to TypeSafe; optional drafting sends a clause to
-        OpenAI. The application stores operational counters, not contracts.
-        Public usage is limited to five reviews per visitor/IP per hour and a
-        shared $10/day model budget. Provider failures leave editing and export
-        available.
+        OpenAI; comparison sends the same clause context to both providers. The
+        DOCX stays in your browser. The application stores operational counters,
+        not contracts. Public usage is limited to five reviews per visitor/IP
+        per hour and a shared $10/day model budget. Provider failures leave
+        editing and export available.
       </p>
       <p>
         <a href="https://docs.superdoc.dev">SuperDoc documentation ↗</a> ·{" "}

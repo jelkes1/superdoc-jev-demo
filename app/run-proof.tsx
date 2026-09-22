@@ -23,7 +23,6 @@ export default function RunProof({
   inspect: () => void;
 }) {
   const [show, setShow] = useState(false),
-    [ack, setAck] = useState(false),
     [running, setRunning] = useState(false),
     [error, setError] = useState("");
   const [results, setResults] = useState<CompareResult[]>([]),
@@ -37,7 +36,7 @@ export default function RunProof({
       .filter((u) => u.model.startsWith("jev") === jev)
       .reduce((n, u) => n + u.usage.latencyMs, 0);
   async function compare() {
-    if (!ack || running) return;
+    if (running) return;
     setRunning(true);
     setError("");
     setResults([]);
@@ -49,7 +48,6 @@ export default function RunProof({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Comparison-Consent": "acknowledged",
         },
         body: JSON.stringify(snapshot),
       });
@@ -219,19 +217,9 @@ export default function RunProof({
             Results never modify your document. Comparison cost is separate from
             “This run”.
           </p>
-          <label className="compare-consent">
-            <input
-              type="checkbox"
-              checked={ack}
-              onChange={(e) => setAck(e.target.checked)}
-              disabled={running}
-            />{" "}
-            I agree to send this extracted contract text to TypeSafe and OpenAI
-            for comparison.
-          </label>
           <button
             className="primary"
-            disabled={!ack || running || disabled}
+            disabled={running || disabled}
             onClick={() => void compare()}
           >
             {running
