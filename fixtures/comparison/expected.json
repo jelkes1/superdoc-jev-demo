@@ -1,0 +1,44 @@
+{
+  "dataset": "fictional-contract-decisions-v1",
+  "frozenAt": "2026-09-22",
+  "note": "Small demonstration dataset. Expected verdicts and rationales authored before model calls; not a legal accuracy benchmark.",
+  "policy": { "training": "consent", "notice": 30 },
+  "variants": [
+    {
+      "id": "violating",
+      "rows": [
+        { "id": "training", "text": "Provider may train general-purpose models on Customer Data without further permission. Customer grants a perpetual training license.", "expected": "UNACCEPTABLE", "rationale": "Default and perpetual training permission contradicts specific written consent." },
+        { "id": "renewal", "text": "The subscription automatically renews unless Customer gives notice at least 15 days before renewal.", "expected": "UNACCEPTABLE", "rationale": "15 days does not match the agreed 30 days." },
+        { "id": "payment", "text": "Customer shall pay each undisputed invoice within 60 days. There are no existing revisions at this location.", "expected": "UNACCEPTABLE", "rationale": "60 days contradicts the agreed 30-day period; classification does not authorize editing." },
+        { "id": "safeguard", "text": "Schedule C: De-identified Customer Data excerpts may be used for general-purpose model training without Customer consent, notwithstanding any conflicting restriction in Section 7.", "expected": "UNACCEPTABLE", "rationale": "Express permission contradicts the required restriction and reverses its precedence." }
+      ]
+    },
+    {
+      "id": "acceptable",
+      "rows": [
+        { "id": "training", "text": "Provider must obtain Customer's specific prior written consent before using Customer Data to train shared or general-purpose models. No default or perpetual training license is granted.", "expected": "ACCEPTABLE", "rationale": "The complete permission matches the consent policy." },
+        { "id": "renewal", "text": "The subscription automatically renews unless Customer gives notice at least 30 days before renewal.", "expected": "ACCEPTABLE", "rationale": "The notice period equals the agreed 30 days." },
+        { "id": "payment", "text": "Customer shall pay each undisputed invoice within 30 days. Counsel's existing tracked revision changes 45 days to 30 days and remains pending.", "expected": "ACCEPTABLE", "rationale": "Counsel's existing revision implements the agreed payment term and must be preserved." },
+        { "id": "safeguard", "text": "Schedule C: Customer Data, including de-identified excerpts, must not be used to train shared or general-purpose models unless Customer gives specific prior written consent. This restriction prevails over conflicting permissions in Section 7 and any order form.", "expected": "ACCEPTABLE", "rationale": "Restriction, excerpt coverage and precedence are all explicit." }
+      ]
+    },
+    {
+      "id": "ambiguous",
+      "rows": [
+        { "id": "training", "text": "Provider may use Customer Data for training as authorized under the separate Data Use Addendum. That addendum is unavailable and the scope of authorization has not been settled.", "expected": "NEEDS_REVIEW", "rationale": "Unavailable authorization cannot establish compliance or a definite violation." },
+        { "id": "renewal", "text": "Non-renewal notice is due within the window specified in the applicable order form. Two conflicting unsigned drafts specify 15 and 30 days; no final order form is available.", "expected": "NEEDS_REVIEW", "rationale": "Conflicting drafts and missing final evidence leave the operative period unresolved." },
+        { "id": "payment", "text": "Invoices are due within the period separately agreed in writing. Counsel's unresolved alternatives specify 30 or 60 days and neither has been selected.", "expected": "NEEDS_REVIEW", "rationale": "The binding payment period is not settled." },
+        { "id": "safeguard", "text": "Schedule C incorporates a training safeguard from an unavailable annex. Its treatment of de-identified excerpts and priority over Section 7 is unknown.", "expected": "NEEDS_REVIEW", "rationale": "Unavailable terms and precedence require human review." }
+      ]
+    },
+    {
+      "id": "missing",
+      "rows": [
+        { "id": "training", "text": "The complete data-use section contains only confidentiality terms. There is no provision addressing use of Customer Data for model training.", "expected": "NEEDS_REVIEW", "rationale": "An absent required provision must be reviewed, not marked acceptable." },
+        { "id": "renewal", "text": "The subscription renews annually. The complete agreement and order form contain no cancellation notice period.", "expected": "NEEDS_REVIEW", "rationale": "Missing cancellation window is unresolved." },
+        { "id": "payment", "text": "Provider will invoice monthly. The complete agreement contains no payment due date or payment-period revision.", "expected": "NEEDS_REVIEW", "rationale": "Monthly invoicing does not establish the required 30-day payment term." },
+        { "id": "safeguard", "text": "Schedule C (complete): 1. Provider maintains security controls. 2. Provider notifies Customer of incidents. 3. Provider returns Customer Data on termination. No training safeguard is present.", "expected": "NEEDS_REVIEW", "rationale": "The absent training safeguard requires an expressly approved insertion." }
+      ]
+    }
+  ]
+}
