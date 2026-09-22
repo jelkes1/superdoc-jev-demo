@@ -4,7 +4,7 @@
 
 A standalone TypeScript/React example with a real DOCX editor, five vendor playbook rules, tracked replacements, human review, a small server API and atomic public-use limits.
 
-**Current release status:** the editor and integration tests are verified. Live Jev access is not configured in the hosted preview yet. No model results are simulated in the app, and no live launch video or legal-accuracy claim is included. See [launch gate](docs/launch-checklist.md).
+**Current release status:** live Jev review is connected. The hosted fictional fixture produced three verified tracked replacements, an acceptable New York governing-law decision, and unresolved findings. See [verification](docs/verification.md) and the [launch gate](docs/launch-checklist.md). No model results are simulated in the app.
 
 - [Public preview](https://superdoc-jev.superdoc-1393.chatgpt.site)
 - [Core integration](lib/review/document.ts)
@@ -56,7 +56,7 @@ English text-based DOCX only, up to 10 MB and 25,000 extracted tokens. Body para
 
 Both visitor and IP limits apply: five reviews per clock hour. D1 reserves estimated maximum cost atomically before every model call, then reconciles reported usage. Unknown usage retains the reservation. Reasoning is limited to two calls per completed review. New model calls stop when the allowance is exhausted; existing document edits and export keep working.
 
-Model IDs and cost constants are intentionally coupled. Substituting a model requires checking its schema, confidence semantics, prices and reservation bounds. See the adapter instructions in [architecture](docs/architecture.md). The threshold starts at 95% for eligible automatic proposals and 70% for escalation; it still requires live fixture tuning before launch.
+Model IDs and cost constants are intentionally coupled. Substituting a model requires checking its schema, confidence semantics, prices and reservation bounds. See the adapter instructions in [architecture](docs/architecture.md). The threshold remains 95% for eligible automatic proposals and 70% for escalation after the live fixture check. Confidence is model-reported, not a calibrated legal-accuracy estimate. Exact replacement patterns and revision checks are separate requirements for every automatic edit.
 
 ## Small API surface
 

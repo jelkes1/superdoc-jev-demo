@@ -111,6 +111,9 @@ test("review UI navigates, accepts/rejects and reruns without duplicate proposal
   await payment.getByRole("button", { name: "Payment terms" }).click();
   await payment.getByRole("button", { name: "Accept", exact: true }).click();
   await expect(payment).toContainText("Suggestion accepted");
+  await payment.getByRole("button", { name: "Payment terms" }).click();
+  await page.waitForTimeout(300);
+  await expect(page.getByRole("alert")).toHaveCount(0);
   await page.getByLabel("Liability cap").selectOption("24");
   await page
     .getByRole("button", { name: "Rerun against playbook", exact: true })

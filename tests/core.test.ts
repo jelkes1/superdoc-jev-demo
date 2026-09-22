@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { playbook, deterministicProposal } from "../lib/review/playbook";
-import { routeDecision } from "../lib/review/routing";
+import { routeDecision, reasoningCandidates } from "../lib/review/routing";
 import { answerSchema, readJson } from "../lib/server/validation";
 import { batches, estimatedJevCost, evaluateBatch } from "../lib/server/jev";
 import { reasonToken, sameToken } from "../lib/server/tokens";
@@ -33,6 +33,41 @@ const decision: Decision = {
   playbookVersion: playbook().version,
   model: "jev-1.13.0",
 };
+test("drafting slots prioritize substantive uncertainty over table labels", () => {
+  const clauses = [
+    { ...clause, id: "label", text: "Payment" },
+    { ...clause, id: "reference", text: "As described in Section 4" },
+    {
+      ...clause,
+      id: "data",
+      text: "Provider may process Customer Data to deliver, secure and support the Services in accordance with Customer instructions.",
+    },
+    {
+      ...clause,
+      id: "cap",
+      text: "The aggregate cap applies across all claims arising under this agreement and its order forms.",
+    },
+  ];
+  const decisions = clauses.map((c) => ({
+    ...decision,
+    id: c.id,
+    clauseId: c.id,
+    verdict: "NEEDS_REVIEW" as const,
+    reasonToken: "test",
+  }));
+  assert.deepEqual(
+    reasoningCandidates(decisions, clauses, playbook()).map((d) => d.id),
+    ["data", "cap"],
+  );
+  assert.equal(
+    reasoningCandidates(
+      decisions.map((d) => ({ ...d, reasonToken: undefined })),
+      clauses,
+      playbook(),
+    ).length,
+    0,
+  );
+});
 test("confidence boundaries, ambiguous and acceptable routing", () => {
   assert.equal(routeDecision(decision, clause, playbook()), "propose");
   assert.equal(

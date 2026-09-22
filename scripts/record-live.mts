@@ -21,18 +21,32 @@ const page = await context.newPage();
 const shots: { start: number; end: number; caption: string; wait: boolean }[] =
   [];
 const measured: unknown[] = [];
+const responseReads: Promise<void>[] = [];
 const epoch = performance.now();
 const seconds = () => (performance.now() - epoch) / 1000;
-page.on("response", async (response) => {
-  if (response.url().endsWith("/api/review") && response.ok()) {
-    const events = (await response.text())
-      .trim()
-      .split("\n")
-      .map((x) => JSON.parse(x));
-    measured.push(
-      ...events.filter((e) => e.type === "complete" || e.type === "start"),
-    );
-  }
+page.on("response", (response) => {
+  if (!/\/api\/(review|reason)$/.test(response.url()) || !response.ok()) return;
+  responseReads.push(
+    (async () => {
+      if (response.url().endsWith("/api/review")) {
+        const events = (await response.text())
+          .trim()
+          .split("\n")
+          .map((x) => JSON.parse(x));
+        measured.push(
+          ...events.filter((e) => e.type === "complete" || e.type === "start"),
+        );
+      } else {
+        const result = await response.json();
+        measured.push({
+          type: "reason",
+          usage: result.usage,
+          model: result.model,
+          proposed: !!result.proposal,
+        });
+      }
+    })(),
+  );
 });
 async function shot(
   caption: string,
@@ -81,12 +95,16 @@ try {
       await liability.getByText("Decision details").click();
     },
   );
-  const ambiguous = page.locator("[data-verdict=NEEDS_REVIEW]").first();
+  const ambiguous = page
+    .locator("[data-rule=data][data-verdict=NEEDS_REVIEW]")
+    .first();
   await expect(ambiguous).toBeVisible();
   await shot("Uncertain findings stay open for human review.", () =>
     ambiguous.locator(".finding-location").click(),
   );
   await shot("Change the liability policy from 12 to 24 months.", async () => {
+    await page.getByLabel("Liability cap").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(800);
     await page.getByLabel("Liability cap").selectOption("24");
   });
   await shot(
@@ -103,7 +121,7 @@ try {
   );
   const payment = page
     .locator("[data-rule=payment]")
-    .filter({ hasText: "Verified tracked replacement" })
+    .filter({ hasText: "Customer shall pay each undisputed invoice" })
     .first();
   await expect(payment).toBeVisible();
   await shot("You choose which proposed edits to accept.", async () => {
@@ -113,7 +131,7 @@ try {
   });
   const renewal = page
     .locator("[data-rule=renewal]")
-    .filter({ hasText: "Verified tracked replacement" })
+    .filter({ hasText: "The subscription automatically renews" })
     .first();
   await expect(renewal).toBeVisible();
   await shot("Or reject a change and keep the original wording.", async () => {
@@ -130,11 +148,14 @@ try {
     },
   );
   await shot("Jev decides. SuperDoc edits. A human reviews.", async () => {
+    await payment.locator(".finding-location").click();
+    await expect(page.getByRole("alert")).toHaveCount(0);
     await page.locator(".review-pane").evaluate((el) => {
       el.scrollTop = 0;
     });
   });
   const video = page.video()!;
+  await Promise.all(responseReads);
   await context.close();
   const raw = await video.path();
   await writeFile(

@@ -46,3 +46,5 @@ Replace `evaluateBatch` in `lib/server/jev.ts`. Keep the four-way decision inter
 ## Boundaries
 
 English text-based DOCX only; 10 MB and 25,000 extracted tokens. Body paragraphs, headings and table cells are covered. Headers/footers, images/OCR, text boxes and other non-body stories are outside automatic review. Unsupported blocks and incomplete contexts remain unresolved. Unfamiliar clause patterns do not get canned replacements. Cross-references and missing definitions can still require human review. This is a developer demonstration, not a complete legal review system.
+
+Drafting candidates prioritize substantive clause text over short table labels and cross-references, and relevant findings over uncertain non-relevance. NEEDS_REVIEW gets priority within those groups. At most two authorized findings are drafted; every other finding remains visible for human review. This scheduling never changes Jev’s returned choice or confidence.

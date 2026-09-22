@@ -3,10 +3,10 @@
 - [x] Prepared fictional agreement, browser editor and upload/export path.
 - [x] Jev and reasoning adapters, small endpoints and named modules.
 - [x] D1 atomic reservations and focused concurrency tests.
-- [ ] Working TypeSafe key and live three-rule proof (currently external dependency).
-- [ ] Tune judgments/thresholds against acceptable, violating, ambiguous and missing fixtures.
+- [x] Working TypeSafe key and live three-rule proof.
+- [x] Check acceptable, violating, ambiguous and missing fixture outcomes; retain 95%/70% thresholds with explicit limitations.
 - [x] Complete browser checks, export/reopen and fresh-install verification.
-- [ ] Verify hosted sample and upload flow with real Jev responses.
+- [x] Hosted sample live review and upload/export paths verified.
 - [ ] Record and inspect 60–90s captioned demo and 20–30s social cut.
 - [ ] Populate measured results in `docs/measured-run.json` from the live recording.
 - [x] Published preview verified: https://superdoc-jev.superdoc-1393.chatgpt.site. Source: https://github.com/jelkes1/superdoc-jev-demo.

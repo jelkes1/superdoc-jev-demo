@@ -31,7 +31,7 @@ import {
   RULE_LABELS,
   rules,
 } from "@/lib/review/playbook";
-import { routeDecision } from "@/lib/review/routing";
+import { routeDecision, reasoningCandidates } from "@/lib/review/routing";
 import { readReview } from "@/lib/review/stream";
 import {
   VERDICTS,
@@ -226,22 +226,32 @@ export default function ReviewWorkspace() {
   async function navigate(c: Clause, s?: Suggestion) {
     try {
       setActive(s?.decisionId ?? c.id);
-      const target = s?.verification.changeIds[0]
-        ? {
-            kind: "entity" as const,
-            entityType: "trackedChange" as const,
-            entityId: s.verification.changeIds[0],
-          }
-        : {
-            kind: "text" as const,
-            blockId: c.nodeId,
-            range: { start: 0, end: Math.min(c.text.length, 80) },
-          };
-      const result = await instance.current!.ui.viewport.scrollIntoView({
+      const blockTarget = {
+        kind: "text" as const,
+        blockId: c.nodeId,
+        range: { start: 0, end: 0 },
+      };
+      const target =
+        s?.status === "pending" && s.verification.changeIds[0]
+          ? {
+              kind: "entity" as const,
+              entityType: "trackedChange" as const,
+              entityId: s.verification.changeIds[0],
+            }
+          : blockTarget;
+      let result = await instance.current!.ui.viewport.scrollIntoView({
         target,
         block: "center",
         behavior: "instant",
       });
+      // Editor-toolbar acceptance can resolve the revision before panel state
+      // catches up. The stable clause block is still a valid navigation target.
+      if (!result.success && target.kind === "entity")
+        result = await instance.current!.ui.viewport.scrollIntoView({
+          target: blockTarget,
+          block: "center",
+          behavior: "instant",
+        });
       if (!result.success)
         throw new Error(
           "This location changed. Rerun review to refresh its target.",
@@ -332,22 +342,7 @@ export default function ReviewWorkspace() {
           setIssues((prev) => ({ ...prev, [d.id]: message(e) }));
         }
       }
-      const unresolved = results
-        .filter(
-          (d) =>
-            d.reasonToken &&
-            routeDecision(
-              d,
-              extracted.clauses.find((c) => c.id === d.clauseId)!,
-              p,
-            ) === "reason",
-        )
-        .sort(
-          (a, b) =>
-            Number(b.verdict === "NEEDS_REVIEW") -
-            Number(a.verdict === "NEEDS_REVIEW"),
-        )
-        .slice(0, 2);
+      const unresolved = reasoningCandidates(results, extracted.clauses, p);
       const reasoningTotals: Usage = {
         inputTokens: 0,
         outputTokens: 0,

@@ -12,3 +12,28 @@ export function routeDecision(d: Decision, c: Clause, p: Playbook): Route {
     return "propose";
   return d.confidence >= p.threshold ? "reason" : "human";
 }
+
+// Spend the two drafting slots on substantive uncertainty before short labels
+// and cross-references. Every unselected finding remains available to the human.
+export function reasoningCandidates(
+  decisions: Decision[],
+  clauses: Clause[],
+  policy: Playbook,
+): Decision[] {
+  const byId = new Map(clauses.map((c) => [c.id, c]));
+  const score = (d: Decision) => {
+    const c = byId.get(d.clauseId)!;
+    return (
+      Number(d.verdict !== "NOT_APPLICABLE") * 4 +
+      Number(c.text.length >= 80) * 2 +
+      Number(d.verdict === "NEEDS_REVIEW")
+    );
+  };
+  return decisions
+    .filter((d) => {
+      const c = byId.get(d.clauseId);
+      return c && d.reasonToken && routeDecision(d, c, policy) === "reason";
+    })
+    .sort((a, b) => score(b) - score(a))
+    .slice(0, 2);
+}
