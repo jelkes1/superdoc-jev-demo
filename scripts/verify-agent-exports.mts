@@ -2,19 +2,23 @@ import { chromium } from "@playwright/test";
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 const report = JSON.parse(
-  await readFile("docs/agent-evaluation-v1.json", "utf8"),
+  await readFile(
+    process.env.AGENT_FORMAL_REPORT ?? "docs/agent-evaluation-v1.json",
+    "utf8",
+  ),
 );
 const browser = await chromium.launch(),
   page = await browser.newPage();
 await page.addInitScript({ content: "window.__name=(fn)=>fn;" });
+const outputDir = process.env.AGENT_EXPORT_DIR ?? "outputs/agent-evaluation";
 const checks = [];
 try {
   await page.goto("http://localhost:5173/agent");
   await page.waitForFunction(() => !!(window as any).__agent);
-  for (const file of (await readdir("outputs/agent-evaluation")).filter((f) =>
+  for (const file of (await readdir(outputDir)).filter((f) =>
     f.endsWith(".docx"),
   )) {
-    const bytes = await readFile("outputs/agent-evaluation/" + file),
+    const bytes = await readFile(outputDir + "/" + file),
       original = file.replace("-word.docx", ".docx"),
       run = report.runs.find((r: any) => r.export?.endsWith("/" + original));
     if (!run) continue;
@@ -82,13 +86,13 @@ try {
     console.log(file + ": " + pass);
   }
   await writeFile(
-    "docs/agent-export-verification.json",
+    process.env.AGENT_VERIFICATION_OUT ?? "docs/agent-export-verification.json",
     JSON.stringify(
       {
         superdoc: "2.16.0",
         browser: browser.version(),
         nativeWord:
-          "Microsoft Word for Mac: renewal-1-jev and training-2-full opened without repair prompt and saved as new DOCX files using Save As. Native saves also reopened here.",
+          "Not performed by this browser script. Supplied -word files may be reopened here; actual Word opening/saving requires separate recorded provenance.",
         checks,
       },
       null,

@@ -1,6 +1,16 @@
 import { readFile, writeFile } from "node:fs/promises";
-const raw = JSON.parse(await readFile("docs/agent-evaluation-v1.json", "utf8")),
-  held = JSON.parse(await readFile("docs/agent-held-out-v1.json", "utf8"));
+const raw = JSON.parse(
+    await readFile(
+      process.env.AGENT_FORMAL_REPORT ?? "docs/agent-evaluation-v1.json",
+      "utf8",
+    ),
+  ),
+  held = JSON.parse(
+    await readFile(
+      process.env.AGENT_HELD_OUT_OUT ?? "docs/agent-held-out-v1.json",
+      "utf8",
+    ),
+  );
 const median = (xs: number[]) => {
   const a = [...xs].sort((a, b) => a - b);
   return a.length % 2
@@ -102,7 +112,7 @@ const summary = {
     })),
 };
 await writeFile(
-  "docs/agent-summary.json",
+  process.env.AGENT_SUMMARY_OUT ?? "docs/agent-summary.json",
   JSON.stringify(summary, null, 2) + "\n",
 );
 console.log(JSON.stringify(summary, null, 2));

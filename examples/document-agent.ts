@@ -25,9 +25,9 @@ export async function proposeAndReview(
     await fileHash(originalDocx),
   );
   lane.extractionMs = performance.now() - extractionStart;
+  const planningStart = performance.now();
   const started = await transport.start(snapshot, [pipeline], signal);
   try {
-    const planningStart = performance.now();
     lane.result = await transport.plan(
       snapshot,
       started.runId,

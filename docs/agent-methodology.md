@@ -62,8 +62,16 @@ npm run summarize:agent
 The default commands resume the retained results. To make fresh provider calls and write new artifacts, keep the server running and use separate ledgers:
 
 ```sh
-AGENT_EVAL_OUT=outputs/agent-evaluation/replay.json npm run eval:agent
-AGENT_FORMAL_REPORT=outputs/agent-evaluation/replay.json AGENT_HELD_OUT_OUT=outputs/agent-evaluation/held-out-replay.json npm run eval:agent:held-out
+export AGENT_EXPORT_DIR=outputs/agent-replay
+export AGENT_EVAL_OUT=$AGENT_EXPORT_DIR/report.json
+export AGENT_FORMAL_REPORT=$AGENT_EVAL_OUT
+export AGENT_HELD_OUT_OUT=$AGENT_EXPORT_DIR/held-out.json
+export AGENT_VERIFICATION_OUT=$AGENT_EXPORT_DIR/export-checks.json
+export AGENT_SUMMARY_OUT=$AGENT_EXPORT_DIR/summary.json
+npm run eval:agent
+npm run eval:agent:held-out
+npm run verify:agent-exports
+npm run summarize:agent
 ```
 
 The scripts read model keys from ignored `.dev.vars`. Public app calls use the shared five-per-visitor/IP-per-clock-hour allowance and $10/day atomic D1 budget. Local evaluation uses its separate durable $2 ledger. Formal and held-out scripts never log keys or uploaded documents. Evaluation output contains only the explicitly fictional fixtures.
@@ -77,3 +85,5 @@ Substitute a decision provider in `runPipeline` by returning complete independen
 Every one of the 60 exported DOCX files was reopened in SuperDoc: tracked edits, exact proposed text, both counsel revisions, two comments, three tables and three numbered items survived. `renewal-1-jev` and `training-2-full` were opened without repair prompts and saved as new DOCX files in native Microsoft Word for Mac, then reopened and checked in SuperDoc. This is an actual Word round trip; it is not a claim of pixel-identical layout or legal correctness. See `agent-export-verification.json` for the 62 files and hashes.
 
 Focused browser checks cover explicit approval, unchanged recheck with no model call, review/accept/reject/download, independent comparison copies, preview, stale and duplicate targets, unsupported operations, modified suggestions, anchored comments, keyboard tabs and mobile width. Unit checks exercise confidence boundaries, dependencies/fallback, malformed plans and atomic concurrent reservation/slot claims. Browser transport stubs are labeled tests; public results use genuine model calls.
+
+The export verification script reopens Word files in SuperDoc; it does not run Microsoft Word. The native round trips for this release are independently recorded in `agent-native-word-verification.json`.

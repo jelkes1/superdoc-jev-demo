@@ -32,7 +32,8 @@ if (
   throw new Error("Commit the expected outcomes before calling providers.");
 if (!process.env.TYPESAFE_API_KEY || !process.env.OPENAI_API_KEY)
   throw new Error("Both model keys are required.");
-await mkdir("outputs/agent-evaluation", { recursive: true });
+const outputDir = process.env.AGENT_EXPORT_DIR ?? "outputs/agent-evaluation";
+await mkdir(outputDir, { recursive: true });
 type Recorded = {
   case: string;
   repetition: number;
@@ -225,7 +226,7 @@ try {
           evaluation.agreement = false;
         artifacts.lane.expectedOutcome = evaluation.agreement;
         artifacts.lane.requiredCoverage = evaluation.coverage;
-        const file = `outputs/agent-evaluation/${expected.id}-${rep + 1}-${p}.docx`;
+        const file = `${outputDir}/${expected.id}-${rep + 1}-${p}.docx`;
         if (artifacts.bytes)
           await writeFile(file, Buffer.from(artifacts.bytes));
         report.runs.push({

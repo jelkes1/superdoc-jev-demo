@@ -1,0 +1,38 @@
+{
+  "performed": true,
+  "application": "Microsoft Word for Mac",
+  "version": "16.113.1",
+  "method": "Opened each source without a repair prompt; Save As to distinct DOCX; confirmed Saved to my Mac; reopened saved files in SuperDoc.",
+  "files": [
+    {
+      "file": "renewal-1-jev-word.docx",
+      "sha256": "cf8f13ad0d1dfaa364315ae00896704f754ae229b99495b25a3ef4b1b39f8bc3",
+      "tables": 3,
+      "comments": 2,
+      "markers": [
+        "1.",
+        "2.",
+        "3."
+      ],
+      "counsel": 2,
+      "tracked": 4,
+      "exact": true,
+      "pass": true
+    },
+    {
+      "file": "training-2-full-word.docx",
+      "sha256": "2aa800dafc578cd4974390cb32d5f0eb0763785f0aa93168bb69b42dffe4fc4a",
+      "tables": 3,
+      "comments": 2,
+      "markers": [
+        "1.",
+        "2.",
+        "3."
+      ],
+      "counsel": 2,
+      "tracked": 29,
+      "exact": true,
+      "pass": true
+    }
+  ]
+}
