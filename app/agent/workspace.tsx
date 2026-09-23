@@ -820,6 +820,7 @@ export default function AgentWorkspace() {
                             <thead>
                               <tr>
                                 <th>Approach</th>
+                                <th>Status</th>
                                 <th>Processing</th>
                                 <th>Model cost</th>
                                 <th>Word edits</th>
@@ -829,6 +830,7 @@ export default function AgentWorkspace() {
                               {comparison.lanes.map((l) => (
                                 <tr key={l.pipeline}>
                                   <td>{LABELS[l.pipeline]}</td>
+                                  <td>{l.result?.status ?? "Not completed"}</td>
                                   <td>
                                     {l.timingValid
                                       ? seconds(
@@ -1032,7 +1034,20 @@ export default function AgentWorkspace() {
                           />
                           {e.explanation}
                         </label>
-                        <div className="agent-before">{e.original}</div>
+                        <small className="agent-operation-label">
+                          {e.tool === "comment"
+                            ? "ANCHORED COMMENT · SOURCE PASSAGE"
+                            : "TRACKED TEXT REPLACEMENT"}
+                        </small>
+                        <div
+                          className={
+                            e.tool === "comment"
+                              ? "agent-anchor"
+                              : "agent-before"
+                          }
+                        >
+                          {e.original}
+                        </div>
                         <div className="agent-after">{e.replacement}</div>
                       </article>
                     ))}

@@ -629,3 +629,18 @@
     padding: 24px 16px;
   }
 }
+
+.agent-operation-label {
+  display: block;
+  padding: 8px 12px;
+  color: #637994;
+  font:
+    11px/1.5 "JetBrains Mono",
+    monospace;
+}
+.agent-anchor {
+  padding: 12px;
+  background: #f1f5fc;
+  color: #304b71;
+  border-top: 1px solid #dce5f3;
+}
