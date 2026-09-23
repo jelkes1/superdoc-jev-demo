@@ -1,0 +1,26 @@
+[
+  {
+    "file": "reviewed.docx",
+    "tables": 3,
+    "comments": 2,
+    "revisions": 2,
+    "counsel": 2,
+    "markers": [
+      "1.",
+      "2.",
+      "3."
+    ]
+  },
+  {
+    "file": "full-comparison.docx",
+    "tables": 3,
+    "comments": 2,
+    "revisions": 4,
+    "counsel": 2,
+    "markers": [
+      "1.",
+      "2.",
+      "3."
+    ]
+  }
+]
