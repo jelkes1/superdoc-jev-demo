@@ -1,0 +1,42 @@
+{
+  "version": "agent-fixture-v1",
+  "documentHash": "9128268831632b5cb4b0787ef9948542ef41ce4bdb897713dd88884a49cbaa96",
+  "tokens": 18137,
+  "existingRevisions": 4,
+  "comments": 2,
+  "cases": [
+    {
+      "id": "renewal",
+      "request": "Change renewal cancellation notice to 60 days throughout the agreement and order form.",
+      "requiredTexts": [
+        "Non-renewal notice: 15 days.",
+        "The subscription automatically renews for successive twelve-month terms unless either party gives written notice of non-renewal at least 15 days before the end of the then-current term."
+      ],
+      "mustPreserve": [
+        "Customer shall pay each undisputed invoice within 30 days after receipt."
+      ],
+      "expectedOperations": 2
+    },
+    {
+      "id": "training",
+      "request": "Require written consent for training on customer data, including the order form and appendix. Preserve payment and liability terms.",
+      "requiredTexts": [
+        "Model training permitted by default.",
+        "Provider may use Customer Data to train general-purpose machine learning models without obtaining further permission from Customer. Customer grants a perpetual license for this purpose.",
+        "Provider may use Operational Signals to improve its models and services. Such signals may include de-identified excerpts derived from Customer Data where reasonably necessary to evaluate a feature. The improvement program is enabled for enterprise workspaces unless the parties agree otherwise in the implementation plan.",
+        "Customer Data and de-identified excerpts may be included in the model improvement program without separate written permission. This permission applies to training, fine-tuning and evaluation of general-purpose models and supplements the model-training permission in the order form."
+      ],
+      "mustPreserve": [
+        "Customer shall pay each undisputed invoice within 30 days after receipt."
+      ],
+      "expectedOperations": 4
+    },
+    {
+      "id": "names",
+      "request": "Replace every company name with ______.",
+      "clarificationRequired": true,
+      "requiredTexts": [],
+      "expectedOperations": 0
+    }
+  ]
+}
