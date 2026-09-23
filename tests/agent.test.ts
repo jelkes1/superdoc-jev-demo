@@ -261,3 +261,9 @@ test("provider adapter pins settings, rejects malformed drafts, and retains unkn
     globalThis.fetch = original;
   }
 });
+
+test("snapshot validation accepts actual-length opaque SuperDoc revision IDs", () => {
+  const s = sample();
+  s.blocks[2].existingRevisions = ["opaque-revision:" + "a".repeat(1200)];
+  assert.equal(validateSnapshot(s).blocks[2].existingRevisions[0].length, 1216);
+});

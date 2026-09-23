@@ -25,9 +25,12 @@ if (
 )
   throw new Error("Freeze first");
 const base = JSON.parse(
-  await readFile("docs/agent-evaluation-v1.json", "utf8"),
+  await readFile(
+    process.env.AGENT_FORMAL_REPORT ?? "docs/agent-evaluation-v1.json",
+    "utf8",
+  ),
 );
-const path = "docs/agent-held-out-v1.json";
+const path = process.env.AGENT_HELD_OUT_OUT ?? "docs/agent-held-out-v1.json";
 let report = {
   version: fixture.version,
   frozenCommit: commit,

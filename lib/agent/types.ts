@@ -67,7 +67,8 @@ export const blockSchema = z
     table: z.string().max(160).nullable(),
     dependencies: z.array(z.string().max(160)).max(1000),
     unresolvedRefs: z.array(z.string().max(200)).max(100),
-    existingRevisions: z.array(z.string().max(160)).max(1000),
+    // SuperDoc revision IDs are opaque encoded targets, often longer than node IDs.
+    existingRevisions: z.array(z.string().max(65536)).max(1000),
   })
   .strict();
 export type Block = z.infer<typeof blockSchema>;

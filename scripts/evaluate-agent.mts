@@ -3,6 +3,7 @@ import { chromium } from "@playwright/test";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
+import { validateSnapshot } from "../lib/agent/selection";
 import { runPipeline, reservationSlots } from "../lib/agent/pipeline";
 import {
   PIPELINES,
@@ -119,7 +120,7 @@ try {
           },
           { request: expected.request, hash: fixture.documentHash },
         );
-        const s = extraction.s,
+        const s = validateSnapshot(extraction.s),
           parts = reservationSlots(s, [p]),
           maximum = Object.values(parts).reduce((a, b) => a + b, 0);
         if (report.heldMicro + maximum > cap) {

@@ -59,6 +59,13 @@ npm run verify:agent-exports
 npm run summarize:agent
 ```
 
+The default commands resume the retained results. To make fresh provider calls and write new artifacts, keep the server running and use separate ledgers:
+
+```sh
+AGENT_EVAL_OUT=outputs/agent-evaluation/replay.json npm run eval:agent
+AGENT_FORMAL_REPORT=outputs/agent-evaluation/replay.json AGENT_HELD_OUT_OUT=outputs/agent-evaluation/held-out-replay.json npm run eval:agent:held-out
+```
+
 The scripts read model keys from ignored `.dev.vars`. Public app calls use the shared five-per-visitor/IP-per-clock-hour allowance and $10/day atomic D1 budget. Local evaluation uses its separate durable $2 ledger. Formal and held-out scripts never log keys or uploaded documents. Evaluation output contains only the explicitly fictional fixtures.
 
 `lib/agent/document.ts` owns addressability and guarded operations. `selection.ts` owns context assembly/BM25. `pipeline.ts` owns provider calls and plan validation. `browser.ts` owns timing, transport and execution. `examples/document-agent.ts` shows the application boundary. `agent-budget.ts` provides additive reservation/slot tables without changing existing comparison behavior. The `start → plan → finish` API binds each single-use pipeline slot to the visitor and frozen snapshot hash; unstarted slots are released on cancellation/expiry, attempted unknown usage stays reserved.

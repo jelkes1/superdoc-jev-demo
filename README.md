@@ -11,7 +11,7 @@ Compare full context, BM25, Jev selection and interpretation + Jev using the sam
 - [60 full workflows](docs/agent-evaluation-v1.json), [20 held-out probes](docs/agent-held-out-v1.json), [Word round-trip checks](docs/agent-export-verification.json)
 - [Addressability / guarded execution](lib/agent/document.ts), [provider pipelines](lib/agent/pipeline.ts), [context selection](lib/agent/selection.ts)
 
-After the local setup below, open `/agent`. Run `npm run eval:agent` and `npm run eval:agent:held-out` to resume the retained $2-capped evaluation. Videos and outreach are unchanged in this release.
+After the local setup below, open `/agent`. Run `npm run eval:agent` and `npm run eval:agent:held-out` to resume the retained $2-capped evaluation. For a new run without overwriting published evidence, use the separate-ledger commands in the methodology. Videos and outreach are unchanged in this release.
 
 A standalone TypeScript/React example with a real DOCX editor, a connected negotiation workflow, tracked changes, anchored comments, human review, and atomic public-use limits. The original five-rule playbook and uploads remain at `/playbook`.
 
