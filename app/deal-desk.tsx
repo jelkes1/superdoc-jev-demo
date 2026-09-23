@@ -766,6 +766,7 @@ export default function DealDesk() {
       <header className="deal-header">
         <Brand />
         <nav>
+          <Link href="/agent">Document agent <ArrowUpRight size={14} /></Link>
           <Link href="/walkthrough">
             How it works <ArrowUpRight size={14} />
           </Link>

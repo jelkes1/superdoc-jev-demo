@@ -1,6 +1,17 @@
 # SuperDoc × Jev
 
-**Jev evaluates the contract. SuperDoc executes the document changes. A human reviews the redlines.**
+**SuperDoc makes the document addressable. Jev selects context and operations. The LLM drafts. SuperDoc creates and verifies reviewable Word changes.**
+
+**New: [Document agent](https://superdoc-jev.superdoc-1393.chatgpt.site/agent).** Make an editable multi-clause request, inspect selected passages and complete drafted language, approve tracked changes, then review and export. One persistent Review / AI sidebar keeps the Word document central. The earlier playbook and ROI demos remain available.
+
+Compare full context, BM25, Jev selection and interpretation + Jev using the same pinned drafting model and isolated Word copies. The [60-workflow evaluation](https://superdoc-jev.superdoc-1393.chatgpt.site/agent/results) reports where Jev helps and where it does not: this fixture does **not** support a Jev speed/cost win. All results and failures are published.
+
+- [Agent architecture, methodology and measured findings](docs/agent-methodology.md)
+- [Copyable TypeScript integration](examples/document-agent.ts)
+- [60 full workflows](docs/agent-evaluation-v1.json), [20 held-out probes](docs/agent-held-out-v1.json), [Word round-trip checks](docs/agent-export-verification.json)
+- [Addressability / guarded execution](lib/agent/document.ts), [provider pipelines](lib/agent/pipeline.ts), [context selection](lib/agent/selection.ts)
+
+After the local setup below, open `/agent`. Run `npm run eval:agent` and `npm run eval:agent:held-out` to resume the retained $2-capped evaluation. Videos and outreach are unchanged in this release.
 
 A standalone TypeScript/React example with a real DOCX editor, a connected negotiation workflow, tracked changes, anchored comments, human review, and atomic public-use limits. The original five-rule playbook and uploads remain at `/playbook`.
 
@@ -101,6 +112,8 @@ Both visitor and IP limits apply: five reviews or comparisons per clock hour. D1
 Model IDs and cost constants are intentionally coupled. Substituting a model requires checking its schema, confidence semantics, prices and reservation bounds. See the adapter instructions in [architecture](docs/architecture.md). The threshold remains 95% for eligible automatic proposals and 70% for escalation after the live fixture check. Confidence is model-reported, not a calibrated legal-accuracy estimate. Exact replacement patterns and revision checks are separate requirements for every automatic edit.
 
 ## Small API surface
+
+- `POST /api/agent/start`, `/plan`, `/finish`: frozen request/document, single-use pipeline slots, incremental actual results, combined atomic maximum reservation and independent settlement.
 
 - `POST /api/compare/workflow/start`, `/model`, `/finish`: one combined reservation, visitor/snapshot-bound single-use provider slots, and independent usage settlement.
 - `POST /api/compare`: frozen bounded clause context → incremental results for three exact model snapshots; one shared review reservation.

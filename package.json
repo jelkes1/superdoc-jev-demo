@@ -29,7 +29,11 @@
     "verify:workflow-exports": "node scripts/verify-workflow-exports.mjs",
     "video:roi:record": "tsx scripts/record-roi.mts",
     "video:roi:narrate": "node --env-file=.dev.vars scripts/generate-roi-narration.mjs",
-    "video:roi:render": "tsx scripts/render-roi-film.mts"
+    "video:roi:render": "tsx scripts/render-roi-film.mts",
+    "eval:agent": "node --env-file=.dev.vars --import tsx scripts/evaluate-agent.mts",
+    "eval:agent:held-out": "node --env-file=.dev.vars --import tsx scripts/evaluate-agent-held-out.mts",
+    "verify:agent-exports": "tsx scripts/verify-agent-exports.mts",
+    "summarize:agent": "tsx scripts/summarize-agent.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

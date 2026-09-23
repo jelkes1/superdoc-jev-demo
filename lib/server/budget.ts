@@ -156,6 +156,8 @@ export async function prune(db: D1Database) {
         "DELETE FROM workflow_runs WHERE id IN (SELECT id FROM reservations WHERE created<?)",
       )
       .bind(before),
+    ...["agent_slots", "agent_pipelines"].map(table => db.prepare(`DELETE FROM ${table} WHERE run_id IN (SELECT id FROM reservations WHERE created<?)`).bind(before)),
+    db.prepare("DELETE FROM agent_runs WHERE id IN (SELECT id FROM reservations WHERE created<?)").bind(before),
     db.prepare("DELETE FROM reservations WHERE created<?").bind(before),
     db.prepare("DELETE FROM rate_limits WHERE expires<?").bind(Date.now()),
     db

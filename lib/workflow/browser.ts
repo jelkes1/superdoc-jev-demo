@@ -44,12 +44,11 @@ export async function openCopy(
   const { SuperDoc } = await import("superdoc");
   mount.replaceChildren();
   return await new Promise<SuperDoc>((resolve, reject) => {
-    let sd: SuperDoc;
     const timeout = setTimeout(() => {
       sd?.destroy();
       reject(new Error("Comparison document did not become ready."));
     }, 30000);
-    sd = new SuperDoc({
+    const sd = new SuperDoc({
       selector: mount,
       document: new File([blob], "comparison.docx"),
       documentMode: viewing ? "viewing" : "editing",

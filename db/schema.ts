@@ -46,3 +46,12 @@ export const workflowSlots = sqliteTable(
   },
   (t) => [primaryKey({ columns: [t.runId, t.model] })],
 );
+export const agentRuns = sqliteTable("agent_runs", {
+  id: text("id").primaryKey(), snapshot: text("snapshot").notNull(), expires: integer("expires").notNull(), closed: integer("closed").notNull().default(0),
+}, t => [index("agent_expiry").on(t.closed,t.expires)]);
+export const agentPipelines = sqliteTable("agent_pipelines", {
+  runId:text("run_id").notNull(), pipeline:text("pipeline").notNull(), claimed:integer("claimed").notNull().default(0),
+},t=>[primaryKey({columns:[t.runId,t.pipeline]})]);
+export const agentSlots = sqliteTable("agent_slots", {
+  runId:text("run_id").notNull(), slot:text("slot").notNull(), maximum:integer("maximum").notNull(), state:text("state").notNull().default("ready"), charged:integer("charged"),
+},t=>[primaryKey({columns:[t.runId,t.slot]})]);

@@ -1,0 +1,625 @@
+{
+  "version": "agent-evaluation-v1",
+  "documentHash": "b568279abdc47337361be6541a9c27aa6c9f53e94db8af9d7b26c22e4784227f",
+  "frozenCommit": "df2222087fe94f507648bd279711fe5c4e734faa",
+  "runs": 60,
+  "complete": true,
+  "localSpendBoundUsd": 0.885741,
+  "formalReportedUsd": 0.7323670199999998,
+  "rows": [
+    {
+      "task": "renewal",
+      "pipeline": "full",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 10,
+      "latency": {
+        "median": 2423.7064999284776,
+        "min": 1815.3473750476842,
+        "max": 2782.6736249046326,
+        "mean": 2341.392208147549
+      },
+      "firstEdit": {
+        "median": 2277.6064999046357,
+        "min": 1660.8473750476842,
+        "max": 2638.073625000001,
+        "mean": 2188.1922081475486
+      },
+      "cost": {
+        "median": 0.0031195499999999996,
+        "min": 0.0030250499999999996,
+        "max": 0.02188725,
+        "mean": 0.006935189999999999
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 27425,
+        "min": 27425,
+        "max": 27425,
+        "mean": 27425
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 111616
+    },
+    {
+      "task": "renewal",
+      "pipeline": "keyword",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 10,
+      "latency": {
+        "median": 1994.8121249523247,
+        "min": 1827.2244590476766,
+        "max": 2056.233583904628,
+        "mean": 1951.1539003999962
+      },
+      "firstEdit": {
+        "median": 1840.5121250000084,
+        "min": 1663.2244590476766,
+        "max": 1944.6335838807863,
+        "mean": 1797.7539003999962
+      },
+      "cost": {
+        "median": 0.00163875,
+        "min": 0.00158925,
+        "max": 0.00428475,
+        "mean": 0.0021544499999999996
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 3681,
+        "min": 3681,
+        "max": 3681,
+        "mean": 3681
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 62,
+        "min": 62,
+        "max": 62,
+        "mean": 62
+      },
+      "cachedTokens": 15360
+    },
+    {
+      "task": "renewal",
+      "pipeline": "jev",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 10,
+      "latency": {
+        "median": 3322.0927920476825,
+        "min": 3105.9679579999975,
+        "max": 3515.4256249761675,
+        "mean": 3343.081908419077
+      },
+      "firstEdit": {
+        "median": 3172.292791976157,
+        "min": 2989.167958047681,
+        "max": 3366.725625047693,
+        "mean": 3201.521908404772
+      },
+      "cost": {
+        "median": 0.022812462,
+        "min": 0.006296712,
+        "max": 0.022909211999999998,
+        "mean": 0.018990642
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 24219,
+        "min": 24139,
+        "max": 24305,
+        "mean": 24204.8
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 28672
+    },
+    {
+      "task": "renewal",
+      "pipeline": "interpret",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 10,
+      "latency": {
+        "median": 4797.452209095354,
+        "min": 3855.6626250715344,
+        "max": 9166.785541023855,
+        "mean": 5489.317791852453
+      },
+      "firstEdit": {
+        "median": 4649.152209143038,
+        "min": 3699.9626250238507,
+        "max": 9052.685541000013,
+        "mean": 5348.157791838148
+      },
+      "cost": {
+        "median": 0.024247974000000002,
+        "min": 0.023954094,
+        "max": 0.024517254,
+        "mean": 0.0242141028
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 24242,
+        "min": 23779,
+        "max": 24446,
+        "mean": 24160
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 0
+    },
+    {
+      "task": "training",
+      "pipeline": "full",
+      "runs": 5,
+      "agreement": 0,
+      "failed": 0,
+      "verifiedEdits": 17,
+      "latency": {
+        "median": 3725.7476669523166,
+        "min": 3050.1625420000055,
+        "max": 4692.495124976151,
+        "mean": 3855.06390836662
+      },
+      "firstEdit": {
+        "median": 3259.2476669523166,
+        "min": 2543.7625420238473,
+        "max": 3992.6951250238344,
+        "mean": 3295.96390836662
+      },
+      "cost": {
+        "median": 0.005203799999999999,
+        "min": 0.0039888,
+        "max": 0.022842,
+        "mean": 0.00853974
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 27425,
+        "min": 27425,
+        "max": 27425,
+        "mean": 27425
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 111616
+    },
+    {
+      "task": "training",
+      "pipeline": "keyword",
+      "runs": 5,
+      "agreement": 0,
+      "failed": 1,
+      "verifiedEdits": 8,
+      "latency": {
+        "median": 1970.6174579523213,
+        "min": 1839.4642079761543,
+        "max": 2253.44445895229,
+        "mean": 2015.4518083618575
+      },
+      "firstEdit": {
+        "median": 1895.1983954284951,
+        "min": 1760.5535839284858,
+        "max": 2091.94445895229,
+        "mean": 1910.7237084344415
+      },
+      "cost": {
+        "median": 0.0018165,
+        "min": 0.0017895,
+        "max": 0.004611,
+        "mean": 0.0024032999999999997
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 3773,
+        "min": 3773,
+        "max": 3773,
+        "mean": 3773
+      },
+      "fallbacks": 0,
+      "missedContext": 10,
+      "schemaTokens": {
+        "median": 62,
+        "min": 62,
+        "max": 62,
+        "mean": 62
+      },
+      "cachedTokens": 15360
+    },
+    {
+      "task": "training",
+      "pipeline": "jev",
+      "runs": 5,
+      "agreement": 0,
+      "failed": 0,
+      "verifiedEdits": 14,
+      "latency": {
+        "median": 4678.85562502384,
+        "min": 3591.3249999999534,
+        "max": 5045.458416999958,
+        "mean": 4517.164658228588
+      },
+      "firstEdit": {
+        "median": 4084.1556250953654,
+        "min": 3448.8249999999534,
+        "max": 4539.258416952274,
+        "mean": 4072.0046582142836
+      },
+      "cost": {
+        "median": 0.025279476,
+        "min": 0.022408476,
+        "max": 0.026000226,
+        "mean": 0.024846425999999998
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 26396,
+        "min": 26241,
+        "max": 26402,
+        "mean": 26352.6
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 3840
+    },
+    {
+      "task": "training",
+      "pipeline": "interpret",
+      "runs": 5,
+      "agreement": 0,
+      "failed": 0,
+      "verifiedEdits": 12,
+      "latency": {
+        "median": 5512.3664999284665,
+        "min": 4738.519041000021,
+        "max": 6109.951583000016,
+        "mean": 5441.036682980933
+      },
+      "firstEdit": {
+        "median": 5073.787290928478,
+        "min": 4585.319040952338,
+        "max": 5650.551583023858,
+        "mean": 5163.176682966628
+      },
+      "cost": {
+        "median": 0.026575518,
+        "min": 0.026220474,
+        "max": 0.026676534000000002,
+        "mean": 0.026468377199999997
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 26286,
+        "min": 26245,
+        "max": 26320,
+        "mean": 26282.4
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 0
+    },
+    {
+      "task": "names",
+      "pipeline": "full",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 0,
+      "latency": {
+        "median": 1696.674207928474,
+        "min": 1525.9464169999992,
+        "max": 1749.723541047657,
+        "mean": 1657.5422415952373
+      },
+      "firstEdit": null,
+      "cost": {
+        "median": 0.00272655,
+        "min": 0.0026140499999999997,
+        "max": 0.02151675,
+        "mean": 0.00649179
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 27425,
+        "min": 27425,
+        "max": 27425,
+        "mean": 27425
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 111616
+    },
+    {
+      "task": "names",
+      "pipeline": "keyword",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 0,
+      "latency": {
+        "median": 1248.4194169999973,
+        "min": 1222.1098750238307,
+        "max": 1625.42358297616,
+        "mean": 1377.823033214308
+      },
+      "firstEdit": null,
+      "cost": {
+        "median": 0.00114525,
+        "min": 0.00112725,
+        "max": 0.00128025,
+        "mean": 0.0011866499999999998
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 241,
+        "min": 241,
+        "max": 241,
+        "mean": 241
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 62,
+        "min": 62,
+        "max": 62,
+        "mean": 62
+      },
+      "cachedTokens": 0
+    },
+    {
+      "task": "names",
+      "pipeline": "jev",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 0,
+      "latency": {
+        "median": 2894.1439170000085,
+        "min": 2671.5252080000064,
+        "max": 3793.6720830476843,
+        "mean": 3109.1489664381543
+      },
+      "firstEdit": null,
+      "cost": {
+        "median": 0.022365516000000002,
+        "min": 0.022115766000000002,
+        "max": 0.024129066,
+        "mean": 0.022966686000000007
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 26321,
+        "min": 26248,
+        "max": 26407,
+        "mean": 26327.4
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 118,
+        "min": 118,
+        "max": 118,
+        "mean": 118
+      },
+      "cachedTokens": 8448
+    },
+    {
+      "task": "names",
+      "pipeline": "interpret",
+      "runs": 5,
+      "agreement": 5,
+      "failed": 0,
+      "verifiedEdits": 0,
+      "latency": {
+        "median": 1414.4706250238232,
+        "min": 1328.786374999996,
+        "max": 1659.496124928497,
+        "mean": 1474.9451498095411
+      },
+      "firstEdit": null,
+      "cost": {
+        "median": 0.00123825,
+        "min": 0.00121125,
+        "max": 0.00140475,
+        "mean": 0.0012760500000000001
+      },
+      "unknownCost": 0,
+      "context": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "fallbacks": 0,
+      "missedContext": 0,
+      "schemaTokens": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "cachedTokens": 0
+    }
+  ],
+  "heldOut": [
+    {
+      "case": "reordered",
+      "pipeline": "full",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "reordered",
+      "pipeline": "keyword",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "reordered",
+      "pipeline": "jev",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "reordered",
+      "pipeline": "interpret",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "full",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "keyword",
+      "coverage": 0.6666666666666666,
+      "agreement": false
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "jev",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "interpret",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "missing",
+      "pipeline": "full",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "missing",
+      "pipeline": "keyword",
+      "coverage": 0,
+      "agreement": true
+    },
+    {
+      "case": "missing",
+      "pipeline": "jev",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "missing",
+      "pipeline": "interpret",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "full",
+      "coverage": 1,
+      "agreement": false
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "keyword",
+      "coverage": 1,
+      "agreement": false
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "jev",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "interpret",
+      "coverage": 1,
+      "agreement": false
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "full",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "keyword",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "jev",
+      "coverage": 1,
+      "agreement": true
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "interpret",
+      "coverage": 1,
+      "agreement": true
+    }
+  ],
+  "failures": [
+    {
+      "case": "training",
+      "repetition": 1,
+      "pipeline": "keyword",
+      "error": "Combine changes within a block into one proposed operation."
+    }
+  ]
+}

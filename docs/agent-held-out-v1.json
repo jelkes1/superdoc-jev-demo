@@ -1,0 +1,1973 @@
+{
+  "version": "agent-held-out-v1",
+  "frozenCommit": "86ae34d546b1eaae25aec46da5c9acb3e5f7529c",
+  "heldMicro": 885741,
+  "capUsd": 2,
+  "runs": [
+    {
+      "case": "reordered",
+      "pipeline": "full",
+      "elapsedMs": 1551.788125,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "full",
+        "snapshot": "e1030bd5a1619779439c9427f58d731027160ea538bee3393da1e9915c2e4162",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Update the renewal cancellation notice from 15 days to 60 days in both supplied operative provisions: the Order form and Term sections. No change is needed in Payment.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "e1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "Cancellation of renewal requires 15 days of advance notice.",
+              "replacement": "Cancellation of renewal requires 60 days of advance notice.",
+              "explanation": "Conforms the Order form renewal cancellation notice period to 60 days."
+            },
+            {
+              "id": "e2",
+              "tool": "replace",
+              "blockId": "p2",
+              "original": "The customer must notify the provider 15 days before expiry to prevent renewal.",
+              "replacement": "The customer must notify the provider 60 days before expiry to prevent renewal.",
+              "explanation": "Conforms the Term renewal notice period to 60 days."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 679,
+            "outputTokens": 185,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00134175,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1544.871625
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.0014590000000112013
+          },
+          {
+            "phase": "drafting",
+            "ms": 1547.109667
+          }
+        ],
+        "contextTokens": 119,
+        "fullContextTokens": 119,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "reordered",
+      "pipeline": "keyword",
+      "elapsedMs": 1019.407625,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "keyword",
+        "snapshot": "e1030bd5a1619779439c9427f58d731027160ea538bee3393da1e9915c2e4162",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Update the renewal cancellation/notice period from 15 days to 60 days in the supplied Order form and Term provisions. No other passages mention renewal notice.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "op1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "15 days",
+              "replacement": "60 days",
+              "explanation": "Revise the Order form renewal cancellation notice period from 15 days to 60 days."
+            },
+            {
+              "id": "op2",
+              "tool": "replace",
+              "blockId": "p2",
+              "original": "15 days",
+              "replacement": "60 days",
+              "explanation": "Revise the Term renewal notice period from 15 days to 60 days."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 623,
+            "outputTokens": 151,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00114675,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1017.4099170000002
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.5113330000001497
+          },
+          {
+            "phase": "drafting",
+            "ms": 1017.8325839999998
+          }
+        ],
+        "contextTokens": 119,
+        "fullContextTokens": 119,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "reordered",
+      "pipeline": "jev",
+      "elapsedMs": 1365.748917,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "jev",
+        "snapshot": "e1030bd5a1619779439c9427f58d731027160ea538bee3393da1e9915c2e4162",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p2"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "RELEVANT": 1,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "IRRELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "RELEVANT": 0,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 1
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "RELEVANT": 1,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "RELEVANT": 1,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.97,
+              "probabilities": {
+                "RELEVANT": 0.01,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0.99
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Update the renewal cancellation notice from 15 days to 60 days in both supplied provisions.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "e1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "15 days",
+              "replacement": "60 days",
+              "explanation": "Revise the order form renewal cancellation notice to 60 days."
+            },
+            {
+              "id": "e2",
+              "tool": "replace",
+              "blockId": "p2",
+              "original": "15 days",
+              "replacement": "60 days",
+              "explanation": "Revise the term provision renewal notice to 60 days."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1425,
+            "outputTokens": 230,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000059850000000000005,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 215.62620900000002
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 588,
+            "outputTokens": 129,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0010215,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1147.746791
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 216.85845899999958
+          },
+          {
+            "phase": "drafting",
+            "ms": 1148.4092500000006
+          }
+        ],
+        "contextTokens": 84,
+        "fullContextTokens": 119,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "reordered",
+      "pipeline": "interpret",
+      "elapsedMs": 2887.7655000000004,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "interpret",
+        "snapshot": "e1030bd5a1619779439c9427f58d731027160ea538bee3393da1e9915c2e4162",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "RELEVANT": 1,
+                "IRRELEVANT": 0,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.82,
+              "probabilities": {
+                "RELEVANT": 0.12,
+                "IRRELEVANT": 0.88,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "RELEVANT": 1,
+                "IRRELEVANT": 0,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "RELEVANT": 1,
+                "IRRELEVANT": 0,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.97,
+              "probabilities": {
+                "RELEVANT": 0.01,
+                "IRRELEVANT": 0.99,
+                "UNCERTAIN": 0
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Update the renewal cancellation notice period to 60 days in the supplied order form and term provision. No change is needed to the payment clause because it does not concern renewal cancellation notice.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "edit-1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "15 days",
+              "replacement": "60 days",
+              "explanation": "Change the order form renewal cancellation notice period from 15 days to 60 days as requested."
+            },
+            {
+              "id": "edit-2",
+              "tool": "replace",
+              "blockId": "p2",
+              "original": "15 days",
+              "replacement": "60 days",
+              "explanation": "Change the agreement term notice period from 15 days to 60 days to match the requested renewal cancellation notice period."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "interpret",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 190,
+            "outputTokens": 105,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000615,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1678.4474999999993
+          },
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1550,
+            "outputTokens": 230,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00006510000000000001,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 146.9063330000008
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 718,
+            "outputTokens": 166,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0012855,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1059.4165000000003
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "interpretation",
+            "ms": 1679.2003750000003
+          },
+          {
+            "phase": "selection",
+            "ms": 147.70858299999963
+          },
+          {
+            "phase": "drafting",
+            "ms": 1059.8237920000001
+          }
+        ],
+        "contextTokens": 119,
+        "fullContextTokens": 119,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "full",
+      "elapsedMs": 1139.2072080000007,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "full",
+        "snapshot": "4110f579767d9703614ab250cebde6c0cf639bdd365d807a9d98d555b46499ea",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Add a written-consent requirement before the supplier may use client records/customer data for training, and leave the payment term unchanged.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "e1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "The supplier may use client records to teach its general-purpose models without further permission.",
+              "replacement": "The supplier may use client records to teach its general-purpose models only with the customer's prior written consent.",
+              "explanation": "This narrows the model-development right to require written consent for training on customer data while preserving the existing subject matter and scope."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 677,
+            "outputTokens": 137,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00112425,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1138.0227080000004
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.001208000000588072
+          },
+          {
+            "phase": "drafting",
+            "ms": 1138.5654579999991
+          }
+        ],
+        "contextTokens": 119,
+        "fullContextTokens": 119,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "keyword",
+      "elapsedMs": 1383.0051249999997,
+      "coverage": 0.6666666666666666,
+      "agreement": false,
+      "result": {
+        "pipeline": "keyword",
+        "snapshot": "4110f579767d9703614ab250cebde6c0cf639bdd365d807a9d98d555b46499ea",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "No change needed from the supplied passages. The request asks to require written consent for training on customer data, but no operative training/use-of-data provision is present in the supplied text to modify. Payment terms must be preserved, and they are already limited to a payment timing sentence with no requested change.",
+          "clarification": null,
+          "choices": [],
+          "edits": [],
+          "unresolved": [
+            "The supplied passages do not include any clause governing training, data use, or consent, so there is no exact operative span to edit.",
+            "If you want this added, supply the relevant data processing / use / training provision or confirm where it appears in the document."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 576,
+            "outputTokens": 139,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0010575,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1381.8570830000008
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.09866700000020501
+          },
+          {
+            "phase": "drafting",
+            "ms": 1382.2802499999998
+          }
+        ],
+        "contextTokens": 74,
+        "fullContextTokens": 119,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "jev",
+      "elapsedMs": 1097.731749999999,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "jev",
+        "snapshot": "4110f579767d9703614ab250cebde6c0cf639bdd365d807a9d98d555b46499ea",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0,
+                "RELEVANT": 1
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "RELEVANT",
+              "confidence": 0.93,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0.04,
+                "RELEVANT": 0.96
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0,
+                "RELEVANT": 1
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0,
+                "RELEVANT": 1
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.66,
+              "probabilities": {
+                "UNCERTAIN": 0.02,
+                "IRRELEVANT": 0.77,
+                "RELEVANT": 0.21
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Add a written-consent requirement before the supplier may use client records/customer data for training, and leave payment terms unchanged.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "e1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "The supplier may use client records to teach its general-purpose models without further permission.",
+              "replacement": "The supplier may use client records to teach its general-purpose models only with the customer’s prior written consent.",
+              "explanation": "This narrows the training permission to require written consent for use of customer data, while preserving the existing operative sentence structure."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1420,
+            "outputTokens": 229,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00005964,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 138.96250000000146
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 677,
+            "outputTokens": 136,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00111975,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 956.986832999999
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 139.65916700000162
+          },
+          {
+            "phase": "drafting",
+            "ms": 957.4433749999989
+          }
+        ],
+        "contextTokens": 119,
+        "fullContextTokens": 119,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "paraphrased",
+      "pipeline": "interpret",
+      "elapsedMs": 1956.9271250000002,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "interpret",
+        "snapshot": "4110f579767d9703614ab250cebde6c0cf639bdd365d807a9d98d555b46499ea",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "IRRELEVANT": 0,
+                "RELEVANT": 1,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "RELEVANT",
+              "confidence": 0.98,
+              "probabilities": {
+                "IRRELEVANT": 0.01,
+                "RELEVANT": 0.99,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "IRRELEVANT": 0.01,
+                "RELEVANT": 0.99,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "IRRELEVANT": 0,
+                "RELEVANT": 1,
+                "UNCERTAIN": 0
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.86,
+              "probabilities": {
+                "IRRELEVANT": 0.9,
+                "RELEVANT": 0.09,
+                "UNCERTAIN": 0.01
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Add a written-consent requirement for training on customer data in the model development provision; leave payment terms unchanged.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "edit-1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "The supplier may use client records to teach its general-purpose models without further permission.",
+              "replacement": "The supplier may use client records to teach its general-purpose models only with Customer’s prior written consent.",
+              "explanation": "This narrows the training permission so use of customer data for training requires written consent, while preserving the existing payment provision unchanged."
+            }
+          ],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "interpret",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 226,
+            "outputTokens": 107,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000651,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 871.0969999999998
+          },
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1547,
+            "outputTokens": 229,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000064974,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 162.99562499999956
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 774,
+            "outputTokens": 135,
+            "cachedInputTokens": 0,
+            "costUsd": 0.001188,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 920.5589580000014
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "interpretation",
+            "ms": 871.5875000000015
+          },
+          {
+            "phase": "selection",
+            "ms": 163.79808299999968
+          },
+          {
+            "phase": "drafting",
+            "ms": 921.0056249999998
+          }
+        ],
+        "contextTokens": 119,
+        "fullContextTokens": 119,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "missing",
+      "pipeline": "full",
+      "elapsedMs": 950.8655000000017,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "full",
+        "snapshot": "a60797c90295bcd27c6fe1c43ed8d3ebff895d7fc7db97896061c2ff13f3f5c2",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "No edit can be made from the supplied text because there is no existing renewal or cancellation notice clause to change, and the request says not to add a clause if none exists.",
+          "clarification": null,
+          "choices": [],
+          "edits": [],
+          "unresolved": [
+            "The supplied passages include term and payment language only; no renewal cancellation notice is present to amend.",
+            "Per the request, no new clause should be added."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 640,
+            "outputTokens": 93,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0008985,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 948.9755839999998
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.0017499999994470272
+          },
+          {
+            "phase": "drafting",
+            "ms": 950.1504580000001
+          }
+        ],
+        "contextTokens": 75,
+        "fullContextTokens": 75,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "missing",
+      "pipeline": "keyword",
+      "elapsedMs": 869.790500000001,
+      "coverage": 0,
+      "agreement": true,
+      "result": {
+        "pipeline": "keyword",
+        "snapshot": "a60797c90295bcd27c6fe1c43ed8d3ebff895d7fc7db97896061c2ff13f3f5c2",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p1"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "No change is needed because the supplied passages contain no renewal or cancellation notice provision to amend.",
+          "clarification": null,
+          "choices": [],
+          "edits": [],
+          "unresolved": [
+            "The only supplied clause is a payment term: 'Invoices are payable within 30 days.' There is no existing renewal cancellation notice clause in the evidence, so I cannot propose a replacement without adding a new clause, which the request forbids."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 546,
+            "outputTokens": 94,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0008325,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 867.9592499999999
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.03912499999933061
+          },
+          {
+            "phase": "drafting",
+            "ms": 869.3581670000003
+          }
+        ],
+        "contextTokens": 37,
+        "fullContextTokens": 75,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "missing",
+      "pipeline": "jev",
+      "elapsedMs": 1003.2275419999987,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "jev",
+        "snapshot": "a60797c90295bcd27c6fe1c43ed8d3ebff895d7fc7db97896061c2ff13f3f5c2",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.74,
+              "probabilities": {
+                "IRRELEVANT": 0.83,
+                "UNCERTAIN": 0.11,
+                "RELEVANT": 0.06
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "IRRELEVANT": 1,
+                "UNCERTAIN": 0,
+                "RELEVANT": 0
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.57,
+              "probabilities": {
+                "IRRELEVANT": 0.72,
+                "UNCERTAIN": 0.21,
+                "RELEVANT": 0.07
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.91,
+              "probabilities": {
+                "IRRELEVANT": 0.94,
+                "UNCERTAIN": 0.02,
+                "RELEVANT": 0.04
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "No change is needed because the supplied passages do not contain any renewal cancellation notice or renewal clause to amend. The only operative term provided states a fixed 12-month expiration, and the request explicitly says not to add a clause if none exists.",
+          "clarification": null,
+          "choices": [],
+          "edits": [],
+          "unresolved": [
+            "No renewal cancellation notice appears in the supplied text, so there is no existing clause to change to 60 days."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1197,
+            "outputTokens": 187,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000050274,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 108.96554099999958
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 605,
+            "outputTokens": 99,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00089925,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 891.0013749999998
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 110.34087499999987
+          },
+          {
+            "phase": "drafting",
+            "ms": 892.1272910000007
+          }
+        ],
+        "contextTokens": 40,
+        "fullContextTokens": 75,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "missing",
+      "pipeline": "interpret",
+      "elapsedMs": 2184.932166999999,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "interpret",
+        "snapshot": "a60797c90295bcd27c6fe1c43ed8d3ebff895d7fc7db97896061c2ff13f3f5c2",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.62,
+              "probabilities": {
+                "UNCERTAIN": 0.03,
+                "IRRELEVANT": 0.75,
+                "RELEVANT": 0.22
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.61,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0.74,
+                "RELEVANT": 0.26
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.42,
+              "probabilities": {
+                "UNCERTAIN": 0.29,
+                "IRRELEVANT": 0.62,
+                "RELEVANT": 0.09
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.73,
+              "probabilities": {
+                "UNCERTAIN": 0.05,
+                "IRRELEVANT": 0.82,
+                "RELEVANT": 0.13
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "No change proposed: the supplied passages do not contain any renewal cancellation notice or renewal clause to revise.",
+          "clarification": null,
+          "choices": [],
+          "edits": [],
+          "unresolved": [
+            "The document excerpts only include Term and Payment, and neither contains a renewal cancellation notice.",
+            "No existing cancellation clause was supplied to modify, so adding one would be outside the request."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "interpret",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 192,
+            "outputTokens": 95,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0005715,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1117.389874999999
+          },
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1309,
+            "outputTokens": 187,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000054978,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 107.5343329999996
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 725,
+            "outputTokens": 82,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00091275,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 957.6741250000014
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "interpretation",
+            "ms": 1117.9444999999996
+          },
+          {
+            "phase": "selection",
+            "ms": 108.33545799999774
+          },
+          {
+            "phase": "drafting",
+            "ms": 958.0846249999995
+          }
+        ],
+        "contextTokens": 75,
+        "fullContextTokens": 75,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "full",
+      "elapsedMs": 1780.7987920000014,
+      "coverage": 1,
+      "agreement": false,
+      "result": {
+        "pipeline": "full",
+        "snapshot": "0a03a8cd3ca3672b0495c522507e86dfa0471491bd0f9ec283e882573fda87f1",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2",
+            "p3"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Update the agreement’s cancellation notice period to 60 days, while preserving the separate payment timing and liability language. The Order form definition conflicts with the agreement definition and should be updated only to the extent needed to keep the notice-period meaning consistent; payment timing remains unchanged.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "edit1",
+              "tool": "replace",
+              "blockId": "p0",
+              "original": "Notice Period means the time before renewal when cancellation must be received.",
+              "replacement": "Notice Period means 60 days before renewal when cancellation must be received.",
+              "explanation": "Updates the agreement definition of Notice Period to 60 days for cancellation timing."
+            },
+            {
+              "id": "edit2",
+              "tool": "replace",
+              "blockId": "p1",
+              "original": "Notice Period means the time allowed to pay an invoice.",
+              "replacement": "Notice Period means 60 days before renewal when cancellation must be received.",
+              "explanation": "Aligns the Order form definition with the requested 60-day Notice Period without altering the separate payment obligation language."
+            },
+            {
+              "id": "edit3",
+              "tool": "replace",
+              "blockId": "p2",
+              "original": "Cancellation requires a Notice Period of 15 days.",
+              "replacement": "Cancellation requires a Notice Period of 60 days.",
+              "explanation": "Revises the operative renewal clause to the requested 60-day notice period."
+            }
+          ],
+          "unresolved": [
+            "The Payment clause states: 'An invoice must be paid within the Notice Period of 30 days.' Because payment timing must be preserved, no change is proposed there."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 736,
+            "outputTokens": 309,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0019425,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1778.5532499999972
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.0005830000009154901
+          },
+          {
+            "phase": "drafting",
+            "ms": 1779.8583749999998
+          }
+        ],
+        "contextTokens": 174,
+        "fullContextTokens": 174,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "keyword",
+      "elapsedMs": 1466.8988750000026,
+      "coverage": 1,
+      "agreement": false,
+      "result": {
+        "pipeline": "keyword",
+        "snapshot": "0a03a8cd3ca3672b0495c522507e86dfa0471491bd0f9ec283e882573fda87f1",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2",
+            "p3"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Update the renewal notice period to 60 days and leave payment timing unchanged to preserve payment and liability. The supplied passages show a conflicting order form definition for invoice timing and a separate payment clause, so only the renewal clause should be changed. The general definition can be left as-is because it is broader and the renewal clause is the operative provision for cancellation.",
+          "clarification": null,
+          "choices": [],
+          "edits": [
+            {
+              "id": "e1",
+              "tool": "replace",
+              "blockId": "p2",
+              "original": "Cancellation requires a Notice Period of 15 days.",
+              "replacement": "Cancellation requires a Notice Period of 60 days.",
+              "explanation": "Update the renewal/cancellation notice period to 60 days as requested."
+            }
+          ],
+          "unresolved": [
+            "The request says 'throughout the agreement,' but the supplied evidence contains a separate invoice-payment definition and a payment clause that would be affected if changed; preserving payment and liability supports leaving those unchanged.",
+            "The order form states it overrides the agreement definitions, but the request does not ask to resolve that conflict beyond the renewal notice period."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 680,
+            "outputTokens": 221,
+            "cachedInputTokens": 0,
+            "costUsd": 0.0015045,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1461.6318339999998
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.1257499999992433
+          },
+          {
+            "phase": "drafting",
+            "ms": 1465.800292
+          }
+        ],
+        "contextTokens": 174,
+        "fullContextTokens": 174,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "jev",
+      "elapsedMs": 1726.4599159999998,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "jev",
+        "snapshot": "0a03a8cd3ca3672b0495c522507e86dfa0471491bd0f9ec283e882573fda87f1",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2",
+            "p3"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 0.96,
+              "probabilities": {
+                "IRRELEVANT": 0.02,
+                "UNCERTAIN": 0.01,
+                "RELEVANT": 0.97
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "RELEVANT",
+              "confidence": 0.89,
+              "probabilities": {
+                "IRRELEVANT": 0.04,
+                "UNCERTAIN": 0.03,
+                "RELEVANT": 0.93
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "IRRELEVANT": 0,
+                "UNCERTAIN": 0,
+                "RELEVANT": 1
+              }
+            },
+            {
+              "id": "p3",
+              "verdict": "RELEVANT",
+              "confidence": 0.97,
+              "probabilities": {
+                "IRRELEVANT": 0.01,
+                "UNCERTAIN": 0.01,
+                "RELEVANT": 0.98
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.97,
+              "probabilities": {
+                "IRRELEVANT": 0.01,
+                "UNCERTAIN": 0.02,
+                "RELEVANT": 0.97
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "RELEVANT",
+              "confidence": 0.56,
+              "probabilities": {
+                "IRRELEVANT": 0.25,
+                "UNCERTAIN": 0.05,
+                "RELEVANT": 0.7
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Clarification is needed before editing because the request to change the Notice Period to 60 days conflicts with supplied passages that use Notice Period for both cancellation timing and invoice payment, and the instruction says to preserve payment and liability.",
+          "clarification": "Confirm whether 'Notice Period' should be changed to 60 days for renewal/cancellation only, or for both renewal/cancellation and payment. If payment must be preserved, no change should be made to the payment definition or payment timing.",
+          "choices": [
+            "Change Notice Period to 60 days for renewal/cancellation only, preserving the payment meaning and timing.",
+            "Change Notice Period to 60 days throughout the agreement, including payment timing."
+          ],
+          "edits": [],
+          "unresolved": [
+            "The supplied passages show conflicting definitions: one defines Notice Period for cancellation before renewal, while another defines it for invoice payment and says the order form overrides the agreement definitions.",
+            "A 60-day change cannot be applied throughout without altering payment timing, which the request says to preserve."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1668,
+            "outputTokens": 273,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000070056,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 168.1707499999975
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 736,
+            "outputTokens": 212,
+            "cachedInputTokens": 0,
+            "costUsd": 0.001506,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1556.3307090000017
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 168.9586249999993
+          },
+          {
+            "phase": "drafting",
+            "ms": 1556.8739160000005
+          }
+        ],
+        "contextTokens": 174,
+        "fullContextTokens": 174,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "conflicting-definitions",
+      "pipeline": "interpret",
+      "elapsedMs": 2599.6012919999994,
+      "coverage": 1,
+      "agreement": false,
+      "result": {
+        "pipeline": "interpret",
+        "snapshot": "0a03a8cd3ca3672b0495c522507e86dfa0471491bd0f9ec283e882573fda87f1",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2",
+            "p3"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 0.98,
+              "probabilities": {
+                "RELEVANT": 0.99,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0.01
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "RELEVANT",
+              "confidence": 1,
+              "probabilities": {
+                "RELEVANT": 1,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 0.98,
+              "probabilities": {
+                "RELEVANT": 0.98,
+                "UNCERTAIN": 0.01,
+                "IRRELEVANT": 0.01
+              }
+            },
+            {
+              "id": "p3",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "RELEVANT": 1,
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.95,
+              "probabilities": {
+                "RELEVANT": 0.97,
+                "UNCERTAIN": 0.02,
+                "IRRELEVANT": 0.01
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "RELEVANT",
+              "confidence": 0.8,
+              "probabilities": {
+                "RELEVANT": 0.86,
+                "UNCERTAIN": 0.03,
+                "IRRELEVANT": 0.11
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "No edit can be proposed without changing payment-related text, because the supplied order form definition makes Notice Period the time allowed to pay an invoice and overrides the agreement definitions. The request also asks to preserve payment and liability, so the available evidence conflicts with a blanket 60-day change throughout the agreement.",
+          "clarification": null,
+          "choices": [],
+          "edits": [],
+          "unresolved": [
+            "The request conflicts with the supplied order form definition of Notice Period, which governs payment timing and overrides the agreement definitions.",
+            "Changing every occurrence of Notice Period to 60 days would alter the payment provision in the supplied evidence, which the request says to preserve.",
+            "No liability clause mentioning Notice Period was supplied, so liability preservation cannot be specifically verified from the provided passages."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "interpret",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 289,
+            "outputTokens": 137,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00083325,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1085.0638330000002
+          },
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1824,
+            "outputTokens": 273,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00007660800000000001,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 136.2828750000008
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 863,
+            "outputTokens": 158,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00135825,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1371.6080409999995
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "interpretation",
+            "ms": 1089.5446249999986
+          },
+          {
+            "phase": "selection",
+            "ms": 137.33550000000105
+          },
+          {
+            "phase": "drafting",
+            "ms": 1372.1022919999996
+          }
+        ],
+        "contextTokens": 174,
+        "fullContextTokens": 174,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "full",
+      "elapsedMs": 1137.473958999999,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "full",
+        "snapshot": "4e657aa47456ceb7c50f5d4b06282377ed6b89a2ed59e0090bcb5c6b0ff77787",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "The request is ambiguous because “every company name” could mean only the contracting parties or all organizations mentioned, including non-parties. Under the instructions, this requires clarification and no edits.",
+          "clarification": "Do you want only the parties’ legal names replaced, or every organization/company name mentioned anywhere in the document?",
+          "choices": [
+            "Replace only the parties’ legal names with [Company].",
+            "Replace every organization/company name mentioned anywhere with [Company]."
+          ],
+          "edits": [],
+          "unresolved": [
+            "Scope is ambiguous: the request may include the parties in p0, the independent subprocessor in p1, and Microsoft Corporation in p2. Clarification is required before any edits."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 685,
+            "outputTokens": 147,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00117525,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1135.8659169999992
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.0003329999999550637
+          },
+          {
+            "phase": "drafting",
+            "ms": 1136.7125829999968
+          }
+        ],
+        "contextTokens": 131,
+        "fullContextTokens": 131,
+        "toolTokens": 118,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "keyword",
+      "elapsedMs": 1201.6929579999996,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "keyword",
+        "snapshot": "4e657aa47456ceb7c50f5d4b06282377ed6b89a2ed59e0090bcb5c6b0ff77787",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [],
+          "fallback": "No confident context selection; using the full supported document."
+        },
+        "plan": {
+          "summary": "The request is ambiguous because “every company name” could mean only the contracting parties or all organizations named anywhere in the supplied passages. Per the instruction, clarification means no edits.",
+          "clarification": "Do you want only the parties’ legal names replaced, or every organization/company name mentioned anywhere in the document?",
+          "choices": [
+            "Parties only",
+            "Every company/organization name anywhere"
+          ],
+          "edits": [],
+          "unresolved": [
+            "No edits proposed pending clarification of scope."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 629,
+            "outputTokens": 103,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00093525,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1199.7494589999988
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 0.11687499999970896
+          },
+          {
+            "phase": "drafting",
+            "ms": 1200.8217499999992
+          }
+        ],
+        "contextTokens": 131,
+        "fullContextTokens": 131,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "jev",
+      "elapsedMs": 1931.2337909999987,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "jev",
+        "snapshot": "4e657aa47456ceb7c50f5d4b06282377ed6b89a2ed59e0090bcb5c6b0ff77787",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace"
+          ],
+          "decisions": [
+            {
+              "id": "p0",
+              "verdict": "RELEVANT",
+              "confidence": 0.9,
+              "probabilities": {
+                "UNCERTAIN": 0.01,
+                "IRRELEVANT": 0.06,
+                "RELEVANT": 0.93
+              }
+            },
+            {
+              "id": "p1",
+              "verdict": "RELEVANT",
+              "confidence": 0.86,
+              "probabilities": {
+                "UNCERTAIN": 0.01,
+                "IRRELEVANT": 0.09,
+                "RELEVANT": 0.9
+              }
+            },
+            {
+              "id": "p2",
+              "verdict": "RELEVANT",
+              "confidence": 0.91,
+              "probabilities": {
+                "UNCERTAIN": 0.01,
+                "IRRELEVANT": 0.05,
+                "RELEVANT": 0.94
+              }
+            },
+            {
+              "id": "tool:replace",
+              "verdict": "RELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 0,
+                "RELEVANT": 1
+              }
+            },
+            {
+              "id": "tool:comment",
+              "verdict": "IRRELEVANT",
+              "confidence": 0.99,
+              "probabilities": {
+                "UNCERTAIN": 0,
+                "IRRELEVANT": 1,
+                "RELEVANT": 0
+              }
+            }
+          ],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "The request is ambiguous because “every company name” could mean all organizations in the supplied passages, not just the contracting parties. Per instructions, clarification is required and no edits should be proposed.",
+          "clarification": "Do you mean only the parties’ legal names, or every organization name appearing anywhere in the document?",
+          "choices": [
+            "Parties’ legal names only",
+            "Every organization/company name in the document"
+          ],
+          "edits": [],
+          "unresolved": [
+            "Ambiguous scope: the request could include parties, a subprocessor, and a third-party reference in notices."
+          ]
+        },
+        "usage": [
+          {
+            "stage": "select:0",
+            "model": "jev-1.13.0",
+            "inputTokens": 1430,
+            "outputTokens": 229,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000060060000000000004,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 171.5098340000004
+          },
+          {
+            "stage": "draft",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 629,
+            "outputTokens": 122,
+            "cachedInputTokens": 0,
+            "costUsd": 0.00102075,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1757.3603340000009
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "selection",
+            "ms": 172.5477920000012
+          },
+          {
+            "phase": "drafting",
+            "ms": 1757.864125
+          }
+        ],
+        "contextTokens": 131,
+        "fullContextTokens": 131,
+        "toolTokens": 62,
+        "fullToolTokens": 118
+      }
+    },
+    {
+      "case": "ambiguous-companies",
+      "pipeline": "interpret",
+      "elapsedMs": 1129.4068340000013,
+      "coverage": 1,
+      "agreement": true,
+      "result": {
+        "pipeline": "interpret",
+        "snapshot": "4e657aa47456ceb7c50f5d4b06282377ed6b89a2ed59e0090bcb5c6b0ff77787",
+        "version": "document-agent-v1",
+        "status": "complete",
+        "selection": {
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ],
+          "tools": [
+            "replace",
+            "comment"
+          ],
+          "decisions": [],
+          "fallback": null
+        },
+        "plan": {
+          "summary": "Substitute every company name in the document with the placeholder [Company].",
+          "clarification": "Ambiguity: if the document contains names of organizations that could be either parties or other referenced companies, it is unclear whether the replacement should apply only to party names or to all named organizations throughout the document.",
+          "choices": [
+            "Replace only the parties/company names in the Parties section.",
+            "Replace all named organizations/company names throughout the entire document."
+          ],
+          "edits": [],
+          "unresolved": []
+        },
+        "usage": [
+          {
+            "stage": "interpret",
+            "model": "gpt-5.4-mini-2026-03-17",
+            "inputTokens": 186,
+            "outputTokens": 135,
+            "cachedInputTokens": 0,
+            "costUsd": 0.000747,
+            "pricingDate": "2026-09-22",
+            "latencyMs": 1128.4312090000021
+          }
+        ],
+        "unknownUsage": false,
+        "phases": [
+          {
+            "phase": "interpretation",
+            "ms": 1128.9896670000016
+          }
+        ],
+        "contextTokens": 0,
+        "fullContextTokens": 131,
+        "toolTokens": 0,
+        "fullToolTokens": 118
+      }
+    }
+  ],
+  "complete": true
+}
