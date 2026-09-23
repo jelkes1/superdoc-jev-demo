@@ -1,7 +1,7 @@
 {
-  "version": "agent-fixture-v1",
-  "documentHash": "9128268831632b5cb4b0787ef9948542ef41ce4bdb897713dd88884a49cbaa96",
-  "tokens": 18137,
+  "version": "agent-fixture-v2",
+  "documentHash": "b568279abdc47337361be6541a9c27aa6c9f53e94db8af9d7b26c22e4784227f",
+  "tokens": 18141,
   "existingRevisions": 4,
   "comments": 2,
   "cases": [

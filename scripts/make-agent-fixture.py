@@ -17,7 +17,10 @@ def text(p):return ''.join(p.xpath('.//w:t/text()',namespaces=N))
 with ZipFile(R/'public/deal-desk.docx')as z:parts={n:z.read(n)for n in z.namelist()}
 d=E.fromstring(parts['word/document.xml']);body=d.find('w:body',N);sect=body.find('w:sectPr',N)
 def add(t,h=False):body.insert(list(body).index(sect),para(t,h))
-add('Schedule D  Implementation and operational procedures',True)
+# Identify the commercial table structurally, as a real order form would.
+first_table=body.find('w:tbl',N);heading=para('Order form',True);heading.find('w:pPr/w:pStyle',N).set('{%s}val'%W,'Heading1');body.insert(list(body).index(first_table),heading)
+add('Schedule D  Implementation appendix and operational procedures',True)
+body[list(body).index(sect)-1].find('w:pPr/w:pStyle',N).set('{%s}val'%W,'Heading1')
 add('D.1  Approved subcontractor',True)
 add('Cloud Harbor Systems, Inc. supplies infrastructure monitoring under a separate subcontract with Provider. It is not a party to this agreement. Its name is included to distinguish a third-party organization from the contracting parties during the fictional document-agent demonstration.')
 add('D.2  Model improvement program',True)
@@ -70,7 +73,7 @@ with ZipFile(out,'w',ZIP_DEFLATED)as z:
 texts=[text(p)for p in d.xpath('//w:body//w:p',namespaces=N) if text(p)]
 count=subprocess.check_output(['node','--input-type=module','-e',"import {getEncoding} from 'js-tiktoken'; let s='';for await(const c of process.stdin)s+=c;console.log(getEncoding('o200k_base').encode(s).length)"],input='\n'.join(texts).encode(),cwd=R).decode().strip()
 folder=R/'fixtures/agent';folder.mkdir(exist_ok=True)
-(folder/'expected.json').write_text(json.dumps({'version':'agent-fixture-v1','documentHash':hashlib.sha256(out.read_bytes()).hexdigest(),'tokens':int(count),'existingRevisions':4,'comments':2,'cases':[
+(folder/'expected.json').write_text(json.dumps({'version':'agent-fixture-v2','documentHash':hashlib.sha256(out.read_bytes()).hexdigest(),'tokens':int(count),'existingRevisions':4,'comments':2,'cases':[
  {'id':'renewal','request':'Change renewal cancellation notice to 60 days throughout the agreement and order form.','requiredTexts':[t for t in texts if 'at least 15 days before' in t or t=='Non-renewal notice: 15 days.'],'mustPreserve':['Customer shall pay each undisputed invoice within 30 days after receipt.'],'expectedOperations':2},
  {'id':'training','request':'Require written consent for training on customer data, including the order form and appendix. Preserve payment and liability terms.','requiredTexts':[t for t in texts if t=='Model training permitted by default.' or 'train general-purpose machine learning' in t or t.startswith('Provider may use Operational Signals') or t.startswith('Customer Data and de-identified excerpts may')],'mustPreserve':['Customer shall pay each undisputed invoice within 30 days after receipt.'],'expectedOperations':4},
  {'id':'names','request':'Replace every company name with ______.','clarificationRequired':True,'requiredTexts':[],'expectedOperations':0}
